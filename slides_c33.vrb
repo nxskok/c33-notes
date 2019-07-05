@@ -1,0 +1,14 @@
+\frametitle{Comments}
+\protect\hypertarget{comments-30}{}
+
+\begin{itemize}
+\tightlist
+\item
+  Look at \texttt{looic}: smaller value is better, allowing for
+  complexity of model
+\item
+  For separate means, 277.7; for one single mean, 285.7.
+\item
+  Prefer the model with separate means, one for each group.
+\end{itemize}
+

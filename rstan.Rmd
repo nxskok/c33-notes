@@ -1,0 +1,653 @@
+## Packages for this section
+
+```{r, eval=F}
+library(tidyverse)
+library(rstan)
+```
+
+
+## Bayesian and frequentist inference
+
+- The inference philosophy that we have learned so far says that:
+  - parameters to be estimated are *fixed* but *unknown*
+  - Data random; if we took another sample we'd get different data.
+- This is called "frequentist" or "repeated-sampling" inference.
+- Bayesian inference says:
+  - *parameters* are random, *data* is *given*
+- Ingredients:
+  - **prior distribution**: distribution of parameters before seeing data.
+  - **likelihood**: model for data if the parameters are known 
+  - **posterior distribution**: distribution of parameters *after* seeing data.
+  
+## Distribution of parameters
+
+- Instead of having a point or interval estimate of a parameter, we have an entire distribution
+- so in Bayesian statistics we can talk about eg.
+  - probability that a parameter is bigger than some value
+  - probability that a parameter is close to some value
+  - probability that one parameter is bigger than another
+  
+- Name comes from Bayes' Theorem, which here says
+
+> posterior is proportional to likelihood times prior
+
+- more discussion about this is in 
+[**a blog post**](http://ritsokiguess.site/docs/2018/02/28/working-my-way-back-to-you-a-re-investigation-of-rstan/). 
+
+## An example
+
+- Suppose we have these (integer) observations:
+
+```{r}
+(x <- c(0, 4, 3, 6, 3, 3, 2, 4))
+```
+
+- Suppose we believe that these come from a Poisson distribution with a mean $\lambda$ that we want to estimate.
+- We need a prior distribution for $\lambda$. I will (for some reason) take a $Weibull$ distribution with parameters 1.1 and 6, that has quartiles 2 and 6. Normally this would come from your knowledge of the data-generating *process*.
+- The Poisson likelihood can be written down (see over).
+
+## Some algebra
+
+- We have $n=8$ observations $x_i$, so the Poisson likelihood is proportional to
+
+$$ \prod_{i=1}^n e^{-\lambda} \lambda^{x_i} = e^{-n\lambda} \lambda^S, $$
+where $S=\sum_{i=1}^n x_i$. 
+
+- then you write the Weibull prior density (as a function of $\lambda$):
+
+$$ C (\lambda/6)^{0.1} e^{-(\lambda/6)^{1.1}}  $$
+where $C$ is a constant.
+
+- and then you multiply these together and try to recognize the distributional form. Only, here you can't. The powers 0.1 and 1.1 get in the way.
+
+## Sampling from the posterior distribution
+
+- Wouldn't it be nice if we could just *sample* from the posterior distribution? Then we would be able to compute it as accurately as we want.
+
+- Metropolis and Hastings: devise a Markov chain (C62) whose limiting distribution is the posterior you want, and then sample from that Markov chain (easy), allowing enough time to get close enough to the limiting distribution.
+
+- Stan: uses a modern variant that is more efficient (called Hamiltonian Monte Carlo), implemented in R package `rstan`. 
+
+- Write Stan code in a file, compile it and sample from it.
+
+## Components of Stan code: the model
+
+```
+model {
+// likelihood
+x ~ poisson(lambda);
+}
+```
+
+This is how you say "$X$ has a Poisson distribution with mean $\lambda$". **Note that lines of Stan code have semicolons on the end.**
+
+## Components of Stan code: the prior distribution
+
+```
+model {
+// prior
+lambda ~ weibull(1.1, 6);
+// likelihood
+x ~ poisson(lambda);
+}
+```
+
+## Components of Stan code: data and parameters (first in the Stan code)
+
+```
+data {
+int x[8];
+}
+
+parameters {
+real<lower=0> lambda;
+}
+```
+
+## Compile and sample from the model
+
+```{r, eval=F}
+poisson1_code <- stan_model(file = "poisson1.stan")
+```
+
+- set up data
+
+```{r}
+poisson1_data <- list(x = x)
+```
+
+- sample
+
+```{r, eval=F}
+poisson1_fit <- sampling(poisson1_code, data = poisson1_data)
+```
+
+```{r, include=F}
+poisson1_code <- readRDS("poisson1_code.rds")
+```
+
+
+```{r, echo=F, results="hide"}
+set.seed(457299)
+poisson1_data <- list(x = x)
+poisson1_fit <- sampling(poisson1_code, data = poisson1_data)
+```
+
+```{r, include=F}
+saveRDS(poisson1_code, "poisson1_code.rds")
+```
+
+## The output
+
+```{r}
+poisson1_fit
+```
+
+
+## Comments
+
+- This summarizes the posterior distribution of $\lambda$
+- the posterior mean is 3.20 
+- with a 95% posterior interval of 2.10 to 4.56. 
+- The probability that $\lambda$ is between these two values really is 95%.
+
+## Making the code more general
+
+- The coder in you is probably offended by hard-coding the sample size and the parameters of the prior distribution. More generally:
+
+```
+data {
+  int<lower=1> n;
+  real<lower=0> a;
+  real<lower=0> b;
+  int x[n];
+}
+...
+model {
+// prior
+lambda ~ weibull(a, b);
+// likelihood
+x ~ poisson(lambda);
+}
+```
+
+## Set up again and sample:
+
+- Compile again:
+
+```{r, include=F}
+poisson2_code <- readRDS("poisson2_code.rds")
+```
+
+
+```{r, eval=F}
+poisson2_code <- stan_model(file = "poisson2.stan")
+```
+
+```{r, include=F}
+saveRDS(poisson2_code, "poisson2_code.rds")
+```
+
+
+- set up the data again including the new things we need:
+
+```{r}
+poisson2_data <- list(x = x, n = length(x), a = 1.1, b = 6)
+```
+
+- sample again
+
+```{r, results="hide"}
+poisson2_fit <- sampling(poisson1_code, data = poisson2_data)
+```
+
+
+## output should be the same (to within randomness)
+
+```{r}
+poisson2_fit
+```
+
+## Extracting actual sampled values
+
+- `rstan` has `extract` for this. There is also an `extract` in `dplyr`: make sure you have the right one.
+
+```{r, fig.height=2.8}
+poisson2_out <- extract(poisson2_fit)
+ggplot(tibble(lambda = poisson2_out$lambda), aes(x = lambda)) +
+  geom_histogram(bins = 20)
+```
+
+## Posterior predictive distribution
+
+- Another use for the actual sampled values is to see what kind of *response* values we might get in the future. This should look something like our data. For a Poisson distribution, the response values are integers:
+
+```{r, fig.height=3}
+tibble(lambda = poisson2_out$lambda) %>%
+  mutate(x_sim = map_int(lambda, ~ rpois(1, .))) -> d
+```
+
+## A bar chart:
+
+```{r, fig.height=4}
+ggplot(d, aes(x = x_sim)) + geom_bar()
+```
+
+
+## Comparison
+
+Our actual data values were these:
+
+```{r}
+x
+```
+
+- None of these are very unlikely according to our posterior predictive distribution, so our model is believable. 
+- Or make a plot: a bar chart with the data on it as well (over):
+
+```{r}
+ggplot(d, aes(x = x_sim)) + geom_bar() +
+  geom_dotplot(data = tibble(x), aes(x = x), binwidth = 1) +
+  scale_y_continuous(NULL, breaks = NULL) -> g
+```
+
+- This also shows that the distribution of the data conforms well enough to the posterior predictive distribution (over).
+
+## The plot 
+
+```{r, fig.height=3.8}
+g
+```
+
+
+## Analysis of variance, the Bayesian way
+
+Recall the jumping rats data:
+
+```{r, message=F}
+my_url <- "http://www.utsc.utoronto.ca/~butler/c32/jumping.txt"
+rats0 <- read_delim(my_url, " ")
+rats0 %>% sample_n(6) # random sample of rows
+```
+
+## Our aims here
+
+- Estimate the mean bone density of all rats under each of the experimental conditions
+- Model: given the group means, each observation normally distributed with common variance $\sigma^2$
+- Three parameters to estimate, plus the common variance.
+- Obtain posterior distributions for the group means.
+- Ask whether the posterior distributions of these means are sufficiently different.
+
+## Numbering the groups
+
+- Stan doesn't handle categorical variables (everything is `real` or `int`).
+- Turn the groups into group *numbers* first.
+- Take opportunity to put groups in logical order:
+
+```{r}
+rats0 %>% mutate(
+  group_fct = fct_inorder(group),
+  group_no = as.integer(group_fct)
+) -> rats
+rats %>% sample_n(4)
+```
+
+## Plotting the data 1/2
+
+Most obviously, boxplots:
+
+```{r, fig.height=3.4}
+ggplot(rats, aes(x = group_fct, y = density)) + geom_boxplot()
+```
+
+## Plotting the data 2/2
+
+Another way: density plot (smoothed out histogram); can distinguish groups by colours:
+
+```{r, fig.height=3.1}
+ggplot(rats, aes(x = density, colour = group_fct)) +
+  geom_density()
+```
+
+
+## The procedure
+
+- For each observation, find out which (numeric) group it belongs to, 
+- then model it as having a normal distribution with that group's mean and the common variance.
+- Stan does `for` loops.
+
+## The model part
+
+Suppose we have `n_obs` observations:
+
+```
+model {
+  // likelihood
+  for (i in 1:n_obs) {
+    g=group_no[i];
+    density[i] ~ normal(mu[g], sigma);
+  }
+}
+```
+
+## The variables here
+
+- `n_obs` is data.
+- `g` is a temporary integer variable only used here
+- `i` is only used in the loop (integer) and does not need to be declared
+- `density` is data, a real vector of length `n_obs`
+- `mu` is a parameter, a real vector of length 3 (3 groups)
+- `sigma` is a real parameter
+
+`mu` and `sigma` need prior distributions: 
+
+  - for `mu`, each component independently normal with mean 600 and SD 50 (my guess at how big and variable they will be)
+  - for `sigma`, chi-squared with 50 df (my guess at typical amount of variability from obs to obs)
+
+## Complete the `model` section:
+
+```
+model {
+  int g;
+  // priors
+  mu ~ normal(600, 50);
+  sigma ~ chi_square(50);
+  // likelihood
+  for (i in 1:n_obs) {
+    g=group_no[i];
+    density[i] ~ normal(mu[g], sigma);
+  }
+}
+```
+
+## Parameters
+
+The elements of `mu`, one per group, and also `sigma`, scalar:
+
+```
+parameters {
+  real mu[n_group];
+  real<lower=0> sigma;
+}
+```
+
+- `sigma` has to be positive. Declare it so here, so that the sampling runs smoothly.
+- declare `n_group` in data section 
+
+## Data
+
+Everything else:
+
+```
+data {
+  int n_obs;
+  int n_group;
+  real density[n_obs];
+  int<lower=1, upper=n_group> group_no[n_obs];
+}
+```
+
+## Compile
+
+Arrange these in order data, parameters, model in file `anova.stan`, then:
+
+```{r, eval=F}
+anova_compiled <- stan_model("anova.stan")
+```
+
+```{r, echo=FALSE}
+anova_compiled <- readRDS("anova_compiled.rds")
+```
+
+## Set up data and sample
+
+Supply values for *everything* declared in `data`: 
+
+```{r}
+anova_data <- list(
+  n_obs = 30,
+  n_group = 3,
+  density = rats$density,
+  group_no = rats$group_no
+)
+anova_samples <- sampling(anova_compiled, data = anova_data)
+```
+
+## Check that the sampling worked properly 
+
+```{r, fig.height=4}
+traceplot(anova_samples)
+```
+
+## Comments
+
+- The sampled values for each of the parameters should move freely across their posterior distributions (and not get stuck anywhere). 
+- This appears to have happened.
+
+## Look at the results
+
+```{r}
+anova_samples
+```
+
+## Comments
+
+- The posterior 95% intervals for control (group 1) and highjump (group 3) do not quite overlap, suggesting that these exercise groups really are different.
+- Bayesian approach does not normally do tests: look at posterior distributions and decide whether they are different enough to be worth treating as different.
+
+## Plotting the posterior distributions for the `mu`
+
+- Extract the sampled `mu` values (matrix):
+
+```{r}
+anova_ext <- extract(anova_samples)
+head(anova_ext$mu)
+```
+
+## Turn into a data frame, arrange for plotting, name groups
+
+```{r, warning=F}
+cbind(anova_ext$mu, sigma = anova_ext$sigma) %>%
+  as_tibble() %>%
+  gather(group, density, V1:V3) %>%
+  mutate(group = fct_recode(
+    group,
+    Control = "V1",
+    Lowjump = "V2",
+    Highjump = "V3"
+  )) -> sims
+```
+
+## What we have now:
+
+```{r}
+sims %>% sample_n(8)
+```
+
+
+## Density plots of posterior mean distributions
+
+```{r, fig.height=4}
+ggplot(sims, aes(x = density, colour = group)) + geom_density()
+```
+
+## Posterior predictive distributions
+
+Randomly sample from posterior means and SDs in `sims`. There are 12000 rows in `sims`:
+
+```{r}
+sims %>% mutate(sim_data = rnorm(12000, density, sigma)) -> ppd
+ppd %>% sample_n(8)
+```
+
+## Compare posterior predictive distribution with actual data
+
+- Check that the model works: distributions of data similar to what we'd predict
+- Idea: make plots of posterior predictive distribution, and plot actual data as points on them
+- Use facets, one for each treatment group: 
+
+```{r}
+my_binwidth <- 15
+ggplot(ppd, aes(x = sim_data)) +
+  geom_histogram(binwidth = my_binwidth) +
+  geom_dotplot(
+    data = rats, aes(x = density),
+    binwidth = my_binwidth
+  ) +
+  facet_wrap(~group) +
+  scale_y_continuous(NULL, breaks = NULL) -> g
+```
+
+- See (over) that the data values are mainly in the middle of the predictive distributions.
+- Even the control group that had outliers. 
+
+## The plot
+
+```{r, fig.height=3.75}
+g
+```
+
+## Extensions 
+
+- if you want a different model other than normal, change distribution in `model` section
+- if you want to allow unequal spreads, create `sigma[n_group]` and in model `density[i] ~ normal(mu[g], sigma[g]);`
+- Stan will work just fine after you recompile
+- very flexible.
+- Typical modelling strategy: start simple, add complexity as warranted by data.
+
+## Comparing models
+
+- Typically in ANOVA situation, we want to see whether the group means are "really" different.
+- We are used to doing an $F$-test here.
+- In regression, have looked at AIC: measure of fit allowing for complexity.
+- Bayesian equivalent called `looic`, in package `loo`.
+
+## Difficulty:
+
+- Posterior proportional to likelihood times prior:
+  - Stan drops proportionality constant
+  - but for model comparison, it matters.
+- Have to calculate log-likelihood again, not dropping constants this time.
+
+## The extra code
+
+```
+generated quantities {
+  vector[n_obs] log_lik;
+  int g;
+  for (i in 1:n_obs) {
+    g=group_no[i];
+    log_lik[i] = normal_lpdf(density[i] | mu[g], sigma);
+  }
+}
+```
+
+## Comments
+
+- This is repeat of `model` section, but note no "squiggle": this explicitly calculates the log of the normal density function for each observation and saves it in an array.
+- This section goes at the bottom.
+
+## Compile and sample
+
+```{r, results="hide"}
+anova_loo_compiled <- stan_model("anova-loo.stan")
+anova_data <- list(
+  n_obs = 30,
+  n_group = 3,
+  density = rats$density,
+  group_no = rats$group_no
+)
+anova_loo_samples <- sampling(anova_loo_compiled, data = anova_data)
+```
+
+## Now we need a null model
+
+- one value of `mu` for all groups
+- replace all the `mu[i]` with `mu`
+- omit any reference to group numbers (not needed any more)
+- leave the `data` section as is (so can use previous `anova_data`).
+
+## The null Stan code 1/2
+
+```
+data {
+  int n_obs;
+  int n_group;
+  real density[n_obs];
+  int<lower=1, upper=n_group> group_no[n_obs];
+}
+
+parameters {
+  real mu;
+  real<lower=0> sigma;
+}
+
+```
+
+## The null Stan code 2/2
+
+```
+model {
+  // priors
+  mu ~ normal(600, 50);
+  sigma ~ chi_square(50);
+  // likelihood
+  for (i in 1:n_obs) {
+    density[i] ~ normal(mu, sigma);
+  }
+}
+
+generated quantities {
+  vector[n_obs] log_lik;
+  for (i in 1:n_obs) {
+    log_lik[i] = normal_lpdf(density[i] | mu, sigma);
+  }
+}
+```
+
+## Compile and sample again
+
+```{r, results="hide"}
+anova_loo_null_compiled <- stan_model("anova_loo_null.stan")
+anova_loo_null_samples <- sampling(anova_loo_null_compiled, data = anova_data)
+```
+
+## Compare the fits of the two models
+
+
+Setup
+
+```{r}
+log_lik_a <- extract_log_lik(anova_loo_samples,
+  merge_chains = F
+)
+log_lik_0 <- extract_log_lik(anova_loo_null_samples,
+  merge_chains = F
+)
+r_eff_a <- relative_eff(log_lik_a)
+r_eff_0 <- relative_eff(log_lik_0)
+```
+
+## Results 1/2
+
+\footnotesize
+```{r}
+loo(log_lik_a, r_eff = r_eff_a)
+```
+\normalsize
+
+## Results 2/2
+
+\small
+```{r}
+loo(log_lik_0, r_eff = r_eff_0)
+```
+\normalsize
+
+
+## Comments
+
+- Look at `looic`: smaller value is better, allowing for complexity of model
+- For separate means, 277.7; for one single mean, 285.7.
+- Prefer the model with separate means, one for each group.
+
