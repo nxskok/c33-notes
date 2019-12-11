@@ -75,10 +75,12 @@ athletes %>% count(Sport)
 Another way (which will make sense
 in a moment):
 
+\small
 ```{r}
 athletes %>% group_by(Sport) %>%
   summarize(count=n())
 ```
+\normalsize
 
 ## Summaries by group
 - Might want separate summaries for each “group”, eg. mean and SD
@@ -97,13 +99,17 @@ sport, how many athletes were there?”
 
 - Standard deviation of each (numeric) column: 
 
+\small
 ```{r}
 athletes %>% summarize_if(is.numeric, sd)
 ```
+\normalsize
 
 - Median and IQR of all columns whose name starts with H: 
+
+\small
 ```{r}
 athletes %>% summarize_at(vars(starts_with("H")),
                           list(med=median, iqr=IQR))
 ```
-
+\normalsize

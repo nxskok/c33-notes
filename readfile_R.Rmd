@@ -101,9 +101,11 @@ control-shift-C or Mac equivalent with Cmd.)
 ## Looking at what we read in
 - Again, type the name of the thing to display it:
 
+\scriptsize
 ```{r}
 mydata
 ```
+\normalsize
 
 - This is a “tibble” or data frame, the standard way of storing a data
 set in R.
@@ -154,15 +156,17 @@ summary(mydata)
 
 ## Reading from a URL
 - Any data file on the Web can be read directly.
-- [Example data:](http://www.utsc.utoronto.ca/~butler/c32/global.csv).
+- [Example data link:](http://www.utsc.utoronto.ca/~butler/c32/global.csv)
 - Use URL instead of filename.
 - I like to save the URL in a variable first (because URLs tend to be
 long), and then put that variable in the `read_` function:
 
+\small
 ```{r}
 my_url <- "http://www.utsc.utoronto.ca/~butler/c32/global.csv"
 global <- read_csv(my_url)
 ```
+\normalsize
 
 ## The data
 
@@ -278,7 +282,7 @@ spreadsheet first.
 - Excel spreadsheets must be “local”:
 cannot read one in from a URL.
 
-```{r}
+```{r, warning=F}
 library(readxl)
 mydata2 <- read_excel("test2.xlsx", sheet = "data")
 mydata2

@@ -58,11 +58,11 @@ oranges <- read_delim(my_url, " ")
 oranges
 ```
 
-- These are diameters of five different trees at five different ages (days).
+- These are circumferences of five different trees at seven different ages (days).
 
-## Plotting series 
+## Plotting series
 
-- Want to plot orange circumferences against age for each orange tree.
+- Want to plot orange tree circumferences against age for each orange tree.
 - Recall ggplot wants one column of x values and one column of y
 values, which we do not have.
 
@@ -78,7 +78,7 @@ g <- oranges %>%
 
 ## The plot
 
-```{r}
+```{r, fig.height=3.8}
 g
 ```
 
@@ -96,21 +96,21 @@ magazine).
 
 ## Plot gas mileage against weight
 
-```{r}
+```{r, fig.height=3.5}
 ggplot(cars, aes(x = weight, y = MPG)) +
   geom_point()
 ```
 
 ## Label points with name of car they belong to
 
-```{r}
+```{r, fig.height=3.5}
 ggplot(cars, aes(x = weight, y = MPG, label = car)) +
   geom_point() + geom_text_repel()
 ```
 
 ## Make labels smaller
 
-```{r}
+```{r, fig.height=3.5}
 ggplot(cars, aes(x = weight, y = MPG, label = car)) +
   geom_point() + geom_text_repel(size = 2)
 ```
@@ -133,7 +133,7 @@ cars %>%
 
 ## The plot
 
-```{r}
+```{r, fig.height=3.8}
 g
 ```
 
@@ -153,7 +153,7 @@ g <- cars %>%
 
 ## The plot
 
-```{r}
+```{r, fig.height=3.8}
 g
 ```
 
@@ -174,23 +174,23 @@ cars %>%
 
 ## The plot
 
-```{r}
+```{r, fig.height=4}
 g
 ```
 
 ## Miscellaneous graph things
 - Title for graph
 - Axis labels
-We use previous graph as base (to save drawing again).
+- We use previous graph as base (to save drawing again).
 
 ## With title
-```{r}
+```{r, fig.height=3.8}
 g + ggtitle("Gas mileage against weight")
 ```
 
 ## Axis labels
 
-```{r}
+```{r, fig.height=3.8}
 g + xlab("Weight (tons)") + ylab("MPG (miles per US gallon)")
 ```
 

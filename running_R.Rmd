@@ -180,7 +180,7 @@ cran35 links according to your version, then probably
 ## Find the one for you
 
 - Scroll down, and click the installer for your machine
-    (Windows, Mac, 5 flavours of Linux). Install as usual.
+    (Windows, Mac, several flavours of Linux). Install as usual.
     
 ![](rr40.png)
 

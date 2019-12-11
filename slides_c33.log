@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99998 (TeX Live 2017/Debian) (preloaded format=xelatex 2019.4.30)  2 JUL 2019 16:44
+This is XeTeX, Version 3.14159265-2.6-0.99998 (TeX Live 2017/Debian) (preloaded format=xelatex 2019.4.30)  11 DEC 2019 12:37
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1811,28 +1811,28 @@ Package microtype Info: Loading generic protrusion settings for font family
 
 ]
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
-(Font)              scaled to size 7.67853pt on input line 241.
+(Font)              scaled to size 7.67853pt on input line 242.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
-(Font)              scaled to size 5.4539pt on input line 241.
-LaTeX Font Info:    Try loading font information for OML+lmm on input line 241.
+(Font)              scaled to size 5.4539pt on input line 242.
+LaTeX Font Info:    Try loading font information for OML+lmm on input line 242.
 
 
 (/usr/share/texmf/tex/latex/lm/omllmm.fd
 File: omllmm.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
-(Font)              scaled to size 10.95015pt on input line 241.
+(Font)              scaled to size 10.95015pt on input line 242.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
-(Font)              scaled to size 7.67863pt on input line 241.
+(Font)              scaled to size 7.67863pt on input line 242.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
-(Font)              scaled to size 5.45398pt on input line 241.
+(Font)              scaled to size 5.45398pt on input line 242.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
-(Font)              scaled to size 10.94983pt on input line 241.
+(Font)              scaled to size 10.94983pt on input line 242.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
-(Font)              scaled to size 7.6784pt on input line 241.
+(Font)              scaled to size 7.6784pt on input line 242.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
-(Font)              scaled to size 5.45381pt on input line 241.
-LaTeX Font Info:    Try loading font information for U+msa on input line 241.
+(Font)              scaled to size 5.45381pt on input line 242.
+LaTeX Font Info:    Try loading font information for U+msa on input line 242.
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
@@ -1840,7 +1840,7 @@ File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 (/usr/share/texlive/texmf-dist/tex/latex/microtype/mt-msa.cfg
 File: mt-msa.cfg 2006/02/04 v1.1 microtype config. file: AMS symbols (a) (RS)
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 241.
+LaTeX Font Info:    Try loading font information for U+msb on input line 242.
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
@@ -1849,9 +1849,9 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 File: mt-msb.cfg 2005/06/01 v1.0 microtype config. file: AMS symbols (b) (RS)
 )
 LaTeX Font Info:    Font shape `TU/lmss/m/it' in size <7.67853> not available
-(Font)              Font shape `TU/lmss/m/sl' tried instead on input line 241.
+(Font)              Font shape `TU/lmss/m/sl' tried instead on input line 242.
 LaTeX Font Info:    Font shape `TU/lmss/m/it' in size <5.4539> not available
-(Font)              Font shape `TU/lmss/m/sl' tried instead on input line 241.
+(Font)              Font shape `TU/lmss/m/sl' tried instead on input line 242.
  [5
 
 ]
@@ -1869,7 +1869,7 @@ File: r4ds.jpg Graphic file (type bmp)
 ] [9
 
 ]
-Underfull \hbox (badness 6592) in paragraph at lines 377--377
+Underfull \hbox (badness 6592) in paragraph at lines 378--378
 \TU/lmss/m/n/10.95 analysis on data set of your choosing, using
  []
 
@@ -1929,7 +1929,7 @@ File: Screenshot_2018-06-29_16-40-36.png Graphic file (type bmp)
 File: Screenshot_2018-06-29_16-49-00.png Graphic file (type bmp)
 <Screenshot_2018-06-29_16-49-00.png>
 
-Overfull \vbox (31.41832pt too high) detected at line 644
+Overfull \vbox (31.41832pt too high) detected at line 645
  []
 
 [25
@@ -1943,7 +1943,7 @@ Overfull \vbox (31.41832pt too high) detected at line 644
 File: Screenshot_2018-06-29_17-04-43.png Graphic file (type bmp)
 <Screenshot_2018-06-29_17-04-43.png>
 
-Overfull \vbox (31.42503pt too high) detected at line 678
+Overfull \vbox (31.42503pt too high) detected at line 679
  []
 
 [27
@@ -1954,7 +1954,7 @@ Overfull \vbox (31.42503pt too high) detected at line 678
 File: Screenshot_2018-06-29_17-09-23.png Graphic file (type bmp)
 <Screenshot_2018-06-29_17-09-23.png>
 
-Overfull \vbox (31.42635pt too high) detected at line 709
+Overfull \vbox (31.42635pt too high) detected at line 710
  []
 
 [29
@@ -1970,7 +1970,7 @@ File: Screenshot_2018-08-17_11-09-02.png Graphic file (type bmp)
 File: r39.png Graphic file (type bmp)
 <r39.png>
 
-Overfull \vbox (46.4101pt too high) detected at line 745
+Overfull \vbox (46.4101pt too high) detected at line 746
  []
 
 [31
@@ -2040,7 +2040,7 @@ LaTeX Font Info:    Font shape `TU/lmtt/bx/n' in size <10.95> not available
 File: spreadsheet.png Graphic file (type bmp)
 <spreadsheet.png>
 
-Overfull \vbox (25.82887pt too high) detected at line 946
+Overfull \vbox (25.82887pt too high) detected at line 947
  []
 
 [44
@@ -2064,13 +2064,7 @@ Overfull \vbox (25.82887pt too high) detected at line 946
 ]
 \openout4 = `slides_c33.vrb'.
 
- (./slides_c33.vrb
-Overfull \hbox (226.83075pt too wide) in paragraph at lines 20--20
-[]\TU/lmtt/m/n/10.95 ## Error: []test1.csv[] does not exist in current working 
-directory ([]/home/ken/teaching/c33/notes[]).[] 
- []
-
-) [48
+ (./slides_c33.vrb) [48
 
 ] [49
 
@@ -2082,13 +2076,8 @@ directory ([]/home/ken/teaching/c33/notes[]).[]
 ]
 \openout4 = `slides_c33.vrb'.
 
- (./slides_c33.vrb
-Overfull \hbox (25.62456pt too wide) in paragraph at lines 18--18
-[]\TU/lmtt/m/n/10.95 ## Error in eval(expr, envir, enclos): object []mydata[] n
-ot found[] 
- []
-
-) [51
+ (./slides_c33.vrb)
+[51
 
 ]
 \openout4 = `slides_c33.vrb'.
@@ -2103,13 +2092,19 @@ File: viewview.png Graphic file (type bmp)
 ]
 \openout4 = `slides_c33.vrb'.
 
- (./slides_c33.vrb) [54
+ (./slides_c33.vrb)
+Overfull \vbox (119.74084pt too high) detected at line 1233
+ []
+
+[54
 
 ]
 \openout4 = `slides_c33.vrb'.
 
- (./slides_c33.vrb)
-[55
+ (./slides_c33.vrb
+LaTeX Font Info:    Font shape `TU/lmtt/bx/n' in size <10> not available
+(Font)              Font shape `TU/lmtt/b/n' tried instead on input line 23.
+) [55
 
 ]
 \openout4 = `slides_c33.vrb'.
@@ -2120,7 +2115,7 @@ File: viewview.png Graphic file (type bmp)
 \openout4 = `slides_c33.vrb'.
 
  (./slides_c33.vrb)
-Overfull \vbox (114.30971pt too high) detected at line 1300
+Overfull \vbox (114.30971pt too high) detected at line 1336
  []
 
 [57
@@ -2128,24 +2123,16 @@ Overfull \vbox (114.30971pt too high) detected at line 1300
 ]
 \openout4 = `slides_c33.vrb'.
 
- (./slides_c33.vrb
-Overfull \hbox (232.5795pt too wide) in paragraph at lines 22--22
-[]\TU/lmtt/m/n/10.95 ## Error: []coffee.txt[] does not exist in current working
- directory ([]/home/ken/teaching/c33/notes[]).[] 
- []
-
-) [58
+ (./slides_c33.vrb) [58
 
 ]
 \openout4 = `slides_c33.vrb'.
 
- (./slides_c33.vrb
-Overfull \hbox (25.62456pt too wide) in paragraph at lines 12--12
-[]\TU/lmtt/m/n/10.95 ## Error in eval(expr, envir, enclos): object []coffee[] n
-ot found[] 
+ (./slides_c33.vrb)
+Overfull \vbox (28.06676pt too high) detected at line 1402
  []
 
-) [59
+[59
 
 ]
 \openout4 = `slides_c33.vrb'.
@@ -2164,7 +2151,7 @@ ot found[]
 File: Screenshot_2019-04-24_20-16-24.png Graphic file (type bmp)
 <Screenshot_2019-04-24_20-16-24.png>
 )
-Overfull \vbox (3.1776pt too high) detected at line 1432
+Overfull \vbox (3.1776pt too high) detected at line 1485
  []
 
 [62
@@ -2172,24 +2159,12 @@ Overfull \vbox (3.1776pt too high) detected at line 1432
 ]
 \openout4 = `slides_c33.vrb'.
 
- (./slides_c33.vrb
-Overfull \hbox (244.077pt too wide) in paragraph at lines 12--12
-[]\TU/lmtt/m/n/10.95 ## Error: []migraine.txt[] does not exist in current worki
-ng directory ([]/home/ken/teaching/c33/notes[]).[] 
- []
-
-) [63
+ (./slides_c33.vrb) [63
 
 ]
 \openout4 = `slides_c33.vrb'.
 
- (./slides_c33.vrb
-Overfull \hbox (19.87581pt too wide) in paragraph at lines 12--12
-[]\TU/lmtt/m/n/10.95 ## Error in eval(expr, envir, enclos): object []drugs[] no
-t found[] 
- []
-
-) [64
+ (./slides_c33.vrb) [64
 
 ]
 \openout4 = `slides_c33.vrb'.
@@ -2197,18 +2172,17 @@ t found[]
  (./slides_c33.vrb
 File: excel.png Graphic file (type bmp)
 <excel.png>
-) [65
+)
+[65
 
 ]
 \openout4 = `slides_c33.vrb'.
 
- (./slides_c33.vrb
-Overfull \hbox (31.3733pt too wide) in paragraph at lines 43--43
-[]\TU/lmtt/m/n/10.95 ## Error in eval(expr, envir, enclos): object []mydata2[] 
-not found[] 
+ (./slides_c33.vrb)
+Overfull \vbox (4.31598pt too high) detected at line 1587
  []
 
-) [66
+[66
 
 ] [67
 
@@ -2222,20 +2196,16 @@ not found[]
 ]
 \openout4 = `slides_c33.vrb'.
 
- (./slides_c33.vrb)
-Overfull \vbox (70.78302pt too high) detected at line 1612
- []
-
-[70
+ (./slides_c33.vrb
+LaTeX Font Info:    Font shape `TU/lmtt/bx/n' in size <8> not available
+(Font)              Font shape `TU/lmtt/b/n' tried instead on input line 18.
+) [70
 
 ]
 \openout4 = `slides_c33.vrb'.
 
- (./slides_c33.vrb)
-Overfull \vbox (19.03294pt too high) detected at line 1642
- []
 
-[71
+(./slides_c33.vrb) [71
 
 ]
 \openout4 = `slides_c33.vrb'.
@@ -2251,7 +2221,7 @@ Overfull \vbox (19.03294pt too high) detected at line 1642
 File: figure/unnamed-chunk-38-1.pdf Graphic file (type pdf)
 <use figure/unnamed-chunk-38-1.pdf>
 )
-Overfull \vbox (93.39198pt too high) detected at line 1698
+Overfull \vbox (39.05824pt too high) detected at line 1763
  []
 
 [74
@@ -2263,7 +2233,7 @@ Overfull \vbox (93.39198pt too high) detected at line 1698
 File: figure/unnamed-chunk-39-1.pdf Graphic file (type pdf)
 <use figure/unnamed-chunk-39-1.pdf>
 )
-Overfull \vbox (93.39198pt too high) detected at line 1715
+Overfull \vbox (39.05824pt too high) detected at line 1780
  []
 
 [75
@@ -2275,7 +2245,7 @@ Overfull \vbox (93.39198pt too high) detected at line 1715
 File: figure/unnamed-chunk-40-1.pdf Graphic file (type pdf)
 <use figure/unnamed-chunk-40-1.pdf>
 )
-Overfull \vbox (103.00752pt too high) detected at line 1735
+Overfull \vbox (36.44872pt too high) detected at line 1800
  []
 
 [76
@@ -2287,7 +2257,7 @@ Overfull \vbox (103.00752pt too high) detected at line 1735
 File: figure/unnamed-chunk-41-1.pdf Graphic file (type pdf)
 <use figure/unnamed-chunk-41-1.pdf>
 )
-Overfull \vbox (93.44673pt too high) detected at line 1752
+Overfull \vbox (44.54637pt too high) detected at line 1817
  []
 
 [77
@@ -2299,7 +2269,7 @@ Overfull \vbox (93.44673pt too high) detected at line 1752
 File: figure/unnamed-chunk-42-1.pdf Graphic file (type pdf)
 <use figure/unnamed-chunk-42-1.pdf>
 )
-Overfull \vbox (113.84674pt too high) detected at line 1771
+Overfull \vbox (35.06284pt too high) detected at line 1836
  []
 
 [78
@@ -2311,7 +2281,7 @@ Overfull \vbox (113.84674pt too high) detected at line 1771
 File: figure/unnamed-chunk-43-1.pdf Graphic file (type pdf)
 <use figure/unnamed-chunk-43-1.pdf>
 )
-Overfull \vbox (106.99199pt too high) detected at line 1789
+Overfull \vbox (38.39566pt too high) detected at line 1854
  []
 
 [79
@@ -2323,7 +2293,7 @@ Overfull \vbox (106.99199pt too high) detected at line 1789
 File: figure/unnamed-chunk-44-1.pdf Graphic file (type pdf)
 <use figure/unnamed-chunk-44-1.pdf>
 )
-Overfull \vbox (106.99199pt too high) detected at line 1807
+Overfull \vbox (38.39566pt too high) detected at line 1872
  []
 
 [80
@@ -2335,7 +2305,7 @@ Overfull \vbox (106.99199pt too high) detected at line 1807
 File: figure/unnamed-chunk-45-1.pdf Graphic file (type pdf)
 <use figure/unnamed-chunk-45-1.pdf>
 )
-Overfull \vbox (106.99199pt too high) detected at line 1825
+Overfull \vbox (38.39566pt too high) detected at line 1890
  []
 
 [81
@@ -2347,7 +2317,7 @@ Overfull \vbox (106.99199pt too high) detected at line 1825
 File: figure/unnamed-chunk-46-1.pdf Graphic file (type pdf)
 <use figure/unnamed-chunk-46-1.pdf>
 )
-Overfull \vbox (106.99199pt too high) detected at line 1843
+Overfull \vbox (38.39566pt too high) detected at line 1908
  []
 
 [82
@@ -2359,7 +2329,7 @@ Overfull \vbox (106.99199pt too high) detected at line 1843
 File: figure/unnamed-chunk-47-1.pdf Graphic file (type pdf)
 <use figure/unnamed-chunk-47-1.pdf>
 )
-Overfull \vbox (106.35425pt too high) detected at line 1864
+Overfull \vbox (5.36855pt too high) detected at line 1927
  []
 
 [83
@@ -2396,7 +2366,7 @@ Overfull \vbox (106.35425pt too high) detected at line 1864
 \openout4 = `slides_c33.vrb'.
 
  (./slides_c33.vrb)
-Overfull \vbox (1.93983pt too high) detected at line 2040
+Overfull \vbox (1.93983pt too high) detected at line 2103
  []
 
 [90
@@ -2404,11 +2374,7 @@ Overfull \vbox (1.93983pt too high) detected at line 2040
 ]
 \openout4 = `slides_c33.vrb'.
 
- (./slides_c33.vrb)
-Overfull \vbox (14.00685pt too high) detected at line 2070
- []
-
-[91
+ (./slides_c33.vrb) [91
 
 ]
 \openout4 = `slides_c33.vrb'.
@@ -2419,7 +2385,7 @@ Overfull \vbox (14.00685pt too high) detected at line 2070
 \openout4 = `slides_c33.vrb'.
 
  (./slides_c33.vrb)
-Overfull \vbox (24.88017pt too high) detected at line 2151
+Overfull \vbox (2.3891pt too high) detected at line 2226
  []
 
 [93
@@ -2438,107 +2404,88 @@ Overfull \vbox (24.88017pt too high) detected at line 2151
 ]
 \openout4 = `slides_c33.vrb'.
 
- (./slides_c33.vrb
-Overfull \hbox (261.32324pt too wide) in paragraph at lines 14--14
-[]\TU/lmtt/m/n/10.95 ## Error: []jays15-home.csv[] does not exist in current wo
-rking directory ([]/home/ken/teaching/c33/notes[]).[] 
+ (./slides_c33.vrb)
+Overfull \vbox (24.71599pt too high) detected at line 2333
  []
 
-) [98
+[98
+
+]
+\openout4 = `slides_c33.vrb'.
+
+ (./slides_c33.vrb) [99
 
 ]
 \openout4 = `slides_c33.vrb'.
 
  (./slides_c33.vrb
-Overfull \hbox (14.12706pt too wide) in paragraph at lines 12--12
-[]\TU/lmtt/m/n/10.95 ## Error in eval(expr, envir, enclos): object []jays[] not
- found[] 
- []
-
-) [99
-
-]
-\openout4 = `slides_c33.vrb'.
-
- (./slides_c33.vrb) [100
+LaTeX Font Info:    Font shape `TU/lmtt/bx/n' in size <6> not available
+(Font)              Font shape `TU/lmtt/b/n' tried instead on input line 8.
+) [100
 
 ]
 \openout4 = `slides_c33.vrb'.
 
  (./slides_c33.vrb
-Overfull \hbox (60.11705pt too wide) in paragraph at lines 12--12
-[]\TU/lmtt/m/n/10.95 ## Error in ggplot(jays, aes(x = attendance)): object []ja
-ys[] not found[] 
+File: figure/unnamed-chunk-63-1.pdf Graphic file (type pdf)
+<use figure/unnamed-chunk-63-1.pdf>
+)
+Overfull \vbox (34.35881pt too high) detected at line 2428
  []
 
-) [101
+[101
 
 ] [102
 
 ]
 \openout4 = `slides_c33.vrb'.
 
- (./slides_c33.vrb
-Overfull \hbox (2.62956pt too wide) in paragraph at lines 18--18
-[]\TU/lmtt/m/n/10.95 ## Error in t.test(jays$attendance): object []jays[] not f
-ound[] 
- []
-
-) [103
+ (./slides_c33.vrb) [103
 
 ]
 \openout4 = `slides_c33.vrb'.
 
- (./slides_c33.vrb
-Overfull \hbox (106.10703pt too wide) in paragraph at lines 18--18
-[]\TU/lmtt/m/n/10.95 ## Error in t.test(jays$attendance, conf.level = 0.9): obj
-ect []jays[] not found[] 
- []
-
-) [104
-
-] [105
+ (./slides_c33.vrb) [104
 
 ]
 \openout4 = `slides_c33.vrb'.
 
- (./slides_c33.vrb
-Overfull \hbox (42.8708pt too wide) in paragraph at lines 12--12
-[]\TU/lmtt/m/n/10.95 ## Error in with(jays, t.test(attendance)): object []jays[
-] not found[] 
- []
+ (./slides_c33.vrb) [105
 
-) [106
+]
+\openout4 = `slides_c33.vrb'.
+
+ (./slides_c33.vrb) [106
 
 ] [107
 
 ]
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
-(Font)              scaled to size 14.4pt on input line 2493.
+(Font)              scaled to size 14.4pt on input line 2665.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
-(Font)              scaled to size 10.0pt on input line 2493.
+(Font)              scaled to size 10.0pt on input line 2665.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
-(Font)              scaled to size 7.0pt on input line 2493.
+(Font)              scaled to size 7.0pt on input line 2665.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
-(Font)              scaled to size 14.4002pt on input line 2493.
+(Font)              scaled to size 14.4002pt on input line 2665.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
-(Font)              scaled to size 10.00015pt on input line 2493.
+(Font)              scaled to size 10.00015pt on input line 2665.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
-(Font)              scaled to size 7.0001pt on input line 2493.
+(Font)              scaled to size 7.0001pt on input line 2665.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
-(Font)              scaled to size 14.39977pt on input line 2493.
+(Font)              scaled to size 14.39977pt on input line 2665.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
-(Font)              scaled to size 9.99985pt on input line 2493.
+(Font)              scaled to size 9.99985pt on input line 2665.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
-(Font)              scaled to size 6.9999pt on input line 2493.
+(Font)              scaled to size 6.9999pt on input line 2665.
 LaTeX Font Info:    Font shape `TU/lmss/m/it' in size <14.4> not available
-(Font)              Font shape `TU/lmss/m/sl' tried instead on input line 2493.
+(Font)              Font shape `TU/lmss/m/sl' tried instead on input line 2665.
 
 LaTeX Font Info:    Font shape `TU/lmss/m/it' in size <10> not available
-(Font)              Font shape `TU/lmss/m/sl' tried instead on input line 2493.
+(Font)              Font shape `TU/lmss/m/sl' tried instead on input line 2665.
 
 LaTeX Font Info:    Font shape `TU/lmss/m/it' in size <7> not available
-(Font)              Font shape `TU/lmss/m/sl' tried instead on input line 2493.
+(Font)              Font shape `TU/lmss/m/sl' tried instead on input line 2665.
 
  [108
 
@@ -2553,7 +2500,7 @@ File: fisher1.png Graphic file (type bmp)
 File: fisher2.png Graphic file (type bmp)
 <fisher2.png>
 
-Overfull \vbox (6.04855pt too high) detected at line 2540
+Overfull \vbox (6.04855pt too high) detected at line 2712
  []
 
 [110
@@ -2563,13 +2510,11 @@ Overfull \vbox (6.04855pt too high) detected at line 2540
 ]
 \openout4 = `slides_c33.vrb'.
 
- (./slides_c33.vrb
-Overfull \hbox (71.61453pt too wide) in paragraph at lines 12--12
-[]\TU/lmtt/m/n/10.95 ## Error in t.test(jays$attendance, mu = 29327): object []
-jays[] not found[] 
+ (./slides_c33.vrb)
+Overfull \vbox (4.1408pt too high) detected at line 2781
  []
 
-) [112
+[112
 
 ] [113
 
@@ -2577,12 +2522,13 @@ jays[] not found[]
 \openout4 = `slides_c33.vrb'.
 
  (./slides_c33.vrb
-Overfull \hbox (60.11705pt too wide) in paragraph at lines 12--12
-[]\TU/lmtt/m/n/10.95 ## Error in ggplot(jays, aes(x = attendance)): object []ja
-ys[] not found[] 
+File: figure/unnamed-chunk-68-1.pdf Graphic file (type pdf)
+<use figure/unnamed-chunk-68-1.pdf>
+)
+Overfull \vbox (29.64604pt too high) detected at line 2826
  []
 
-) [114
+[114
 
 ] [115
 
@@ -2599,12 +2545,11 @@ ys[] not found[]
 ]
 \openout4 = `slides_c33.vrb'.
 
-
-(./slides_c33.vrb
+ (./slides_c33.vrb
 File: figure/unnamed-chunk-71-1.pdf Graphic file (type pdf)
 <use figure/unnamed-chunk-71-1.pdf>
 )
-Overfull \vbox (93.45769pt too high) detected at line 2745
+Overfull \vbox (29.61555pt too high) detected at line 2929
  []
 
 [118
@@ -2656,13 +2601,13 @@ Overfull \hbox (54.3683pt too wide) in paragraph at lines 28--28
 
 ]
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
-(Font)              scaled to size 5.0pt on input line 3014.
+(Font)              scaled to size 5.0pt on input line 3198.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
-(Font)              scaled to size 5.00008pt on input line 3014.
+(Font)              scaled to size 5.00008pt on input line 3198.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
-(Font)              scaled to size 4.99992pt on input line 3014.
+(Font)              scaled to size 4.99992pt on input line 3198.
 LaTeX Font Info:    Font shape `TU/lmss/m/it' in size <5> not available
-(Font)              Font shape `TU/lmss/m/sl' tried instead on input line 3014.
+(Font)              Font shape `TU/lmss/m/sl' tried instead on input line 3198.
 
  [128
 
@@ -2700,11 +2645,7 @@ LaTeX Font Info:    Font shape `TU/lmss/m/it' in size <5> not available
 ]
 \openout4 = `slides_c33.vrb'.
 
- (./slides_c33.vrb)
-Overfull \vbox (1.95079pt too high) detected at line 3235
- []
-
-[136
+ (./slides_c33.vrb) [136
 
 ] [137
 
@@ -2725,17 +2666,17 @@ Overfull \vbox (1.95079pt too high) detected at line 3235
 ]
 \openout4 = `slides_c33.vrb'.
 
-
-(./slides_c33.vrb) [142
+ (./slides_c33.vrb) [142
 
 ]
 \openout4 = `slides_c33.vrb'.
 
- (./slides_c33.vrb
+
+(./slides_c33.vrb
 File: figure/unnamed-chunk-86-1.pdf Graphic file (type pdf)
 <use figure/unnamed-chunk-86-1.pdf>
 )
-Overfull \vbox (90.69829pt too high) detected at line 3432
+Overfull \vbox (31.61037pt too high) detected at line 3620
  []
 
 [143
@@ -2749,7 +2690,7 @@ Overfull \vbox (90.69829pt too high) detected at line 3432
 \openout4 = `slides_c33.vrb'.
 
  (./slides_c33.vrb)
-Overfull \vbox (87.06583pt too high) detected at line 3511
+Overfull \vbox (87.06583pt too high) detected at line 3699
  []
 
 [145
@@ -2766,7 +2707,7 @@ Overfull \vbox (87.06583pt too high) detected at line 3511
 File: figure/unnamed-chunk-92-1.pdf Graphic file (type pdf)
 <use figure/unnamed-chunk-92-1.pdf>
 )
-Overfull \vbox (90.69829pt too high) detected at line 3571
+Overfull \vbox (31.61037pt too high) detected at line 3761
  []
 
 [147
@@ -2788,7 +2729,7 @@ Overfull \vbox (90.69829pt too high) detected at line 3571
 File: figure/unnamed-chunk-94-1.pdf Graphic file (type pdf)
 <use figure/unnamed-chunk-94-1.pdf>
 )
-Overfull \vbox (90.69829pt too high) detected at line 3634
+Overfull \vbox (31.61037pt too high) detected at line 3827
  []
 
 [150
@@ -2796,11 +2737,7 @@ Overfull \vbox (90.69829pt too high) detected at line 3634
 ]
 \openout4 = `slides_c33.vrb'.
 
- (./slides_c33.vrb)
-Overfull \vbox (23.56625pt too high) detected at line 3676
- []
-
-[151
+ (./slides_c33.vrb) [151
 
 ]
 \openout4 = `slides_c33.vrb'.
@@ -2810,34 +2747,25 @@ Overfull \vbox (23.56625pt too high) detected at line 3676
 ]
 \openout4 = `slides_c33.vrb'.
 
- (./slides_c33.vrb) [153
-
-] [154
-
-]
-\openout4 = `slides_c33.vrb'.
-
- (./slides_c33.vrb) [155
-
-]
-\openout4 = `slides_c33.vrb'.
-
  (./slides_c33.vrb)
-Overfull \vbox (48.08351pt too high) detected at line 3805
- []
-
-[156
+[153
 
 ]
 \openout4 = `slides_c33.vrb'.
 
- (./slides_c33.vrb
-Overfull \hbox (54.3683pt too wide) in paragraph at lines 22--22
-[]\TU/lmtt/m/n/10.95 ## alternative hypothesis: true difference in means is not
- equal to 0[] 
- []
+ (./slides_c33.vrb) [154
 
-) [157
+] [155
+
+]
+\openout4 = `slides_c33.vrb'.
+
+ (./slides_c33.vrb) [156
+
+]
+\openout4 = `slides_c33.vrb'.
+
+ (./slides_c33.vrb) [157
 
 ]
 \openout4 = `slides_c33.vrb'.
@@ -2850,16 +2778,22 @@ Overfull \hbox (54.3683pt too wide) in paragraph at lines 22--22
 
 ) [158
 
-] [159
+]
+\openout4 = `slides_c33.vrb'.
+
+ (./slides_c33.vrb
+Overfull \hbox (54.3683pt too wide) in paragraph at lines 22--22
+[]\TU/lmtt/m/n/10.95 ## alternative hypothesis: true difference in means is not
+ equal to 0[] 
+ []
+
+) [159
 
 ] [160
 
 ] [161
 
-]
-\openout4 = `slides_c33.vrb'.
-
- (./slides_c33.vrb) [162
+] [162
 
 ]
 \openout4 = `slides_c33.vrb'.
@@ -2869,27 +2803,24 @@ Overfull \hbox (54.3683pt too wide) in paragraph at lines 22--22
 ]
 \openout4 = `slides_c33.vrb'.
 
+ (./slides_c33.vrb) [164
+
+]
+\openout4 = `slides_c33.vrb'.
+
 
 (./slides_c33.vrb
 File: figure/unnamed-chunk-102-1.pdf Graphic file (type pdf)
 <use figure/unnamed-chunk-102-1.pdf>
 )
-Overfull \vbox (89.53752pt too high) detected at line 4017
+Overfull \vbox (20.04146pt too high) detected at line 4217
  []
 
-[164
+[165
 
-] [165
+] [166
 
-]
-\openout4 = `slides_c33.vrb'.
-
- (./slides_c33.vrb) [166
-
-]
-\openout4 = `slides_c33.vrb'.
-
- (./slides_c33.vrb) [167
+] [167
 
 ]
 \openout4 = `slides_c33.vrb'.
@@ -2901,7 +2832,11 @@ Overfull \vbox (89.53752pt too high) detected at line 4017
 
  (./slides_c33.vrb) [169
 
-] [170
+]
+\openout4 = `slides_c33.vrb'.
+
+
+(./slides_c33.vrb) [170
 
 ]
 \openout4 = `slides_c33.vrb'.
@@ -2910,52 +2845,46 @@ Overfull \vbox (89.53752pt too high) detected at line 4017
 
 ] [172
 
-] [173
+]
+\openout4 = `slides_c33.vrb'.
+
+ (./slides_c33.vrb)
+[173
+
+] [174
+
+] [175
+
+]
+\openout4 = `slides_c33.vrb'.
+
+ (./slides_c33.vrb) [176
+
+]
+\openout4 = `slides_c33.vrb'.
+
+ (./slides_c33.vrb) [177
 
 ]
 \openout4 = `slides_c33.vrb'.
 
 
-(./slides_c33.vrb) [174
+(./slides_c33.vrb)
+Overfull \vbox (42.75081pt too high) detected at line 4627
+ []
+
+[178
 
 ]
 \openout4 = `slides_c33.vrb'.
 
  (./slides_c33.vrb)
-Overfull \vbox (15.47415pt too high) detected at line 4372
+Overfull \vbox (35.91794pt too high) detected at line 4658
  []
 
-[175
+[179
 
-]
-\openout4 = `slides_c33.vrb'.
-
- (./slides_c33.vrb)
-Overfull \vbox (42.75081pt too high) detected at line 4404
- []
-
-[176
-
-]
-\openout4 = `slides_c33.vrb'.
-
- (./slides_c33.vrb)
-Overfull \vbox (35.91794pt too high) detected at line 4435
- []
-
-[177
-
-] [178
-
-]
-\openout4 = `slides_c33.vrb'.
-
- (./slides_c33.vrb) [179
-
-]
-\openout4 = `slides_c33.vrb'.
-
- (./slides_c33.vrb) [180
+] [180
 
 ]
 \openout4 = `slides_c33.vrb'.
@@ -2973,26 +2902,36 @@ Overfull \vbox (35.91794pt too high) detected at line 4435
  (./slides_c33.vrb) [183
 
 ]
+\openout4 = `slides_c33.vrb'.
+
+ (./slides_c33.vrb) [184
+
+]
+\openout4 = `slides_c33.vrb'.
+
+ (./slides_c33.vrb) [185
+
+]
 File: Screenshot_2019-04-26_13-41-29.png Graphic file (type bmp)
 <Screenshot_2019-04-26_13-41-29.png>
- [184
+ [186
 
-] [185
+] [187
 
 ]
 \openout4 = `slides_c33.vrb'.
 
 
-(./slides_c33.vrb) [186
+(./slides_c33.vrb) [188
 
 ]
 \openout4 = `slides_c33.vrb'.
 
  (./slides_c33.vrb)
-Overfull \vbox (7.76529pt too high) detected at line 4722
+Overfull \vbox (7.76529pt too high) detected at line 4945
  []
 
-[187
+[189
 
 ]
 \openout4 = `slides_c33.vrb'.
@@ -3003,35 +2942,21 @@ Overfull \hbox (54.3683pt too wide) in paragraph at lines 22--22
  equal to 0[] 
  []
 
-) [188
+) [190
 
 ]
 \openout4 = `slides_c33.vrb'.
 
  (./slides_c33.vrb)
-Overfull \vbox (29.2165pt too high) detected at line 4785
+Overfull \vbox (29.2165pt too high) detected at line 5008
  []
 
-[189
+[191
 
 ]
 \openout4 = `slides_c33.vrb'.
 
- (./slides_c33.vrb) [190
-
-] [191
-
-]
-\openout4 = `slides_c33.vrb'.
-
- (./slides_c33.vrb
-File: figure/unnamed-chunk-126-1.pdf Graphic file (type pdf)
-<use figure/unnamed-chunk-126-1.pdf>
-)
-Overfull \vbox (108.58481pt too high) detected at line 4877
- []
-
-[192
+ (./slides_c33.vrb) [192
 
 ] [193
 
@@ -3042,10 +2967,12 @@ Overfull \vbox (108.58481pt too high) detected at line 4877
 File: figure/unnamed-chunk-127-1.pdf Graphic file (type pdf)
 <use figure/unnamed-chunk-127-1.pdf>
 )
-Overfull \vbox (103.12657pt too high) detected at line 4920
+Overfull \vbox (64.43866pt too high) detected at line 5100
  []
 
 [194
+
+] [195
 
 ]
 \openout4 = `slides_c33.vrb'.
@@ -3054,19 +2981,7 @@ Overfull \vbox (103.12657pt too high) detected at line 4920
 File: figure/unnamed-chunk-128-1.pdf Graphic file (type pdf)
 <use figure/unnamed-chunk-128-1.pdf>
 )
-Overfull \vbox (93.39198pt too high) detected at line 4937
- []
-
-[195
-
-]
-\openout4 = `slides_c33.vrb'.
-
- (./slides_c33.vrb
-File: figure/normal-small-1.pdf Graphic file (type pdf)
-<use figure/normal-small-1.pdf>
-)
-Overfull \vbox (103.13753pt too high) detected at line 4961
+Overfull \vbox (33.64146pt too high) detected at line 5140
  []
 
 [196
@@ -3075,10 +2990,10 @@ Overfull \vbox (103.13753pt too high) detected at line 4961
 \openout4 = `slides_c33.vrb'.
 
  (./slides_c33.vrb
-File: figure/unnamed-chunk-130-1.pdf Graphic file (type pdf)
-<use figure/unnamed-chunk-130-1.pdf>
+File: figure/unnamed-chunk-129-1.pdf Graphic file (type pdf)
+<use figure/unnamed-chunk-129-1.pdf>
 )
-Overfull \vbox (103.13753pt too high) detected at line 4981
+Overfull \vbox (34.30406pt too high) detected at line 5157
  []
 
 [197
@@ -3087,10 +3002,10 @@ Overfull \vbox (103.13753pt too high) detected at line 4981
 \openout4 = `slides_c33.vrb'.
 
  (./slides_c33.vrb
-File: figure/unnamed-chunk-131-1.pdf Graphic file (type pdf)
-<use figure/unnamed-chunk-131-1.pdf>
+File: figure/normal-small-1.pdf Graphic file (type pdf)
+<use figure/normal-small-1.pdf>
 )
-Overfull \vbox (103.13753pt too high) detected at line 5001
+Overfull \vbox (34.34549pt too high) detected at line 5181
  []
 
 [198
@@ -3099,10 +3014,10 @@ Overfull \vbox (103.13753pt too high) detected at line 5001
 \openout4 = `slides_c33.vrb'.
 
  (./slides_c33.vrb
-File: figure/unnamed-chunk-132-1.pdf Graphic file (type pdf)
-<use figure/unnamed-chunk-132-1.pdf>
+File: figure/unnamed-chunk-131-1.pdf Graphic file (type pdf)
+<use figure/unnamed-chunk-131-1.pdf>
 )
-Overfull \vbox (113.9877pt too high) detected at line 5020
+Overfull \vbox (34.34549pt too high) detected at line 5201
  []
 
 [199
@@ -3111,10 +3026,10 @@ Overfull \vbox (113.9877pt too high) detected at line 5020
 \openout4 = `slides_c33.vrb'.
 
  (./slides_c33.vrb
-File: figure/chisq-small-df-1.pdf Graphic file (type pdf)
-<use figure/chisq-small-df-1.pdf>
+File: figure/unnamed-chunk-132-1.pdf Graphic file (type pdf)
+<use figure/unnamed-chunk-132-1.pdf>
 )
-Overfull \vbox (103.13753pt too high) detected at line 5040
+Overfull \vbox (34.34549pt too high) detected at line 5221
  []
 
 [200
@@ -3126,7 +3041,7 @@ Overfull \vbox (103.13753pt too high) detected at line 5040
 File: figure/unnamed-chunk-133-1.pdf Graphic file (type pdf)
 <use figure/unnamed-chunk-133-1.pdf>
 )
-Overfull \vbox (113.9877pt too high) detected at line 5059
+Overfull \vbox (30.25389pt too high) detected at line 5240
  []
 
 [201
@@ -3135,10 +3050,10 @@ Overfull \vbox (113.9877pt too high) detected at line 5059
 \openout4 = `slides_c33.vrb'.
 
  (./slides_c33.vrb
-File: figure/t-small-1.pdf Graphic file (type pdf)
-<use figure/t-small-1.pdf>
+File: figure/chisq-small-df-1.pdf Graphic file (type pdf)
+<use figure/chisq-small-df-1.pdf>
 )
-Overfull \vbox (103.61932pt too high) detected at line 5079
+Overfull \vbox (34.34549pt too high) detected at line 5260
  []
 
 [202
@@ -3150,7 +3065,7 @@ Overfull \vbox (103.61932pt too high) detected at line 5079
 File: figure/unnamed-chunk-134-1.pdf Graphic file (type pdf)
 <use figure/unnamed-chunk-134-1.pdf>
 )
-Overfull \vbox (113.9877pt too high) detected at line 5098
+Overfull \vbox (35.00809pt too high) detected at line 5279
  []
 
 [203
@@ -3159,10 +3074,10 @@ Overfull \vbox (113.9877pt too high) detected at line 5098
 \openout4 = `slides_c33.vrb'.
 
  (./slides_c33.vrb
-File: figure/pain-relief-qq-1.pdf Graphic file (type pdf)
-<use figure/pain-relief-qq-1.pdf>
+File: figure/t-small-1.pdf Graphic file (type pdf)
+<use figure/t-small-1.pdf>
 )
-Overfull \vbox (92.94995pt too high) detected at line 5123
+Overfull \vbox (39.0997pt too high) detected at line 5299
  []
 
 [204
@@ -3170,44 +3085,44 @@ Overfull \vbox (92.94995pt too high) detected at line 5123
 ]
 \openout4 = `slides_c33.vrb'.
 
- (./slides_c33.vrb) [205
+ (./slides_c33.vrb
+File: figure/unnamed-chunk-135-1.pdf Graphic file (type pdf)
+<use figure/unnamed-chunk-135-1.pdf>
+)
+Overfull \vbox (35.00809pt too high) detected at line 5318
+ []
+
+[205
 
 ]
 \openout4 = `slides_c33.vrb'.
 
- (./slides_c33.vrb) [206
+ (./slides_c33.vrb
+File: figure/pain-relief-qq-1.pdf Graphic file (type pdf)
+<use figure/pain-relief-qq-1.pdf>
+)
+Overfull \vbox (34.30406pt too high) detected at line 5335
+ []
+
+[206
+
+] [207
+
+]
+\openout4 = `slides_c33.vrb'.
+
+ (./slides_c33.vrb) [208
+
+]
+\openout4 = `slides_c33.vrb'.
+
+ (./slides_c33.vrb) [209
 
 ]
 \openout4 = `slides_c33.vrb'.
 
  (./slides_c33.vrb)
-Overfull \vbox (8.67415pt too high) detected at line 5199
- []
-
-[207
-
-] [208
-
-]
-\openout4 = `slides_c33.vrb'.
-
- (./slides_c33.vrb
-File: figure/unnamed-chunk-137-1.pdf Graphic file (type pdf)
-<use figure/unnamed-chunk-137-1.pdf>
-)
-Overfull \vbox (93.45769pt too high) detected at line 5243
- []
-
-[209
-
-]
-\openout4 = `slides_c33.vrb'.
-
- (./slides_c33.vrb
-File: figure/unnamed-chunk-138-1.pdf Graphic file (type pdf)
-<use figure/unnamed-chunk-138-1.pdf>
-)
-Overfull \vbox (127.4577pt too high) detected at line 5263
+Overfull \vbox (8.67415pt too high) detected at line 5424
  []
 
 [210
@@ -3218,35 +3133,49 @@ Overfull \vbox (127.4577pt too high) detected at line 5263
 \openout4 = `slides_c33.vrb'.
 
  (./slides_c33.vrb
+File: figure/unnamed-chunk-138-1.pdf Graphic file (type pdf)
+<use figure/unnamed-chunk-138-1.pdf>
+)
+Overfull \vbox (29.61555pt too high) detected at line 5468
+ []
+
+[212
+
+]
+\openout4 = `slides_c33.vrb'.
+
+ (./slides_c33.vrb
+File: figure/unnamed-chunk-139-1.pdf Graphic file (type pdf)
+<use figure/unnamed-chunk-139-1.pdf>
+)
+Overfull \vbox (39.1654pt too high) detected at line 5488
+ []
+
+[213
+
+] [214
+
+]
+\openout4 = `slides_c33.vrb'.
+
+ (./slides_c33.vrb
 Overfull \hbox (37.12206pt too wide) in paragraph at lines 22--22
 []\TU/lmtt/m/n/10.95 ## alternative hypothesis: true difference in means is les
 s than 0[] 
  []
 
-) [212
+) [215
 
-] [213
+] [216
 
 ]
 \openout4 = `slides_c33.vrb'.
 
  (./slides_c33.vrb)
-Overfull \vbox (2.00554pt too high) detected at line 5361
+Overfull \vbox (2.00554pt too high) detected at line 5586
  []
 
-[214
-
-]
-\openout4 = `slides_c33.vrb'.
-
- (./slides_c33.vrb) [215
-
-]
-\openout4 = `slides_c33.vrb'.
-
- (./slides_c33.vrb) [216
-
-] [217
+[217
 
 ]
 \openout4 = `slides_c33.vrb'.
@@ -3258,41 +3187,37 @@ Overfull \vbox (2.00554pt too high) detected at line 5361
 
  (./slides_c33.vrb) [219
 
-]
-\openout4 = `slides_c33.vrb'.
-
- (./slides_c33.vrb) [220
-
-] [221
-
-] [222
+] [220
 
 ]
 \openout4 = `slides_c33.vrb'.
 
-
-(./slides_c33.vrb) [223
-
-]
-\openout4 = `slides_c33.vrb'.
-
- (./slides_c33.vrb)
-Overfull \vbox (11.06125pt too high) detected at line 5700
- []
-
-[224
+ (./slides_c33.vrb) [221
 
 ]
 \openout4 = `slides_c33.vrb'.
 
- (./slides_c33.vrb
-File: figure/unnamed-chunk-149-1.pdf Graphic file (type pdf)
-<use figure/unnamed-chunk-149-1.pdf>
-)
-Overfull \vbox (93.45769pt too high) detected at line 5717
- []
+ (./slides_c33.vrb) [222
 
-[225
+]
+\openout4 = `slides_c33.vrb'.
+
+ (./slides_c33.vrb) [223
+
+] [224
+
+] [225
+
+]
+\openout4 = `slides_c33.vrb'.
+
+
+(./slides_c33.vrb) [226
+
+]
+\openout4 = `slides_c33.vrb'.
+
+ (./slides_c33.vrb) [227
 
 ]
 \openout4 = `slides_c33.vrb'.
@@ -3301,22 +3226,34 @@ Overfull \vbox (93.45769pt too high) detected at line 5717
 File: figure/unnamed-chunk-150-1.pdf Graphic file (type pdf)
 <use figure/unnamed-chunk-150-1.pdf>
 )
-Overfull \vbox (106.99199pt too high) detected at line 5735
+Overfull \vbox (29.61555pt too high) detected at line 5946
  []
 
-[226
-
-] [227
+[228
 
 ]
 \openout4 = `slides_c33.vrb'.
 
- (./slides_c33.vrb) [228
+ (./slides_c33.vrb
+File: figure/unnamed-chunk-151-1.pdf Graphic file (type pdf)
+<use figure/unnamed-chunk-151-1.pdf>
+)
+Overfull \vbox (33.64146pt too high) detected at line 5964
+ []
+
+[229
+
+] [230
 
 ]
 \openout4 = `slides_c33.vrb'.
 
- (./slides_c33.vrb) [229
+ (./slides_c33.vrb) [231
+
+]
+\openout4 = `slides_c33.vrb'.
+
+ (./slides_c33.vrb) [232
 
 ]
 \openout4 = `slides_c33.vrb'.
@@ -3327,7 +3264,7 @@ Overfull \hbox (54.3683pt too wide) in paragraph at lines 22--22
  equal to 0[] 
  []
 
-) [230
+) [233
 
 ]
 \openout4 = `slides_c33.vrb'.
@@ -3338,7 +3275,7 @@ Overfull \hbox (54.3683pt too wide) in paragraph at lines 22--22
  equal to 0[] 
  []
 
-) [231
+) [234
 
 ]
 \openout4 = `slides_c33.vrb'.
@@ -3349,71 +3286,53 @@ Overfull \hbox (54.3683pt too wide) in paragraph at lines 22--22
  equal to 0[] 
  []
 
-) [232
+) [235
 
-] [233
+] [236
 
 ]
 File: John_Tukey.png Graphic file (type bmp)
 <John_Tukey.png>
- [234
+ [237
 
-] [235
+] [238
 
 ]
 \openout4 = `slides_c33.vrb'.
 
- (./slides_c33.vrb)
-Overfull \vbox (44.8751pt too high) detected at line 5979
+ (./slides_c33.vrb) [239
+
+]
+\openout4 = `slides_c33.vrb'.
+
+ (./slides_c33.vrb) [240
+
+]
+\openout4 = `slides_c33.vrb'.
+
+
+(./slides_c33.vrb
+File: figure/unnamed-chunk-160-1.pdf Graphic file (type pdf)
+<use figure/unnamed-chunk-160-1.pdf>
+)
+Overfull \vbox (67.83719pt too high) detected at line 6260
  []
 
-[236
-
-]
-\openout4 = `slides_c33.vrb'.
-
- (./slides_c33.vrb) [237
+[241
 
 ]
 \openout4 = `slides_c33.vrb'.
 
  (./slides_c33.vrb
-File: figure/unnamed-chunk-157-1.pdf Graphic file (type pdf)
-<use figure/unnamed-chunk-157-1.pdf>
+File: figure/unnamed-chunk-161-1.pdf Graphic file (type pdf)
+<use figure/unnamed-chunk-161-1.pdf>
 )
-Overfull \vbox (141.18771pt too high) detected at line 6027
+Overfull \vbox (33.70717pt too high) detected at line 6278
  []
 
-[238
+[242
 
-]
-\openout4 = `slides_c33.vrb'.
-
- (./slides_c33.vrb
-File: figure/unnamed-chunk-158-1.pdf Graphic file (type pdf)
-<use figure/unnamed-chunk-158-1.pdf>
-)
-Overfull \vbox (107.0577pt too high) detected at line 6045
- []
-
-[239
-
-] [240
-
-]
-\openout4 = `slides_c33.vrb'.
-
- (./slides_c33.vrb) [241
-
-]
-\openout4 = `slides_c33.vrb'.
-
- (./slides_c33.vrb) [242
-
-]
-\openout4 = `slides_c33.vrb'.
-
- (./slides_c33.vrb) [243
+] [243
 
 ]
 \openout4 = `slides_c33.vrb'.
@@ -3428,45 +3347,60 @@ Overfull \vbox (107.0577pt too high) detected at line 6045
 ]
 \openout4 = `slides_c33.vrb'.
 
- (./slides_c33.vrb)
-[246
+ (./slides_c33.vrb) [246
+
+]
+\openout4 = `slides_c33.vrb'.
+
+ (./slides_c33.vrb) [247
+
+]
+\openout4 = `slides_c33.vrb'.
+
+ (./slides_c33.vrb) [248
 
 ]
 \openout4 = `slides_c33.vrb'.
 
  (./slides_c33.vrb)
-Overfull \vbox (14.42282pt too high) detected at line 6335
+[249
+
+]
+\openout4 = `slides_c33.vrb'.
+
+ (./slides_c33.vrb)
+Overfull \vbox (14.42282pt too high) detected at line 6572
  []
 
-[247
-
-] [248
-
-] [249
-
-] [250
+[250
 
 ] [251
+
+] [252
+
+] [253
+
+] [254
 
 ]
 File: titlebar.pdf Graphic file (type pdf)
 <use titlebar.pdf>
- [252
+ [255
 
 ]
 File: abstract.pdf Graphic file (type pdf)
 <use abstract.pdf>
- [253
+ [256
 
 ]
 File: intro.pdf Graphic file (type pdf)
 <use intro.pdf>
- [254
+ [257
 
 ]
 File: matmeth.pdf Graphic file (type pdf)
 <use matmeth.pdf>
- [255
+ [258
 
 ]
 File: measurements.pdf Graphic file (type pdf)
@@ -3474,66 +3408,51 @@ File: measurements.pdf Graphic file (type pdf)
 File: measurementb.pdf Graphic file (type pdf)
 <use measurementb.pdf>
 
-Overfull \vbox (28.86653pt too high) detected at line 6466
+Overfull \vbox (28.86653pt too high) detected at line 6703
  []
 
-[256
+[259
 
 ]
 File: resultsa.pdf Graphic file (type pdf)
 <use resultsa.pdf>
- [257
+ [260
 
 ]
 File: resultsb.pdf Graphic file (type pdf)
 <use resultsb.pdf>
- [258
+ [261
 
 ]
 File: conc1.pdf Graphic file (type pdf)
 <use conc1.pdf>
 File: conc2.pdf Graphic file (type pdf)
 <use conc2.pdf>
- [259
+ [262
 
 ]
 File: conc3.pdf Graphic file (type pdf)
 <use conc3.pdf>
- [260
+ [263
 
 ]
 File: refs.pdf Graphic file (type pdf)
 <use refs.pdf>
 
-Overfull \vbox (29.62375pt too high) detected at line 6515
+Overfull \vbox (29.62375pt too high) detected at line 6752
  []
 
-[261
-
-] [262
-
-] [263
-
-] [264
+[264
 
 ] [265
 
 ] [266
 
-]
-\openout4 = `slides_c33.vrb'.
+] [267
 
- (./slides_c33.vrb) [267
+] [268
 
-]
-\openout4 = `slides_c33.vrb'.
-
- (./slides_c33.vrb) [268
-
-]
-\openout4 = `slides_c33.vrb'.
-
- (./slides_c33.vrb) [269
+] [269
 
 ]
 \openout4 = `slides_c33.vrb'.
@@ -3543,17 +3462,12 @@ Overfull \vbox (29.62375pt too high) detected at line 6515
 ]
 \openout4 = `slides_c33.vrb'.
 
- (./slides_c33.vrb)
-[271
+ (./slides_c33.vrb) [271
 
 ]
 \openout4 = `slides_c33.vrb'.
 
- (./slides_c33.vrb)
-Overfull \vbox (116.82814pt too high) detected at line 6812
- []
-
-[272
+ (./slides_c33.vrb) [272
 
 ]
 \openout4 = `slides_c33.vrb'.
@@ -3564,24 +3478,22 @@ Overfull \vbox (116.82814pt too high) detected at line 6812
 \openout4 = `slides_c33.vrb'.
 
  (./slides_c33.vrb)
-Overfull \vbox (2.0165pt too high) detected at line 6877
- []
-
 [274
 
 ]
 \openout4 = `slides_c33.vrb'.
 
- (./slides_c33.vrb) [275
+ (./slides_c33.vrb)
+Overfull \vbox (116.82814pt too high) detected at line 7049
+ []
+
+[275
 
 ]
 \openout4 = `slides_c33.vrb'.
 
- (./slides_c33.vrb
-File: figure/unnamed-chunk-174-1.pdf Graphic file (type pdf)
-<use figure/unnamed-chunk-174-1.pdf>
-)
-Overfull \vbox (81.49246pt too high) detected at line 6926
+ (./slides_c33.vrb)
+Overfull \vbox (144.79465pt too high) detected at line 7088
  []
 
 [276
@@ -3589,17 +3501,13 @@ Overfull \vbox (81.49246pt too high) detected at line 6926
 ]
 \openout4 = `slides_c33.vrb'.
 
- (./slides_c33.vrb)
-Overfull \vbox (17.7408pt too high) detected at line 6969
- []
-
-[277
+ (./slides_c33.vrb) [277
 
 ]
 \openout4 = `slides_c33.vrb'.
 
  (./slides_c33.vrb)
-Overfull \vbox (132.55244pt too high) detected at line 7007
+Overfull \vbox (2.0165pt too high) detected at line 7153
  []
 
 [278
@@ -3612,18 +3520,32 @@ Overfull \vbox (132.55244pt too high) detected at line 7007
 ]
 \openout4 = `slides_c33.vrb'.
 
- (./slides_c33.vrb) [280
+ (./slides_c33.vrb
+File: figure/unnamed-chunk-178-1.pdf Graphic file (type pdf)
+<use figure/unnamed-chunk-178-1.pdf>
+)
+Overfull \vbox (39.1654pt too high) detected at line 7202
+ []
+
+[280
 
 ]
 \openout4 = `slides_c33.vrb'.
 
  (./slides_c33.vrb)
+Overfull \vbox (17.7408pt too high) detected at line 7245
+ []
+
 [281
 
 ]
 \openout4 = `slides_c33.vrb'.
 
- (./slides_c33.vrb) [282
+ (./slides_c33.vrb)
+Overfull \vbox (132.55244pt too high) detected at line 7283
+ []
+
+[282
 
 ]
 \openout4 = `slides_c33.vrb'.
@@ -3633,29 +3555,18 @@ Overfull \vbox (132.55244pt too high) detected at line 7007
 ]
 \openout4 = `slides_c33.vrb'.
 
- (./slides_c33.vrb)
-Overfull \vbox (17.71889pt too high) detected at line 7183
- []
-
-[284
+ (./slides_c33.vrb) [284
 
 ]
 \openout4 = `slides_c33.vrb'.
 
  (./slides_c33.vrb)
-Overfull \vbox (31.51599pt too high) detected at line 7216
- []
-
 [285
 
 ]
 \openout4 = `slides_c33.vrb'.
 
- (./slides_c33.vrb)
-Overfull \vbox (88.46742pt too high) detected at line 7251
- []
-
-[286
+ (./slides_c33.vrb) [286
 
 ]
 \openout4 = `slides_c33.vrb'.
@@ -3665,34 +3576,52 @@ Overfull \vbox (88.46742pt too high) detected at line 7251
 ]
 \openout4 = `slides_c33.vrb'.
 
- (./slides_c33.vrb) [288
+ (./slides_c33.vrb)
+Overfull \vbox (4.11888pt too high) detected at line 7469
+ []
+
+[288
 
 ]
 \openout4 = `slides_c33.vrb'.
 
  (./slides_c33.vrb)
+Overfull \vbox (42.7289pt too high) detected at line 7505
+ []
+
 [289
 
 ]
 \openout4 = `slides_c33.vrb'.
 
- (./slides_c33.vrb) [290
+ (./slides_c33.vrb)
+Overfull \vbox (70.00557pt too high) detected at line 7539
+ []
 
-]
-\openout4 = `slides_c33.vrb'.
-
- (./slides_c33.vrb) [291
+[290
 
 ]
 \openout4 = `slides_c33.vrb'.
 
  (./slides_c33.vrb)
-[292
+Overfull \vbox (42.80556pt too high) detected at line 7575
+ []
+
+[291
 
 ]
 \openout4 = `slides_c33.vrb'.
 
- (./slides_c33.vrb) [293
+ (./slides_c33.vrb) [292
+
+]
+\openout4 = `slides_c33.vrb'.
+
+ (./slides_c33.vrb)
+Overfull \vbox (88.46742pt too high) detected at line 7637
+ []
+
+[293
 
 ]
 \openout4 = `slides_c33.vrb'.
@@ -3702,38 +3631,28 @@ Overfull \vbox (88.46742pt too high) detected at line 7251
 ]
 \openout4 = `slides_c33.vrb'.
 
- (./slides_c33.vrb)
-Overfull \vbox (0.63667pt too high) detected at line 7518
- []
-
-[295
-
-]
-\openout4 = `slides_c33.vrb'.
-
- (./slides_c33.vrb) [296
-
-]
-\openout4 = `slides_c33.vrb'.
-
- (./slides_c33.vrb
-File: figure/unnamed-chunk-196-1.pdf Graphic file (type pdf)
-<use figure/unnamed-chunk-196-1.pdf>
-)
-Overfull \vbox (66.24811pt too high) detected at line 7566
- []
-
-[297
-
-] [298
+ (./slides_c33.vrb) [295
 
 ]
 \openout4 = `slides_c33.vrb'.
 
  (./slides_c33.vrb)
-Overfull \vbox (263.83305pt too high) detected at line 7639
- []
+[296
 
+]
+\openout4 = `slides_c33.vrb'.
+
+ (./slides_c33.vrb) [297
+
+]
+\openout4 = `slides_c33.vrb'.
+
+ (./slides_c33.vrb) [298
+
+]
+\openout4 = `slides_c33.vrb'.
+
+ (./slides_c33.vrb)
 [299
 
 ]
@@ -3749,7 +3668,13 @@ Overfull \vbox (263.83305pt too high) detected at line 7639
 ]
 \openout4 = `slides_c33.vrb'.
 
- (./slides_c33.vrb)
+ (./slides_c33.vrb
+LaTeX Font Info:    Font shape `TU/lmtt/bx/n' in size <9> not available
+(Font)              Font shape `TU/lmtt/b/n' tried instead on input line 15.
+)
+Overfull \vbox (0.15086pt too high) detected at line 7927
+ []
+
 [302
 
 ]
@@ -3760,19 +3685,33 @@ Overfull \vbox (263.83305pt too high) detected at line 7639
 ]
 \openout4 = `slides_c33.vrb'.
 
- (./slides_c33.vrb) [304
+ (./slides_c33.vrb
+File: figure/unnamed-chunk-204-1.pdf Graphic file (type pdf)
+<use figure/unnamed-chunk-204-1.pdf>
+)
+Overfull \vbox (36.36455pt too high) detected at line 7973
+ []
+
+[304
 
 ]
-\openout4 = `slides_c33.vrb'.
+Underfull \hbox (badness 1360) in paragraph at lines 7996--7996
+[]\TU/lmss/m/n/10.95 Combine columns that measure same
+ []
 
- (./slides_c33.vrb)
+! Undefined control sequence.
+\beamer@doifinframe ...tt {pivot\_longer} (\textt 
+                                                  {gather}) and \texttt {piv...
+l.7996 \end{frame}
+                  
+? 
 [305
 
 ]
 \openout4 = `slides_c33.vrb'.
 
  (./slides_c33.vrb)
-Overfull \vbox (14.84999pt too high) detected at line 7832
+Overfull \vbox (218.41418pt too high) detected at line 8051
  []
 
 [306
@@ -3785,19 +3724,12 @@ Overfull \vbox (14.84999pt too high) detected at line 7832
 ]
 \openout4 = `slides_c33.vrb'.
 
- (./slides_c33.vrb)
-Overfull \vbox (61.61781pt too high) detected at line 7900
- []
-
-[308
+ (./slides_c33.vrb) [308
 
 ]
 \openout4 = `slides_c33.vrb'.
 
  (./slides_c33.vrb)
-Overfull \vbox (14.00685pt too high) detected at line 7930
- []
-
 [309
 
 ]
@@ -3808,41 +3740,42 @@ Overfull \vbox (14.00685pt too high) detected at line 7930
 ]
 \openout4 = `slides_c33.vrb'.
 
+ (./slides_c33.vrb) [311
+
+]
+\openout4 = `slides_c33.vrb'.
+
  (./slides_c33.vrb)
-Overfull \vbox (8.60844pt too high) detected at line 7981
+[312
+
+]
+\openout4 = `slides_c33.vrb'.
+
+ (./slides_c33.vrb)
+Overfull \vbox (14.84999pt too high) detected at line 8244
  []
 
-[311
+[313
 
 ]
 \openout4 = `slides_c33.vrb'.
 
- (./slides_c33.vrb) [312
-
-]
-\openout4 = `slides_c33.vrb'.
-
- (./slides_c33.vrb) [313
+ (./slides_c33.vrb) [314
 
 ]
 \openout4 = `slides_c33.vrb'.
 
  (./slides_c33.vrb)
-Overfull \vbox (23.74144pt too high) detected at line 8061
+Overfull \vbox (61.61781pt too high) detected at line 8312
  []
 
-[314
-
-]
-\openout4 = `slides_c33.vrb'.
-
- (./slides_c33.vrb) [315
+[315
 
 ]
 \openout4 = `slides_c33.vrb'.
 
  (./slides_c33.vrb)
-Overfull \vbox (22.30699pt too high) detected at line 8117
+Overfull \vbox (14.00685pt too high) detected at line 8342
  []
 
 [316
@@ -3850,17 +3783,13 @@ Overfull \vbox (22.30699pt too high) detected at line 8117
 ]
 \openout4 = `slides_c33.vrb'.
 
- (./slides_c33.vrb)
-Overfull \vbox (22.31795pt too high) detected at line 8147
- []
-
-[317
+ (./slides_c33.vrb) [317
 
 ]
 \openout4 = `slides_c33.vrb'.
 
  (./slides_c33.vrb)
-Overfull \vbox (22.31795pt too high) detected at line 8177
+Overfull \vbox (8.60844pt too high) detected at line 8393
  []
 
 [318
@@ -3868,11 +3797,7 @@ Overfull \vbox (22.31795pt too high) detected at line 8177
 ]
 \openout4 = `slides_c33.vrb'.
 
- (./slides_c33.vrb)
-Overfull \vbox (22.31795pt too high) detected at line 8207
- []
-
-[319
+ (./slides_c33.vrb) [319
 
 ]
 \openout4 = `slides_c33.vrb'.
@@ -3883,9 +3808,6 @@ Overfull \vbox (22.31795pt too high) detected at line 8207
 \openout4 = `slides_c33.vrb'.
 
  (./slides_c33.vrb)
-Overfull \vbox (22.31793pt too high) detected at line 8264
- []
-
 [321
 
 ]
@@ -3896,24 +3818,35 @@ Overfull \vbox (22.31793pt too high) detected at line 8264
 ]
 \openout4 = `slides_c33.vrb'.
 
- (./slides_c33.vrb) [323
+ (./slides_c33.vrb)
+Overfull \vbox (22.30699pt too high) detected at line 8533
+ []
+
+[323
 
 ]
 \openout4 = `slides_c33.vrb'.
 
  (./slides_c33.vrb)
-Overfull \vbox (24.02608pt too high) detected at line 8362
+Overfull \vbox (22.31795pt too high) detected at line 8563
  []
 
 [324
 
-] [325
+]
+\openout4 = `slides_c33.vrb'.
+
+ (./slides_c33.vrb)
+Overfull \vbox (22.31795pt too high) detected at line 8593
+ []
+
+[325
 
 ]
 \openout4 = `slides_c33.vrb'.
 
  (./slides_c33.vrb)
-Overfull \vbox (32.841pt too high) detected at line 8416
+Overfull \vbox (22.31795pt too high) detected at line 8623
  []
 
 [326
@@ -3926,47 +3859,43 @@ Overfull \vbox (32.841pt too high) detected at line 8416
 ]
 \openout4 = `slides_c33.vrb'.
 
- (./slides_c33.vrb) [328
+ (./slides_c33.vrb)
+Overfull \vbox (22.31793pt too high) detected at line 8680
+ []
+
+[328
+
+]
+\openout4 = `slides_c33.vrb'.
+
+ (./slides_c33.vrb) [329
+
+]
+\openout4 = `slides_c33.vrb'.
+
+ (./slides_c33.vrb) [330
 
 ]
 \openout4 = `slides_c33.vrb'.
 
  (./slides_c33.vrb)
-Overfull \vbox (30.60715pt too high) detected at line 8492
- []
-
-[329
-
-]
-\openout4 = `slides_c33.vrb'.
-
- (./slides_c33.vrb)
-Overfull \vbox (49.58365pt too high) detected at line 8524
- []
-
-[330
-
-]
-\openout4 = `slides_c33.vrb'.
-
- (./slides_c33.vrb)
-Overfull \vbox (63.1289pt too high) detected at line 8557
- []
-
 [331
 
+] [332
+
 ]
 \openout4 = `slides_c33.vrb'.
 
  (./slides_c33.vrb)
-Overfull \vbox (30.83322pt too high) detected at line 8599
+Overfull \vbox (32.841pt too high) detected at line 8834
  []
 
-[332
+[333
 
-] [333
+]
+\openout4 = `slides_c33.vrb'.
 
-] [334
+ (./slides_c33.vrb) [334
 
 ]
 \openout4 = `slides_c33.vrb'.
@@ -3976,102 +3905,97 @@ Overfull \vbox (30.83322pt too high) detected at line 8599
 ]
 \openout4 = `slides_c33.vrb'.
 
- (./slides_c33.vrb) [336
+ (./slides_c33.vrb)
+Overfull \vbox (30.60715pt too high) detected at line 8920
+ []
+
+[336
+
+]
+\openout4 = `slides_c33.vrb'.
+
+ (./slides_c33.vrb)
+Overfull \vbox (49.58365pt too high) detected at line 8952
+ []
+
+[337
+
+]
+\openout4 = `slides_c33.vrb'.
+
+ (./slides_c33.vrb)
+Overfull \vbox (63.1289pt too high) detected at line 8985
+ []
+
+[338
+
+]
+\openout4 = `slides_c33.vrb'.
+
+ (./slides_c33.vrb) [339
+
+] [340
+
+] [341
+
+]
+\openout4 = `slides_c33.vrb'.
+
+ (./slides_c33.vrb) [342
 
 ]
 \openout4 = `slides_c33.vrb'.
 
 
-(./slides_c33.vrb) [337
+(./slides_c33.vrb) [343
 
 ]
 \openout4 = `slides_c33.vrb'.
 
- (./slides_c33.vrb) [338
+ (./slides_c33.vrb) [344
 
 ]
 \openout4 = `slides_c33.vrb'.
 
- (./slides_c33.vrb
+ (./slides_c33.vrb) [345
+
+]
+\openout4 = `slides_c33.vrb'.
+
+
+(./slides_c33.vrb
 Overfull \hbox (8.37831pt too wide) in paragraph at lines 13--13
 []\TU/lmtt/m/n/10.95 ## []geom_smooth()[] using method = []loess[] and formula 
 []y ~ x[][] 
  []
 
-File: figure/unnamed-chunk-231-1.pdf Graphic file (type pdf)
-<use figure/unnamed-chunk-231-1.pdf>
+File: figure/unnamed-chunk-240-1.pdf Graphic file (type pdf)
+<use figure/unnamed-chunk-240-1.pdf>
 )
-Overfull \vbox (102.94182pt too high) detected at line 8744
+Overfull \vbox (34.34549pt too high) detected at line 9174
  []
 
-[339
+[346
 
 ]
 \openout4 = `slides_c33.vrb'.
 
- (./slides_c33.vrb) [340
+ (./slides_c33.vrb) [347
 
 ]
 \openout4 = `slides_c33.vrb'.
 
  (./slides_c33.vrb)
-Overfull \vbox (119.85033pt too high) detected at line 8800
+Overfull \vbox (22.2311pt too high) detected at line 9231
  []
 
-[341
+[348
 
 ]
 \openout4 = `slides_c33.vrb'.
 
  (./slides_c33.vrb)
-Overfull \vbox (75.31625pt too high) detected at line 8846
- []
-
-[342
-
-]
-\openout4 = `slides_c33.vrb'.
-
- (./slides_c33.vrb) [343
-
-]
-\openout4 = `slides_c33.vrb'.
-
- (./slides_c33.vrb
-File: figure/unnamed-chunk-235-1.pdf Graphic file (type pdf)
-<use figure/unnamed-chunk-235-1.pdf>
-)
-Overfull \vbox (93.44673pt too high) detected at line 8888
- []
-
-[344
-
-] [345
-
-]
-\openout4 = `slides_c33.vrb'.
-
- (./slides_c33.vrb) [346
-
-]
-\openout4 = `slides_c33.vrb'.
-
- (./slides_c33.vrb)
-Overfull \vbox (11.92622pt too high) detected at line 8992
- []
-
-[347
-
-] [348
-
-]
-\openout4 = `slides_c33.vrb'.
-
- (./slides_c33.vrb
-File: figure/unnamed-chunk-239-1.pdf Graphic file (type pdf)
-<use figure/unnamed-chunk-239-1.pdf>
-)
-Overfull \vbox (106.99199pt too high) detected at line 9030
+Overfull \vbox (35.34183pt too high) detected at line 9285
  []
 
 [349
@@ -4082,10 +4006,13 @@ Overfull \vbox (106.99199pt too high) detected at line 9030
  (./slides_c33.vrb) [350
 
 ]
-File: figure/unnamed-chunk-240-1.pdf Graphic file (type pdf)
-<use figure/unnamed-chunk-240-1.pdf>
+\openout4 = `slides_c33.vrb'.
 
-Overfull \vbox (90.3356pt too high) detected at line 9088
+ (./slides_c33.vrb
+File: figure/unnamed-chunk-246-1.pdf Graphic file (type pdf)
+<use figure/unnamed-chunk-246-1.pdf>
+)
+Overfull \vbox (34.35881pt too high) detected at line 9327
  []
 
 [351
@@ -4098,27 +4025,90 @@ Overfull \vbox (90.3356pt too high) detected at line 9088
  (./slides_c33.vrb) [353
 
 ]
-File: figure/unnamed-chunk-241-1.pdf Graphic file (type pdf)
-<use figure/unnamed-chunk-241-1.pdf>
+\openout4 = `slides_c33.vrb'.
 
-Overfull \vbox (90.34656pt too high) detected at line 9182
+ (./slides_c33.vrb)
+Overfull \vbox (11.92622pt too high) detected at line 9431
  []
 
 [354
+
+] [355
+
+]
+\openout4 = `slides_c33.vrb'.
+
+ (./slides_c33.vrb
+File: figure/unnamed-chunk-250-1.pdf Graphic file (type pdf)
+<use figure/unnamed-chunk-250-1.pdf>
+)
+Overfull \vbox (33.64146pt too high) detected at line 9469
+ []
+
+[356
+
+]
+\openout4 = `slides_c33.vrb'.
+
+ (./slides_c33.vrb) [357
+
+]
+\openout4 = `slides_c33.vrb'.
+
+ (./slides_c33.vrb) [358
+
+]
+File: figure/unnamed-chunk-251-1.pdf Graphic file (type pdf)
+<use figure/unnamed-chunk-251-1.pdf>
+
+Overfull \vbox (90.3356pt too high) detected at line 9532
+ []
+
+[359
+
+] [360
+
+]
+\openout4 = `slides_c33.vrb'.
+
+ (./slides_c33.vrb
+Overfull \hbox (8.37831pt too wide) in paragraph at lines 29--29
+[]\TU/lmtt/m/n/10.95 ## []geom_smooth()[] using method = []loess[] and formula 
+[]y ~ x[][] 
+ []
+
+) [361
+
+]
+\openout4 = `slides_c33.vrb'.
+
+ (./slides_c33.vrb
+Overfull \hbox (8.37831pt too wide) in paragraph at lines 8--8
+[]\TU/lmtt/m/n/10.95 ## []geom_smooth()[] using method = []loess[] and formula 
+[]y ~ x[][] 
+ []
+
+File: figure/unnamed-chunk-252-1.pdf Graphic file (type pdf)
+<use figure/unnamed-chunk-252-1.pdf>
+)
+Overfull \vbox (46.70872pt too high) detected at line 9634
+ []
+
+[362
 
 ]
 \openout4 = `slides_c33.vrb'.
 
  (./slides_c33.vrb)
-Overfull \vbox (0.6914pt too high) detected at line 9217
+Overfull \vbox (0.6914pt too high) detected at line 9669
  []
 
-[355
+[363
 
 ]
 \openout4 = `slides_c33.vrb'.
 
- (./slides_c33.vrb) [356
+ (./slides_c33.vrb) [364
 
 ]
 \openout4 = `slides_c33.vrb'.
@@ -4127,55 +4117,15 @@ Overfull \vbox (0.6914pt too high) detected at line 9217
 File: figure/resida-1.pdf Graphic file (type pdf)
 <use figure/resida-1.pdf>
 )
-Overfull \vbox (93.44673pt too high) detected at line 9252
+Overfull \vbox (24.8504pt too high) detected at line 9704
  []
 
-[357
+[365
 
 ]
 \openout4 = `slides_c33.vrb'.
 
- (./slides_c33.vrb) [358
-
-]
-\openout4 = `slides_c33.vrb'.
-
- (./slides_c33.vrb) [359
-
-]
-\openout4 = `slides_c33.vrb'.
-
- (./slides_c33.vrb)
-[360
-
-]
-File: figure/unnamed-chunk-245-1.pdf Graphic file (type pdf)
-<use figure/unnamed-chunk-245-1.pdf>
-
-Overfull \vbox (69.75084pt too high) detected at line 9349
- []
-
-[361
-
-] [362
-
-]
-\openout4 = `slides_c33.vrb'.
-
- (./slides_c33.vrb) [363
-
-]
-\openout4 = `slides_c33.vrb'.
-
- (./slides_c33.vrb) [364
-
-] [365
-
-]
-\openout4 = `slides_c33.vrb'.
-
-
-(./slides_c33.vrb) [366
+ (./slides_c33.vrb) [366
 
 ]
 \openout4 = `slides_c33.vrb'.
@@ -4185,18 +4135,19 @@ Overfull \vbox (69.75084pt too high) detected at line 9349
 ]
 \openout4 = `slides_c33.vrb'.
 
- (./slides_c33.vrb) [368
+ (./slides_c33.vrb)
+[368
 
 ]
-\openout4 = `slides_c33.vrb'.
+File: figure/unnamed-chunk-256-1.pdf Graphic file (type pdf)
+<use figure/unnamed-chunk-256-1.pdf>
 
+Overfull \vbox (20.85048pt too high) detected at line 9801
+ []
 
-(./slides_c33.vrb) [369
+[369
 
-]
-\openout4 = `slides_c33.vrb'.
-
- (./slides_c33.vrb) [370
+] [370
 
 ]
 \openout4 = `slides_c33.vrb'.
@@ -4206,39 +4157,31 @@ Overfull \vbox (69.75084pt too high) detected at line 9349
 ]
 \openout4 = `slides_c33.vrb'.
 
+ (./slides_c33.vrb) [372
 
-(./slides_c33.vrb) [372
-
-]
-File: figure/unnamed-chunk-255-1.pdf Graphic file (type pdf)
-<use figure/unnamed-chunk-255-1.pdf>
-
-Overfull \vbox (69.75084pt too high) detected at line 9680
- []
-
-[373
+] [373
 
 ]
 \openout4 = `slides_c33.vrb'.
 
- (./slides_c33.vrb)
-Overfull \vbox (8.73984pt too high) detected at line 9721
- []
 
-[374
+(./slides_c33.vrb) [374
 
 ]
 \openout4 = `slides_c33.vrb'.
 
- (./slides_c33.vrb)
-Overfull \vbox (10.87509pt too high) detected at line 9762
- []
+ (./slides_c33.vrb) [375
 
-[375
+]
+\openout4 = `slides_c33.vrb'.
 
-] [376
+ (./slides_c33.vrb) [376
 
-] [377
+]
+\openout4 = `slides_c33.vrb'.
+
+
+(./slides_c33.vrb) [377
 
 ]
 \openout4 = `slides_c33.vrb'.
@@ -4254,17 +4197,13 @@ Overfull \vbox (10.87509pt too high) detected at line 9762
 \openout4 = `slides_c33.vrb'.
 
 
-(./slides_c33.vrb)
-Overfull \vbox (4.62259pt too high) detected at line 9867
- []
-
-[380
+(./slides_c33.vrb) [380
 
 ]
-\openout4 = `slides_c33.vrb'.
+File: figure/unnamed-chunk-266-1.pdf Graphic file (type pdf)
+<use figure/unnamed-chunk-266-1.pdf>
 
- (./slides_c33.vrb)
-Overfull \vbox (10.20712pt too high) detected at line 9896
+Overfull \vbox (20.85048pt too high) detected at line 10133
  []
 
 [381
@@ -4277,41 +4216,17 @@ Overfull \vbox (10.20712pt too high) detected at line 9896
 ]
 \openout4 = `slides_c33.vrb'.
 
- (./slides_c33.vrb
-File: figure/unnamed-chunk-262-1.pdf Graphic file (type pdf)
-<use figure/unnamed-chunk-262-1.pdf>
-)
-Overfull \vbox (90.69829pt too high) detected at line 9939
- []
-
-[383
+ (./slides_c33.vrb) [383
 
 ]
 \openout4 = `slides_c33.vrb'.
 
- (./slides_c33.vrb) [384
+ (./slides_c33.vrb)
+[384
 
-]
-\openout4 = `slides_c33.vrb'.
+] [385
 
- (./slides_c33.vrb) [385
-
-]
-\openout4 = `slides_c33.vrb'.
-
- (./slides_c33.vrb
-Overfull \hbox (8.37831pt too wide) in paragraph at lines 13--13
-[]\TU/lmtt/m/n/10.95 ## []geom_smooth()[] using method = []loess[] and formula 
-[]y ~ x[][] 
- []
-
-File: figure/unnamed-chunk-264-1.pdf Graphic file (type pdf)
-<use figure/unnamed-chunk-264-1.pdf>
-)
-Overfull \vbox (127.392pt too high) detected at line 10017
- []
-
-[386
+] [386
 
 ]
 \openout4 = `slides_c33.vrb'.
@@ -4321,25 +4236,23 @@ Overfull \vbox (127.392pt too high) detected at line 10017
 ]
 \openout4 = `slides_c33.vrb'.
 
- (./slides_c33.vrb)
-Overfull \vbox (66.381pt too high) detected at line 10081
+ (./slides_c33.vrb) [388
+
+]
+\openout4 = `slides_c33.vrb'.
+
+
+(./slides_c33.vrb)
+Overfull \vbox (4.62259pt too high) detected at line 10329
  []
 
-[388
+[389
 
 ]
 \openout4 = `slides_c33.vrb'.
 
- (./slides_c33.vrb) [389
-
-]
-\openout4 = `slides_c33.vrb'.
-
- (./slides_c33.vrb
-File: figure/unnamed-chunk-267-1.pdf Graphic file (type pdf)
-<use figure/unnamed-chunk-267-1.pdf>
-)
-Overfull \vbox (93.44673pt too high) detected at line 10140
+ (./slides_c33.vrb)
+Overfull \vbox (10.20712pt too high) detected at line 10358
  []
 
 [390
@@ -4352,8 +4265,11 @@ Overfull \vbox (93.44673pt too high) detected at line 10140
 ]
 \openout4 = `slides_c33.vrb'.
 
- (./slides_c33.vrb)
-Overfull \vbox (37.3524pt too high) detected at line 10194
+ (./slides_c33.vrb
+File: figure/unnamed-chunk-273-1.pdf Graphic file (type pdf)
+<use figure/unnamed-chunk-273-1.pdf>
+)
+Overfull \vbox (31.61037pt too high) detected at line 10401
  []
 
 [392
@@ -4366,27 +4282,35 @@ Overfull \vbox (37.3524pt too high) detected at line 10194
 ]
 \openout4 = `slides_c33.vrb'.
 
- (./slides_c33.vrb
-File: figure/unnamed-chunk-271-1.pdf Graphic file (type pdf)
-<use figure/unnamed-chunk-271-1.pdf>
-)
-Overfull \vbox (90.69829pt too high) detected at line 10228
- []
-
-[394
-
-] [395
-
-] [396
+ (./slides_c33.vrb) [394
 
 ]
 \openout4 = `slides_c33.vrb'.
 
  (./slides_c33.vrb
-File: figure/unnamed-chunk-272-1.pdf Graphic file (type pdf)
-<use figure/unnamed-chunk-272-1.pdf>
+Overfull \hbox (8.37831pt too wide) in paragraph at lines 13--13
+[]\TU/lmtt/m/n/10.95 ## []geom_smooth()[] using method = []loess[] and formula 
+[]y ~ x[][] 
+ []
+
+File: figure/unnamed-chunk-275-1.pdf Graphic file (type pdf)
+<use figure/unnamed-chunk-275-1.pdf>
 )
-Overfull \vbox (127.4577pt too high) detected at line 10289
+Overfull \vbox (34.34549pt too high) detected at line 10479
+ []
+
+[395
+
+]
+\openout4 = `slides_c33.vrb'.
+
+ (./slides_c33.vrb) [396
+
+]
+\openout4 = `slides_c33.vrb'.
+
+ (./slides_c33.vrb)
+Overfull \vbox (13.38509pt too high) detected at line 10547
  []
 
 [397
@@ -4399,19 +4323,19 @@ Overfull \vbox (127.4577pt too high) detected at line 10289
 ]
 \openout4 = `slides_c33.vrb'.
 
- (./slides_c33.vrb) [399
+ (./slides_c33.vrb
+File: figure/unnamed-chunk-278-1.pdf Graphic file (type pdf)
+<use figure/unnamed-chunk-278-1.pdf>
+)
+Overfull \vbox (34.35881pt too high) detected at line 10606
+ []
+
+[399
 
 ]
 \openout4 = `slides_c33.vrb'.
 
- (./slides_c33.vrb
-File: figure/unnamed-chunk-275-1.pdf Graphic file (type pdf)
-<use figure/unnamed-chunk-275-1.pdf>
-)
-Overfull \vbox (92.66928pt too high) detected at line 10368
- []
-
-[400
+ (./slides_c33.vrb) [400
 
 ]
 \openout4 = `slides_c33.vrb'.
@@ -4421,38 +4345,33 @@ Overfull \vbox (92.66928pt too high) detected at line 10368
 ]
 \openout4 = `slides_c33.vrb'.
 
- (./slides_c33.vrb) [402
+ (./slides_c33.vrb)
+[402
 
 ]
 \openout4 = `slides_c33.vrb'.
 
  (./slides_c33.vrb
-Overfull \hbox (146.34828pt too wide) in paragraph at lines 37--37
-[]\TU/lmtt/m/n/10.95 ## Model 2: log.rut.depth ~ pct.a.surf + pct.a.base + fine
-s + voids + log.viscosity +[] 
- []
-
+File: figure/unnamed-chunk-282-1.pdf Graphic file (type pdf)
+<use figure/unnamed-chunk-282-1.pdf>
 )
-Overfull \vbox (26.74168pt too high) detected at line 10477
+Overfull \vbox (31.61037pt too high) detected at line 10698
  []
 
 [403
 
-]
-\openout4 = `slides_c33.vrb'.
+] [404
 
- (./slides_c33.vrb) [404
-
-]
-\openout4 = `slides_c33.vrb'.
-
- (./slides_c33.vrb) [405
+] [405
 
 ]
 \openout4 = `slides_c33.vrb'.
 
- (./slides_c33.vrb)
-Overfull \vbox (10.88605pt too high) detected at line 10586
+ (./slides_c33.vrb
+File: figure/unnamed-chunk-283-1.pdf Graphic file (type pdf)
+<use figure/unnamed-chunk-283-1.pdf>
+)
+Overfull \vbox (39.1654pt too high) detected at line 10759
  []
 
 [406
@@ -4470,7 +4389,13 @@ Overfull \vbox (10.88605pt too high) detected at line 10586
 ]
 \openout4 = `slides_c33.vrb'.
 
- (./slides_c33.vrb)
+ (./slides_c33.vrb
+File: figure/unnamed-chunk-286-1.pdf Graphic file (type pdf)
+<use figure/unnamed-chunk-286-1.pdf>
+)
+Overfull \vbox (28.82715pt too high) detected at line 10840
+ []
+
 [409
 
 ]
@@ -4486,17 +4411,18 @@ Overfull \vbox (10.88605pt too high) detected at line 10586
 ]
 \openout4 = `slides_c33.vrb'.
 
- (./slides_c33.vrb)
-[412
+ (./slides_c33.vrb
+Overfull \hbox (59.32976pt too wide) in paragraph at lines 43--43
+[]\TU/lmtt/m/n/9 ## Model 2: log.rut.depth ~ pct.a.surf + pct.a.base + fines + 
+voids + log.viscosity +[] 
+ []
+
+) [412
 
 ]
 \openout4 = `slides_c33.vrb'.
 
- (./slides_c33.vrb)
-Overfull \vbox (131.03041pt too high) detected at line 10808
- []
-
-[413
+ (./slides_c33.vrb) [413
 
 ]
 \openout4 = `slides_c33.vrb'.
@@ -4507,9 +4433,6 @@ Overfull \vbox (131.03041pt too high) detected at line 10808
 \openout4 = `slides_c33.vrb'.
 
  (./slides_c33.vrb)
-Overfull \vbox (131.98305pt too high) detected at line 10866
- []
-
 [415
 
 ]
@@ -4525,13 +4448,7 @@ Overfull \vbox (131.98305pt too high) detected at line 10866
 ]
 \openout4 = `slides_c33.vrb'.
 
- (./slides_c33.vrb
-File: figure/unnamed-chunk-293-1.pdf Graphic file (type pdf)
-<use figure/unnamed-chunk-293-1.pdf>
-)
-Overfull \vbox (90.69829pt too high) detected at line 10934
- []
-
+ (./slides_c33.vrb)
 [418
 
 ]
@@ -4542,34 +4459,34 @@ Overfull \vbox (90.69829pt too high) detected at line 10934
 ]
 \openout4 = `slides_c33.vrb'.
 
- (./slides_c33.vrb
-File: figure/unnamed-chunk-295-1.pdf Graphic file (type pdf)
-<use figure/unnamed-chunk-295-1.pdf>
-)
-Overfull \vbox (92.66928pt too high) detected at line 10974
- []
-
-[420
-
-] [421
-
-] [422
-
-] [423
-
-]
-\openout4 = `slides_c33.vrb'.
-
- (./slides_c33.vrb) [424
+ (./slides_c33.vrb) [420
 
 ]
 \openout4 = `slides_c33.vrb'.
 
  (./slides_c33.vrb)
-Overfull \vbox (165.21657pt too high) detected at line 11088
- []
+[421
 
-[425
+]
+\openout4 = `slides_c33.vrb'.
+
+ (./slides_c33.vrb) [422
+
+]
+\openout4 = `slides_c33.vrb'.
+
+ (./slides_c33.vrb) [423
+
+]
+\openout4 = `slides_c33.vrb'.
+
+ (./slides_c33.vrb)
+[424
+
+]
+\openout4 = `slides_c33.vrb'.
+
+ (./slides_c33.vrb) [425
 
 ]
 \openout4 = `slides_c33.vrb'.
@@ -4579,41 +4496,37 @@ Overfull \vbox (165.21657pt too high) detected at line 11088
 ]
 \openout4 = `slides_c33.vrb'.
 
- (./slides_c33.vrb) [427
+ (./slides_c33.vrb
+File: figure/unnamed-chunk-308-1.pdf Graphic file (type pdf)
+<use figure/unnamed-chunk-308-1.pdf>
+)
+Overfull \vbox (22.10196pt too high) detected at line 11402
+ []
+
+[427
 
 ]
 \openout4 = `slides_c33.vrb'.
 
- (./slides_c33.vrb)
-[428
-
-] [429
+ (./slides_c33.vrb) [428
 
 ]
 \openout4 = `slides_c33.vrb'.
 
  (./slides_c33.vrb
-Overfull \hbox (261.32324pt too wide) in paragraph at lines 44--44
-[]\TU/lmtt/m/n/10.95 ## Error in UseMethod("TukeyHSD"): no applicable method fo
-r []TukeyHSD[] applied to an object of class "lm"[] 
- []
-
+File: figure/unnamed-chunk-310-1.pdf Graphic file (type pdf)
+<use figure/unnamed-chunk-310-1.pdf>
 )
-Overfull \vbox (28.09949pt too high) detected at line 11237
+Overfull \vbox (43.76892pt too high) detected at line 11442
  []
 
-[430
+[429
+
+] [430
 
 ] [431
 
-]
-\openout4 = `slides_c33.vrb'.
-
- (./slides_c33.vrb)
-Overfull \vbox (40.31992pt too high) detected at line 11289
- []
-
-[432
+] [432
 
 ]
 \openout4 = `slides_c33.vrb'.
@@ -4624,7 +4537,7 @@ Overfull \vbox (40.31992pt too high) detected at line 11289
 \openout4 = `slides_c33.vrb'.
 
  (./slides_c33.vrb)
-Overfull \vbox (14.29141pt too high) detected at line 11352
+Overfull \vbox (165.21657pt too high) detected at line 11556
  []
 
 [434
@@ -4637,37 +4550,37 @@ Overfull \vbox (14.29141pt too high) detected at line 11352
 ]
 \openout4 = `slides_c33.vrb'.
 
- (./slides_c33.vrb
-File: figure/unnamed-chunk-306-1.pdf Graphic file (type pdf)
-<use figure/unnamed-chunk-306-1.pdf>
-)
-Overfull \vbox (120.592pt too high) detected at line 11390
- []
-
-[436
-
-] [437
-
-]
-\openout4 = `slides_c33.vrb'.
-
- (./slides_c33.vrb) [438
+ (./slides_c33.vrb) [436
 
 ]
 \openout4 = `slides_c33.vrb'.
 
  (./slides_c33.vrb)
-Overfull \vbox (1.30461pt too high) detected at line 11452
+[437
+
+] [438
+
+]
+\openout4 = `slides_c33.vrb'.
+
+ (./slides_c33.vrb
+Overfull \hbox (153.82973pt too wide) in paragraph at lines 50--50
+[]\TU/lmtt/m/n/9 ## Error in UseMethod("TukeyHSD"): no applicable method for []
+TukeyHSD[] applied to an object of class "lm"[] 
  []
 
-[439
+) [439
 
 ] [440
 
 ]
 \openout4 = `slides_c33.vrb'.
 
- (./slides_c33.vrb) [441
+ (./slides_c33.vrb)
+Overfull \vbox (2.5991pt too high) detected at line 11788
+ []
+
+[441
 
 ]
 \openout4 = `slides_c33.vrb'.
@@ -4677,7 +4590,11 @@ Overfull \vbox (1.30461pt too high) detected at line 11452
 ]
 \openout4 = `slides_c33.vrb'.
 
- (./slides_c33.vrb) [443
+ (./slides_c33.vrb)
+Overfull \vbox (14.29141pt too high) detected at line 11851
+ []
+
+[443
 
 ]
 \openout4 = `slides_c33.vrb'.
@@ -4687,13 +4604,16 @@ Overfull \vbox (1.30461pt too high) detected at line 11452
 ]
 \openout4 = `slides_c33.vrb'.
 
- (./slides_c33.vrb) [445
+ (./slides_c33.vrb
+File: figure/unnamed-chunk-321-1.pdf Graphic file (type pdf)
+<use figure/unnamed-chunk-321-1.pdf>
+)
+Overfull \vbox (32.2997pt too high) detected at line 11889
+ []
 
-]
-\openout4 = `slides_c33.vrb'.
+[445
 
- (./slides_c33.vrb)
-[446
+] [446
 
 ]
 \openout4 = `slides_c33.vrb'.
@@ -4703,13 +4623,13 @@ Overfull \vbox (1.30461pt too high) detected at line 11452
 ]
 \openout4 = `slides_c33.vrb'.
 
- (./slides_c33.vrb) [448
-
-]
-\openout4 = `slides_c33.vrb'.
-
  (./slides_c33.vrb)
-[449
+Overfull \vbox (1.30461pt too high) detected at line 11951
+ []
+
+[448
+
+] [449
 
 ]
 \openout4 = `slides_c33.vrb'.
@@ -4724,8 +4644,7 @@ Overfull \vbox (1.30461pt too high) detected at line 11452
 ]
 \openout4 = `slides_c33.vrb'.
 
- (./slides_c33.vrb)
-[452
+ (./slides_c33.vrb) [452
 
 ]
 \openout4 = `slides_c33.vrb'.
@@ -4789,9 +4708,6 @@ Overfull \vbox (1.30461pt too high) detected at line 11452
 \openout4 = `slides_c33.vrb'.
 
  (./slides_c33.vrb)
-Overfull \vbox (29.07416pt too high) detected at line 12371
- []
-
 [464
 
 ]
@@ -4813,52 +4729,34 @@ Overfull \vbox (29.07416pt too high) detected at line 12371
 ]
 \openout4 = `slides_c33.vrb'.
 
- (./slides_c33.vrb)
-Overfull \vbox (2.00554pt too high) detected at line 12515
- []
+ (./slides_c33.vrb) [468
 
-[468
+]
+\openout4 = `slides_c33.vrb'.
+
+ (./slides_c33.vrb) [469
 
 ]
 \openout4 = `slides_c33.vrb'.
 
  (./slides_c33.vrb)
-Overfull \vbox (0.41779pt too high) detected at line 12552
- []
-
-[469
+[470
 
 ]
 \openout4 = `slides_c33.vrb'.
 
- (./slides_c33.vrb) [470
+ (./slides_c33.vrb) [471
 
 ]
 \openout4 = `slides_c33.vrb'.
 
- (./slides_c33.vrb)
-Overfull \vbox (2.66254pt too high) detected at line 12606
- []
-
-[471
+ (./slides_c33.vrb) [472
 
 ]
 \openout4 = `slides_c33.vrb'.
 
  (./slides_c33.vrb)
-Overfull \vbox (27.60686pt too high) detected at line 12643
- []
-
-[472
-
-]
-\openout4 = `slides_c33.vrb'.
-
- (./slides_c33.vrb
-File: Screenshot_2019-05-07_13-45-12.png Graphic file (type bmp)
-<Screenshot_2019-05-07_13-45-12.png>
-)
-Overfull \vbox (3.90993pt too high) detected at line 12664
+Overfull \vbox (29.07416pt too high) detected at line 12870
  []
 
 [473
@@ -4866,25 +4764,36 @@ Overfull \vbox (3.90993pt too high) detected at line 12664
 ]
 \openout4 = `slides_c33.vrb'.
 
- (./slides_c33.vrb
-File: Screenshot_2019-05-07_13-47-08.png Graphic file (type bmp)
-<Screenshot_2019-05-07_13-47-08.png>
-) [474
-
-] [475
-
-] [476
+ (./slides_c33.vrb) [474
 
 ]
 \openout4 = `slides_c33.vrb'.
 
- (./slides_c33.vrb) [477
+ (./slides_c33.vrb) [475
 
 ]
 \openout4 = `slides_c33.vrb'.
 
+ (./slides_c33.vrb)
+[476
 
-(./slides_c33.vrb) [478
+]
+\openout4 = `slides_c33.vrb'.
+
+ (./slides_c33.vrb)
+Overfull \vbox (2.00554pt too high) detected at line 13014
+ []
+
+[477
+
+]
+\openout4 = `slides_c33.vrb'.
+
+ (./slides_c33.vrb)
+Overfull \vbox (0.41779pt too high) detected at line 13051
+ []
+
+[478
 
 ]
 \openout4 = `slides_c33.vrb'.
@@ -4894,48 +4803,48 @@ File: Screenshot_2019-05-07_13-47-08.png Graphic file (type bmp)
 ]
 \openout4 = `slides_c33.vrb'.
 
+ (./slides_c33.vrb) [480
+
+]
+\openout4 = `slides_c33.vrb'.
+
  (./slides_c33.vrb)
-Overfull \vbox (38.14081pt too high) detected at line 12822
+[481
+
+]
+\openout4 = `slides_c33.vrb'.
+
+ (./slides_c33.vrb
+File: Screenshot_2019-05-07_13-45-12.png Graphic file (type bmp)
+<Screenshot_2019-05-07_13-45-12.png>
+)
+Overfull \vbox (3.90993pt too high) detected at line 13170
  []
 
-[480
+[482
 
 ]
 \openout4 = `slides_c33.vrb'.
 
- (./slides_c33.vrb) [481
+ (./slides_c33.vrb
+File: Screenshot_2019-05-07_13-47-08.png Graphic file (type bmp)
+<Screenshot_2019-05-07_13-47-08.png>
+) [483
+
+] [484
+
+] [485
 
 ]
 \openout4 = `slides_c33.vrb'.
 
- (./slides_c33.vrb) [482
+ (./slides_c33.vrb) [486
 
 ]
 \openout4 = `slides_c33.vrb'.
 
- (./slides_c33.vrb)
-[483
 
-]
-\openout4 = `slides_c33.vrb'.
-
- (./slides_c33.vrb) [484
-
-]
-\openout4 = `slides_c33.vrb'.
-
- (./slides_c33.vrb) [485
-
-]
-\openout4 = `slides_c33.vrb'.
-
- (./slides_c33.vrb)
-[486
-
-]
-\openout4 = `slides_c33.vrb'.
-
- (./slides_c33.vrb) [487
+(./slides_c33.vrb) [487
 
 ]
 \openout4 = `slides_c33.vrb'.
@@ -4946,6 +4855,9 @@ Overfull \vbox (38.14081pt too high) detected at line 12822
 \openout4 = `slides_c33.vrb'.
 
  (./slides_c33.vrb)
+Overfull \vbox (38.14081pt too high) detected at line 13328
+ []
+
 [489
 
 ]
@@ -4972,19 +4884,12 @@ Overfull \vbox (38.14081pt too high) detected at line 12822
 ]
 \openout4 = `slides_c33.vrb'.
 
- (./slides_c33.vrb)
-Overfull \vbox (14.77333pt too high) detected at line 13228
- []
-
-[494
+ (./slides_c33.vrb) [494
 
 ]
 \openout4 = `slides_c33.vrb'.
 
  (./slides_c33.vrb)
-Overfull \vbox (9.57202pt too high) detected at line 13260
- []
-
 [495
 
 ]
@@ -5013,7 +4918,11 @@ Overfull \vbox (9.57202pt too high) detected at line 13260
 
  (./slides_c33.vrb) [500
 
-] [501
+]
+\openout4 = `slides_c33.vrb'.
+
+ (./slides_c33.vrb)
+[501
 
 ]
 \openout4 = `slides_c33.vrb'.
@@ -5023,18 +4932,25 @@ Overfull \vbox (9.57202pt too high) detected at line 13260
 ]
 \openout4 = `slides_c33.vrb'.
 
- (./slides_c33.vrb) [503
+ (./slides_c33.vrb)
+Overfull \vbox (14.77333pt too high) detected at line 13734
+ []
 
-]
-\openout4 = `slides_c33.vrb'.
-
- (./slides_c33.vrb) [504
+[503
 
 ]
 \openout4 = `slides_c33.vrb'.
 
  (./slides_c33.vrb)
-[505
+Overfull \vbox (9.57202pt too high) detected at line 13766
+ []
+
+[504
+
+]
+\openout4 = `slides_c33.vrb'.
+
+ (./slides_c33.vrb) [505
 
 ]
 \openout4 = `slides_c33.vrb'.
@@ -5044,83 +4960,46 @@ Overfull \vbox (9.57202pt too high) detected at line 13260
 ]
 \openout4 = `slides_c33.vrb'.
 
- (./slides_c33.vrb) [507
+ (./slides_c33.vrb)
+[507
+
+]
+\openout4 = `slides_c33.vrb'.
+
+ (./slides_c33.vrb) [508
+
+]
+\openout4 = `slides_c33.vrb'.
+
+ (./slides_c33.vrb) [509
+
+] [510
+
+]
+\openout4 = `slides_c33.vrb'.
+
+ (./slides_c33.vrb) [511
+
+]
+\openout4 = `slides_c33.vrb'.
+
+ (./slides_c33.vrb) [512
+
+]
+\openout4 = `slides_c33.vrb'.
+
+ (./slides_c33.vrb) [513
 
 ]
 \openout4 = `slides_c33.vrb'.
 
  (./slides_c33.vrb)
-[508
+[514
 
 ]
 \openout4 = `slides_c33.vrb'.
 
- (./slides_c33.vrb
-File: figure/unnamed-chunk-380-1.pdf Graphic file (type pdf)
-<use figure/unnamed-chunk-380-1.pdf>
-)
-Overfull \vbox (90.69829pt too high) detected at line 13604
- []
-
-[509
-
-]
-\openout4 = `slides_c33.vrb'.
-
- (./slides_c33.vrb) [510
-
-]
-\openout4 = `slides_c33.vrb'.
-
- (./slides_c33.vrb
-File: figure/unnamed-chunk-382-1.pdf Graphic file (type pdf)
-<use figure/unnamed-chunk-382-1.pdf>
-)
-Overfull \vbox (106.99199pt too high) detected at line 13659
- []
-
-[511
-
-]
-\openout4 = `slides_c33.vrb'.
-
- (./slides_c33.vrb
-File: figure/unnamed-chunk-383-1.pdf Graphic file (type pdf)
-<use figure/unnamed-chunk-383-1.pdf>
-)
-Overfull \vbox (106.99199pt too high) detected at line 13677
- []
-
-[512
-
-]
-\openout4 = `slides_c33.vrb'.
-
- (./slides_c33.vrb
-File: figure/unnamed-chunk-384-1.pdf Graphic file (type pdf)
-<use figure/unnamed-chunk-384-1.pdf>
-)
-Overfull \vbox (106.99199pt too high) detected at line 13695
- []
-
-[513
-
-]
-\openout4 = `slides_c33.vrb'.
-
- (./slides_c33.vrb) [514
-
-]
-\openout4 = `slides_c33.vrb'.
-
- (./slides_c33.vrb
-File: figure/unnamed-chunk-386-1.pdf Graphic file (type pdf)
-<use figure/unnamed-chunk-386-1.pdf>
-)
-Overfull \vbox (90.69829pt too high) detected at line 13754
- []
-
-[515
+ (./slides_c33.vrb) [515
 
 ]
 \openout4 = `slides_c33.vrb'.
@@ -5130,42 +5009,46 @@ Overfull \vbox (90.69829pt too high) detected at line 13754
 ]
 \openout4 = `slides_c33.vrb'.
 
- (./slides_c33.vrb
-File: figure/unnamed-chunk-388-1.pdf Graphic file (type pdf)
-<use figure/unnamed-chunk-388-1.pdf>
-)
-Overfull \vbox (90.69829pt too high) detected at line 13797
- []
-
+ (./slides_c33.vrb)
 [517
 
 ]
 \openout4 = `slides_c33.vrb'.
 
- (./slides_c33.vrb) [518
-
-]
-\openout4 = `slides_c33.vrb'.
-
  (./slides_c33.vrb
-File: figure/unnamed-chunk-390-1.pdf Graphic file (type pdf)
-<use figure/unnamed-chunk-390-1.pdf>
+File: figure/unnamed-chunk-395-1.pdf Graphic file (type pdf)
+<use figure/unnamed-chunk-395-1.pdf>
 )
-Overfull \vbox (90.69829pt too high) detected at line 13840
+Overfull \vbox (31.61037pt too high) detected at line 14111
  []
 
-[519
+[518
 
-] [520
+]
+\openout4 = `slides_c33.vrb'.
+
+ (./slides_c33.vrb) [519
 
 ]
 \openout4 = `slides_c33.vrb'.
 
  (./slides_c33.vrb
-File: figure/unnamed-chunk-391-1.pdf Graphic file (type pdf)
-<use figure/unnamed-chunk-391-1.pdf>
+File: figure/unnamed-chunk-397-1.pdf Graphic file (type pdf)
+<use figure/unnamed-chunk-397-1.pdf>
 )
-Overfull \vbox (93.45769pt too high) detected at line 13870
+Overfull \vbox (33.64146pt too high) detected at line 14166
+ []
+
+[520
+
+]
+\openout4 = `slides_c33.vrb'.
+
+ (./slides_c33.vrb
+File: figure/unnamed-chunk-398-1.pdf Graphic file (type pdf)
+<use figure/unnamed-chunk-398-1.pdf>
+)
+Overfull \vbox (33.64146pt too high) detected at line 14184
  []
 
 [521
@@ -5174,15 +5057,92 @@ Overfull \vbox (93.45769pt too high) detected at line 13870
 \openout4 = `slides_c33.vrb'.
 
  (./slides_c33.vrb
-File: figure/unnamed-chunk-392-1.pdf Graphic file (type pdf)
-<use figure/unnamed-chunk-392-1.pdf>
+File: figure/unnamed-chunk-399-1.pdf Graphic file (type pdf)
+<use figure/unnamed-chunk-399-1.pdf>
 )
-Overfull \vbox (93.45769pt too high) detected at line 13887
+Overfull \vbox (33.64146pt too high) detected at line 14202
  []
 
 [522
 
-] [523
+]
+\openout4 = `slides_c33.vrb'.
+
+ (./slides_c33.vrb) [523
+
+]
+\openout4 = `slides_c33.vrb'.
+
+ (./slides_c33.vrb
+File: figure/unnamed-chunk-401-1.pdf Graphic file (type pdf)
+<use figure/unnamed-chunk-401-1.pdf>
+)
+Overfull \vbox (31.61037pt too high) detected at line 14261
+ []
+
+[524
+
+]
+\openout4 = `slides_c33.vrb'.
+
+ (./slides_c33.vrb) [525
+
+]
+\openout4 = `slides_c33.vrb'.
+
+ (./slides_c33.vrb
+File: figure/unnamed-chunk-403-1.pdf Graphic file (type pdf)
+<use figure/unnamed-chunk-403-1.pdf>
+)
+Overfull \vbox (31.61037pt too high) detected at line 14304
+ []
+
+[526
+
+]
+\openout4 = `slides_c33.vrb'.
+
+ (./slides_c33.vrb) [527
+
+]
+\openout4 = `slides_c33.vrb'.
+
+ (./slides_c33.vrb
+File: figure/unnamed-chunk-405-1.pdf Graphic file (type pdf)
+<use figure/unnamed-chunk-405-1.pdf>
+)
+Overfull \vbox (41.79793pt too high) detected at line 14347
+ []
+
+[528
+
+] [529
+
+]
+\openout4 = `slides_c33.vrb'.
+
+ (./slides_c33.vrb
+File: figure/unnamed-chunk-406-1.pdf Graphic file (type pdf)
+<use figure/unnamed-chunk-406-1.pdf>
+)
+Overfull \vbox (34.36977pt too high) detected at line 14379
+ []
+
+[530
+
+]
+\openout4 = `slides_c33.vrb'.
+
+ (./slides_c33.vrb
+File: figure/unnamed-chunk-407-1.pdf Graphic file (type pdf)
+<use figure/unnamed-chunk-407-1.pdf>
+)
+Overfull \vbox (34.36977pt too high) detected at line 14396
+ []
+
+[531
+
+] [532
 
 ]
 \openout4 = `slides_c33.vrb'.
@@ -5193,59 +5153,14 @@ Overfull \hbox (2.62956pt too wide) in paragraph at lines 33--33
 ound[] 
  []
 
-) [524
+) [533
 
-] [525
-
-]
-\openout4 = `slides_c33.vrb'.
-
- (./slides_c33.vrb) [526
+] [534
 
 ]
 \openout4 = `slides_c33.vrb'.
 
- (./slides_c33.vrb) [527
-
-]
-\openout4 = `slides_c33.vrb'.
-
-
-(./slides_c33.vrb) [528
-
-]
-\openout4 = `slides_c33.vrb'.
-
- (./slides_c33.vrb) [529
-
-]
-\openout4 = `slides_c33.vrb'.
-
- (./slides_c33.vrb) [530
-
-]
-\openout4 = `slides_c33.vrb'.
-
-
-(./slides_c33.vrb) [531
-
-] [532
-
-]
-\openout4 = `slides_c33.vrb'.
-
- (./slides_c33.vrb)
-Overfull \vbox (4.32687pt too high) detected at line 14259
- []
-
-[533
-
-]
-\openout4 = `slides_c33.vrb'.
-
- (./slides_c33.vrb) [534
-
-] [535
+ (./slides_c33.vrb) [535
 
 ]
 \openout4 = `slides_c33.vrb'.
@@ -5255,21 +5170,66 @@ Overfull \vbox (4.32687pt too high) detected at line 14259
 ]
 \openout4 = `slides_c33.vrb'.
 
- (./slides_c33.vrb) [537
+
+(./slides_c33.vrb) [537
 
 ]
 \openout4 = `slides_c33.vrb'.
 
- (./slides_c33.vrb)
-Overfull \vbox (1.68787pt too high) detected at line 14418
- []
-
-[538
+ (./slides_c33.vrb) [538
 
 ]
 \openout4 = `slides_c33.vrb'.
 
  (./slides_c33.vrb) [539
+
+]
+\openout4 = `slides_c33.vrb'.
+
+
+(./slides_c33.vrb) [540
+
+] [541
+
+]
+\openout4 = `slides_c33.vrb'.
+
+ (./slides_c33.vrb)
+Overfull \vbox (4.32687pt too high) detected at line 14768
+ []
+
+[542
+
+]
+\openout4 = `slides_c33.vrb'.
+
+ (./slides_c33.vrb) [543
+
+] [544
+
+]
+\openout4 = `slides_c33.vrb'.
+
+ (./slides_c33.vrb) [545
+
+]
+\openout4 = `slides_c33.vrb'.
+
+ (./slides_c33.vrb) [546
+
+]
+\openout4 = `slides_c33.vrb'.
+
+ (./slides_c33.vrb)
+Overfull \vbox (1.68787pt too high) detected at line 14927
+ []
+
+[547
+
+]
+\openout4 = `slides_c33.vrb'.
+
+ (./slides_c33.vrb) [548
 
 ]
 \openout4 = `slides_c33.vrb'.
@@ -5280,53 +5240,12 @@ Overfull \hbox (54.3683pt too wide) in paragraph at lines 19--19
 r arguments[] 
  []
 
-) [540
+) [549
 
 ]
 \openout4 = `slides_c33.vrb'.
 
- (./slides_c33.vrb) [541
-
-]
-\openout4 = `slides_c33.vrb'.
-
- (./slides_c33.vrb) [542
-
-]
-\openout4 = `slides_c33.vrb'.
-
- (./slides_c33.vrb)
-[543
-
-]
-\openout4 = `slides_c33.vrb'.
-
- (./slides_c33.vrb) [544
-
-] [545
-
-]
-\openout4 = `slides_c33.vrb'.
-
- (./slides_c33.vrb) [546
-
-]
-\openout4 = `slides_c33.vrb'.
-
- (./slides_c33.vrb
-File: figure/unnamed-chunk-415-1.pdf Graphic file (type pdf)
-<use figure/unnamed-chunk-415-1.pdf>
-)
-Overfull \vbox (57.56017pt too high) detected at line 14680
- []
-
-[547
-
-] [548
-
-] [549
-
-] [550
+ (./slides_c33.vrb) [550
 
 ]
 \openout4 = `slides_c33.vrb'.
@@ -5336,57 +5255,38 @@ Overfull \vbox (57.56017pt too high) detected at line 14680
 ]
 \openout4 = `slides_c33.vrb'.
 
- (./slides_c33.vrb
-File: figure/unnamed-chunk-419-1.pdf Graphic file (type pdf)
-<use figure/unnamed-chunk-419-1.pdf>
-)
-Overfull \vbox (44.49162pt too high) detected at line 14812
- []
-
+ (./slides_c33.vrb)
 [552
 
 ]
 \openout4 = `slides_c33.vrb'.
 
+ (./slides_c33.vrb) [553
+
+] [554
+
+]
+\openout4 = `slides_c33.vrb'.
+
+ (./slides_c33.vrb) [555
+
+]
+\openout4 = `slides_c33.vrb'.
+
  (./slides_c33.vrb
-File: figure/unnamed-chunk-420-1.pdf Graphic file (type pdf)
-<use figure/unnamed-chunk-420-1.pdf>
+File: figure/unnamed-chunk-430-1.pdf Graphic file (type pdf)
+<use figure/unnamed-chunk-430-1.pdf>
 )
-Overfull \vbox (53.96483pt too high) detected at line 14832
+Overfull \vbox (57.56017pt too high) detected at line 15189
  []
 
-[553
+[556
 
-]
-\openout4 = `slides_c33.vrb'.
+] [557
 
- (./slides_c33.vrb) [554
+] [558
 
-]
-\openout4 = `slides_c33.vrb'.
-
- (./slides_c33.vrb)
-Overfull \vbox (0.45052pt too high) detected at line 14924
- []
-
-[555
-
-] [556
-
-]
-\openout4 = `slides_c33.vrb'.
-
- (./slides_c33.vrb) [557
-
-]
-\openout4 = `slides_c33.vrb'.
-
- (./slides_c33.vrb) [558
-
-]
-\openout4 = `slides_c33.vrb'.
-
- (./slides_c33.vrb) [559
+] [559
 
 ]
 \openout4 = `slides_c33.vrb'.
@@ -5396,21 +5296,81 @@ Overfull \vbox (0.45052pt too high) detected at line 14924
 ]
 \openout4 = `slides_c33.vrb'.
 
- (./slides_c33.vrb) [561
+ (./slides_c33.vrb
+File: figure/unnamed-chunk-434-1.pdf Graphic file (type pdf)
+<use figure/unnamed-chunk-434-1.pdf>
+)
+Overfull \vbox (44.49162pt too high) detected at line 15321
+ []
+
+[561
 
 ]
 \openout4 = `slides_c33.vrb'.
 
  (./slides_c33.vrb
-File: figure/unnamed-chunk-429-1.pdf Graphic file (type pdf)
-<use figure/unnamed-chunk-429-1.pdf>
+File: figure/unnamed-chunk-435-1.pdf Graphic file (type pdf)
+<use figure/unnamed-chunk-435-1.pdf>
 )
-Overfull \vbox (45.86656pt too high) detected at line 15069
+Overfull \vbox (53.96483pt too high) detected at line 15341
  []
 
 [562
 
-] [563
+]
+\openout4 = `slides_c33.vrb'.
+
+ (./slides_c33.vrb) [563
+
+]
+\openout4 = `slides_c33.vrb'.
+
+ (./slides_c33.vrb)
+Overfull \vbox (0.45052pt too high) detected at line 15433
+ []
+
+[564
+
+] [565
+
+]
+\openout4 = `slides_c33.vrb'.
+
+ (./slides_c33.vrb) [566
+
+]
+\openout4 = `slides_c33.vrb'.
+
+ (./slides_c33.vrb) [567
+
+]
+\openout4 = `slides_c33.vrb'.
+
+ (./slides_c33.vrb) [568
+
+]
+\openout4 = `slides_c33.vrb'.
+
+ (./slides_c33.vrb) [569
+
+]
+\openout4 = `slides_c33.vrb'.
+
+ (./slides_c33.vrb) [570
+
+]
+\openout4 = `slides_c33.vrb'.
+
+ (./slides_c33.vrb
+File: figure/unnamed-chunk-444-1.pdf Graphic file (type pdf)
+<use figure/unnamed-chunk-444-1.pdf>
+)
+Overfull \vbox (45.86656pt too high) detected at line 15578
+ []
+
+[571
+
+] [572
 
 ]
 \openout4 = `slides_c33.vrb'.
@@ -5421,138 +5381,66 @@ Overfull \hbox (8.37831pt too wide) in paragraph at lines 23--23
 o 0[] 
  []
 
-) [564
-
-]
-\openout4 = `slides_c33.vrb'.
-
- (./slides_c33.vrb
-LaTeX Font Info:    Font shape `TU/lmtt/bx/n' in size <8> not available
-(Font)              Font shape `TU/lmtt/b/n' tried instead on input line 18.
-)
-Overfull \vbox (1.59712pt too high) detected at line 15153
- []
-
-[565
-
-]
-\openout4 = `slides_c33.vrb'.
-
- (./slides_c33.vrb) [566
-
-]
-\openout4 = `slides_c33.vrb'.
-
- (./slides_c33.vrb
-File: figure/unnamed-chunk-434-1.pdf Graphic file (type pdf)
-<use figure/unnamed-chunk-434-1.pdf>
-)
-Overfull \vbox (44.49162pt too high) detected at line 15184
- []
-
-[567
-
-]
-\openout4 = `slides_c33.vrb'.
-
- (./slides_c33.vrb) [568
+) [573
 
 ]
 \openout4 = `slides_c33.vrb'.
 
  (./slides_c33.vrb)
-Overfull \vbox (26.50078pt too high) detected at line 15261
+Overfull \vbox (1.59712pt too high) detected at line 15662
  []
 
-[569
+[574
 
 ]
 \openout4 = `slides_c33.vrb'.
 
- (./slides_c33.vrb) [570
+ (./slides_c33.vrb) [575
 
 ]
 \openout4 = `slides_c33.vrb'.
 
- (./slides_c33.vrb) [571
+ (./slides_c33.vrb
+File: figure/unnamed-chunk-449-1.pdf Graphic file (type pdf)
+<use figure/unnamed-chunk-449-1.pdf>
+)
+Overfull \vbox (44.49162pt too high) detected at line 15693
+ []
 
-] [572
-
-]
-\openout4 = `slides_c33.vrb'.
-
- (./slides_c33.vrb) [573
-
-] [574
-
-] [575
+[576
 
 ]
 \openout4 = `slides_c33.vrb'.
 
- (./slides_c33.vrb) [576
-
-] [577
+ (./slides_c33.vrb) [577
 
 ]
 \openout4 = `slides_c33.vrb'.
 
- (./slides_c33.vrb) [578
+ (./slides_c33.vrb)
+Overfull \vbox (26.50078pt too high) detected at line 15770
+ []
+
+[578
 
 ]
 \openout4 = `slides_c33.vrb'.
 
-
-(./slides_c33.vrb) [579
+ (./slides_c33.vrb) [579
 
 ]
 \openout4 = `slides_c33.vrb'.
 
  (./slides_c33.vrb) [580
 
-]
-\openout4 = `slides_c33.vrb'.
-
- (./slides_c33.vrb) [581
+] [581
 
 ]
 \openout4 = `slides_c33.vrb'.
 
+ (./slides_c33.vrb) [582
 
-(./slides_c33.vrb) [582
-
-]
-\openout4 = `slides_c33.vrb'.
-
- (./slides_c33.vrb
-Overfull \hbox (37.12206pt too wide) in paragraph at lines 26--26
-[]\TU/lmtt/m/n/10.95 ## post-warmup draws per chain=1000, total post-warmup dra
-ws=4000.[] 
- []
-
-
-Overfull \hbox (54.3683pt too wide) in paragraph at lines 26--26
-[]\TU/lmtt/m/n/10.95 ## Samples were drawn using NUTS(diag_e) at Tue Jul  2 16:
-40:59 2019.[] 
- []
-
-
-Overfull \hbox (77.3633pt too wide) in paragraph at lines 26--26
-[]\TU/lmtt/m/n/10.95 ## For each parameter, n_eff is a crude measure of effecti
-ve sample size,[] 
- []
-
-
-Overfull \hbox (65.8658pt too wide) in paragraph at lines 26--26
-[]\TU/lmtt/m/n/10.95 ## and Rhat is the potential scale reduction factor on spl
-it chains (at[] 
- []
-
-)
-Overfull \vbox (10.33853pt too high) detected at line 15624
- []
-
-[583
+] [583
 
 ] [584
 
@@ -5561,55 +5449,18 @@ Overfull \vbox (10.33853pt too high) detected at line 15624
 
  (./slides_c33.vrb) [585
 
-]
-\openout4 = `slides_c33.vrb'.
-
- (./slides_c33.vrb) [586
+] [586
 
 ]
 \openout4 = `slides_c33.vrb'.
 
- (./slides_c33.vrb
-Overfull \hbox (37.12206pt too wide) in paragraph at lines 26--26
-[]\TU/lmtt/m/n/10.95 ## post-warmup draws per chain=1000, total post-warmup dra
-ws=4000.[] 
- []
-
-
-Overfull \hbox (54.3683pt too wide) in paragraph at lines 26--26
-[]\TU/lmtt/m/n/10.95 ## Samples were drawn using NUTS(diag_e) at Tue Jul  2 16:
-41:04 2019.[] 
- []
-
-
-Overfull \hbox (77.3633pt too wide) in paragraph at lines 26--26
-[]\TU/lmtt/m/n/10.95 ## For each parameter, n_eff is a crude measure of effecti
-ve sample size,[] 
- []
-
-
-Overfull \hbox (65.8658pt too wide) in paragraph at lines 26--26
-[]\TU/lmtt/m/n/10.95 ## and Rhat is the potential scale reduction factor on spl
-it chains (at[] 
- []
-
-)
-Overfull \vbox (10.33853pt too high) detected at line 15740
- []
-
-[587
+ (./slides_c33.vrb) [587
 
 ]
 \openout4 = `slides_c33.vrb'.
 
- (./slides_c33.vrb
-File: figure/unnamed-chunk-454-1.pdf Graphic file (type pdf)
-<use figure/unnamed-chunk-454-1.pdf>
-)
-Overfull \vbox (46.60374pt too high) detected at line 15766
- []
 
-[588
+(./slides_c33.vrb) [588
 
 ]
 \openout4 = `slides_c33.vrb'.
@@ -5619,56 +5470,88 @@ Overfull \vbox (46.60374pt too high) detected at line 15766
 ]
 \openout4 = `slides_c33.vrb'.
 
+ (./slides_c33.vrb) [590
+
+]
+\openout4 = `slides_c33.vrb'.
+
+
+(./slides_c33.vrb) [591
+
+]
+\openout4 = `slides_c33.vrb'.
+
  (./slides_c33.vrb
-File: figure/unnamed-chunk-456-1.pdf Graphic file (type pdf)
-<use figure/unnamed-chunk-456-1.pdf>
-)
-Overfull \vbox (44.49162pt too high) detected at line 15804
+Overfull \hbox (37.12206pt too wide) in paragraph at lines 26--26
+[]\TU/lmtt/m/n/10.95 ## post-warmup draws per chain=1000, total post-warmup dra
+ws=4000.[] 
  []
 
-[590
 
-]
-\openout4 = `slides_c33.vrb'.
+Overfull \hbox (54.3683pt too wide) in paragraph at lines 26--26
+[]\TU/lmtt/m/n/10.95 ## Samples were drawn using NUTS(diag_e) at Wed Dec 11 12:
+30:22 2019.[] 
+ []
 
- (./slides_c33.vrb) [591
 
-]
-\openout4 = `slides_c33.vrb'.
+Overfull \hbox (77.3633pt too wide) in paragraph at lines 26--26
+[]\TU/lmtt/m/n/10.95 ## For each parameter, n_eff is a crude measure of effecti
+ve sample size,[] 
+ []
 
- (./slides_c33.vrb
-File: figure/unnamed-chunk-459-1.pdf Graphic file (type pdf)
-<use figure/unnamed-chunk-459-1.pdf>
+
+Overfull \hbox (65.8658pt too wide) in paragraph at lines 26--26
+[]\TU/lmtt/m/n/10.95 ## and Rhat is the potential scale reduction factor on spl
+it chains (at[] 
+ []
+
 )
-Overfull \vbox (31.61037pt too high) detected at line 15862
+Overfull \vbox (10.33853pt too high) detected at line 16133
  []
 
 [592
 
-]
-\openout4 = `slides_c33.vrb'.
-
- (./slides_c33.vrb) [593
-
-] [594
+] [593
 
 ]
 \openout4 = `slides_c33.vrb'.
 
- (./slides_c33.vrb)
-Overfull \vbox (4.26125pt too high) detected at line 15947
- []
+ (./slides_c33.vrb) [594
 
-[595
+]
+\openout4 = `slides_c33.vrb'.
+
+ (./slides_c33.vrb) [595
 
 ]
 \openout4 = `slides_c33.vrb'.
 
  (./slides_c33.vrb
-File: figure/unnamed-chunk-462-1.pdf Graphic file (type pdf)
-<use figure/unnamed-chunk-462-1.pdf>
+Overfull \hbox (37.12206pt too wide) in paragraph at lines 26--26
+[]\TU/lmtt/m/n/10.95 ## post-warmup draws per chain=1000, total post-warmup dra
+ws=4000.[] 
+ []
+
+
+Overfull \hbox (54.3683pt too wide) in paragraph at lines 26--26
+[]\TU/lmtt/m/n/10.95 ## Samples were drawn using NUTS(diag_e) at Wed Dec 11 12:
+30:27 2019.[] 
+ []
+
+
+Overfull \hbox (77.3633pt too wide) in paragraph at lines 26--26
+[]\TU/lmtt/m/n/10.95 ## For each parameter, n_eff is a crude measure of effecti
+ve sample size,[] 
+ []
+
+
+Overfull \hbox (65.8658pt too wide) in paragraph at lines 26--26
+[]\TU/lmtt/m/n/10.95 ## and Rhat is the potential scale reduction factor on spl
+it chains (at[] 
+ []
+
 )
-Overfull \vbox (35.07379pt too high) detected at line 15966
+Overfull \vbox (10.33853pt too high) detected at line 16249
  []
 
 [596
@@ -5677,10 +5560,10 @@ Overfull \vbox (35.07379pt too high) detected at line 15966
 \openout4 = `slides_c33.vrb'.
 
  (./slides_c33.vrb
-File: figure/unnamed-chunk-463-1.pdf Graphic file (type pdf)
-<use figure/unnamed-chunk-463-1.pdf>
+File: figure/unnamed-chunk-469-1.pdf Graphic file (type pdf)
+<use figure/unnamed-chunk-469-1.pdf>
 )
-Overfull \vbox (47.9455pt too high) detected at line 15987
+Overfull \vbox (46.60374pt too high) detected at line 16275
  []
 
 [597
@@ -5693,42 +5576,116 @@ Overfull \vbox (47.9455pt too high) detected at line 15987
 ]
 \openout4 = `slides_c33.vrb'.
 
- (./slides_c33.vrb) [599
+ (./slides_c33.vrb
+File: figure/unnamed-chunk-471-1.pdf Graphic file (type pdf)
+<use figure/unnamed-chunk-471-1.pdf>
+)
+Overfull \vbox (44.49162pt too high) detected at line 16313
+ []
+
+[599
 
 ]
 \openout4 = `slides_c33.vrb'.
 
- (./slides_c33.vrb)
-[600
+ (./slides_c33.vrb) [600
 
 ]
 \openout4 = `slides_c33.vrb'.
 
- (./slides_c33.vrb) [601
+ (./slides_c33.vrb
+File: figure/unnamed-chunk-474-1.pdf Graphic file (type pdf)
+<use figure/unnamed-chunk-474-1.pdf>
+)
+Overfull \vbox (31.61037pt too high) detected at line 16371
+ []
+
+[601
 
 ]
 \openout4 = `slides_c33.vrb'.
 
  (./slides_c33.vrb) [602
 
+] [603
+
 ]
 \openout4 = `slides_c33.vrb'.
 
  (./slides_c33.vrb)
-[603
+Overfull \vbox (4.26125pt too high) detected at line 16456
+ []
 
-]
-\openout4 = `slides_c33.vrb'.
-
- (./slides_c33.vrb) [604
+[604
 
 ]
 \openout4 = `slides_c33.vrb'.
 
  (./slides_c33.vrb
-Overfull \hbox (180.84077pt too wide) in paragraph at lines 119--119
+File: figure/unnamed-chunk-477-1.pdf Graphic file (type pdf)
+<use figure/unnamed-chunk-477-1.pdf>
+)
+Overfull \vbox (35.07379pt too high) detected at line 16475
+ []
+
+[605
+
+]
+\openout4 = `slides_c33.vrb'.
+
+ (./slides_c33.vrb
+File: figure/unnamed-chunk-478-1.pdf Graphic file (type pdf)
+<use figure/unnamed-chunk-478-1.pdf>
+)
+Overfull \vbox (47.9455pt too high) detected at line 16496
+ []
+
+[606
+
+]
+\openout4 = `slides_c33.vrb'.
+
+ (./slides_c33.vrb) [607
+
+]
+\openout4 = `slides_c33.vrb'.
+
+ (./slides_c33.vrb) [608
+
+]
+\openout4 = `slides_c33.vrb'.
+
+ (./slides_c33.vrb)
+[609
+
+]
+\openout4 = `slides_c33.vrb'.
+
+ (./slides_c33.vrb) [610
+
+]
+\openout4 = `slides_c33.vrb'.
+
+ (./slides_c33.vrb) [611
+
+]
+\openout4 = `slides_c33.vrb'.
+
+ (./slides_c33.vrb)
+[612
+
+]
+\openout4 = `slides_c33.vrb'.
+
+ (./slides_c33.vrb) [613
+
+]
+\openout4 = `slides_c33.vrb'.
+
+ (./slides_c33.vrb
+Overfull \hbox (186.58952pt too wide) in paragraph at lines 119--119
 []\TU/lmtt/m/n/10.95 ## Chain 1: 1000 transitions using 10 leapfrog steps per t
-ransition would take 0.1 seconds.[] 
+ransition would take 0.07 seconds.[] 
  []
 
 
@@ -5744,30 +5701,30 @@ ransition would take 0.07 seconds.[]
  []
 
 
-Overfull \hbox (180.84077pt too wide) in paragraph at lines 119--119
+Overfull \hbox (186.58952pt too wide) in paragraph at lines 119--119
 []\TU/lmtt/m/n/10.95 ## Chain 4: 1000 transitions using 10 leapfrog steps per t
-ransition would take 0.2 seconds.[] 
+ransition would take 0.05 seconds.[] 
  []
 
 )
-Overfull \vbox (1266.75136pt too high) detected at line 16249
+Overfull \vbox (1266.75136pt too high) detected at line 16758
  []
 
-[605
+[614
 
 ]
 \openout4 = `slides_c33.vrb'.
 
  (./slides_c33.vrb
-File: figure/unnamed-chunk-467-1.pdf Graphic file (type pdf)
-<use figure/unnamed-chunk-467-1.pdf>
+File: figure/unnamed-chunk-482-1.pdf Graphic file (type pdf)
+<use figure/unnamed-chunk-482-1.pdf>
 )
-Overfull \vbox (44.48067pt too high) detected at line 16266
+Overfull \vbox (44.48067pt too high) detected at line 16775
  []
 
-[606
+[615
 
-] [607
+] [616
 
 ]
 \openout4 = `slides_c33.vrb'.
@@ -5780,8 +5737,8 @@ ws=4000.[]
 
 
 Overfull \hbox (54.3683pt too wide) in paragraph at lines 32--32
-[]\TU/lmtt/m/n/10.95 ## Samples were drawn using NUTS(diag_e) at Tue Jul  2 16:
-41:08 2019.[] 
+[]\TU/lmtt/m/n/10.95 ## Samples were drawn using NUTS(diag_e) at Wed Dec 11 12:
+30:31 2019.[] 
  []
 
 
@@ -5797,81 +5754,17 @@ it chains (at[]
  []
 
 )
-Overfull \vbox (91.81812pt too high) detected at line 16315
+Overfull \vbox (91.81812pt too high) detected at line 16824
  []
 
-[608
+[617
 
-] [609
-
-]
-\openout4 = `slides_c33.vrb'.
-
- (./slides_c33.vrb) [610
+] [618
 
 ]
 \openout4 = `slides_c33.vrb'.
 
- (./slides_c33.vrb) [611
-
-]
-\openout4 = `slides_c33.vrb'.
-
- (./slides_c33.vrb) [612
-
-]
-\openout4 = `slides_c33.vrb'.
-
- (./slides_c33.vrb
-File: figure/unnamed-chunk-472-1.pdf Graphic file (type pdf)
-<use figure/unnamed-chunk-472-1.pdf>
-)
-Overfull \vbox (44.55733pt too high) detected at line 16424
- []
-
-[613
-
-]
-\openout4 = `slides_c33.vrb'.
-
- (./slides_c33.vrb)
-Overfull \vbox (1.93983pt too high) detected at line 16453
- []
-
-[614
-
-]
-\openout4 = `slides_c33.vrb'.
-
- (./slides_c33.vrb)
-Overfull \vbox (30.56335pt too high) detected at line 16494
- []
-
-[615
-
-]
-\openout4 = `slides_c33.vrb'.
-
- (./slides_c33.vrb
-File: figure/unnamed-chunk-475-1.pdf Graphic file (type pdf)
-<use figure/unnamed-chunk-475-1.pdf>
-)
-Overfull \vbox (29.57286pt too high) detected at line 16511
- []
-
-[616
-
-]
-\openout4 = `slides_c33.vrb'.
-
- (./slides_c33.vrb) [617
-
-]
-\openout4 = `slides_c33.vrb'.
-
- (./slides_c33.vrb) [618
-
-] [619
+ (./slides_c33.vrb) [619
 
 ]
 \openout4 = `slides_c33.vrb'.
@@ -5886,67 +5779,125 @@ Overfull \vbox (29.57286pt too high) detected at line 16511
 ]
 \openout4 = `slides_c33.vrb'.
 
- (./slides_c33.vrb) [622
+ (./slides_c33.vrb
+File: figure/unnamed-chunk-487-1.pdf Graphic file (type pdf)
+<use figure/unnamed-chunk-487-1.pdf>
+)
+Overfull \vbox (44.55733pt too high) detected at line 16933
+ []
+
+[622
 
 ]
 \openout4 = `slides_c33.vrb'.
 
  (./slides_c33.vrb)
+Overfull \vbox (1.93983pt too high) detected at line 16962
+ []
+
 [623
 
 ]
 \openout4 = `slides_c33.vrb'.
 
- (./slides_c33.vrb) [624
-
-]
-\openout4 = `slides_c33.vrb'.
-
- (./slides_c33.vrb) [625
-
-]
-\openout4 = `slides_c33.vrb'.
-
  (./slides_c33.vrb)
-[626
+Overfull \vbox (30.56335pt too high) detected at line 17003
+ []
+
+[624
+
+]
+\openout4 = `slides_c33.vrb'.
+
+ (./slides_c33.vrb
+File: figure/unnamed-chunk-490-1.pdf Graphic file (type pdf)
+<use figure/unnamed-chunk-490-1.pdf>
+)
+Overfull \vbox (29.57286pt too high) detected at line 17020
+ []
+
+[625
+
+]
+\openout4 = `slides_c33.vrb'.
+
+ (./slides_c33.vrb) [626
 
 ]
 \openout4 = `slides_c33.vrb'.
 
  (./slides_c33.vrb) [627
 
-]
-\openout4 = `slides_c33.vrb'.
-
- (./slides_c33.vrb
-LaTeX Font Info:    Font shape `TU/lmtt/bx/n' in size <9> not available
-(Font)              Font shape `TU/lmtt/b/n' tried instead on input line 8.
-
-Overfull \hbox (163.27977pt too wide) in paragraph at lines 14--14
-[]\TU/lmtt/m/n/9 ## Warning: Some Pareto k diagnostic values are slightly high.
- See help([]pareto-k-diagnostic[]) for details.[] 
- []
-
-)
-Overfull \vbox (29.1391pt too high) detected at line 16758
- []
-
-[628
+] [628
 
 ]
 \openout4 = `slides_c33.vrb'.
 
- (./slides_c33.vrb
-LaTeX Font Info:    Font shape `TU/lmtt/bx/n' in size <10> not available
-(Font)              Font shape `TU/lmtt/b/n' tried instead on input line 8.
-) [629
+ (./slides_c33.vrb) [629
 
 ]
 \openout4 = `slides_c33.vrb'.
 
  (./slides_c33.vrb) [630
 
-] [631
+]
+\openout4 = `slides_c33.vrb'.
+
+ (./slides_c33.vrb) [631
+
+]
+\openout4 = `slides_c33.vrb'.
+
+ (./slides_c33.vrb)
+[632
+
+]
+\openout4 = `slides_c33.vrb'.
+
+ (./slides_c33.vrb) [633
+
+]
+\openout4 = `slides_c33.vrb'.
+
+ (./slides_c33.vrb) [634
+
+]
+\openout4 = `slides_c33.vrb'.
+
+ (./slides_c33.vrb)
+[635
+
+]
+\openout4 = `slides_c33.vrb'.
+
+ (./slides_c33.vrb) [636
+
+]
+\openout4 = `slides_c33.vrb'.
+
+ (./slides_c33.vrb
+Overfull \hbox (163.27977pt too wide) in paragraph at lines 14--14
+[]\TU/lmtt/m/n/9 ## Warning: Some Pareto k diagnostic values are slightly high.
+ See help([]pareto-k-diagnostic[]) for details.[] 
+ []
+
+)
+Overfull \vbox (29.1391pt too high) detected at line 17267
+ []
+
+[637
+
+]
+\openout4 = `slides_c33.vrb'.
+
+ (./slides_c33.vrb) [638
+
+]
+\openout4 = `slides_c33.vrb'.
+
+ (./slides_c33.vrb) [639
+
+] [640
 
 ]
 \tf@nav=\write7
@@ -5958,19 +5909,19 @@ LaTeX Font Info:    Font shape `TU/lmtt/bx/n' in size <10> not available
 \tf@snm=\write9
 \openout9 = `slides_c33.snm'.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 16809.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 16809.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 17318.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 17318.
  (./slides_c33.aux)
-Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 16809.
-Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 16809.
+Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 17318.
+Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 17318.
  ) 
 Here is how much of TeX's memory you used:
- 38951 strings out of 493007
- 746740 string characters out of 6136719
- 978248 words of memory out of 5000000
- 41292 multiletter control sequences out of 15000+600000
- 537716 words of font info for 98 fonts, out of 8000000 for 9000
+ 39000 strings out of 493007
+ 747539 string characters out of 6136719
+ 979223 words of memory out of 5000000
+ 41320 multiletter control sequences out of 15000+600000
+ 537724 words of font info for 99 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
- 61i,15n,117p,10419b,1332s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 61i,15n,117p,10419b,1350s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on slides_c33.pdf (631 pages).
+Output written on slides_c33.pdf (640 pages).

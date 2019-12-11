@@ -41,19 +41,23 @@ jays = read_csv("jays15-home.csv")
 
 ## Taking a look
 
+\scriptsize
 ```{r}
 jays
 ```
+\normalsize
 
 ## Another way
 
+\tiny
 ```{r}
 glimpse(jays)
 ```
+\normalsize
 
 ## Attendance histogram
 
-```{r}
+```{r, fig.height=3.8}
 ggplot(jays, aes(x = attendance)) + geom_histogram(bins = 10)
 ```
 
@@ -89,7 +93,7 @@ t.test(jays$attendance, conf.level = 0.90)
 
 
 ## Comments
-- Need to say “column attendance within data frame jays” using $.
+- Need to say “column attendance within data frame `jays`” using $.
 - 95% CI from about 20,000 to about 30,000.
 - Not estimating mean attendance well at all!
 - Generally want confidence interval to be shorter, which happens if:
@@ -209,14 +213,16 @@ approx. normal even if data distribution somewhat non-normal.
 - So look at shape of data distribution, and make a call about whether
 it is normal enough, given the sample size.
 
-## Blue Jays attendances
+## Blue Jays attendances again:
 
-```{r, fig.height=4.5}
+- You might say that this is not normal enough for a sample size of $n = 25$,
+in which case you don’t trust the $t$-test result:
+
+```{r, fig.height=3}
 ggplot(jays, aes(x = attendance)) + geom_histogram(bins = 10)
 ```
 
-- You might say that this is not normal enough for a sample size of $n = 25$,
-in which case you don’t trust the $t$-test result.
+
 
 ## Another example: learning to read
 
@@ -250,7 +256,7 @@ kids
 
 ## Boxplots
 
-```{r}
+```{r, fig.height=3.7}
 ggplot(kids, aes(x = group, y = score)) + geom_boxplot()
 ```
 
@@ -354,7 +360,7 @@ experiment. Low $\beta$ good.
 - Prob. of not making type II error called **power** (= $1 - \beta$). *High* power
 good.
 
-## Power
+## Power 
 
 - Suppose $H_0 : \theta = 10$, $H a : \theta \ne 10$ for some parameter $\theta$.
 - Suppose $H_0$ wrong. What does that say about $\theta$?
@@ -408,11 +414,11 @@ x = rnorm(15, 8, 4)
 x
 ```
 
-
-
-## ...continued 
-
 - Test whether `x` from population with mean 10 or not (over):
+
+
+## ...continued
+
 
 
 ```{r}
@@ -462,9 +468,11 @@ different each time because of randomness.
 be calculated.
 - `power.t.test`. delta difference between null and true mean: 
 
+\small
 ```{r}
 power.t.test(n = 15, delta = 10-8, sd = 4, type = "one.sample")
 ```
+\normalsize
 
 ## Comparison of results
 
@@ -549,7 +557,7 @@ g = ggplot(d, aes(x = n, y = power)) + geom_point() +
 ```
 
 ## The power curve
-```{r}
+```{r, fig.height=3.8}
 g
 ```
 
@@ -579,12 +587,14 @@ combos
 
 - Calculate the powers, carefully:
 ```{r}
-ans=with(combos, power.t.test(n=n, delta=mean-10, sd=4, type="one.sample"))
+ans=with(combos, power.t.test(n=n, delta=mean-10, sd=4, 
+                              type="one.sample"))
 ```
 
 - Make a data frame to plot, pulling things from the right places:
 ```{r}
-d=tibble(n=factor(combos$n), mean=combos$mean, power=ans$power)
+d=tibble(n=factor(combos$n), mean=combos$mean, 
+         power=ans$power)
 ```
 
 - then make the plot:
@@ -596,7 +606,7 @@ g = ggplot(d, aes(x = mean, y = power, colour = n)) +
 
 ## The power curves
 
-```{r}
+```{r, fig.height=3.8}
 g
 ```
 
@@ -605,14 +615,14 @@ g
 actually true, and the probability of rejecting it then is $\alpha = 0.05$.
 - As the null gets more wrong (mean decreases), it becomes easier to
 correctly reject it.
-- The blue power curve is above the red one for any mean > 10, meaning
+- The blue power curve is above the red one for any mean < 10, meaning
 that no matter how wrong $H_0$ is, you always have a greater chance of
 correctly rejecting it with a larger sample size.
 - Previously, we had $H_0 : \mu = 10$ and a true $\mu = 8$, so a mean of 8
 produces power 0.42 and 0.80 as shown on the graph.
-- With $n = 34$, a true mean that is less than about 7
+- With $n = 30$, a true mean that is less than about 7
 is almost certain to be correctly rejected. (With $n = 15$, the
-difference needs to be less than 6.)
+true mean needs to be less than 6.)
 
 ## Power by sample size for means 7 and 8
 Similar procedure to before:
@@ -621,15 +631,18 @@ Similar procedure to before:
 means=c(7, 8)
 ns=seq(10, 40, 5)
 combos=crossing(mean=means, n=ns)
-ans=with(combos, power.t.test(n=n, delta=10-mean, sd=4, type="one.sample"))
-d=tibble(mean=factor(combos$mean), n=combos$n, power=ans$power)
-g=ggplot(d, aes(x=n, y=power, colour=mean)) + geom_point() + geom_line() +
+ans=with(combos, power.t.test(n=n, delta=10-mean, sd=4, 
+                              type="one.sample"))
+d=tibble(mean=factor(combos$mean), n=combos$n, 
+         power=ans$power)
+g=ggplot(d, aes(x=n, y=power, colour=mean)) + 
+  geom_point() + geom_line() +
   geom_hline(yintercept=1,linetype="dashed")  
 ```
 
 ## The power curves
 
-```{r}
+```{r, fig.height=3.8}
 g
 ```
 
@@ -643,11 +656,13 @@ kids %>% group_by(group) %>%
   summarize(n=n(), s=sd(score))
 ```
 
+## Setting up
+
 - suppose a 5-point improvement in reading score was considered important (on this scale)
 - in a 2-sample test, null (difference of) mean is zero, so `delta` is true difference in means
 - what is power for these sample sizes, and what sample size would be needed to get power up to 0.80?
 
-## calculating power for sample size 22 (per group) 
+## Calculating power for sample size 22 (per group) 
 
 ```{r pow1}
 power.t.test(n=22, delta=5, sd=14, type="two.sample", 
@@ -661,7 +676,7 @@ power.t.test(power=0.80, delta=5, sd=14, type="two.sample",
              alternative="one.sided")
 ```
 
-## comments
+## Comments
 
 - The power for the sample sizes we have is very small (to detect a 5-point increase).
 - To get power 0.80, we need 98 kids in *each* group!
@@ -677,11 +692,13 @@ twogroups=read_delim(my_url," ")
 ```
 
 
-## The data (some) 
+## The data
 
+\footnotesize
 ```{r}
 twogroups
 ```
+\normalsize
 
 ## 95% CI (default)
 ```{r}
@@ -752,11 +769,14 @@ t.test(irs$Time, mu = 160, alternative = "greater")
 Reject null; mean greater than 160.
 
 ## But, look at a graph
-```{r, fig.height=4.5}
+```{r, fig.height=3.5}
 ggplot(irs, aes(x = Time)) + geom_histogram(bins = 10)
 ```
 
-Skewed to right. Should look at median.
+## Comments
+
+- Skewed to right. 
+- Should look at *median*, not mean.
 
 ## The sign test
 - But how to test whether the median is greater than 160?
@@ -807,7 +827,7 @@ library(devtools)
 install_github("nxskok/smmr")
 ```
 - Then load it:
-```{r, eval=F
+```{r, eval=F}
 library(smmr)
 ```
 
@@ -885,9 +905,12 @@ pval_sign(300, irs, Time)
 
 ## Doing a whole bunch
 - Choose our null medians first:
+
+\small
 ```{r}
 (d=tibble(null_median=seq(100,300,20)))
 ```
+\normalsize
 
 ## ... and then
 
@@ -1068,7 +1091,7 @@ line.
 
 - of differences from matched pairs data
 
-```{r, fig.height=4.2}
+```{r, fig.height=3.3}
 ggplot(pain,aes(sample=diff))+stat_qq()+stat_qq_line()
 ```
 
@@ -1086,108 +1109,117 @@ ought not to concern us.
 - Look at some examples where we know the answer, so that we can
 see what to expect.
 
-## Normal data, large sample check randomness from here
+## Normal data, large sample
 
 ```{r set-seed, echo=F}
 set.seed(457299)
 ```
 
 
-```{r, fig.height=4.5}
+```{r, fig.height=3.5}
 d=tibble(x=rnorm(200))
 ggplot(d,aes(x=x))+geom_histogram(bins=10)
 ```
 
-As normal as you could wish for.
-
 ## The normal quantile plot
 
-```{r}
+```{r, fig.height=3.8}
 ggplot(d,aes(sample=x))+stat_qq()+stat_qq_line()
 ```
 
-## Normal data, small sample 
+## Normal data, small sample
 
 ```{r, echo=F}
 set.seed(457299)
 ```
 
+- Not so convincingly normal, but not obviously skewed:
 
-```{r normal-small, fig.height=4.5}
+
+```{r normal-small, fig.height=3.1}
 d=tibble(x=rnorm(20))
-ggplot(d,aes(x=x))+geom_histogram(bins=10)
+ggplot(d,aes(x=x))+geom_histogram(bins=5)
 ```
 
-- Not so convincingly normal, but not obviously skewed.
 
 ## The normal quantile plot
 
-```{r, fig.height=4.5}
+Good, apart from the highest and lowest points being slightly off. I’d call
+this good:
+
+
+```{r, fig.height=3.1}
 ggplot(d,aes(sample=x))+stat_qq()+stat_qq_line()
 ```
 
-Good, apart from the highest and lowest points being slightly off. I’d call
-this good.
-
 ## Chi-squared data, *df* = 10
 
-```{r, fig.height=4.5}
+Somewhat skewed to right:
+
+```{r, fig.height=3.1}
 d=tibble(x=rchisq(100,10))
 ggplot(d,aes(x=x))+geom_histogram(bins=10)
 ```
 
-Somewhat skewed to right.
+
 
 ## The normal quantile plot
 
-```{r}
+Somewhat opening-up curve:
+
+```{r, fig.height=3.3}
 ggplot(d,aes(sample=x))+stat_qq()+stat_qq_line()
 ```
 
-Somewhat opening-up curve.
 
-## Chi-squared data, df = 3 
+## Chi-squared data, df = 3
 
-```{r chisq-small-df, fig.height=4.5}
+Definitely skewed to right:
+
+```{r chisq-small-df, fig.height=3.1}
 d=tibble(x=rchisq(100,3))
 ggplot(d,aes(x=x))+geom_histogram(bins=10)
 ```
 
 
-Definitely skewed to right.
 
 ## The normal quantile plot
 
-```{r}
+Clear upward-opening curve:
+
+```{r, fig.height=3.4}
 ggplot(d,aes(sample=x))+stat_qq()+stat_qq_line()
 ```
 
 
-Clear upward-opening curve.
 
-## t-distributed data, df = 3 
-```{r t-small, fig.height=4.5}
+## t-distributed data, df = 3
+
+Long tails (or a very sharp peak):
+
+```{r t-small, fig.height=3.2}
 d=tibble(x=rt(300,3))
 ggplot(d,aes(x=x))+geom_histogram(bins=10)
 ```
 
 
-Long tails (or a very sharp peak).
 
 ## The normal quantile plot
 
-```{r}
+Low values too low and high values too high for normal.
+
+```{r, fig.height=3.4}
 ggplot(d,aes(sample=x))+stat_qq()+stat_qq_line()
 ```
 
-Low values too low and high values too high for normal.
 
-## Our pain-relief data 
+## Our pain-relief data
 
-```{r pain-relief-qq, fig.height=4.3}
+```{r pain-relief-qq, fig.height=3.8}
 ggplot(pain,aes(sample=diff))+stat_qq()+stat_qq_line()
 ```
 
+## Comments
 
 - Definitely not normal. What to do?
 - Sign test on differences, null median 0.
@@ -1230,14 +1262,14 @@ standard reading method.
 
 ## Boxplots for reading data
 
-```{r}
+```{r, fig.height=3.7}
 ggplot(kids,aes(x=group,y=score))+geom_boxplot()
 ```
 
 ## Facetted normal quantile plots
 Done this way:
 
-```{r}
+```{r, fig.height=3.2}
 ggplot(kids,aes(sample=score))+stat_qq()+stat_qq_line()+
 facet_wrap(~group)
 ```
@@ -1401,18 +1433,21 @@ rats=read_delim(my_url," ")
 
 ## The data (some random rows) 
 
+\small
 ```{r}
 rats %>% sample_n(12)
 ```
+\normalsize
 
 ## Boxplots
 
-```{r}
+```{r, fig.height=3.7}
 ggplot(rats,aes(y=density,x=group))+geom_boxplot()
 ```
 
 ## Or, arranging groups in data (logical) order
-```{r}
+
+```{r, fig.height=3.5}
 ggplot(rats,aes(y=density,x=fct_inorder(group)))+
 geom_boxplot()
 ```
@@ -1509,13 +1544,24 @@ different.
 
 ## Tukey on rat data
 
+```{r, echo=F}
+width=getOption("width")
+options(width=60)
+```
+
+
+\small
 ```{r}
 rats.aov=aov(density~group,data=rats)
 TukeyHSD(rats.aov)
 ```
+\normalsize
 
+```{r, echo=F}
+options(width=width)
+```
 
-Again conclude that bone density for highjump group significantly higher
+- Again conclude that bone density for highjump group significantly higher
 than for other two groups.
 
 ## Why Tukey’s procedure better than all t-tests 
@@ -1538,7 +1584,7 @@ $\alpha = 0.01$.
 
 ## Checking assumptions
 
-```{r}
+```{r, fig.height=3.5}
 ggplot(rats,aes(y=density,x=fct_inorder(group)))+
 geom_boxplot()
 ```
@@ -1549,9 +1595,9 @@ Assumptions:
 
 ## Normal quantile plots by group
 
-```{r}
-ggplot(rats, aes(sample = density)) + stat_qq() + stat_qq_line() +
-  facet_wrap( ~ group)
+```{r, fig.height=3.5}
+ggplot(rats, aes(sample = density)) + stat_qq() + 
+  stat_qq_line() + facet_wrap( ~ group)
 ```
 
 ## The assumptions
@@ -1569,12 +1615,14 @@ Welch-Satterthwaite t-test.)
 - Can also use Mood’s Median Test (see over). This works for any
 number of groups.
 
-## Mood’s median test 1/3
+## Mood’s median test 1/4
 - Find median of all bone densities, regardless of group:
 
+\small
 ```{r}
 (rats %>% summarize(med = median(density)) %>% pull(med) -> m)
 ```
+\normalsize
 
 - Count up how many observations in each group above or below
 overall median:

@@ -18,16 +18,16 @@ one of these:
 - I check prerequisites.
 - You need STAB57 for the Statistics Minor/Major/Specialist programs.
 
-## The instructor
+## The instructor, lectures and tutorials
 - Ken Butler, office IC 471, e-mail:
 mailto:butler@utsc.utoronto.ca
-- Lectures xxx check: both of
-  - Tuesday xxx 12:00-14:00 in SW 309 
+- Lectures (section LEC01): both of
+  - Tuesday 12:00-13:00 in IC 220 
   - Thursday 14:00-15:00 in SW 128. 
+- Students in section LEC60 should watch the videotaped lectures (access from Quercus).
 - Tutorial: one of 
-  - Monday 11:00-12:00,
-  - Monday 12:00-13:00,  in BV 498.
-- Office hours: Tuesday 14:00-15:30, Thursday 15:00-16:00. Or by appointment (e-mail me, address
+  - Monday 09:00, 10:00, 11:00, 12:00,  in BV 498 (1 hour each).
+- Office hours: Tuesday 14:00-15:00, Thursday 15:00-16:30. Or by appointment (e-mail me, address
 above, to set one up).
 - course website [**here**](http://ritsokiguess.site/STAC33). 
 - This course is on Quercus. Go [**here**](http://q.utoronto.ca), log in, and find

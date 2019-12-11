@@ -20,16 +20,20 @@ library(tidyverse)
 - Use `read_tsv` (“tab-separated values”), like `read_csv`.
 - Data in `ais.txt`:
 
+\scriptsize
 ```{r}
 my_url <- "http://www.utsc.utoronto.ca/~butler/c32/ais.txt"
 athletes <- read_tsv(my_url)
 ```
+\normalsize
 
 ## The data (some)
 
+\footnotesize
 ```{r}
 athletes
 ```
+\normalsize
 
 ## Types of graph
 
@@ -61,14 +65,14 @@ graphs.
 
 ## Bar chart
 
-```{r}
+```{r, fig.height=3.9}
 ggplot(athletes, aes(x = Sport)) + geom_bar()
 ```
 
 
 ## Histogram of body mass index
 
-```{r}
+```{r, fig.height=3.9}
 ggplot(athletes, aes(x = BMI)) + geom_histogram(bins = 10)
 ```
 
@@ -76,14 +80,14 @@ ggplot(athletes, aes(x = BMI)) + geom_histogram(bins = 10)
 
 Grouped bar chart:
 
-```{r, fig.height=4.5}
+```{r, fig.height=3.15}
 ggplot(athletes, aes(x = Sport, fill = Sex)) +
   geom_bar(position = "dodge")
 ```
 
 ## BMI by gender
 
-```{r}
+```{r, fig.height=4}
 ggplot(athletes, aes(x = Sex, y = BMI)) + geom_boxplot()
 ```
 
@@ -91,34 +95,34 @@ ggplot(athletes, aes(x = Sex, y = BMI)) + geom_boxplot()
 
 Scatterplot:
 
-```{r}
+```{r, fig.height=3.4}
 ggplot(athletes, aes(x = Ht, y = Wt)) + geom_point()
 ```
 
 ## With regression line
 
-```{r}
+```{r, fig.height=3.6}
 ggplot(athletes, aes(x = Ht, y = Wt)) +
   geom_point() + geom_smooth(method = "lm")
 ```
 
 ## BMI by sport and gender
 
-```{r}
+```{r, fig.height=3.6}
 ggplot(athletes, aes(x = Sport, y = BMI, colour = Sex)) +
   geom_boxplot()
 ```
 
 ## Height and weight by gender
 
-```{r}
+```{r, fig.height=3.6}
 ggplot(athletes, aes(x = Ht, y = Wt, colour = Sex)) +
   geom_point()
 ```
 
 ## Height by weight for each sport, with facets
 
-```{r}
+```{r, fig.height=3.6}
 ggplot(athletes, aes(x = Ht, y = Wt, colour = Sex)) +
   geom_point() + facet_wrap(~Sport)
 ```
@@ -128,8 +132,9 @@ ggplot(athletes, aes(x = Ht, y = Wt, colour = Sex)) +
 Default uses same scale for each facet. To use different scales for each
 facet, this:
 
-```{r, fig.height=4.3}
+\small
+```{r, fig.height=3.2}
 ggplot(athletes, aes(x = Ht, y = Wt, colour = Sex)) +
   geom_point() + facet_wrap(~Sport, scales = "free")
 ```
-
+\normalsize

@@ -46,7 +46,7 @@ methods.
 
 ## Scatterplot
 
-```{r, fig.height=4.5}
+```{r, fig.height=3.1}
 ggplot(windmill, aes(y = DC_output, x = wind_velocity)) +
   geom_point() + geom_smooth(se = F)
 ```
@@ -60,26 +60,43 @@ squares” which downweights outliers. Not constrained to be straight.)
 - Trend more or less linear for while, then curves downwards (levelling off?). Straight
 line not so good here.
 
-## Fit a straight line (and see what happens) 
+## Fit a straight line (and see what happens)
 
+```{r, echo=F}
+wid <- getOption("width")
+options(width=60)
+```
+
+
+\footnotesize
 ```{r}
 DC.1 <- lm(DC_output ~ wind_velocity, data = windmill)
 summary(DC.1)
 ```
+\normalsize
+
+```{r, echo=F}
+options(width=wid)
+```
+
 
 ## Another way of looking at the output
 
 - The standard output tends to go off the bottom of the page rather easily. Package `broom` has these:
 
+\footnotesize
 ```{r, paged.print=F}
 glance(DC.1)
 ```
+\normalsize
 
 showing that the R-squared is 87%, and
 
+\footnotesize
 ```{r, paged.print=F}
 tidy(DC.1)
 ```
+\normalsize
 
 showing the intercept and slope and their significance.
 
@@ -97,7 +114,7 @@ residuals, observed minus predicted, plotted against fitted (predicted).
 
 ## Plot of residuals against fitted values
 
-```{r}
+```{r, fig.height=3.8}
 ggplot(DC.1, aes(y = .resid, x = .fitted)) + geom_point()
 ```
 
@@ -152,27 +169,30 @@ glance(DC.2)
 
 ## Residual plot from parabola model
 
-```{r}
+```{r, fig.height=3.5}
 ggplot(DC.2, aes(y = .resid, x = .fitted)) +
   geom_point()
 ```
 
-## Scatterplot with fitted line and curve
+## Scatterplot with fitted line and curve 
+
 - Residual plot basically random. Good.
 - Scatterplot with fitted line and curve like this:
 
-```{r fitcurve, eval=F}
+```{r fitcurve, eval=F, fig.height=3.5}
 ggplot(windmill, aes(y = DC_output, x = wind_velocity)) +
   geom_point() + geom_smooth(method = "lm", se = F) +
   geom_line(data = DC.2, aes(y = .fitted))
 ```
+
+## Comments
 
 - This plots: 
   - scatterplot (`geom_point`); 
   - straight line (via tweak to
 `geom_smooth`, which draws best-fitting line); 
   - fitted curve, using the
-predicted `DC_output values`, joined by lines (with points not shown).
+predicted `DC_output` values, joined by lines (with points not shown).
 - Trick in the `geom_line` is use the predictions as the `y`-points to join
 by lines (from `DC.2`), instead of the original data points. Without the
 `data` and `aes` in the `geom_line`, original data points would be joined
@@ -218,7 +238,7 @@ take 12 minutes to walk 1 km, called your pace. So 1 over
 ```{r straightness, fig.keep="none"}
 windmill %>% mutate(wind_pace = 1 / wind_velocity) -> windmill
 ggplot(windmill, aes(y = DC_output, x = wind_pace)) +
-  geom_point() + geom_smooth(method = "lm", se = F)
+  geom_point() + geom_smooth(se = F)
 ```
 
 - and run regression like this (output page after):
@@ -229,11 +249,12 @@ DC.3 <- lm(DC_output ~ wind_pace, data = windmill)
 
 ## Scatterplot for wind_pace
 
-```{r, ref.label="straightness", echo=F}
+Pretty straight. Blue actually smooth curve not line:
+
+```{r, ref.label="straightness", echo=F, fig.height=3.7}
 
 ```
 
-That’s pretty straight. Blue actually smooth curve not line.
 
 
 
@@ -254,7 +275,7 @@ parabola model (`wind.velocity` and its square).
 
 ## Residual plot for asymptote model
 
-```{r resida}
+```{r resida, fig.height=3.6}
 ggplot(DC.3, aes(y = .resid, x = .fitted)) + geom_point()
 ```
 
@@ -289,11 +310,11 @@ w2
 $y$’s, with another column for distinguishing things.
 - But we have three columns of fitted values, that need to be combined
 into one.
-- `gather`, then plot:
+- `pivot_longer`, then plot:
 
 ```{r allcurves, eval=F}
 w2 %>%
-  gather(model, fit, linear:asymptote) %>%
+  pivot_longer(linear:asymptote, names_to="model", values_to="fit") %>%
   ggplot(aes(x = wind_velocity, y = DC_output)) +
   geom_point() +
   geom_line(aes(y = fit, colour = model))
@@ -301,7 +322,7 @@ w2 %>%
 
 ## Scatterplot with fitted curves
 
-```{r, ref.label= "allcurves", echo=F}
+```{r, ref.label= "allcurves", echo=F, fig.height=4}
 
 ```
 
@@ -407,9 +428,10 @@ predictions on a plot with a legend (saving result to add to later):
 
 ```{r}
 my_fits %>%
-  gather(
-    model, fit,
-    linear:asymptote
+    pivot_longer(
+    linear:asymptote,
+    names_to="model", 
+    values_to="fit"
   ) %>%
   ggplot(aes(
     y = fit, x = wind_velocity,
@@ -436,7 +458,7 @@ g + geom_rect(
 
 ## The plot
 
-```{r, ref.label="rectangle", echo=F}
+```{r, ref.label="rectangle", echo=F, fig.height=4}
 ```
 
 ## Comments (1)
@@ -444,23 +466,27 @@ g + geom_rect(
 - Outside range of data, they disagree violently!
 - For larger `wind.velocity`, asymptote model behaves reasonably,
 parabola model does not.
-I What happens as `wind.velocity` goes to zero? Should find
+- What happens as `wind.velocity` goes to zero? Should find
 `DC.output` goes to zero as well. Does it?
+
+## Comments (2)
+
 - For parabola model:
 
 ```{r paged.print=F}
 tidy(DC.2)
 ```
 
-- Nope, goes to −1.15 (intercept), actually significantly different from
+- Nope, goes to −1.16 (intercept), actually significantly different from
 zero.
 
-## Comments (2)
-- What about asymptote model?
+## Comments (3): asymptote model
 
+\small
 ```{r, paged.print=F}
 tidy(DC.3)
 ```
+\normalsize
 
 - As `wind.velocity` heads to 0, wind.pace heads to $+\infty$, so
 DC.output heads to $−\infty$! 

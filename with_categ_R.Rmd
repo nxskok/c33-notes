@@ -35,10 +35,13 @@ summary(pigs.1)
 
 ## and now `lm`
 
+\footnotesize
 ```{r}
 pigs.2 <- lm(weight ~ feed, data = pigs)
 tidy(pigs.2)
+glance(pigs.2)
 ```
+\normalsize
 
 ## Understanding those slopes
 - Get one slope for each category of categorical variable feed, except
@@ -52,17 +55,22 @@ for first.
 feed 1.
 
 ## Reproducing the ANOVA
-- Pass the fitted model object into anova:
+- Pass the fitted model object into `anova`:
+
+\footnotesize
 ```{r}
 anova(pigs.2)
 ```
+\normalsize
 
 - Same as before.
 - But no Tukey this way:
 
+\footnotesize
 ```{r, error=TRUE}
 TukeyHSD(pigs.2)
 ```
+\normalsize
 
 ## The crickets
 - Male crickets rub their wings together to produce a chirping sound.
@@ -75,12 +83,14 @@ accounted for?
 
 ## The crickets data
 Read the data:
+
+\small
 ```{r, message=F}
 my_url="http://www.utsc.utoronto.ca/~butler/c32/crickets2.csv"
 crickets <- read_csv(my_url)
-crickets
+crickets %>% sample_n(10)
 ```
-
+\normalsize
 ## Fit model with `lm` 
 
 ```{r}
@@ -105,9 +115,9 @@ is baseline).
 - R-squared of almost 0.99 is very high, so that the prediction of pulse
 rate from species and temperature is very good.
 
-## To end with a graph 
+## To end with a graph
 
-```{r}
+```{r, fig.height=3.2}
 ggplot(crickets, aes(x = temperature, y = pulse_rate,
   colour = species)) +
   geom_point() + geom_smooth(method = "lm", se = F)

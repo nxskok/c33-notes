@@ -400,7 +400,7 @@ hotpo(4.5)
 - Use a data frame of numbers 1 through 10 again:
 
 ```{r}
-tibble(x = 1:10) %>% mutate(y = map_int(x, hotpo))
+tibble(x = 1:10) %>% mutate(y = map_int(x, ~hotpo(.)))
 ```
 
 ## Until I get to 1 (if I ever do)
@@ -435,22 +435,26 @@ hotpo_seq(6)
 
 - Start at 27:
 
+\footnotesize
 ```{r}
 hotpo_seq(27)
 ```
+\normalsize
 
 ## Which starting points have the longest sequences?
 - The `length` of the vector returned from `hotpo_seq` says how long it
 took to get to 1.
 - Out of the starting points 1 to 100, which one has the longest
 sequence?
+
+\small
 ```{r}
 tibble(start = 1:100) %>%
   mutate(seq_length = map_int(start, ~ length(hotpo_seq(.)))) %>%
   arrange(desc(seq_length)) %>%
-  slice(1:6)
+  slice(1:5)
 ```
-
+\normalsize
 ## What happens if we save the entire sequence? 
 
 ```{r, results="hide"}

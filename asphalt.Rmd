@@ -45,15 +45,15 @@ Same idea as for plotting separate predictions on one plot:
 
 ```{r}
 asphalt %>%
-  gather(
-    xname, x,
-    c(pct.a.surf:voids, viscosity:run)
+  pivot_longer(
+    c(pct.a.surf:voids, viscosity:run),
+    names_to="xname", values_to="x"
   ) %>%
   ggplot(aes(x = x, y = rut.depth)) + geom_point() +
   facet_wrap(~xname, scales = "free") -> g
 ```
 
-“gather all the x-variables together into one column called x, with another
+“collect all the x-variables together into one column called x, with another
 column xname saying which x they were, then plot these x’s against
 rut.depth, a separate facet for each x-variable.”
 
@@ -61,7 +61,7 @@ I saved this graph to plot later (on the next page).
 
 ## The plot
 
-```{r}
+```{r, fig.height=3.8}
 g
 ```
 
@@ -95,7 +95,7 @@ ggplot(asphalt_lv, aes(y = rut.depth, x = log.viscosity)) +
 
 ## Rut depth against log-viscosity
 
-```{r, ref.label="logvisplot"}
+```{r, ref.label="logvisplot", fig.height=3.1}
 
 ```
 
@@ -113,10 +113,12 @@ rut.1 <- lm(rut.depth ~ pct.a.surf + pct.a.base + fines +
 
 ## Regression output: `summary(rut.1)` or:
 
+\footnotesize
 ```{r, paged.print=F}
 glance(rut.1)
 tidy(rut.1)
 ```
+\normalsize
 
 ## Comments
 - R-squared 81%, not so bad. 
@@ -133,7 +135,7 @@ clearer picture of what is helpful.
 
 ## Plot fitted values against residuals
 
-```{r}
+```{r, fig.height=3.8}
 ggplot(rut.1, aes(x = .fitted, y = .resid)) + geom_point()
 ```
 
@@ -151,18 +153,20 @@ rut.1 %>% augment(asphalt_lv) -> rut.1a
 
 ## What does rut.1a contain?
 
+\footnotesize
 ```{r}
 glimpse(rut.1a)
 ```
+\normalsize
 
 ## Plotting residuals against $x$-variables 
 
 
 ```{r}
 rut.1a %>%
-  gather(
-    xname, x,
-    c(pct.a.surf:voids, run, log.viscosity)
+  pivot_longer(
+    c(pct.a.surf:voids, run, log.viscosity),
+    names_to="xname", values_to="x"
   ) %>%
   ggplot(aes(x = x, y = .resid)) +
   geom_point() + facet_wrap(~xname, scales = "free") -> g
@@ -170,7 +174,7 @@ rut.1a %>%
 
 ## The plot
 
-```{r}
+```{r, fig.height=3.8}
 g
 ```
 
@@ -197,12 +201,13 @@ log.
 
 From package `MASS`:
 
-```{r}
+```{r, fig.height=3.2}
 boxcox(rut.depth ~ pct.a.surf + pct.a.base + fines + voids +
   log.viscosity + run, data = asphalt_lv)
 ```
 
 ## Comments on Box-Cox plot
+- $\lambda$ represents power to transform $y$ with.
 - Best single choice of transformation parameter $\lambda$ is peak of curve,
 close to 0.
 - Vertical dotted lines give CI for $\lambda$, about (−0.05, 0.2).
@@ -225,9 +230,9 @@ explanatory variables, all in one shot:
 
 ```{r}
 asphalt_2 %>%
-  gather(
-    xname, x,
-    c(pct.a.surf:voids, run:log.viscosity)
+  pivot_longer(
+    c(pct.a.surf:voids, run:log.viscosity),
+    names_to="xname", values_to="x"
   ) %>%
   ggplot(aes(y = log.rut.depth, x = x)) + geom_point() +
   facet_wrap(~xname, scales = "free") -> g3
@@ -235,7 +240,7 @@ asphalt_2 %>%
 
 ## The new plots
 
-```{r}
+```{r, fig.height=3.7}
 g3
 ```
 
@@ -261,15 +266,18 @@ tidy(rut.2)
 ## Taking out everything non-significant
 - Try: remove everything but pct.a.surf and log.viscosity:
 
+\footnotesize
 ```{r}
 rut.3 <- lm(log.rut.depth ~ pct.a.surf + log.viscosity, data = asphalt_2)
 ```
+\normalsize
 
-
+\footnotesize
 - Check that removing all those variables wasn’t too much:
 ```{r}
 anova(rut.3, rut.2)
 ```
+\normalsize
 
 - $H_0$ : two models equally good; $H_a$ : bigger model better.
 - Null not rejected here; small model as good as the big one, so prefer
@@ -300,12 +308,14 @@ tidy(rut.2) %>% arrange(p.value)
 
 - Copy and paste the `lm` code and remove what you're removing:
 
+\small
 ```{r}
 rut.4 <- lm(log.rut.depth ~ pct.a.surf + fines + voids + log.viscosity + run,
   data = asphalt_2
 )
 tidy(rut.4) %>% arrange(p.value)
 ```
+\normalsize
 
 - `fines` is next to go, P-value 0.32.
 
@@ -356,7 +366,7 @@ coef(rut.3)
 - Best way to decide which $x$’s belong: expert knowledge: which of
 them should be important.
 - Best automatic method: what we did, “backward selection”.
-- Do not learn about “stepwise regression”! [eg. here](https://towardsdatascience.com/stopping-stepwise-why-stepwise-selection-is-bad-and-what-you-should-use-instead-90818b3f52df)
+- Do not learn about “stepwise regression”! [**eg. here**](https://towardsdatascience.com/stopping-stepwise-why-stepwise-selection-is-bad-and-what-you-should-use-instead-90818b3f52df)
 - R has function `step` that does backward selection, like this:
 ```{r, eval=F}
 step(rut.2, direction = "backward", test = "F")
@@ -383,9 +393,22 @@ with(s, data.frame(rsq, outmat)) -> d
 
 ## The output
 
+```{r, echo=F}
+wid=getOption("width")
+options(width=80)
+```
+
+
+\scriptsize
 ```{r}
 d %>% rownames_to_column("model") %>% arrange(desc(rsq))
 ```
+\normalsize
+
+```{r, echo=F}
+options(width=wid)
+```
+
 
 ## Comments
 - Problem: even adding a worthless x increases R-squared. So try for
@@ -399,8 +422,19 @@ variable makes it go down.
 
 ## All possible regressions, adjusted R-squared
 
+```{r, echo=F}
+wid=getOption("width")
+options(width=80)
+```
+
+\scriptsize
 ```{r, paged.print=F}
 with(s, data.frame(adjr2, outmat))
+```
+\normalsize
+
+```{r, echo=F}
+options(width=wid)
 ```
 
 ## Revisiting the best model
@@ -425,7 +459,7 @@ geom_point()
 ## Residuals against fitted values
 
 
-```{r}
+```{r, fig.height=3.6}
 g
 ```
 
@@ -434,9 +468,9 @@ g
 
 ```{r}
 augment(rut.6, asphalt_2) %>%
-  gather(
-    xname, x,
-    c(pct.a.surf:voids, run:log.viscosity)
+  pivot_longer(
+    c(pct.a.surf:voids, run:log.viscosity),
+    names_to="xname", values_to="x",
   ) %>%
   ggplot(aes(y = .resid, x = x)) + geom_point() +
   facet_wrap(~xname, scales = "free") -> g2
@@ -444,7 +478,7 @@ augment(rut.6, asphalt_2) %>%
 
 ## Residuals against the x’s
 
-```{r}
+```{r, fig.height=4}
 g2
 ```
 

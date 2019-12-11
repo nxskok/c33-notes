@@ -1,10 +1,4 @@
 base
-methods
-datasets
-utils
-grDevices
-graphics
-stats
 MASS
 tidyverse
 ggplot2
@@ -28,3 +22,4 @@ StanHeaders
 rstan
 conflicted
 bootstrap
+loo

@@ -44,16 +44,16 @@ one of these:
 - I check prerequisites.
 - You need STAB57 for the Statistics Minor/Major/Specialist programs.
 
-## The instructor
+## The instructor, lectures and tutorials
 - Ken Butler, office IC 471, e-mail:
 mailto:butler@utsc.utoronto.ca
-- Lectures xxx check: both of
-  - Tuesday xxx 12:00-14:00 in SW 309 
+- Lectures (section LEC01): both of
+  - Tuesday 12:00-13:00 in IC 220 
   - Thursday 14:00-15:00 in SW 128. 
+- Students in section LEC60 should watch the videotaped lectures (access from Quercus).
 - Tutorial: one of 
-  - Monday 11:00-12:00,
-  - Monday 12:00-13:00,  in BV 498.
-- Office hours: Tuesday 14:00-15:30, Thursday 15:00-16:00. Or by appointment (e-mail me, address
+  - Monday 09:00, 10:00, 11:00, 12:00,  in BV 498 (1 hour each).
+- Office hours: Tuesday 14:00-15:00, Thursday 15:00-16:30. Or by appointment (e-mail me, address
 above, to set one up).
 - course website [**here**](http://ritsokiguess.site/STAC33). 
 - This course is on Quercus. Go [**here**](http://q.utoronto.ca), log in, and find
@@ -411,7 +411,7 @@ cran35 links according to your version, then probably
 ## Find the one for you
 
 - Scroll down, and click the installer for your machine
-    (Windows, Mac, 5 flavours of Linux). Install as usual.
+    (Windows, Mac, several flavours of Linux). Install as usual.
     
 ![](rr40.png)
 
@@ -523,7 +523,13 @@ mydata <- read_csv("test1.csv")
 ```
 
 ```
-## Error: 'test1.csv' does not exist in current working directory ('/home/ken/teaching/c33/notes').
+## Parsed with column specification:
+## cols(
+##   id = col_character(),
+##   x = col_double(),
+##   y = col_double(),
+##   group = col_character()
+## )
 ```
 
 ## More on the above
@@ -556,14 +562,24 @@ control-shift-C or Mac equivalent with Cmd.)
 ## Looking at what we read in
 - Again, type the name of the thing to display it:
 
+\scriptsize
 
 ```r
 mydata
 ```
 
 ```
-## Error in eval(expr, envir, enclos): object 'mydata' not found
+## # A tibble: 6 x 4
+##   id        x     y group
+##   <chr> <dbl> <dbl> <chr>
+## 1 p1       10    21 upper
+## 2 p2       11    20 lower
+## 3 p3       13    25 upper
+## 4 p4       15    27 lower
+## 5 p5       16    30 upper
+## 6 p6       17    31 lower
 ```
+\normalsize
 
 - This is a “tibble” or data frame, the standard way of storing a data
 set in R.
@@ -612,7 +628,20 @@ summary(mydata)
 ```
 
 ```
-## Error in summary(mydata): object 'mydata' not found
+##       id                  x               y        
+##  Length:6           Min.   :10.00   Min.   :20.00  
+##  Class :character   1st Qu.:11.50   1st Qu.:22.00  
+##  Mode  :character   Median :14.00   Median :26.00  
+##                     Mean   :13.67   Mean   :25.67  
+##                     3rd Qu.:15.75   3rd Qu.:29.25  
+##                     Max.   :17.00   Max.   :31.00  
+##     group          
+##  Length:6          
+##  Class :character  
+##  Mode  :character  
+##                    
+##                    
+## 
 ```
 
 - Quantitative, five-number summary plus mean.
@@ -620,11 +649,12 @@ summary(mydata)
 
 ## Reading from a URL
 - Any data file on the Web can be read directly.
-- [Example data:](http://www.utsc.utoronto.ca/~butler/c32/global.csv).
+- [Example data link:](http://www.utsc.utoronto.ca/~butler/c32/global.csv)
 - Use URL instead of filename.
 - I like to save the URL in a variable first (because URLs tend to be
 long), and then put that variable in the `read_` function:
 
+\small
 
 ```r
 my_url <- "http://www.utsc.utoronto.ca/~butler/c32/global.csv"
@@ -639,6 +669,7 @@ global <- read_csv(my_url)
 ##   cost = col_double()
 ## )
 ```
+\normalsize
 
 ## The data
 
@@ -707,7 +738,11 @@ coffee <- read_delim("coffee.txt", " ")
 ```
 
 ```
-## Error: 'coffee.txt' does not exist in current working directory ('/home/ken/teaching/c33/notes').
+## Parsed with column specification:
+## cols(
+##   cup = col_character(),
+##   tempdiff = col_double()
+## )
 ```
 
 - Name of the cup, text, and tempdiff, a decimal number.
@@ -720,7 +755,20 @@ coffee
 ```
 
 ```
-## Error in eval(expr, envir, enclos): object 'coffee' not found
+## # A tibble: 32 x 2
+##    cup       tempdiff
+##    <chr>        <dbl>
+##  1 Starbucks     13  
+##  2 Starbucks      7  
+##  3 Starbucks      7  
+##  4 Starbucks     17.5
+##  5 Starbucks     10  
+##  6 Starbucks     15.5
+##  7 Starbucks      6  
+##  8 Starbucks      6  
+##  9 SIGG          12  
+## 10 SIGG          16  
+## # … with 22 more rows
 ```
 
 These were four brands of travel mug (in cup), and for each, how much
@@ -788,7 +836,12 @@ drugs <- read_table("migraine.txt")
 ```
 
 ```
-## Error: 'migraine.txt' does not exist in current working directory ('/home/ken/teaching/c33/notes').
+## Parsed with column specification:
+## cols(
+##   DrugA = col_double(),
+##   DrugB = col_double(),
+##   DrugC = col_double()
+## )
 ```
 
 ## The data
@@ -799,7 +852,18 @@ drugs
 ```
 
 ```
-## Error in eval(expr, envir, enclos): object 'drugs' not found
+## # A tibble: 9 x 3
+##   DrugA DrugB DrugC
+##   <dbl> <dbl> <dbl>
+## 1     4     6     6
+## 2     5     8     7
+## 3     4     4     6
+## 4     3     5     6
+## 5     2     4     7
+## 6     4     6     5
+## 7     3     5     6
+## 8     4    10     5
+## 9     4     6     5
 ```
 
 
@@ -823,28 +887,20 @@ cannot read one in from a URL.
 
 ```r
 library(readxl)
-```
-
-```
-## Warning: `quo_expr()` is deprecated as of rlang 0.2.0.
-## Please use `quo_squash()` instead.
-## This warning is displayed once per session.
-```
-
-```r
 mydata2 <- read_excel("test2.xlsx", sheet = "data")
-```
-
-```
-## Error: `path` does not exist: 'test2.xlsx'
-```
-
-```r
 mydata2
 ```
 
 ```
-## Error in eval(expr, envir, enclos): object 'mydata2' not found
+## # A tibble: 6 x 4
+##   id        x     y group
+##   <chr> <dbl> <dbl> <chr>
+## 1 p1       10    21 upper
+## 2 p2       11    20 lower
+## 3 p3       13    25 upper
+## 4 p4       15    27 lower
+## 5 p5       16    30 upper
+## 6 p6       17    31 lower
 ```
 
 
@@ -874,6 +930,7 @@ library(tidyverse)
 - Use `read_tsv` (“tab-separated values”), like `read_csv`.
 - Data in `ais.txt`:
 
+\scriptsize
 
 ```r
 my_url <- "http://www.utsc.utoronto.ca/~butler/c32/ais.txt"
@@ -898,9 +955,11 @@ athletes <- read_tsv(my_url)
 ##   Wt = col_double()
 ## )
 ```
+\normalsize
 
 ## The data (some)
 
+\footnotesize
 
 ```r
 athletes
@@ -924,6 +983,7 @@ athletes
 ## #   SSF <dbl>, `%Bfat` <dbl>, LBM <dbl>, Ht <dbl>,
 ## #   Wt <dbl>
 ```
+\normalsize
 
 ## Types of graph
 
@@ -1049,6 +1109,7 @@ ggplot(athletes, aes(x = Ht, y = Wt, colour = Sex)) +
 Default uses same scale for each facet. To use different scales for each
 facet, this:
 
+\small
 
 ```r
 ggplot(athletes, aes(x = Ht, y = Wt, colour = Sex)) +
@@ -1056,7 +1117,7 @@ ggplot(athletes, aes(x = Ht, y = Wt, colour = Sex)) +
 ```
 
 ![plot of chunk unnamed-chunk-47](figure/unnamed-chunk-47-1.pdf)
-
+\normalsize
 
 # Numerical summaries: more detailed
 
@@ -1185,6 +1246,7 @@ athletes %>% count(Sport)
 Another way (which will make sense
 in a moment):
 
+\small
 
 ```r
 athletes %>% group_by(Sport) %>%
@@ -1206,6 +1268,7 @@ athletes %>% group_by(Sport) %>%
 ##  9 TSprnt     15
 ## 10 WPolo      17
 ```
+\normalsize
 
 ## Summaries by group
 - Might want separate summaries for each “group”, eg. mean and SD
@@ -1233,6 +1296,7 @@ sport, how many athletes were there?”
 
 - Standard deviation of each (numeric) column: 
 
+\small
 
 ```r
 athletes %>% summarize_if(is.numeric, sd)
@@ -1246,8 +1310,11 @@ athletes %>% summarize_if(is.numeric, sd)
 ## # … with 3 more variables: LBM <dbl>, Ht <dbl>,
 ## #   Wt <dbl>
 ```
+\normalsize
 
 - Median and IQR of all columns whose name starts with H: 
+
+\small
 
 ```r
 athletes %>% summarize_at(vars(starts_with("H")),
@@ -1260,7 +1327,7 @@ athletes %>% summarize_at(vars(starts_with("H")),
 ##    <dbl>  <dbl>  <dbl>  <dbl>  <dbl>  <dbl>
 ## 1   43.5   14.7   180.   4.98   2.07   12.2
 ```
-
+\normalsize
 
 # Statistical Inference
 
@@ -1309,30 +1376,90 @@ jays = read_csv("jays15-home.csv")
 ```
 
 ```
-## Error: 'jays15-home.csv' does not exist in current working directory ('/home/ken/teaching/c33/notes').
+## Parsed with column specification:
+## cols(
+##   .default = col_character(),
+##   row = col_double(),
+##   game = col_double(),
+##   venue = col_logical(),
+##   runs = col_double(),
+##   Oppruns = col_double(),
+##   innings = col_double(),
+##   position = col_double(),
+##   `game time` = col_time(format = ""),
+##   attendance = col_double()
+## )
+```
+
+```
+## See spec(...) for full column specifications.
 ```
 
 ## Taking a look
 
+\scriptsize
 
 ```r
 jays
 ```
 
 ```
-## Error in eval(expr, envir, enclos): object 'jays' not found
+## # A tibble: 25 x 21
+##      row  game date   box   team  venue opp   result
+##    <dbl> <dbl> <chr>  <chr> <chr> <lgl> <chr> <chr> 
+##  1    82     7 Monda… boxs… TOR   NA    TBR   L     
+##  2    83     8 Tuesd… boxs… TOR   NA    TBR   L     
+##  3    84     9 Wedne… boxs… TOR   NA    TBR   W     
+##  4    85    10 Thurs… boxs… TOR   NA    TBR   L     
+##  5    86    11 Frida… boxs… TOR   NA    ATL   L     
+##  6    87    12 Satur… boxs… TOR   NA    ATL   W-wo  
+##  7    88    13 Sunda… boxs… TOR   NA    ATL   L     
+##  8    89    14 Tuesd… boxs… TOR   NA    BAL   W     
+##  9    90    15 Wedne… boxs… TOR   NA    BAL   W     
+## 10    91    16 Thurs… boxs… TOR   NA    BAL   W     
+## # … with 15 more rows, and 13 more variables:
+## #   runs <dbl>, Oppruns <dbl>, innings <dbl>,
+## #   wl <chr>, position <dbl>, gb <chr>,
+## #   winner <chr>, loser <chr>, save <chr>, `game
+## #   time` <time>, Daynight <chr>, attendance <dbl>,
+## #   streak <chr>
 ```
+\normalsize
 
 ## Another way
 
+\tiny
 
 ```r
 glimpse(jays)
 ```
 
 ```
-## Error in glimpse(jays): object 'jays' not found
+## Observations: 25
+## Variables: 21
+## $ row         <dbl> 82, 83, 84, 85, 86, 87, 88, 8…
+## $ game        <dbl> 7, 8, 9, 10, 11, 12, 13, 14, …
+## $ date        <chr> "Monday, Apr 13", "Tuesday, A…
+## $ box         <chr> "boxscore", "boxscore", "boxs…
+## $ team        <chr> "TOR", "TOR", "TOR", "TOR", "…
+## $ venue       <lgl> NA, NA, NA, NA, NA, NA, NA, N…
+## $ opp         <chr> "TBR", "TBR", "TBR", "TBR", "…
+## $ result      <chr> "L", "L", "W", "L", "L", "W-w…
+## $ runs        <dbl> 1, 2, 12, 2, 7, 6, 2, 13, 4, …
+## $ Oppruns     <dbl> 2, 3, 7, 4, 8, 5, 5, 6, 2, 6,…
+## $ innings     <dbl> NA, NA, NA, NA, NA, 10, NA, N…
+## $ wl          <chr> "4-3", "4-4", "5-4", "5-5", "…
+## $ position    <dbl> 2, 3, 2, 4, 4, 3, 4, 2, 2, 1,…
+## $ gb          <chr> "1", "2", "1", "1.5", "2.5", …
+## $ winner      <chr> "Odorizzi", "Geltz", "Buehrle…
+## $ loser       <chr> "Dickey", "Castro", "Ramirez"…
+## $ save        <chr> "Boxberger", "Jepsen", NA, "B…
+## $ `game time` <time> 02:30:00, 03:06:00, 03:02:00…
+## $ Daynight    <chr> "N", "N", "N", "N", "N", "D",…
+## $ attendance  <dbl> 48414, 17264, 15086, 14433, 2…
+## $ streak      <chr> "-", "--", "+", "-", "--", "+…
 ```
+\normalsize
 
 ## Attendance histogram
 
@@ -1341,9 +1468,7 @@ glimpse(jays)
 ggplot(jays, aes(x = attendance)) + geom_histogram(bins = 10)
 ```
 
-```
-## Error in ggplot(jays, aes(x = attendance)): object 'jays' not found
-```
+![plot of chunk unnamed-chunk-63](figure/unnamed-chunk-63-1.pdf)
 
 
 ## Comments
@@ -1366,7 +1491,17 @@ t.test(jays$attendance)
 ```
 
 ```
-## Error in t.test(jays$attendance): object 'jays' not found
+## 
+## 	One Sample t-test
+## 
+## data:  jays$attendance
+## t = 11.389, df = 24, p-value = 3.661e-11
+## alternative hypothesis: true mean is not equal to 0
+## 95 percent confidence interval:
+##  20526.82 29613.50
+## sample estimates:
+## mean of x 
+##  25070.16
 ```
 
 - From 20,500 to 29,600.
@@ -1380,14 +1515,24 @@ t.test(jays$attendance, conf.level = 0.90)
 ```
 
 ```
-## Error in t.test(jays$attendance, conf.level = 0.9): object 'jays' not found
+## 
+## 	One Sample t-test
+## 
+## data:  jays$attendance
+## t = 11.389, df = 24, p-value = 3.661e-11
+## alternative hypothesis: true mean is not equal to 0
+## 90 percent confidence interval:
+##  21303.93 28836.39
+## sample estimates:
+## mean of x 
+##  25070.16
 ```
 
 - From 21,300 to 28,800. (Shorter, as it should be.)
 
 
 ## Comments
-- Need to say “column attendance within data frame jays” using $.
+- Need to say “column attendance within data frame `jays`” using $.
 - 95% CI from about 20,000 to about 30,000.
 - Not estimating mean attendance well at all!
 - Generally want confidence interval to be shorter, which happens if:
@@ -1405,7 +1550,17 @@ with(jays, t.test(attendance))
 ```
 
 ```
-## Error in with(jays, t.test(attendance)): object 'jays' not found
+## 
+## 	One Sample t-test
+## 
+## data:  attendance
+## t = 11.389, df = 24, p-value = 3.661e-11
+## alternative hypothesis: true mean is not equal to 0
+## 95 percent confidence interval:
+##  20526.82 29613.50
+## sample estimates:
+## mean of x 
+##  25070.16
 ```
 
 ## Hypothesis test
@@ -1500,7 +1655,17 @@ t.test(jays$attendance, mu=29327)
 ```
 
 ```
-## Error in t.test(jays$attendance, mu = 29327): object 'jays' not found
+## 
+## 	One Sample t-test
+## 
+## data:  jays$attendance
+## t = -1.9338, df = 24, p-value = 0.06502
+## alternative hypothesis: true mean is not equal to 29327
+## 95 percent confidence interval:
+##  20526.82 29613.50
+## sample estimates:
+## mean of x 
+##  25070.16
 ```
 
 - See test statistic $-1.93$, P-value 0.065.
@@ -1517,19 +1682,19 @@ approx. normal even if data distribution somewhat non-normal.
 - So look at shape of data distribution, and make a call about whether
 it is normal enough, given the sample size.
 
-## Blue Jays attendances
+## Blue Jays attendances again:
+
+- You might say that this is not normal enough for a sample size of $n = 25$,
+in which case you don’t trust the $t$-test result:
 
 
 ```r
 ggplot(jays, aes(x = attendance)) + geom_histogram(bins = 10)
 ```
 
-```
-## Error in ggplot(jays, aes(x = attendance)): object 'jays' not found
-```
+![plot of chunk unnamed-chunk-68](figure/unnamed-chunk-68-1.pdf)
 
-- You might say that this is not normal enough for a sample size of $n = 25$,
-in which case you don’t trust the $t$-test result.
+
 
 ## Another example: learning to read
 
@@ -1742,7 +1907,7 @@ experiment. Low $\beta$ good.
 - Prob. of not making type II error called **power** (= $1 - \beta$). *High* power
 good.
 
-## Power
+## Power 
 
 - Suppose $H_0 : \theta = 10$, $H a : \theta \ne 10$ for some parameter $\theta$.
 - Suppose $H_0$ wrong. What does that say about $\theta$?
@@ -1802,11 +1967,11 @@ x
 ## [13] 13.074996 11.353573  5.015575
 ```
 
-
-
-## ...continued 
-
 - Test whether `x` from population with mean 10 or not (over):
+
+
+## ...continued
+
 
 
 
@@ -1885,6 +2050,7 @@ different each time because of randomness.
 be calculated.
 - `power.t.test`. delta difference between null and true mean: 
 
+\small
 
 ```r
 power.t.test(n = 15, delta = 10-8, sd = 4, type = "one.sample")
@@ -1901,6 +2067,7 @@ power.t.test(n = 15, delta = 10-8, sd = 4, type = "one.sample")
 ##           power = 0.4378466
 ##     alternative = two.sided
 ```
+\normalsize
 
 ## Comparison of results
 
@@ -2082,13 +2249,15 @@ combos
 - Calculate the powers, carefully:
 
 ```r
-ans=with(combos, power.t.test(n=n, delta=mean-10, sd=4, type="one.sample"))
+ans=with(combos, power.t.test(n=n, delta=mean-10, sd=4, 
+                              type="one.sample"))
 ```
 
 - Make a data frame to plot, pulling things from the right places:
 
 ```r
-d=tibble(n=factor(combos$n), mean=combos$mean, power=ans$power)
+d=tibble(n=factor(combos$n), mean=combos$mean, 
+         power=ans$power)
 ```
 
 - then make the plot:
@@ -2113,14 +2282,14 @@ g
 actually true, and the probability of rejecting it then is $\alpha = 0.05$.
 - As the null gets more wrong (mean decreases), it becomes easier to
 correctly reject it.
-- The blue power curve is above the red one for any mean > 10, meaning
+- The blue power curve is above the red one for any mean < 10, meaning
 that no matter how wrong $H_0$ is, you always have a greater chance of
 correctly rejecting it with a larger sample size.
 - Previously, we had $H_0 : \mu = 10$ and a true $\mu = 8$, so a mean of 8
 produces power 0.42 and 0.80 as shown on the graph.
-- With $n = 34$, a true mean that is less than about 7
+- With $n = 30$, a true mean that is less than about 7
 is almost certain to be correctly rejected. (With $n = 15$, the
-difference needs to be less than 6.)
+true mean needs to be less than 6.)
 
 ## Power by sample size for means 7 and 8
 Similar procedure to before:
@@ -2130,9 +2299,12 @@ Similar procedure to before:
 means=c(7, 8)
 ns=seq(10, 40, 5)
 combos=crossing(mean=means, n=ns)
-ans=with(combos, power.t.test(n=n, delta=10-mean, sd=4, type="one.sample"))
-d=tibble(mean=factor(combos$mean), n=combos$n, power=ans$power)
-g=ggplot(d, aes(x=n, y=power, colour=mean)) + geom_point() + geom_line() +
+ans=with(combos, power.t.test(n=n, delta=10-mean, sd=4, 
+                              type="one.sample"))
+d=tibble(mean=factor(combos$mean), n=combos$n, 
+         power=ans$power)
+g=ggplot(d, aes(x=n, y=power, colour=mean)) + 
+  geom_point() + geom_line() +
   geom_hline(yintercept=1,linetype="dashed")  
 ```
 
@@ -2164,11 +2336,13 @@ kids %>% group_by(group) %>%
 ## 2 t        21  11.0
 ```
 
+## Setting up
+
 - suppose a 5-point improvement in reading score was considered important (on this scale)
 - in a 2-sample test, null (difference of) mean is zero, so `delta` is true difference in means
 - what is power for these sample sizes, and what sample size would be needed to get power up to 0.80?
 
-## calculating power for sample size 22 (per group) 
+## Calculating power for sample size 22 (per group) 
 
 
 ```r
@@ -2212,7 +2386,7 @@ power.t.test(power=0.80, delta=5, sd=14, type="two.sample",
 ## NOTE: n is number in *each* group
 ```
 
-## comments
+## Comments
 
 - The power for the sample sizes we have is very small (to detect a 5-point increase).
 - To get power 0.80, we need 98 kids in *each* group!
@@ -2237,8 +2411,9 @@ twogroups=read_delim(my_url," ")
 ```
 
 
-## The data (some) 
+## The data
 
+\footnotesize
 
 ```r
 twogroups
@@ -2264,6 +2439,7 @@ twogroups
 ## 14    18     2
 ## 15    19     2
 ```
+\normalsize
 
 ## 95% CI (default)
 
@@ -2403,7 +2579,10 @@ ggplot(irs, aes(x = Time)) + geom_histogram(bins = 10)
 
 ![plot of chunk unnamed-chunk-102](figure/unnamed-chunk-102-1.pdf)
 
-Skewed to right. Should look at median.
+## Comments
+
+- Skewed to right. 
+- Should look at *median*, not mean.
 
 ## The sign test
 - But how to test whether the median is greater than 160?
@@ -2477,7 +2656,8 @@ library(devtools)
 install_github("nxskok/smmr")
 ```
 - Then load it:
-```{r, eval=F
+
+```r
 library(smmr)
 ```
 
@@ -2594,6 +2774,8 @@ pval_sign(300, irs, Time)
 ## Doing a whole bunch
 - Choose our null medians first:
 
+\small
+
 ```r
 (d=tibble(null_median=seq(100,300,20)))
 ```
@@ -2614,6 +2796,7 @@ pval_sign(300, irs, Time)
 ## 10         280
 ## 11         300
 ```
+\normalsize
 
 ## ... and then
 
@@ -2944,7 +3127,7 @@ line.
 ggplot(pain,aes(sample=diff))+stat_qq()+stat_qq_line()
 ```
 
-![plot of chunk unnamed-chunk-126](figure/unnamed-chunk-126-1.pdf)
+![plot of chunk unnamed-chunk-127](figure/unnamed-chunk-127-1.pdf)
 
 - Points should follow the straight line. Bottom left one way off, so
 normality questionable here: outlier.
@@ -2960,7 +3143,7 @@ ought not to concern us.
 - Look at some examples where we know the answer, so that we can
 see what to expect.
 
-## Normal data, large sample check randomness from here
+## Normal data, large sample
 
 
 
@@ -2971,9 +3154,7 @@ d=tibble(x=rnorm(200))
 ggplot(d,aes(x=x))+geom_histogram(bins=10)
 ```
 
-![plot of chunk unnamed-chunk-127](figure/unnamed-chunk-127-1.pdf)
-
-As normal as you could wish for.
+![plot of chunk unnamed-chunk-128](figure/unnamed-chunk-128-1.pdf)
 
 ## The normal quantile plot
 
@@ -2982,36 +3163,40 @@ As normal as you could wish for.
 ggplot(d,aes(sample=x))+stat_qq()+stat_qq_line()
 ```
 
-![plot of chunk unnamed-chunk-128](figure/unnamed-chunk-128-1.pdf)
+![plot of chunk unnamed-chunk-129](figure/unnamed-chunk-129-1.pdf)
 
-## Normal data, small sample 
+## Normal data, small sample
 
 
+
+- Not so convincingly normal, but not obviously skewed:
 
 
 
 ```r
 d=tibble(x=rnorm(20))
-ggplot(d,aes(x=x))+geom_histogram(bins=10)
+ggplot(d,aes(x=x))+geom_histogram(bins=5)
 ```
 
 ![plot of chunk normal-small](figure/normal-small-1.pdf)
 
-- Not so convincingly normal, but not obviously skewed.
 
 ## The normal quantile plot
+
+Good, apart from the highest and lowest points being slightly off. I’d call
+this good:
+
 
 
 ```r
 ggplot(d,aes(sample=x))+stat_qq()+stat_qq_line()
 ```
 
-![plot of chunk unnamed-chunk-130](figure/unnamed-chunk-130-1.pdf)
-
-Good, apart from the highest and lowest points being slightly off. I’d call
-this good.
+![plot of chunk unnamed-chunk-131](figure/unnamed-chunk-131-1.pdf)
 
 ## Chi-squared data, *df* = 10
+
+Somewhat skewed to right:
 
 
 ```r
@@ -3019,22 +3204,25 @@ d=tibble(x=rchisq(100,10))
 ggplot(d,aes(x=x))+geom_histogram(bins=10)
 ```
 
-![plot of chunk unnamed-chunk-131](figure/unnamed-chunk-131-1.pdf)
+![plot of chunk unnamed-chunk-132](figure/unnamed-chunk-132-1.pdf)
 
-Somewhat skewed to right.
+
 
 ## The normal quantile plot
+
+Somewhat opening-up curve:
 
 
 ```r
 ggplot(d,aes(sample=x))+stat_qq()+stat_qq_line()
 ```
 
-![plot of chunk unnamed-chunk-132](figure/unnamed-chunk-132-1.pdf)
+![plot of chunk unnamed-chunk-133](figure/unnamed-chunk-133-1.pdf)
 
-Somewhat opening-up curve.
 
-## Chi-squared data, df = 3 
+## Chi-squared data, df = 3
+
+Definitely skewed to right:
 
 
 ```r
@@ -3045,21 +3233,24 @@ ggplot(d,aes(x=x))+geom_histogram(bins=10)
 ![plot of chunk chisq-small-df](figure/chisq-small-df-1.pdf)
 
 
-Definitely skewed to right.
 
 ## The normal quantile plot
+
+Clear upward-opening curve:
 
 
 ```r
 ggplot(d,aes(sample=x))+stat_qq()+stat_qq_line()
 ```
 
-![plot of chunk unnamed-chunk-133](figure/unnamed-chunk-133-1.pdf)
+![plot of chunk unnamed-chunk-134](figure/unnamed-chunk-134-1.pdf)
 
 
-Clear upward-opening curve.
 
-## t-distributed data, df = 3 
+## t-distributed data, df = 3
+
+Long tails (or a very sharp peak):
+
 
 ```r
 d=tibble(x=rt(300,3))
@@ -3069,20 +3260,20 @@ ggplot(d,aes(x=x))+geom_histogram(bins=10)
 ![plot of chunk t-small](figure/t-small-1.pdf)
 
 
-Long tails (or a very sharp peak).
 
 ## The normal quantile plot
+
+Low values too low and high values too high for normal.
 
 
 ```r
 ggplot(d,aes(sample=x))+stat_qq()+stat_qq_line()
 ```
 
-![plot of chunk unnamed-chunk-134](figure/unnamed-chunk-134-1.pdf)
+![plot of chunk unnamed-chunk-135](figure/unnamed-chunk-135-1.pdf)
 
-Low values too low and high values too high for normal.
 
-## Our pain-relief data 
+## Our pain-relief data
 
 
 ```r
@@ -3091,6 +3282,7 @@ ggplot(pain,aes(sample=diff))+stat_qq()+stat_qq_line()
 
 ![plot of chunk pain-relief-qq](figure/pain-relief-qq-1.pdf)
 
+## Comments
 
 - Definitely not normal. What to do?
 - Sign test on differences, null median 0.
@@ -3170,7 +3362,7 @@ standard reading method.
 ggplot(kids,aes(x=group,y=score))+geom_boxplot()
 ```
 
-![plot of chunk unnamed-chunk-137](figure/unnamed-chunk-137-1.pdf)
+![plot of chunk unnamed-chunk-138](figure/unnamed-chunk-138-1.pdf)
 
 ## Facetted normal quantile plots
 Done this way:
@@ -3181,7 +3373,7 @@ ggplot(kids,aes(sample=score))+stat_qq()+stat_qq_line()+
 facet_wrap(~group)
 ```
 
-![plot of chunk unnamed-chunk-138](figure/unnamed-chunk-138-1.pdf)
+![plot of chunk unnamed-chunk-139](figure/unnamed-chunk-139-1.pdf)
 
 ## Comments
 - These plots show no problems with normality. Both groups are more
@@ -3432,6 +3624,7 @@ rats=read_delim(my_url," ")
 
 ## The data (some random rows) 
 
+\small
 
 ```r
 rats %>% sample_n(12)
@@ -3454,6 +3647,7 @@ rats %>% sample_n(12)
 ## 11 Lowjump      588
 ## 12 Highjump     626
 ```
+\normalsize
 
 ## Boxplots
 
@@ -3462,16 +3656,17 @@ rats %>% sample_n(12)
 ggplot(rats,aes(y=density,x=group))+geom_boxplot()
 ```
 
-![plot of chunk unnamed-chunk-149](figure/unnamed-chunk-149-1.pdf)
+![plot of chunk unnamed-chunk-150](figure/unnamed-chunk-150-1.pdf)
 
 ## Or, arranging groups in data (logical) order
+
 
 ```r
 ggplot(rats,aes(y=density,x=fct_inorder(group)))+
 geom_boxplot()
 ```
 
-![plot of chunk unnamed-chunk-150](figure/unnamed-chunk-150-1.pdf)
+![plot of chunk unnamed-chunk-151](figure/unnamed-chunk-151-1.pdf)
 
 ## Analysis of Variance
 - Comparing > 2 groups of independent observations (each rat only
@@ -3622,6 +3817,10 @@ different.
 ## Tukey on rat data
 
 
+
+
+\small
+
 ```r
 rats.aov=aov(density~group,data=rats)
 TukeyHSD(rats.aov)
@@ -3634,18 +3833,16 @@ TukeyHSD(rats.aov)
 ## Fit: aov(formula = density ~ group, data = rats)
 ## 
 ## $group
-##                   diff       lwr       upr
-## Highjump-Control  37.6  13.66604 61.533957
-## Lowjump-Control   11.4 -12.53396 35.333957
-## Lowjump-Highjump -26.2 -50.13396 -2.266043
-##                      p adj
-## Highjump-Control 0.0016388
-## Lowjump-Control  0.4744032
-## Lowjump-Highjump 0.0297843
+##                   diff       lwr       upr     p adj
+## Highjump-Control  37.6  13.66604 61.533957 0.0016388
+## Lowjump-Control   11.4 -12.53396 35.333957 0.4744032
+## Lowjump-Highjump -26.2 -50.13396 -2.266043 0.0297843
 ```
+\normalsize
 
 
-Again conclude that bone density for highjump group significantly higher
+
+- Again conclude that bone density for highjump group significantly higher
 than for other two groups.
 
 ## Why Tukey’s procedure better than all t-tests 
@@ -3674,7 +3871,7 @@ ggplot(rats,aes(y=density,x=fct_inorder(group)))+
 geom_boxplot()
 ```
 
-![plot of chunk unnamed-chunk-157](figure/unnamed-chunk-157-1.pdf)
+![plot of chunk unnamed-chunk-160](figure/unnamed-chunk-160-1.pdf)
 
 Assumptions:
 - Normally distributed data within each group
@@ -3684,11 +3881,11 @@ Assumptions:
 
 
 ```r
-ggplot(rats, aes(sample = density)) + stat_qq() + stat_qq_line() +
-  facet_wrap( ~ group)
+ggplot(rats, aes(sample = density)) + stat_qq() + 
+  stat_qq_line() + facet_wrap( ~ group)
 ```
 
-![plot of chunk unnamed-chunk-158](figure/unnamed-chunk-158-1.pdf)
+![plot of chunk unnamed-chunk-161](figure/unnamed-chunk-161-1.pdf)
 
 ## The assumptions
 - Normally-distributed data within each group
@@ -3705,9 +3902,10 @@ Welch-Satterthwaite t-test.)
 - Can also use Mood’s Median Test (see over). This works for any
 number of groups.
 
-## Mood’s median test 1/3
+## Mood’s median test 1/4
 - Find median of all bone densities, regardless of group:
 
+\small
 
 ```r
 (rats %>% summarize(med = median(density)) %>% pull(med) -> m)
@@ -3716,6 +3914,7 @@ number of groups.
 ```
 ## [1] 621.5
 ```
+\normalsize
 
 - Count up how many observations in each group above or below
 overall median:
@@ -4182,6 +4381,42 @@ pigs2
 ## 20 feed4   90.3
 ```
 
+## Another way to do this:
+
+
+```r
+pigs1 %>% 
+  pivot_longer(feed1:feed4, names_to = "feed", 
+               values_to="weight")
+```
+
+```
+## # A tibble: 20 x 2
+##    feed  weight
+##    <chr>  <dbl>
+##  1 feed1   60.8
+##  2 feed2   68.7
+##  3 feed3   92.6
+##  4 feed4   87.9
+##  5 feed1   57  
+##  6 feed2   67.7
+##  7 feed3   92.1
+##  8 feed4   84.2
+##  9 feed1   65  
+## 10 feed2   74  
+## 11 feed3   90.2
+## 12 feed4   83.1
+## 13 feed1   58.6
+## 14 feed2   66.3
+## 15 feed3   96.5
+## 16 feed4   85.7
+## 17 feed1   61.7
+## 18 feed2   69.8
+## 19 feed3   99.1
+## 20 feed4   90.3
+```
+
+
 ## ...and finally, the analysis
 - which is just what we saw before:
 
@@ -4253,17 +4488,19 @@ pigs2 %>%
 
 Feed 3 is best, feed 1 worst.
 
-## Should we have any concerns about the ANOVA?  
+## Should we have any concerns about the ANOVA?
+
+Feed 2 has an outlier, but there are only 5 pigs in each group, and the
+conclusion is so clear that I am OK with this.
 
 
 ```r
 ggplot(pigs2, aes(x = feed, y = weight)) + geom_boxplot()
 ```
 
-![plot of chunk unnamed-chunk-174](figure/unnamed-chunk-174-1.pdf)
+![plot of chunk unnamed-chunk-178](figure/unnamed-chunk-178-1.pdf)
 
-Feed 2 has an outlier, but there are only 5 pigs in each group, and the
-conclusion is so clear that I am OK with this.
+
 
 ## Tuberculosis
 
@@ -4335,10 +4572,19 @@ glimpse(tb)
 tb %>% gather(genage, freq, m04:fu, na.rm = T) -> tb2
 ```
 
-- what makes the columns-to-be-gathered different, then
-- what makes them the same, then
-- the columns to gather, then (optionally)
-- get rid of the missing values.
+or
+
+
+```r
+tb %>% 
+  pivot_longer(m04:fu, names_to = "genage", 
+               values_to = "freq", values_drop_na = T) -> tb2
+```
+
+- columns to make longer
+- column to contain the names
+- column to contain the values
+- (optional) drop missings in the values
 
 ## Results (some)
 
@@ -4351,16 +4597,16 @@ tb2
 ## # A tibble: 35,750 x 4
 ##    iso2   year genage  freq
 ##    <chr> <dbl> <chr>  <dbl>
-##  1 AD     2005 m04        0
-##  2 AD     2006 m04        0
-##  3 AD     2008 m04        0
-##  4 AE     2006 m04        0
-##  5 AE     2007 m04        0
-##  6 AE     2008 m04        0
-##  7 AG     2007 m04        0
-##  8 AL     2005 m04        0
-##  9 AL     2006 m04        1
-## 10 AL     2007 m04        0
+##  1 AD     1996 m014       0
+##  2 AD     1996 m1524      0
+##  3 AD     1996 m2534      0
+##  4 AD     1996 m3544      4
+##  5 AD     1996 m4554      1
+##  6 AD     1996 m5564      0
+##  7 AD     1996 m65        0
+##  8 AD     1996 f014       0
+##  9 AD     1996 f1524      1
+## 10 AD     1996 f2534      1
 ## # … with 35,740 more rows
 ```
 
@@ -4388,16 +4634,16 @@ tb3
 ## # A tibble: 35,750 x 5
 ##    iso2   year gender age    freq
 ##    <chr> <dbl> <chr>  <chr> <dbl>
-##  1 AD     2005 m      04        0
-##  2 AD     2006 m      04        0
-##  3 AD     2008 m      04        0
-##  4 AE     2006 m      04        0
-##  5 AE     2007 m      04        0
-##  6 AE     2008 m      04        0
-##  7 AG     2007 m      04        0
-##  8 AL     2005 m      04        0
-##  9 AL     2006 m      04        1
-## 10 AL     2007 m      04        0
+##  1 AD     1996 m      014       0
+##  2 AD     1996 m      1524      0
+##  3 AD     1996 m      2534      0
+##  4 AD     1996 m      3544      4
+##  5 AD     1996 m      4554      1
+##  6 AD     1996 m      5564      0
+##  7 AD     1996 m      65        0
+##  8 AD     1996 f      014       0
+##  9 AD     1996 f      1524      1
+## 10 AD     1996 f      2534      1
 ## # … with 35,740 more rows
 ```
 
@@ -4409,7 +4655,8 @@ output as input to the next step, thus:
 
 ```r
 tb %>%
-  gather(genage, freq, m04:fu, na.rm = T) %>%
+  pivot_longer(m04:fu, names_to = "genage", 
+               values_to = "freq", values_drop_na = T) %>% 
   separate(genage, c("gender", "age"), 1) -> tb3
 ```
 
@@ -4422,14 +4669,13 @@ each line is incomplete, so that R knows more is to come.
 
 ```r
 tb3 %>%
-  group_by(year) %>%
-  summarize(cases = sum(freq)) %>%
-  filter(between(year, 1991, 1998))
+  filter(between(year, 1991, 1998)) %>% 
+  count(year, wt=freq) 
 ```
 
 ```
 ## # A tibble: 8 x 2
-##    year  cases
+##    year      n
 ##   <dbl>  <dbl>
 ## 1  1991    544
 ## 2  1992    512
@@ -4443,11 +4689,99 @@ tb3 %>%
 
 - Something very interesting happened between 1994 and 1995.
 
-## Some weather data
+## To find out what
+
+- try counting up total cases by country:
 
 
 ```r
-my_url <- "http://www.utsc.utoronto.ca/~butler/c32/weather.csv"
+tb3 %>% 
+  count(iso2, wt=freq) %>% 
+  arrange(desc(n))
+```
+
+```
+## # A tibble: 213 x 2
+##    iso2        n
+##    <chr>   <dbl>
+##  1 CN    4065174
+##  2 IN    3966169
+##  3 ID    1129015
+##  4 ZA     900349
+##  5 BD     758008
+##  6 VN     709695
+##  7 CD     603095
+##  8 PH     490040
+##  9 BR     440609
+## 10 KE     431523
+## # … with 203 more rows
+```
+
+## what years do I have for China?
+
+China started recording in 1995, which is at least part of the problem:
+
+
+```r
+tb3 %>% filter(iso2=="CN") %>% 
+  count(year, wt=freq)
+```
+
+```
+## # A tibble: 14 x 2
+##     year      n
+##    <dbl>  <dbl>
+##  1  1995 131194
+##  2  1996 168270
+##  3  1997 195895
+##  4  1998 214404
+##  5  1999 212258
+##  6  2000 213766
+##  7  2001 212766
+##  8  2002 194972
+##  9  2003 267280
+## 10  2004 384886
+## 11  2005 472719
+## 12  2006 468291
+## 13  2007 465877
+## 14  2008 462596
+```
+
+## first year of recording for each country?
+
+- A lot of countries started recording in about 1995:
+
+
+```r
+tb3 %>% group_by(iso2) %>% 
+  summarize(first_year=min(year)) %>% 
+  arrange(first_year)
+```
+
+```
+## # A tibble: 213 x 2
+##    iso2  first_year
+##    <chr>      <dbl>
+##  1 CA          1980
+##  2 CK          1980
+##  3 FJ          1994
+##  4 MN          1994
+##  5 AL          1995
+##  6 AM          1995
+##  7 AO          1995
+##  8 AT          1995
+##  9 AZ          1995
+## 10 BA          1995
+## # … with 203 more rows
+```
+
+
+## Some Toronto weather data
+
+
+```r
+my_url <- 
+  "http://ritsokiguess.site/STAC32/toronto_weather.csv"
 weather <- read_csv(my_url)
 ```
 
@@ -4455,16 +4789,9 @@ weather <- read_csv(my_url)
 ## Parsed with column specification:
 ## cols(
 ##   .default = col_double(),
-##   id = col_character(),
-##   element = col_character(),
-##   d9 = col_logical(),
-##   d12 = col_logical(),
-##   d18 = col_logical(),
-##   d19 = col_logical(),
-##   d20 = col_logical(),
-##   d21 = col_logical(),
-##   d22 = col_logical(),
-##   d24 = col_logical()
+##   station = col_character(),
+##   Month = col_character(),
+##   element = col_character()
 ## )
 ```
 
@@ -4480,44 +4807,47 @@ weather
 ```
 
 ```
-## # A tibble: 22 x 35
-##    id     year month element    d1    d2    d3    d4
-##    <chr> <dbl> <dbl> <chr>   <dbl> <dbl> <dbl> <dbl>
-##  1 MX17…  2010     1 tmax       NA  NA    NA      NA
-##  2 MX17…  2010     1 tmin       NA  NA    NA      NA
-##  3 MX17…  2010     2 tmax       NA  27.3  24.1    NA
-##  4 MX17…  2010     2 tmin       NA  14.4  14.4    NA
-##  5 MX17…  2010     3 tmax       NA  NA    NA      NA
-##  6 MX17…  2010     3 tmin       NA  NA    NA      NA
-##  7 MX17…  2010     4 tmax       NA  NA    NA      NA
-##  8 MX17…  2010     4 tmin       NA  NA    NA      NA
-##  9 MX17…  2010     5 tmax       NA  NA    NA      NA
-## 10 MX17…  2010     5 tmin       NA  NA    NA      NA
-## # … with 12 more rows, and 27 more variables:
-## #   d5 <dbl>, d6 <dbl>, d7 <dbl>, d8 <dbl>,
-## #   d9 <lgl>, d10 <dbl>, d11 <dbl>, d12 <lgl>,
-## #   d13 <dbl>, d14 <dbl>, d15 <dbl>, d16 <dbl>,
-## #   d17 <dbl>, d18 <lgl>, d19 <lgl>, d20 <lgl>,
-## #   d21 <lgl>, d22 <lgl>, d23 <dbl>, d24 <lgl>,
-## #   d25 <dbl>, d26 <dbl>, d27 <dbl>, d28 <dbl>,
-## #   d29 <dbl>, d30 <dbl>, d31 <dbl>
+## # A tibble: 24 x 35
+##    station  Year Month element   d01   d02   d03
+##    <chr>   <dbl> <chr> <chr>   <dbl> <dbl> <dbl>
+##  1 TORONT…  2018 01    tmax     -7.9  -7.1  -5.3
+##  2 TORONT…  2018 01    tmin    -18.6 -12.5 -11.2
+##  3 TORONT…  2018 02    tmax      5.6  -8.6   0.4
+##  4 TORONT…  2018 02    tmin     -8.9 -15    -9.7
+##  5 TORONT…  2018 03    tmax     NA    NA    NA  
+##  6 TORONT…  2018 03    tmin     NA    -0.5  NA  
+##  7 TORONT…  2018 04    tmax      4.5   6.5   5  
+##  8 TORONT…  2018 04    tmin     -2.6  -1.2   2.4
+##  9 TORONT…  2018 05    tmax     23.5  26.3  23  
+## 10 TORONT…  2018 05    tmin      8.5  14.4  11.4
+## # … with 14 more rows, and 28 more variables:
+## #   d04 <dbl>, d05 <dbl>, d06 <dbl>, d07 <dbl>,
+## #   d08 <dbl>, d09 <dbl>, d10 <dbl>, d11 <dbl>,
+## #   d12 <dbl>, d13 <dbl>, d14 <dbl>, d15 <dbl>,
+## #   d16 <dbl>, d17 <dbl>, d18 <dbl>, d19 <dbl>,
+## #   d20 <dbl>, d21 <dbl>, d22 <dbl>, d23 <dbl>,
+## #   d24 <dbl>, d25 <dbl>, d26 <dbl>, d27 <dbl>,
+## #   d28 <dbl>, d29 <dbl>, d30 <dbl>, d31 <dbl>
 ```
 
 ## The columns
 
-- Daily weather records for a weather station in Mexico:
+- Daily weather records for "Toronto City" weather station in 2018:
 
-  - *id*: identifier for this weather station (always same here)
-  - *year*, *month*: obvious 
+  - *station*: identifier for this weather station (always same here)
+  - *Year*, *Month*: obvious 
   - *element*: whether temperature given was daily max or daily min
-  - *d1, d2*,...: day of the month from 1st to 31st.
+  - *d01, d02*,... *d31*: day of the month from 1st to 31st.
 
 - Numbers in data frame all temperatures (for different days of the month),
 so first step is
 
 
 ```r
-weather %>% gather(day, temperature, d1:d31, na.rm = T) -> d
+weather %>% 
+  pivot_longer(d01:d31, names_to="day", 
+               values_to="temperature", 
+               values_drop_na = T) -> d
 ```
 
 ## So far
@@ -4528,20 +4858,20 @@ d
 ```
 
 ```
-## # A tibble: 66 x 6
-##    id       year month element day   temperature
-##    <chr>   <dbl> <dbl> <chr>   <chr>       <dbl>
-##  1 MX17004  2010    12 tmax    d1           29.9
-##  2 MX17004  2010    12 tmin    d1           13.8
-##  3 MX17004  2010     2 tmax    d2           27.3
-##  4 MX17004  2010     2 tmin    d2           14.4
-##  5 MX17004  2010    11 tmax    d2           31.3
-##  6 MX17004  2010    11 tmin    d2           16.3
-##  7 MX17004  2010     2 tmax    d3           24.1
-##  8 MX17004  2010     2 tmin    d3           14.4
-##  9 MX17004  2010     7 tmax    d3           28.6
-## 10 MX17004  2010     7 tmin    d3           17.5
-## # … with 56 more rows
+## # A tibble: 703 x 6
+##    station      Year Month element day   temperature
+##    <chr>       <dbl> <chr> <chr>   <chr>       <dbl>
+##  1 TORONTO CI…  2018 01    tmax    d01          -7.9
+##  2 TORONTO CI…  2018 01    tmax    d02          -7.1
+##  3 TORONTO CI…  2018 01    tmax    d03          -5.3
+##  4 TORONTO CI…  2018 01    tmax    d04          -7.7
+##  5 TORONTO CI…  2018 01    tmax    d05         -14.7
+##  6 TORONTO CI…  2018 01    tmax    d06         -15.4
+##  7 TORONTO CI…  2018 01    tmax    d07          -1  
+##  8 TORONTO CI…  2018 01    tmax    d08           3  
+##  9 TORONTO CI…  2018 01    tmax    d09           1.6
+## 10 TORONTO CI…  2018 01    tmax    d10           5.9
+## # … with 693 more rows
 ```
 
 ## The days
@@ -4549,13 +4879,16 @@ d
 should each be in separate column.
 - Distinct from eg. `m1524` in tuberculosis data, that contained levels of
 two different factors, handled by separate.
-- Untangling names of variables handled by `spread`:
+- Untangling names of variables handled by `pivot_wider`:
 
 
 ```r
 weather %>%
-  gather(day, temperature, d1:d31, na.rm = T) %>%
-  spread(element, temperature) -> d
+  pivot_longer(d01:d31, names_to="day", 
+               values_to="temperature", 
+               values_drop_na = T) %>% 
+  pivot_wider(names_from=element, 
+                values_from=temperature) -> d
 ```
 
 ## So far
@@ -4566,41 +4899,42 @@ d
 ```
 
 ```
-## # A tibble: 33 x 6
-##    id       year month day    tmax  tmin
-##    <chr>   <dbl> <dbl> <chr> <dbl> <dbl>
-##  1 MX17004  2010     1 d30    27.8  14.5
-##  2 MX17004  2010     2 d11    29.7  13.4
-##  3 MX17004  2010     2 d2     27.3  14.4
-##  4 MX17004  2010     2 d23    29.9  10.7
-##  5 MX17004  2010     2 d3     24.1  14.4
-##  6 MX17004  2010     3 d10    34.5  16.8
-##  7 MX17004  2010     3 d16    31.1  17.6
-##  8 MX17004  2010     3 d5     32.1  14.2
-##  9 MX17004  2010     4 d27    36.3  16.7
-## 10 MX17004  2010     5 d27    33.2  18.2
-## # … with 23 more rows
+## # A tibble: 355 x 6
+##    station       Year Month day    tmax  tmin
+##    <chr>        <dbl> <chr> <chr> <dbl> <dbl>
+##  1 TORONTO CITY  2018 01    d01    -7.9 -18.6
+##  2 TORONTO CITY  2018 01    d02    -7.1 -12.5
+##  3 TORONTO CITY  2018 01    d03    -5.3 -11.2
+##  4 TORONTO CITY  2018 01    d04    -7.7 -19.7
+##  5 TORONTO CITY  2018 01    d05   -14.7 -20.6
+##  6 TORONTO CITY  2018 01    d06   -15.4 -22.3
+##  7 TORONTO CITY  2018 01    d07    -1   -17.5
+##  8 TORONTO CITY  2018 01    d08     3    -1.7
+##  9 TORONTO CITY  2018 01    d09     1.6  -0.6
+## 10 TORONTO CITY  2018 01    d10     5.9  -1.3
+## # … with 345 more rows
 ```
 
 ## Further improvements
 - We have tidy data now, but can improve things further.
 - `mutate` creates new columns from old (or assign back to change a
 variable).
-- Would like the numerical dates. `separate` works, but also produces
-column named `d` whose value is always `d`. Instead pull out number as
+- Would like numerical dates. `separate` works, or pull out number as
 below.
-- `select` keeps columns (or drops, with minus). Station `id` has no
+- `select` keeps columns (or drops, with minus). Station name has no
 value to us:
 
+\small
 
 ```r
 weather %>%
-  gather(day, temperature, d1:d31, na.rm = T) %>%
-  spread(element, temperature) %>%
-  mutate(day = parse_number(day)) %>%
-  select(-id) -> d
+  pivot_longer(d01:d31, names_to="day", 
+               values_to="temperature", values_drop_na = T) %>% 
+  pivot_wider(names_from=element, values_from=temperature) %>% 
+  mutate(Day = parse_number(day)) %>%
+  select(-station) -> d
 ```
-
+\normalsize
 ## So far
 
 
@@ -4609,36 +4943,39 @@ d
 ```
 
 ```
-## # A tibble: 33 x 5
-##     year month   day  tmax  tmin
-##    <dbl> <dbl> <dbl> <dbl> <dbl>
-##  1  2010     1    30  27.8  14.5
-##  2  2010     2    11  29.7  13.4
-##  3  2010     2     2  27.3  14.4
-##  4  2010     2    23  29.9  10.7
-##  5  2010     2     3  24.1  14.4
-##  6  2010     3    10  34.5  16.8
-##  7  2010     3    16  31.1  17.6
-##  8  2010     3     5  32.1  14.2
-##  9  2010     4    27  36.3  16.7
-## 10  2010     5    27  33.2  18.2
-## # … with 23 more rows
+## # A tibble: 355 x 6
+##     Year Month day    tmax  tmin   Day
+##    <dbl> <chr> <chr> <dbl> <dbl> <dbl>
+##  1  2018 01    d01    -7.9 -18.6     1
+##  2  2018 01    d02    -7.1 -12.5     2
+##  3  2018 01    d03    -5.3 -11.2     3
+##  4  2018 01    d04    -7.7 -19.7     4
+##  5  2018 01    d05   -14.7 -20.6     5
+##  6  2018 01    d06   -15.4 -22.3     6
+##  7  2018 01    d07    -1   -17.5     7
+##  8  2018 01    d08     3    -1.7     8
+##  9  2018 01    d09     1.6  -0.6     9
+## 10  2018 01    d10     5.9  -1.3    10
+## # … with 345 more rows
 ```
 
 ## Final step(s)
 - Make year-month-day into proper date.
 - Keep only date, tmax, tmin:
+\small
 
 ```r
 weather %>%
-  gather(day, temperature, d1:d31, na.rm = T) %>%
-  spread(element, temperature) %>%
-  mutate(day = parse_number(day)) %>%
-  select(-id) %>%
-  unite(datestr, c(year, month, day), sep = "-") %>%
+  pivot_longer(d01:d31, names_to="day", 
+               values_to="temperature", values_drop_na = T) %>% 
+  pivot_wider(names_from=element, values_from=temperature) %>% 
+  mutate(Day = parse_number(day)) %>%
+  select(-station) %>% 
+  unite(datestr, c(Year, Month, Day), sep = "-") %>%
   mutate(date = as.Date(datestr)) %>%
   select(c(date, tmax, tmin)) -> weather_tidy
 ```
+\normalsize
 
 ## Our tidy data frame
 
@@ -4648,30 +4985,33 @@ weather_tidy
 ```
 
 ```
-## # A tibble: 33 x 3
+## # A tibble: 355 x 3
 ##    date        tmax  tmin
 ##    <date>     <dbl> <dbl>
-##  1 2010-01-30  27.8  14.5
-##  2 2010-02-11  29.7  13.4
-##  3 2010-02-02  27.3  14.4
-##  4 2010-02-23  29.9  10.7
-##  5 2010-02-03  24.1  14.4
-##  6 2010-03-10  34.5  16.8
-##  7 2010-03-16  31.1  17.6
-##  8 2010-03-05  32.1  14.2
-##  9 2010-04-27  36.3  16.7
-## 10 2010-05-27  33.2  18.2
-## # … with 23 more rows
+##  1 2018-01-01  -7.9 -18.6
+##  2 2018-01-02  -7.1 -12.5
+##  3 2018-01-03  -5.3 -11.2
+##  4 2018-01-04  -7.7 -19.7
+##  5 2018-01-05 -14.7 -20.6
+##  6 2018-01-06 -15.4 -22.3
+##  7 2018-01-07  -1   -17.5
+##  8 2018-01-08   3    -1.7
+##  9 2018-01-09   1.6  -0.6
+## 10 2018-01-10   5.9  -1.3
+## # … with 345 more rows
 ```
 
 ## Plotting the temperatures
 - Plot temperature against date joined by lines, but with separate lines
-for max and min.
-- ggplot requires something like
+for max and min. `ggplot` requires something like
+
+\footnotesize
 
 ```r
-ggplot(..., aes(x = date, y = temperature)) + geom_point() + geom_line()
+ggplot(..., aes(x = date, y = temperature)) + geom_point() + 
+  geom_line()
 ```
+\normalsize
 
 only we have two temperatures, one a max and one a min, that we
 want to keep separate.
@@ -4682,45 +5022,47 @@ untidy `weather`.) Are making `weather_tidy`
 untidy for purposes of drawing graph only.
 - Then can do something like
 
-```r
-ggplot(d, aes(x = date, y = temperature, colour = maxmin)) + geom_point() + geom_line()
-```
+\footnotesize
 
+```r
+ggplot(d, aes(x = date, y = temperature, colour = maxmin)) 
+  + geom_point() + geom_line()
+```
+\normalsize
 to distinguish max and min on graph.
 
 ## Setting up plot
 - Since we only need data frame for plot, we can do the
 column-creation and plot in a pipeline.
-- The temperature columns are actually text (see printout of
-`weather_tidy`), but for graph they need to be numbers.
 - For a `ggplot` in a pipeline, the initial data frame is omitted, because it
 is whatever came out of the previous step.
-- To make those “one column”s: `gather`. I save the graph to show overleaf:
+- To make those “one column”s: `pivot_longer`. I save the graph to show overleaf:
 
 ```r
 weather_tidy %>%
-  gather(maxmin, temperature, tmax:tmin) %>%
+  pivot_longer(tmax:tmin, names_to="maxmin", 
+               values_to="temperature") %>%
   mutate(temperature = as.numeric(temperature)) %>%
   ggplot(aes(x = date, y = temperature, colour = maxmin)) +
   geom_line() -> g
 ```
 
-## The plot 
+## The plot
 
 
 ```r
 g
 ```
 
-![plot of chunk unnamed-chunk-196](figure/unnamed-chunk-196-1.pdf)
+![plot of chunk unnamed-chunk-204](figure/unnamed-chunk-204-1.pdf)
 
 ## Summary of tidying “verbs”
 
-  \begin{tabular}{lp{0.7\textwidth}}
+  \begin{tabular}{lp{0.55\textwidth}}
     Verb & Purpose\\
     \hline
-    \texttt{gather}& Combine columns that measure same thing into one\\
-    \texttt{spread}& Take column that measures one thing under
+    \texttt{pivot\_longer} (\texttt{gather}) & Combine columns that measure same thing into one\\
+    \texttt{pivot\_wider} (\texttt{spread}) & Take column that measures one thing under
                      different conditions and put into multiple columns\\
     \texttt{separate} & Turn a column that encodes
                         several variables into
@@ -4730,7 +5072,7 @@ g
     \hline
   \end{tabular}
   
-  \texttt{gather} and \texttt{spread} are opposites; \texttt{separate}
+  \texttt{pivot\_longer} (\textt{gather}) and \texttt{pivot\_wider} (\texttt{spread}) are opposites; \texttt{separate}
   and \texttt{unite} are opposites.
 
 ## Doing things with data frames
@@ -4756,6 +5098,7 @@ Let’s go back to our Australian athletes:
 ## )
 ```
 
+\footnotesize
 
 
 ```r
@@ -4780,6 +5123,7 @@ athletes
 ## #   SSF <dbl>, `%Bfat` <dbl>, LBM <dbl>, Ht <dbl>,
 ## #   Wt <dbl>
 ```
+\normalsize
 
 ## Choosing a column
 
@@ -4990,7 +5334,7 @@ athletes %>% select(matches("^.t$"))
 ## # … with 192 more rows
 ```
 
-## Displaying some numbered columns 1/2
+## Displaying some numbered columns
 
 Make up a data frame to illustrate. This `sample` generates 5 random values
 equally likely to be anything 0–9 (without replacement): 
@@ -5102,6 +5446,7 @@ athletes %>% sample_n(8)
 
 ## Rows for which something is true
 
+\footnotesize
 
 ```r
 athletes %>% filter(Sport == "Tennis")
@@ -5125,6 +5470,7 @@ athletes %>% filter(Sport == "Tennis")
 ## # … with 5 more variables: SSF <dbl>,
 ## #   `%Bfat` <dbl>, LBM <dbl>, Ht <dbl>, Wt <dbl>
 ```
+\normalsize
 
 ## More complicated selections
 
@@ -5355,6 +5701,7 @@ athletes %>%
 ## To find the mean height of the women athletes
 Two ways:
 
+\small
 
 ```r
 athletes %>% group_by(Sex) %>% summarize(m = mean(Ht))
@@ -5367,8 +5714,6 @@ athletes %>% group_by(Sex) %>% summarize(m = mean(Ht))
 ## 1 female  175.
 ## 2 male    186.
 ```
-
-or
 
 
 ```r
@@ -5383,6 +5728,8 @@ athletes %>%
 ##   <dbl>
 ## 1  175.
 ```
+
+\normalsize
 
 ## Summary of data selection/arrangement "verbs"
 
@@ -5415,16 +5762,16 @@ tb3
 ## # A tibble: 35,750 x 5
 ##    iso2   year gender age    freq
 ##    <chr> <dbl> <chr>  <chr> <dbl>
-##  1 AD     2005 m      04        0
-##  2 AD     2006 m      04        0
-##  3 AD     2008 m      04        0
-##  4 AE     2006 m      04        0
-##  5 AE     2007 m      04        0
-##  6 AE     2008 m      04        0
-##  7 AG     2007 m      04        0
-##  8 AL     2005 m      04        0
-##  9 AL     2006 m      04        1
-## 10 AL     2007 m      04        0
+##  1 AD     1996 m      014       0
+##  2 AD     1996 m      1524      0
+##  3 AD     1996 m      2534      0
+##  4 AD     1996 m      3544      4
+##  5 AD     1996 m      4554      1
+##  6 AD     1996 m      5564      0
+##  7 AD     1996 m      65        0
+##  8 AD     1996 f      014       0
+##  9 AD     1996 f      1524      1
+## 10 AD     1996 f      2534      1
 ## # … with 35,740 more rows
 ```
 
@@ -5433,10 +5780,18 @@ What are actual names of those countries in `iso2`?
 ## Actual country names
 Found actual country names to go with those abbreviations, in spreadsheet: 
 
+\footnotesize
+
+```r
+my_url <- 
+  "http://www.utsc.utoronto.ca/~butler/c32/ISOCountryCodes081507.xlsx"
+```
+
+\normalsize
+
 
 ```r
 f <- tempfile()
-my_url <- "http://www.utsc.utoronto.ca/~butler/c32/ISOCountryCodes081507.xlsx"
 download.file(my_url, f)
 country_names <- read_excel(f)
 ```
@@ -5476,18 +5831,18 @@ tb3 %>% left_join(country_names, by = c("iso2" = "Code_UC"))
 
 ```
 ## # A tibble: 35,750 x 7
-##    iso2   year gender age    freq Code  Country     
-##    <chr> <dbl> <chr>  <chr> <dbl> <chr> <chr>       
-##  1 AD     2005 m      04        0 ad    Andorra     
-##  2 AD     2006 m      04        0 ad    Andorra     
-##  3 AD     2008 m      04        0 ad    Andorra     
-##  4 AE     2006 m      04        0 ae    United Arab…
-##  5 AE     2007 m      04        0 ae    United Arab…
-##  6 AE     2008 m      04        0 ae    United Arab…
-##  7 AG     2007 m      04        0 ag    Antigua and…
-##  8 AL     2005 m      04        0 al    Albania     
-##  9 AL     2006 m      04        1 al    Albania     
-## 10 AL     2007 m      04        0 al    Albania     
+##    iso2   year gender age    freq Code  Country
+##    <chr> <dbl> <chr>  <chr> <dbl> <chr> <chr>  
+##  1 AD     1996 m      014       0 ad    Andorra
+##  2 AD     1996 m      1524      0 ad    Andorra
+##  3 AD     1996 m      2534      0 ad    Andorra
+##  4 AD     1996 m      3544      4 ad    Andorra
+##  5 AD     1996 m      4554      1 ad    Andorra
+##  6 AD     1996 m      5564      0 ad    Andorra
+##  7 AD     1996 m      65        0 ad    Andorra
+##  8 AD     1996 f      014       0 ad    Andorra
+##  9 AD     1996 f      1524      1 ad    Andorra
+## 10 AD     1996 f      2534      1 ad    Andorra
 ## # … with 35,740 more rows
 ```
 
@@ -5507,16 +5862,16 @@ tb3 %>%
 ## # A tibble: 213 x 2
 ##    Country               cases
 ##    <chr>                 <dbl>
-##  1 <NA>                  58581
-##  2 Andorra                  64
-##  3 United Arab Emirates    487
-##  4 Afghanistan           80005
-##  5 Antigua and Barbuda      21
-##  6 Anguilla                  1
-##  7 Albania                2467
-##  8 Armenia                6757
-##  9 Netherlands Antilles     81
-## 10 Angola               195512
+##  1 Andorra                  64
+##  2 United Arab Emirates    487
+##  3 Afghanistan           80005
+##  4 Antigua and Barbuda      21
+##  5 Anguilla                  1
+##  6 Albania                2467
+##  7 Armenia                6757
+##  8 Netherlands Antilles     81
+##  9 Angola               195512
+## 10 Argentina             64894
 ## # … with 203 more rows
 ```
 
@@ -5555,6 +5910,7 @@ tb3 %>%
   - the 1994-1995 thing
   - there is at least one country in `tb3` that was not in `country_names` (the NA above). Which?
   
+\footnotesize  
 
 ```r
 tb3 %>%
@@ -5566,16 +5922,15 @@ tb3 %>%
 ## # A tibble: 6 x 1
 ##   iso2 
 ##   <chr>
-## 1 ME   
-## 2 PS   
-## 3 RS   
-## 4 CD   
-## 5 <NA> 
+## 1 CD   
+## 2 ME   
+## 3 <NA> 
+## 4 PS   
+## 5 RS   
 ## 6 TL
 ```
-  
+\normalsize
 
-xxx end of section; check from here
 
 
 # Case study 1: the windmill data
@@ -5667,7 +6022,7 @@ ggplot(windmill, aes(y = DC_output, x = wind_velocity)) +
 ## `geom_smooth()` using method = 'loess' and formula 'y ~ x'
 ```
 
-![plot of chunk unnamed-chunk-231](figure/unnamed-chunk-231-1.pdf)
+![plot of chunk unnamed-chunk-240](figure/unnamed-chunk-240-1.pdf)
 
 ## Comments
 - Definitely a relationship: as wind velocity increases, so does DC
@@ -5678,8 +6033,12 @@ squares” which downweights outliers. Not constrained to be straight.)
 - Trend more or less linear for while, then curves downwards (levelling off?). Straight
 line not so good here.
 
-## Fit a straight line (and see what happens) 
+## Fit a straight line (and see what happens)
 
+
+
+
+\footnotesize
 
 ```r
 DC.1 <- lm(DC_output ~ wind_velocity, data = windmill)
@@ -5696,12 +6055,9 @@ summary(DC.1)
 ## -0.59869 -0.14099  0.06059  0.17262  0.32184 
 ## 
 ## Coefficients:
-##               Estimate Std. Error t value Pr(>|t|)
-## (Intercept)    0.13088    0.12599   1.039     0.31
-## wind_velocity  0.24115    0.01905  12.659 7.55e-12
-##                  
-## (Intercept)      
-## wind_velocity ***
+##               Estimate Std. Error t value Pr(>|t|)    
+## (Intercept)    0.13088    0.12599   1.039     0.31    
+## wind_velocity  0.24115    0.01905  12.659 7.55e-12 ***
 ## ---
 ## Signif. codes:  
 ## 0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
@@ -5710,11 +6066,16 @@ summary(DC.1)
 ## Multiple R-squared:  0.8745,	Adjusted R-squared:  0.869 
 ## F-statistic: 160.3 on 1 and 23 DF,  p-value: 7.546e-12
 ```
+\normalsize
+
+
+
 
 ## Another way of looking at the output
 
 - The standard output tends to go off the bottom of the page rather easily. Package `broom` has these:
 
+\footnotesize
 
 ```r
 glance(DC.1)
@@ -5729,9 +6090,11 @@ glance(DC.1)
 ## #   AIC <dbl>, BIC <dbl>, deviance <dbl>,
 ## #   df.residual <int>
 ```
+\normalsize
 
 showing that the R-squared is 87%, and
 
+\footnotesize
 
 ```r
 tidy(DC.1)
@@ -5744,6 +6107,7 @@ tidy(DC.1)
 ## 1 (Intercept)     0.131    0.126       1.04 3.10e- 1
 ## 2 wind_veloci…    0.241    0.0190     12.7  7.55e-12
 ```
+\normalsize
 
 showing the intercept and slope and their significance.
 
@@ -5766,7 +6130,7 @@ residuals, observed minus predicted, plotted against fitted (predicted).
 ggplot(DC.1, aes(y = .resid, x = .fitted)) + geom_point()
 ```
 
-![plot of chunk unnamed-chunk-235](figure/unnamed-chunk-235-1.pdf)
+![plot of chunk unnamed-chunk-246](figure/unnamed-chunk-246-1.pdf)
 
 ## Comments on residual plot
 - Residual plot should be a random scatter of points.
@@ -5847,9 +6211,10 @@ ggplot(DC.2, aes(y = .resid, x = .fitted)) +
   geom_point()
 ```
 
-![plot of chunk unnamed-chunk-239](figure/unnamed-chunk-239-1.pdf)
+![plot of chunk unnamed-chunk-250](figure/unnamed-chunk-250-1.pdf)
 
-## Scatterplot with fitted line and curve
+## Scatterplot with fitted line and curve 
+
 - Residual plot basically random. Good.
 - Scatterplot with fitted line and curve like this:
 
@@ -5860,12 +6225,14 @@ ggplot(windmill, aes(y = DC_output, x = wind_velocity)) +
   geom_line(data = DC.2, aes(y = .fitted))
 ```
 
+## Comments
+
 - This plots: 
   - scatterplot (`geom_point`); 
   - straight line (via tweak to
 `geom_smooth`, which draws best-fitting line); 
   - fitted curve, using the
-predicted `DC_output values`, joined by lines (with points not shown).
+predicted `DC_output` values, joined by lines (with points not shown).
 - Trick in the `geom_line` is use the predictions as the `y`-points to join
 by lines (from `DC.2`), instead of the original data points. Without the
 `data` and `aes` in the `geom_line`, original data points would be joined
@@ -5873,7 +6240,7 @@ by lines.
 
 ## Scatterplot with fitted line and curve
 
-![plot of chunk unnamed-chunk-240](figure/unnamed-chunk-240-1.pdf)
+![plot of chunk unnamed-chunk-251](figure/unnamed-chunk-251-1.pdf)
 
 Curve clearly fits better than line. 
 
@@ -5910,7 +6277,11 @@ take 12 minutes to walk 1 km, called your pace. So 1 over
 ```r
 windmill %>% mutate(wind_pace = 1 / wind_velocity) -> windmill
 ggplot(windmill, aes(y = DC_output, x = wind_pace)) +
-  geom_point() + geom_smooth(method = "lm", se = F)
+  geom_point() + geom_smooth(se = F)
+```
+
+```
+## `geom_smooth()` using method = 'loess' and formula 'y ~ x'
 ```
 
 - and run regression like this (output page after):
@@ -5922,9 +6293,15 @@ DC.3 <- lm(DC_output ~ wind_pace, data = windmill)
 
 ## Scatterplot for wind_pace
 
-![plot of chunk unnamed-chunk-241](figure/unnamed-chunk-241-1.pdf)
+Pretty straight. Blue actually smooth curve not line:
 
-That’s pretty straight. Blue actually smooth curve not line.
+
+```
+## `geom_smooth()` using method = 'loess' and formula 'y ~ x'
+```
+
+![plot of chunk unnamed-chunk-252](figure/unnamed-chunk-252-1.pdf)
+
 
 
 
@@ -6024,12 +6401,12 @@ w2
 $y$’s, with another column for distinguishing things.
 - But we have three columns of fitted values, that need to be combined
 into one.
-- `gather`, then plot:
+- `pivot_longer`, then plot:
 
 
 ```r
 w2 %>%
-  gather(model, fit, linear:asymptote) %>%
+  pivot_longer(linear:asymptote, names_to="model", values_to="fit") %>%
   ggplot(aes(x = wind_velocity, y = DC_output)) +
   geom_point() +
   geom_line(aes(y = fit, colour = model))
@@ -6037,7 +6414,7 @@ w2 %>%
 
 ## Scatterplot with fitted curves
 
-![plot of chunk unnamed-chunk-245](figure/unnamed-chunk-245-1.pdf)
+![plot of chunk unnamed-chunk-256](figure/unnamed-chunk-256-1.pdf)
 
 ## Comments
 - Predictions from curves are very similar.
@@ -6198,9 +6575,10 @@ predictions on a plot with a legend (saving result to add to later):
 
 ```r
 my_fits %>%
-  gather(
-    model, fit,
-    linear:asymptote
+    pivot_longer(
+    linear:asymptote,
+    names_to="model", 
+    values_to="fit"
   ) %>%
   ggplot(aes(
     y = fit, x = wind_velocity,
@@ -6233,15 +6611,18 @@ g + geom_rect(
 
 ## The plot
 
-![plot of chunk unnamed-chunk-255](figure/unnamed-chunk-255-1.pdf)
+![plot of chunk unnamed-chunk-266](figure/unnamed-chunk-266-1.pdf)
 
 ## Comments (1)
 - Over range of data, two models agree with each other well.
 - Outside range of data, they disagree violently!
 - For larger `wind.velocity`, asymptote model behaves reasonably,
 parabola model does not.
-I What happens as `wind.velocity` goes to zero? Should find
+- What happens as `wind.velocity` goes to zero? Should find
 `DC.output` goes to zero as well. Does it?
+
+## Comments (2)
+
 - For parabola model:
 
 
@@ -6258,12 +6639,12 @@ tidy(DC.2)
 ## 3 I(wind_velo…  -0.0381   0.00480     -7.95 6.59e- 8
 ```
 
-- Nope, goes to −1.15 (intercept), actually significantly different from
+- Nope, goes to −1.16 (intercept), actually significantly different from
 zero.
 
-## Comments (2)
-- What about asymptote model?
+## Comments (3): asymptote model
 
+\small
 
 ```r
 tidy(DC.3)
@@ -6276,6 +6657,7 @@ tidy(DC.3)
 ## 1 (Intercept)     2.98    0.0449      66.3 8.92e-28
 ## 2 wind_pace      -6.93    0.206      -33.6 4.74e-21
 ```
+\normalsize
 
 - As `wind.velocity` heads to 0, wind.pace heads to $+\infty$, so
 DC.output heads to $−\infty$! 
@@ -6380,15 +6762,15 @@ Same idea as for plotting separate predictions on one plot:
 
 ```r
 asphalt %>%
-  gather(
-    xname, x,
-    c(pct.a.surf:voids, viscosity:run)
+  pivot_longer(
+    c(pct.a.surf:voids, viscosity:run),
+    names_to="xname", values_to="x"
   ) %>%
   ggplot(aes(x = x, y = rut.depth)) + geom_point() +
   facet_wrap(~xname, scales = "free") -> g
 ```
 
-“gather all the x-variables together into one column called x, with another
+“collect all the x-variables together into one column called x, with another
 column xname saying which x they were, then plot these x’s against
 rut.depth, a separate facet for each x-variable.”
 
@@ -6401,7 +6783,7 @@ I saved this graph to plot later (on the next page).
 g
 ```
 
-![plot of chunk unnamed-chunk-262](figure/unnamed-chunk-262-1.pdf)
+![plot of chunk unnamed-chunk-273](figure/unnamed-chunk-273-1.pdf)
 
 ## Interpreting the plots
 - One plot of rut depth against each of the six other variables.
@@ -6445,7 +6827,7 @@ ggplot(asphalt_lv, aes(y = rut.depth, x = log.viscosity)) +
 ## `geom_smooth()` using method = 'loess' and formula 'y ~ x'
 ```
 
-![plot of chunk unnamed-chunk-264](figure/unnamed-chunk-264-1.pdf)
+![plot of chunk unnamed-chunk-275](figure/unnamed-chunk-275-1.pdf)
 
 ## Comments and next steps
 - Not very linear, but better than before.
@@ -6462,6 +6844,7 @@ rut.1 <- lm(rut.depth ~ pct.a.surf + pct.a.base + fines +
 
 ## Regression output: `summary(rut.1)` or:
 
+\footnotesize
 
 ```r
 glance(rut.1)
@@ -6493,6 +6876,7 @@ tidy(rut.1)
 ## 6 log.viscosity   -3.15      0.919    -3.43  0.00220
 ## 7 run             -1.97      3.65     -0.539 0.595
 ```
+\normalsize
 
 ## Comments
 - R-squared 81%, not so bad. 
@@ -6514,7 +6898,7 @@ clearer picture of what is helpful.
 ggplot(rut.1, aes(x = .fitted, y = .resid)) + geom_point()
 ```
 
-![plot of chunk unnamed-chunk-267](figure/unnamed-chunk-267-1.pdf)
+![plot of chunk unnamed-chunk-278](figure/unnamed-chunk-278-1.pdf)
 
 ## Plotting residuals against $x$ variables
 - Problem here is that residuals are in the fitted model, and the
@@ -6531,6 +6915,7 @@ rut.1 %>% augment(asphalt_lv) -> rut.1a
 
 ## What does rut.1a contain?
 
+\footnotesize
 
 ```r
 glimpse(rut.1a)
@@ -6555,6 +6940,7 @@ glimpse(rut.1a)
 ## $ .cooksd       <dbl> 0.0340389900, 0.0027097205,…
 ## $ .std.resid    <dbl> -1.18873388, -0.24714358, 0…
 ```
+\normalsize
 
 ## Plotting residuals against $x$-variables 
 
@@ -6562,9 +6948,9 @@ glimpse(rut.1a)
 
 ```r
 rut.1a %>%
-  gather(
-    xname, x,
-    c(pct.a.surf:voids, run, log.viscosity)
+  pivot_longer(
+    c(pct.a.surf:voids, run, log.viscosity),
+    names_to="xname", values_to="x"
   ) %>%
   ggplot(aes(x = x, y = .resid)) +
   geom_point() + facet_wrap(~xname, scales = "free") -> g
@@ -6577,7 +6963,7 @@ rut.1a %>%
 g
 ```
 
-![plot of chunk unnamed-chunk-271](figure/unnamed-chunk-271-1.pdf)
+![plot of chunk unnamed-chunk-282](figure/unnamed-chunk-282-1.pdf)
 
 ## Comments
 - There is serious curve in plot of residuals vs. fitted values. Suggests a
@@ -6608,9 +6994,10 @@ boxcox(rut.depth ~ pct.a.surf + pct.a.base + fines + voids +
   log.viscosity + run, data = asphalt_lv)
 ```
 
-![plot of chunk unnamed-chunk-272](figure/unnamed-chunk-272-1.pdf)
+![plot of chunk unnamed-chunk-283](figure/unnamed-chunk-283-1.pdf)
 
 ## Comments on Box-Cox plot
+- $\lambda$ represents power to transform $y$ with.
 - Best single choice of transformation parameter $\lambda$ is peak of curve,
 close to 0.
 - Vertical dotted lines give CI for $\lambda$, about (−0.05, 0.2).
@@ -6635,9 +7022,9 @@ explanatory variables, all in one shot:
 
 ```r
 asphalt_2 %>%
-  gather(
-    xname, x,
-    c(pct.a.surf:voids, run:log.viscosity)
+  pivot_longer(
+    c(pct.a.surf:voids, run:log.viscosity),
+    names_to="xname", values_to="x"
   ) %>%
   ggplot(aes(y = log.rut.depth, x = x)) + geom_point() +
   facet_wrap(~xname, scales = "free") -> g3
@@ -6650,7 +7037,7 @@ asphalt_2 %>%
 g3
 ```
 
-![plot of chunk unnamed-chunk-275](figure/unnamed-chunk-275-1.pdf)
+![plot of chunk unnamed-chunk-286](figure/unnamed-chunk-286-1.pdf)
 
 ## Modelling with transformed response
 - These trends look pretty straight, especially with `log.viscosity`.
@@ -6689,12 +7076,14 @@ tidy(rut.2)
 ## Taking out everything non-significant
 - Try: remove everything but pct.a.surf and log.viscosity:
 
+\footnotesize
 
 ```r
 rut.3 <- lm(log.rut.depth ~ pct.a.surf + log.viscosity, data = asphalt_2)
 ```
+\normalsize
 
-
+\footnotesize
 - Check that removing all those variables wasn’t too much:
 
 ```r
@@ -6711,6 +7100,7 @@ anova(rut.3, rut.2)
 ## 1     28 2.8809                           
 ## 2     24 2.2888  4   0.59216 1.5523 0.2191
 ```
+\normalsize
 
 - $H_0$ : two models equally good; $H_a$ : bigger model better.
 - Null not rejected here; small model as good as the big one, so prefer
@@ -6769,6 +7159,7 @@ tidy(rut.2) %>% arrange(p.value)
 
 - Copy and paste the `lm` code and remove what you're removing:
 
+\small
 
 ```r
 rut.4 <- lm(log.rut.depth ~ pct.a.surf + fines + voids + log.viscosity + run,
@@ -6788,6 +7179,7 @@ tidy(rut.4) %>% arrange(p.value)
 ## 5 run           0.360     0.325       1.11   2.79e-1
 ## 6 fines         0.0889    0.0870      1.02   3.16e-1
 ```
+\normalsize
 
 - `fines` is next to go, P-value 0.32.
 
@@ -6890,7 +7282,7 @@ coef(rut.3)
 - Best way to decide which $x$’s belong: expert knowledge: which of
 them should be important.
 - Best automatic method: what we did, “backward selection”.
-- Do not learn about “stepwise regression”! [eg. here](https://towardsdatascience.com/stopping-stepwise-why-stepwise-selection-is-bad-and-what-you-should-use-instead-90818b3f52df)
+- Do not learn about “stepwise regression”! [**eg. here**](https://towardsdatascience.com/stopping-stepwise-why-stepwise-selection-is-bad-and-what-you-should-use-instead-90818b3f52df)
 - R has function `step` that does backward selection, like this:
 
 ```r
@@ -6920,36 +7312,32 @@ with(s, data.frame(rsq, outmat)) -> d
 ## The output
 
 
+
+
+\scriptsize
+
 ```r
 d %>% rownames_to_column("model") %>% arrange(desc(rsq))
 ```
 
 ```
-##       model       rsq pct.a.surf pct.a.base fines
-## 1  6  ( 1 ) 0.9609642          *          *     *
-## 2  5  ( 1 ) 0.9608365          *                *
-## 3  5  ( 2 ) 0.9593265          *          *     *
-## 4  4  ( 1 ) 0.9591996          *                 
-## 5  4  ( 2 ) 0.9589206          *                *
-## 6  3  ( 1 ) 0.9578631          *                 
-## 7  3  ( 2 ) 0.9534561          *                *
-## 8  2  ( 1 ) 0.9508647          *                 
-## 9  2  ( 2 ) 0.9479541                            
-## 10 1  ( 1 ) 0.9452562                            
-## 11 1  ( 2 ) 0.8624107                            
-##    voids log.viscosity run
-## 1      *             *   *
-## 2      *             *   *
-## 3      *             *    
-## 4      *             *   *
-## 5      *             *    
-## 6      *             *    
-## 7                    *    
-## 8                    *    
-## 9      *             *    
-## 10                   *    
-## 11                       *
+##       model       rsq pct.a.surf pct.a.base fines voids log.viscosity run
+## 1  6  ( 1 ) 0.9609642          *          *     *     *             *   *
+## 2  5  ( 1 ) 0.9608365          *                *     *             *   *
+## 3  5  ( 2 ) 0.9593265          *          *     *     *             *    
+## 4  4  ( 1 ) 0.9591996          *                      *             *   *
+## 5  4  ( 2 ) 0.9589206          *                *     *             *    
+## 6  3  ( 1 ) 0.9578631          *                      *             *    
+## 7  3  ( 2 ) 0.9534561          *                *                   *    
+## 8  2  ( 1 ) 0.9508647          *                                    *    
+## 9  2  ( 2 ) 0.9479541                                 *             *    
+## 10 1  ( 1 ) 0.9452562                                               *    
+## 11 1  ( 2 ) 0.8624107                                                   *
 ```
+\normalsize
+
+
+
 
 ## Comments
 - Problem: even adding a worthless x increases R-squared. So try for
@@ -6964,36 +7352,30 @@ variable makes it go down.
 ## All possible regressions, adjusted R-squared
 
 
+
+\scriptsize
+
 ```r
 with(s, data.frame(adjr2, outmat))
 ```
 
 ```
-##              adjr2 pct.a.surf pct.a.base fines
-## 1  ( 1 ) 0.9433685                            
-## 1  ( 2 ) 0.8576662                            
-## 2  ( 1 ) 0.9473550          *                 
-## 2  ( 2 ) 0.9442365                            
-## 3  ( 1 ) 0.9531812          *                 
-## 3  ( 2 ) 0.9482845          *                *
-## 4  ( 1 ) 0.9529226          *                 
-## 4  ( 2 ) 0.9526007          *                *
-## 5  ( 1 ) 0.9530038          *                *
-## 5  ( 2 ) 0.9511918          *          *     *
-## 6  ( 1 ) 0.9512052          *          *     *
-##          voids log.viscosity run
-## 1  ( 1 )                   *    
-## 1  ( 2 )                       *
-## 2  ( 1 )                   *    
-## 2  ( 2 )     *             *    
-## 3  ( 1 )     *             *    
-## 3  ( 2 )                   *    
-## 4  ( 1 )     *             *   *
-## 4  ( 2 )     *             *    
-## 5  ( 1 )     *             *   *
-## 5  ( 2 )     *             *    
-## 6  ( 1 )     *             *   *
+##              adjr2 pct.a.surf pct.a.base fines voids log.viscosity run
+## 1  ( 1 ) 0.9433685                                               *    
+## 1  ( 2 ) 0.8576662                                                   *
+## 2  ( 1 ) 0.9473550          *                                    *    
+## 2  ( 2 ) 0.9442365                                 *             *    
+## 3  ( 1 ) 0.9531812          *                      *             *    
+## 3  ( 2 ) 0.9482845          *                *                   *    
+## 4  ( 1 ) 0.9529226          *                      *             *   *
+## 4  ( 2 ) 0.9526007          *                *     *             *    
+## 5  ( 1 ) 0.9530038          *                *     *             *   *
+## 5  ( 2 ) 0.9511918          *          *     *     *             *    
+## 6  ( 1 ) 0.9512052          *          *     *     *             *   *
 ```
+\normalsize
+
+
 
 ## Revisiting the best model
 - Best model was our rut.6:
@@ -7034,7 +7416,7 @@ geom_point()
 g
 ```
 
-![plot of chunk unnamed-chunk-293](figure/unnamed-chunk-293-1.pdf)
+![plot of chunk unnamed-chunk-308](figure/unnamed-chunk-308-1.pdf)
 
 ## Plotting residuals against x’s
 - Do our trick again to put them all on one plot:
@@ -7042,9 +7424,9 @@ g
 
 ```r
 augment(rut.6, asphalt_2) %>%
-  gather(
-    xname, x,
-    c(pct.a.surf:voids, run:log.viscosity)
+  pivot_longer(
+    c(pct.a.surf:voids, run:log.viscosity),
+    names_to="xname", values_to="x",
   ) %>%
   ggplot(aes(y = .resid, x = x)) + geom_point() +
   facet_wrap(~xname, scales = "free") -> g2
@@ -7057,7 +7439,7 @@ augment(rut.6, asphalt_2) %>%
 g2
 ```
 
-![plot of chunk unnamed-chunk-295](figure/unnamed-chunk-295-1.pdf)
+![plot of chunk unnamed-chunk-310](figure/unnamed-chunk-310-1.pdf)
 
 ## Comments
 - None of the plots show any sort of pattern. The points all look
@@ -7177,6 +7559,7 @@ summary(pigs.1)
 
 ## and now `lm`
 
+\footnotesize
 
 ```r
 pigs.2 <- lm(weight ~ feed, data = pigs)
@@ -7193,6 +7576,21 @@ tidy(pigs.2)
 ## 4 feedfeed4      25.6       1.98     12.9  7.11e-10
 ```
 
+```r
+glance(pigs.2)
+```
+
+```
+## # A tibble: 1 x 11
+##   r.squared adj.r.squared sigma statistic  p.value
+##       <dbl>         <dbl> <dbl>     <dbl>    <dbl>
+## 1     0.957         0.949  3.14      119. 3.72e-11
+## # … with 6 more variables: df <int>, logLik <dbl>,
+## #   AIC <dbl>, BIC <dbl>, deviance <dbl>,
+## #   df.residual <int>
+```
+\normalsize
+
 ## Understanding those slopes
 - Get one slope for each category of categorical variable feed, except
 for first.
@@ -7205,7 +7603,9 @@ for first.
 feed 1.
 
 ## Reproducing the ANOVA
-- Pass the fitted model object into anova:
+- Pass the fitted model object into `anova`:
+
+\footnotesize
 
 ```r
 anova(pigs.2)
@@ -7222,10 +7622,12 @@ anova(pigs.2)
 ## Signif. codes:  
 ## 0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 ```
+\normalsize
 
 - Same as before.
 - But no Tukey this way:
 
+\footnotesize
 
 ```r
 TukeyHSD(pigs.2)
@@ -7234,6 +7636,7 @@ TukeyHSD(pigs.2)
 ```
 ## Error in UseMethod("TukeyHSD"): no applicable method for 'TukeyHSD' applied to an object of class "lm"
 ```
+\normalsize
 
 ## The crickets
 - Male crickets rub their wings together to produce a chirping sound.
@@ -7247,29 +7650,30 @@ accounted for?
 ## The crickets data
 Read the data:
 
+\small
+
 ```r
 my_url="http://www.utsc.utoronto.ca/~butler/c32/crickets2.csv"
 crickets <- read_csv(my_url)
-crickets
+crickets %>% sample_n(10)
 ```
 
 ```
-## # A tibble: 31 x 3
+## # A tibble: 10 x 3
 ##    species       temperature pulse_rate
 ##    <chr>               <dbl>      <dbl>
-##  1 exclamationis        20.8       67.9
-##  2 exclamationis        20.8       65.1
-##  3 exclamationis        24         77.3
+##  1 exclamationis        20.8       65.1
+##  2 niveus               18.9       50.3
+##  3 exclamationis        20.8       67.9
 ##  4 exclamationis        24         78.7
-##  5 exclamationis        24         79.4
-##  6 exclamationis        24         80.4
-##  7 exclamationis        26.2       85.8
-##  8 exclamationis        26.2       86.6
-##  9 exclamationis        26.2       87.5
-## 10 exclamationis        26.2       89.1
-## # … with 21 more rows
+##  5 exclamationis        29        101. 
+##  6 niveus               26.5       76.1
+##  7 niveus               18.3       47.6
+##  8 niveus               17.2       44.3
+##  9 niveus               26.5       77.7
+## 10 niveus               26.5       77
 ```
-
+\normalsize
 ## Fit model with `lm` 
 
 
@@ -7332,7 +7736,7 @@ is baseline).
 - R-squared of almost 0.99 is very high, so that the prediction of pulse
 rate from species and temperature is very good.
 
-## To end with a graph 
+## To end with a graph
 
 
 ```r
@@ -7341,7 +7745,7 @@ ggplot(crickets, aes(x = temperature, y = pulse_rate,
   geom_point() + geom_smooth(method = "lm", se = F)
 ```
 
-![plot of chunk unnamed-chunk-306](figure/unnamed-chunk-306-1.pdf)
+![plot of chunk unnamed-chunk-321](figure/unnamed-chunk-321-1.pdf)
 
 
 # Functions
@@ -8039,7 +8443,7 @@ hotpo(4.5)
 
 
 ```r
-tibble(x = 1:10) %>% mutate(y = map_int(x, hotpo))
+tibble(x = 1:10) %>% mutate(y = map_int(x, ~hotpo(.)))
 ```
 
 ```
@@ -8096,6 +8500,7 @@ hotpo_seq(6)
 
 - Start at 27:
 
+\footnotesize
 
 ```r
 hotpo_seq(27)
@@ -8116,6 +8521,7 @@ hotpo_seq(27)
 ## [100]  106   53  160   80   40   20   10    5   16
 ## [109]    8    4    2    1
 ```
+\normalsize
 
 ## Which starting points have the longest sequences?
 - The `length` of the vector returned from `hotpo_seq` says how long it
@@ -8123,15 +8529,17 @@ took to get to 1.
 - Out of the starting points 1 to 100, which one has the longest
 sequence?
 
+\small
+
 ```r
 tibble(start = 1:100) %>%
   mutate(seq_length = map_int(start, ~ length(hotpo_seq(.)))) %>%
   arrange(desc(seq_length)) %>%
-  slice(1:6)
+  slice(1:5)
 ```
 
 ```
-## # A tibble: 6 x 2
+## # A tibble: 5 x 2
 ##   start seq_length
 ##   <int>      <int>
 ## 1    97        119
@@ -8139,9 +8547,8 @@ tibble(start = 1:100) %>%
 ## 3    54        113
 ## 4    55        113
 ## 5    27        112
-## 6    82        111
 ```
-
+\normalsize
 ## What happens if we save the entire sequence? 
 
 
@@ -8221,7 +8628,7 @@ somedates %>% mutate(plus30 = d + 30, diffs = d[2] - d)
 ```
 ## # A tibble: 3 x 5
 ##   text       d          numbers plus30     diffs    
-##   <chr>      <date>       <dbl> <date>     <time>   
+##   <chr>      <date>       <dbl> <date>     <drtn>   
 ## 1 1970-01-01 1970-01-01       0 1970-01-31 13760 da…
 ## 2 2007-09-04 2007-09-04   13760 2007-10-04     0 da…
 ## 3 1931-08-05 1931-08-05  -14029 1931-09-04 27789 da…
@@ -8626,7 +9033,7 @@ stays %>% mutate(stay = discharge - admit)
 ```
 ## # A tibble: 3 x 3
 ##   admit               discharge           stay      
-##   <dttm>              <dttm>              <time>    
+##   <dttm>              <dttm>              <drtn>    
 ## 1 1981-12-10 22:00:00 1982-01-03 14:00:00 568.0 hou…
 ## 2 2014-03-07 14:00:00 2014-03-08 09:30:00  19.5 hou…
 ## 3 2016-08-31 21:00:00 2016-09-02 17:00:00  44.0 hou…
@@ -8778,11 +9185,11 @@ oranges
 ## 7  1582   140   145   177   203   214
 ```
 
-- These are diameters of five different trees at five different ages (days).
+- These are circumferences of five different trees at seven different ages (days).
 
-## Plotting series 
+## Plotting series
 
-- Want to plot orange circumferences against age for each orange tree.
+- Want to plot orange tree circumferences against age for each orange tree.
 - Recall ggplot wants one column of x values and one column of y
 values, which we do not have.
 
@@ -8804,7 +9211,7 @@ g <- oranges %>%
 g
 ```
 
-![plot of chunk unnamed-chunk-380](figure/unnamed-chunk-380-1.pdf)
+![plot of chunk unnamed-chunk-395](figure/unnamed-chunk-395-1.pdf)
 
 ## Labelling points on a plot
 
@@ -8839,7 +9246,7 @@ ggplot(cars, aes(x = weight, y = MPG)) +
   geom_point()
 ```
 
-![plot of chunk unnamed-chunk-382](figure/unnamed-chunk-382-1.pdf)
+![plot of chunk unnamed-chunk-397](figure/unnamed-chunk-397-1.pdf)
 
 ## Label points with name of car they belong to
 
@@ -8849,7 +9256,7 @@ ggplot(cars, aes(x = weight, y = MPG, label = car)) +
   geom_point() + geom_text_repel()
 ```
 
-![plot of chunk unnamed-chunk-383](figure/unnamed-chunk-383-1.pdf)
+![plot of chunk unnamed-chunk-398](figure/unnamed-chunk-398-1.pdf)
 
 ## Make labels smaller
 
@@ -8859,7 +9266,7 @@ ggplot(cars, aes(x = weight, y = MPG, label = car)) +
   geom_point() + geom_text_repel(size = 2)
 ```
 
-![plot of chunk unnamed-chunk-384](figure/unnamed-chunk-384-1.pdf)
+![plot of chunk unnamed-chunk-399](figure/unnamed-chunk-399-1.pdf)
 
 ## Labelling some of the cars
 - Maybe you want to draw attention only to some of the individuals
@@ -8885,7 +9292,7 @@ cars %>%
 g
 ```
 
-![plot of chunk unnamed-chunk-386](figure/unnamed-chunk-386-1.pdf)
+![plot of chunk unnamed-chunk-401](figure/unnamed-chunk-401-1.pdf)
 
 ## Labelling cars by row number
 - Suppose we knew that the cars we wanted to label were in rows 4 and
@@ -8909,7 +9316,7 @@ g <- cars %>%
 g
 ```
 
-![plot of chunk unnamed-chunk-388](figure/unnamed-chunk-388-1.pdf)
+![plot of chunk unnamed-chunk-403](figure/unnamed-chunk-403-1.pdf)
 
 
 ## Lightest weight and worst gas-mileage cars
@@ -8934,12 +9341,12 @@ cars %>%
 g
 ```
 
-![plot of chunk unnamed-chunk-390](figure/unnamed-chunk-390-1.pdf)
+![plot of chunk unnamed-chunk-405](figure/unnamed-chunk-405-1.pdf)
 
 ## Miscellaneous graph things
 - Title for graph
 - Axis labels
-We use previous graph as base (to save drawing again).
+- We use previous graph as base (to save drawing again).
 
 ## With title
 
@@ -8947,7 +9354,7 @@ We use previous graph as base (to save drawing again).
 g + ggtitle("Gas mileage against weight")
 ```
 
-![plot of chunk unnamed-chunk-391](figure/unnamed-chunk-391-1.pdf)
+![plot of chunk unnamed-chunk-406](figure/unnamed-chunk-406-1.pdf)
 
 ## Axis labels
 
@@ -8956,7 +9363,7 @@ g + ggtitle("Gas mileage against weight")
 g + xlab("Weight (tons)") + ylab("MPG (miles per US gallon)")
 ```
 
-![plot of chunk unnamed-chunk-392](figure/unnamed-chunk-392-1.pdf)
+![plot of chunk unnamed-chunk-407](figure/unnamed-chunk-407-1.pdf)
 
 ## Permanence
 - When you close R Studio, you are offered the option to “save your
@@ -8986,7 +9393,7 @@ xx
 ```
 
 ```
-## [1]  3 10  4  9  7
+## [1] 7 4 2 1 3
 ```
 
 ```r
@@ -9005,7 +9412,7 @@ xx # back
 ```
 
 ```
-## [1]  3 10  4  9  7
+## [1] 7 4 2 1 3
 ```
 
 
@@ -9478,7 +9885,7 @@ library(bootstrap)
 ggplot(irs, aes(x=Time))+geom_histogram(bins=10)
 ```
 
-![plot of chunk unnamed-chunk-415](figure/unnamed-chunk-415-1.pdf)
+![plot of chunk unnamed-chunk-430](figure/unnamed-chunk-430-1.pdf)
 
 - We said that a $t$ procedure for the mean would not be a good idea because the distribution is skewed.
 
@@ -9519,7 +9926,7 @@ mean(boot)
 ```
 
 ```
-## [1] 197.6333
+## [1] 190.7333
 ```
 
 - That's one bootstrapped mean. We need a whole bunch.
@@ -9541,7 +9948,7 @@ rerun(1000, sample(irs$Time, replace=T)) %>%
 ggplot(tibble(means), aes(x=means))+geom_histogram(bins=20)
 ```
 
-![plot of chunk unnamed-chunk-419](figure/unnamed-chunk-419-1.pdf)
+![plot of chunk unnamed-chunk-434](figure/unnamed-chunk-434-1.pdf)
 
 ## Comments
 
@@ -9553,7 +9960,7 @@ ggplot(tibble(means), aes(sample=means))+
   stat_qq()+stat_qq_line()
 ```
 
-![plot of chunk unnamed-chunk-420](figure/unnamed-chunk-420-1.pdf)
+![plot of chunk unnamed-chunk-435](figure/unnamed-chunk-435-1.pdf)
 
 ## Confidence interval from the bootstrap distribution
 
@@ -9709,7 +10116,7 @@ ggplot(soap, aes(x=speed, y=scrap, colour=line))+
   geom_point()+geom_smooth(method="lm", se=F)
 ```
 
-![plot of chunk unnamed-chunk-429](figure/unnamed-chunk-429-1.pdf)
+![plot of chunk unnamed-chunk-444](figure/unnamed-chunk-444-1.pdf)
 
 ## Comments
 
@@ -9788,7 +10195,7 @@ rerun(1000, sample_frac(line_b, replace=T)) %>%
 ggplot(tibble(cors), aes(x=cors))+geom_histogram(bins=15)
 ```
 
-![plot of chunk unnamed-chunk-434](figure/unnamed-chunk-434-1.pdf)
+![plot of chunk unnamed-chunk-449](figure/unnamed-chunk-449-1.pdf)
 
 ## Comments and next steps
 
@@ -10040,7 +10447,7 @@ poisson1_fit
 ## lambda  1412    1
 ## lp__    1831    1
 ## 
-## Samples were drawn using NUTS(diag_e) at Tue Jul  2 16:40:59 2019.
+## Samples were drawn using NUTS(diag_e) at Wed Dec 11 12:30:22 2019.
 ## For each parameter, n_eff is a crude measure of effective sample size,
 ## and Rhat is the potential scale reduction factor on split chains (at 
 ## convergence, Rhat=1).
@@ -10123,7 +10530,7 @@ poisson2_fit
 ## lambda  1416    1
 ## lp__    1572    1
 ## 
-## Samples were drawn using NUTS(diag_e) at Tue Jul  2 16:41:04 2019.
+## Samples were drawn using NUTS(diag_e) at Wed Dec 11 12:30:27 2019.
 ## For each parameter, n_eff is a crude measure of effective sample size,
 ## and Rhat is the potential scale reduction factor on split chains (at 
 ## convergence, Rhat=1).
@@ -10140,7 +10547,7 @@ ggplot(tibble(lambda = poisson2_out$lambda), aes(x = lambda)) +
   geom_histogram(bins = 20)
 ```
 
-![plot of chunk unnamed-chunk-454](figure/unnamed-chunk-454-1.pdf)
+![plot of chunk unnamed-chunk-469](figure/unnamed-chunk-469-1.pdf)
 
 ## Posterior predictive distribution
 
@@ -10159,7 +10566,7 @@ tibble(lambda = poisson2_out$lambda) %>%
 ggplot(d, aes(x = x_sim)) + geom_bar()
 ```
 
-![plot of chunk unnamed-chunk-456](figure/unnamed-chunk-456-1.pdf)
+![plot of chunk unnamed-chunk-471](figure/unnamed-chunk-471-1.pdf)
 
 
 ## Comparison
@@ -10194,7 +10601,7 @@ ggplot(d, aes(x = x_sim)) + geom_bar() +
 g
 ```
 
-![plot of chunk unnamed-chunk-459](figure/unnamed-chunk-459-1.pdf)
+![plot of chunk unnamed-chunk-474](figure/unnamed-chunk-474-1.pdf)
 
 
 ## Analysis of variance, the Bayesian way
@@ -10262,7 +10669,7 @@ Most obviously, boxplots:
 ggplot(rats, aes(x = group_fct, y = density)) + geom_boxplot()
 ```
 
-![plot of chunk unnamed-chunk-462](figure/unnamed-chunk-462-1.pdf)
+![plot of chunk unnamed-chunk-477](figure/unnamed-chunk-477-1.pdf)
 
 ## Plotting the data 2/2
 
@@ -10274,7 +10681,7 @@ ggplot(rats, aes(x = density, colour = group_fct)) +
   geom_density()
 ```
 
-![plot of chunk unnamed-chunk-463](figure/unnamed-chunk-463-1.pdf)
+![plot of chunk unnamed-chunk-478](figure/unnamed-chunk-478-1.pdf)
 
 
 ## The procedure
@@ -10384,8 +10791,8 @@ anova_samples <- sampling(anova_compiled, data = anova_data)
 ## 
 ## SAMPLING FOR MODEL 'anova' NOW (CHAIN 1).
 ## Chain 1: 
-## Chain 1: Gradient evaluation took 1e-05 seconds
-## Chain 1: 1000 transitions using 10 leapfrog steps per transition would take 0.1 seconds.
+## Chain 1: Gradient evaluation took 7e-06 seconds
+## Chain 1: 1000 transitions using 10 leapfrog steps per transition would take 0.07 seconds.
 ## Chain 1: Adjust your expectations accordingly!
 ## Chain 1: 
 ## Chain 1: 
@@ -10402,9 +10809,9 @@ anova_samples <- sampling(anova_compiled, data = anova_data)
 ## Chain 1: Iteration: 1800 / 2000 [ 90%]  (Sampling)
 ## Chain 1: Iteration: 2000 / 2000 [100%]  (Sampling)
 ## Chain 1: 
-## Chain 1:  Elapsed Time: 0.099825 seconds (Warm-up)
-## Chain 1:                0.025718 seconds (Sampling)
-## Chain 1:                0.125543 seconds (Total)
+## Chain 1:  Elapsed Time: 0.094034 seconds (Warm-up)
+## Chain 1:                0.025907 seconds (Sampling)
+## Chain 1:                0.119941 seconds (Total)
 ## Chain 1: 
 ## 
 ## SAMPLING FOR MODEL 'anova' NOW (CHAIN 2).
@@ -10427,9 +10834,9 @@ anova_samples <- sampling(anova_compiled, data = anova_data)
 ## Chain 2: Iteration: 1800 / 2000 [ 90%]  (Sampling)
 ## Chain 2: Iteration: 2000 / 2000 [100%]  (Sampling)
 ## Chain 2: 
-## Chain 2:  Elapsed Time: 0.101651 seconds (Warm-up)
-## Chain 2:                0.025837 seconds (Sampling)
-## Chain 2:                0.127488 seconds (Total)
+## Chain 2:  Elapsed Time: 0.100091 seconds (Warm-up)
+## Chain 2:                0.024459 seconds (Sampling)
+## Chain 2:                0.12455 seconds (Total)
 ## Chain 2: 
 ## 
 ## SAMPLING FOR MODEL 'anova' NOW (CHAIN 3).
@@ -10452,15 +10859,15 @@ anova_samples <- sampling(anova_compiled, data = anova_data)
 ## Chain 3: Iteration: 1800 / 2000 [ 90%]  (Sampling)
 ## Chain 3: Iteration: 2000 / 2000 [100%]  (Sampling)
 ## Chain 3: 
-## Chain 3:  Elapsed Time: 0.099384 seconds (Warm-up)
-## Chain 3:                0.025915 seconds (Sampling)
-## Chain 3:                0.125299 seconds (Total)
+## Chain 3:  Elapsed Time: 0.097503 seconds (Warm-up)
+## Chain 3:                0.025354 seconds (Sampling)
+## Chain 3:                0.122857 seconds (Total)
 ## Chain 3: 
 ## 
 ## SAMPLING FOR MODEL 'anova' NOW (CHAIN 4).
 ## Chain 4: 
-## Chain 4: Gradient evaluation took 2e-05 seconds
-## Chain 4: 1000 transitions using 10 leapfrog steps per transition would take 0.2 seconds.
+## Chain 4: Gradient evaluation took 5e-06 seconds
+## Chain 4: 1000 transitions using 10 leapfrog steps per transition would take 0.05 seconds.
 ## Chain 4: Adjust your expectations accordingly!
 ## Chain 4: 
 ## Chain 4: 
@@ -10477,9 +10884,9 @@ anova_samples <- sampling(anova_compiled, data = anova_data)
 ## Chain 4: Iteration: 1800 / 2000 [ 90%]  (Sampling)
 ## Chain 4: Iteration: 2000 / 2000 [100%]  (Sampling)
 ## Chain 4: 
-## Chain 4:  Elapsed Time: 0.120114 seconds (Warm-up)
-## Chain 4:                0.034203 seconds (Sampling)
-## Chain 4:                0.154317 seconds (Total)
+## Chain 4:  Elapsed Time: 0.077654 seconds (Warm-up)
+## Chain 4:                0.034237 seconds (Sampling)
+## Chain 4:                0.111891 seconds (Total)
 ## Chain 4:
 ```
 
@@ -10490,7 +10897,7 @@ anova_samples <- sampling(anova_compiled, data = anova_data)
 traceplot(anova_samples)
 ```
 
-![plot of chunk unnamed-chunk-467](figure/unnamed-chunk-467-1.pdf)
+![plot of chunk unnamed-chunk-482](figure/unnamed-chunk-482-1.pdf)
 
 ## Comments
 
@@ -10522,7 +10929,7 @@ anova_samples
 ## sigma  31.40  38.93  3437    1
 ## lp__  -39.98 -39.17  1714    1
 ## 
-## Samples were drawn using NUTS(diag_e) at Tue Jul  2 16:41:08 2019.
+## Samples were drawn using NUTS(diag_e) at Wed Dec 11 12:30:31 2019.
 ## For each parameter, n_eff is a crude measure of effective sample size,
 ## and Rhat is the potential scale reduction factor on split chains (at 
 ## convergence, Rhat=1).
@@ -10598,7 +11005,7 @@ sims %>% sample_n(8)
 ggplot(sims, aes(x = density, colour = group)) + geom_density()
 ```
 
-![plot of chunk unnamed-chunk-472](figure/unnamed-chunk-472-1.pdf)
+![plot of chunk unnamed-chunk-487](figure/unnamed-chunk-487-1.pdf)
 
 ## Posterior predictive distributions
 
@@ -10653,7 +11060,7 @@ ggplot(ppd, aes(x = sim_data)) +
 g
 ```
 
-![plot of chunk unnamed-chunk-475](figure/unnamed-chunk-475-1.pdf)
+![plot of chunk unnamed-chunk-490](figure/unnamed-chunk-490-1.pdf)
 
 ## Extensions 
 
