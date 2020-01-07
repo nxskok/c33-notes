@@ -19,6 +19,13 @@ output:
 
 
 
+```
+## Error in library(leaps): there is no package called 'leaps'
+```
+
+```
+## Error in library(bootstrap): there is no package called 'bootstrap'
+```
 
 
 # Course outline 
@@ -538,8 +545,7 @@ mydata <- read_csv("test1.csv")
 correctly guesses that:
 - id and group are text (categorical variables). id is actually “identifier
 variable”: identifies individuals.
-- x and y are integers (quantitative variables that here have no decimal
-point). Decimal numbers would be labelled num or double.
+- x and y are "double": numbers that might have a decimal point in them.
 
 ## R Studio on your own computer
 
@@ -606,8 +612,8 @@ click it.
 
 - Read-only: cannot edit data
 - Can display data satisfying conditions: click on Filter, then:
-- for a categorical variable, type name of category you want
-- for a quantitative variable, use slider to describe values you want.
+  - for a categorical variable, type name of category you want
+  - for a quantitative variable, use slider to describe values you want.
 - Can sort a column into ascending or descending order (click little
 arrows next to column name).
 - Clicking the symbol with arrow on it left of Filter “pops out” View
@@ -3329,18 +3335,18 @@ kids %>% sample_n(12)
 ## # A tibble: 12 x 2
 ##    group score
 ##    <chr> <dbl>
-##  1 c        33
-##  2 t        61
-##  3 t        43
-##  4 t        58
-##  5 t        57
-##  6 t        53
-##  7 c        10
-##  8 c        60
-##  9 c        54
-## 10 c        37
-## 11 t        52
-## 12 t        49
+##  1 t        49
+##  2 c        48
+##  3 c        46
+##  4 c        17
+##  5 t        43
+##  6 t        44
+##  7 c        26
+##  8 t        59
+##  9 c        55
+## 10 t        62
+## 11 t        43
+## 12 c        10
 ```
 
 ## Where we are at 
@@ -3435,11 +3441,11 @@ dst %>% sample_n(5) # randomly sample 5 rows
 ## # A tibble: 5 x 2
 ##   gender agree
 ##   <chr>  <chr>
-## 1 male   yes  
-## 2 male   yes  
+## 1 female no   
+## 2 female no   
 ## 3 male   no   
-## 4 male   no   
-## 5 female no
+## 4 male   yes  
+## 5 female yes
 ```
 
 ## ... continued
@@ -3635,17 +3641,17 @@ rats %>% sample_n(12)
 ##    group    density
 ##    <chr>      <dbl>
 ##  1 Highjump     650
-##  2 Control      554
-##  3 Control      614
-##  4 Control      621
+##  2 Lowjump      599
+##  3 Lowjump      588
+##  4 Lowjump      632
 ##  5 Highjump     643
-##  6 Lowjump      594
-##  7 Control      600
-##  8 Lowjump      596
-##  9 Control      593
-## 10 Lowjump      638
-## 11 Lowjump      588
-## 12 Highjump     626
+##  6 Lowjump      638
+##  7 Highjump     643
+##  8 Control      621
+##  9 Highjump     626
+## 10 Control      554
+## 11 Lowjump      635
+## 12 Lowjump      607
 ```
 \normalsize
 
@@ -5353,11 +5359,11 @@ equally likely to be anything 0–9 (without replacement):
 ## # A tibble: 5 x 4
 ##       y    x1    x2    x3
 ##   <int> <int> <int> <int>
-## 1     5     8     9     9
-## 2     2     7     4     0
-## 3     1     3     2     6
-## 4     0     0     0     3
-## 5     9     4     7     1
+## 1     6     3     2     0
+## 2     3     7     1     8
+## 3     5     9     6     7
+## 4     9     0     3     2
+## 5     4     2     4     6
 ```
 
 ## Just display x2 and x3:
@@ -5370,11 +5376,11 @@ d %>% select(num_range("x", 2:3))
 ## # A tibble: 5 x 2
 ##      x2    x3
 ##   <int> <int>
-## 1     9     9
-## 2     4     0
-## 3     2     6
-## 4     0     3
-## 5     7     1
+## 1     2     0
+## 2     1     8
+## 3     6     7
+## 4     3     2
+## 5     4     6
 ```
 
 ## Choosing rows by number 
@@ -5433,13 +5439,13 @@ athletes %>% sample_n(8)
 ##   Sex    Sport     RCC   WCC    Hc    Hg  Ferr   BMI
 ##   <chr>  <chr>   <dbl> <dbl> <dbl> <dbl> <dbl> <dbl>
 ## 1 female Netball  4.02   9.1  37.7  12.7   107  23.0
-## 2 female Netball  4.46  10.9  39.7  13.7   102  24.0
-## 3 female Netball  4.15   6    38    12.7    59  21.2
-## 4 female Field    5.33   9.3  47    15      62  25.3
-## 5 male   BBall    5.17   8    47.9  16.4    36  25.9
-## 6 female BBall    4.1    4.4  37.4  12.5    42  21.0
-## 7 female Swim     4.13   7    39.7  13.1   124  22.0
-## 8 female Row      4.46   9.5  41.5  14.5    92  23.0
+## 2 male   T400m    4.5    6.1  42.2  14.7   139  19.6
+## 3 female Row      4.87   7.3  44.1  14.8    13  22.6
+## 4 male   T400m    5.49   5.9  47.7  15.9    66  22.3
+## 5 female Swim     4.23   8.1  38.2  12.7    22  25.2
+## 6 female Netball  4.4    9.3  40.4  13.6    86  26.2
+## 7 female Netball  4.83   8.4  41.8  13.4    40  20.0
+## 8 female BBall    4.71   5.3  41.4  14      38  25.8
 ## # … with 5 more variables: SSF <dbl>,
 ## #   `%Bfat` <dbl>, LBM <dbl>, Ht <dbl>, Wt <dbl>
 ```
@@ -7305,8 +7311,26 @@ Uses package `leaps`:
 ```r
 leaps <- regsubsets(log.rut.depth ~ pct.a.surf + pct.a.base + fines + voids +
   log.viscosity + run, data = asphalt_2, nbest = 2)
+```
+
+```
+## Error in regsubsets(log.rut.depth ~ pct.a.surf + pct.a.base + fines + : could not find function "regsubsets"
+```
+
+```r
 s <- summary(leaps)
+```
+
+```
+## Error in summary(leaps): object 'leaps' not found
+```
+
+```r
 with(s, data.frame(rsq, outmat)) -> d
+```
+
+```
+## Error in with(s, data.frame(rsq, outmat)): object 's' not found
 ```
 
 ## The output
@@ -7321,18 +7345,7 @@ d %>% rownames_to_column("model") %>% arrange(desc(rsq))
 ```
 
 ```
-##       model       rsq pct.a.surf pct.a.base fines voids log.viscosity run
-## 1  6  ( 1 ) 0.9609642          *          *     *     *             *   *
-## 2  5  ( 1 ) 0.9608365          *                *     *             *   *
-## 3  5  ( 2 ) 0.9593265          *          *     *     *             *    
-## 4  4  ( 1 ) 0.9591996          *                      *             *   *
-## 5  4  ( 2 ) 0.9589206          *                *     *             *    
-## 6  3  ( 1 ) 0.9578631          *                      *             *    
-## 7  3  ( 2 ) 0.9534561          *                *                   *    
-## 8  2  ( 1 ) 0.9508647          *                                    *    
-## 9  2  ( 2 ) 0.9479541                                 *             *    
-## 10 1  ( 1 ) 0.9452562                                               *    
-## 11 1  ( 2 ) 0.8624107                                                   *
+## Error: object 'rsq' not found
 ```
 \normalsize
 
@@ -7360,18 +7373,7 @@ with(s, data.frame(adjr2, outmat))
 ```
 
 ```
-##              adjr2 pct.a.surf pct.a.base fines voids log.viscosity run
-## 1  ( 1 ) 0.9433685                                               *    
-## 1  ( 2 ) 0.8576662                                                   *
-## 2  ( 1 ) 0.9473550          *                                    *    
-## 2  ( 2 ) 0.9442365                                 *             *    
-## 3  ( 1 ) 0.9531812          *                      *             *    
-## 3  ( 2 ) 0.9482845          *                *                   *    
-## 4  ( 1 ) 0.9529226          *                      *             *   *
-## 4  ( 2 ) 0.9526007          *                *     *             *    
-## 5  ( 1 ) 0.9530038          *                *     *             *   *
-## 5  ( 2 ) 0.9511918          *          *     *     *             *    
-## 6  ( 1 ) 0.9512052          *          *     *     *             *   *
+## Error in with(s, data.frame(adjr2, outmat)): object 's' not found
 ```
 \normalsize
 
@@ -7662,16 +7664,16 @@ crickets %>% sample_n(10)
 ## # A tibble: 10 x 3
 ##    species       temperature pulse_rate
 ##    <chr>               <dbl>      <dbl>
-##  1 exclamationis        20.8       65.1
-##  2 niveus               18.9       50.3
-##  3 exclamationis        20.8       67.9
-##  4 exclamationis        24         78.7
-##  5 exclamationis        29        101. 
-##  6 niveus               26.5       76.1
-##  7 niveus               18.3       47.6
-##  8 niveus               17.2       44.3
-##  9 niveus               26.5       77.7
-## 10 niveus               26.5       77
+##  1 niveus               18.9       51.8
+##  2 exclamationis        30.4      102. 
+##  3 exclamationis        26.2       85.8
+##  4 exclamationis        20.8       67.9
+##  5 exclamationis        26.2       86.6
+##  6 exclamationis        26.2       89.1
+##  7 exclamationis        30.4       99.3
+##  8 niveus               23.5       69.8
+##  9 exclamationis        24         80.4
+## 10 niveus               18.9       50.3
 ```
 \normalsize
 ## Fit model with `lm` 
@@ -9393,7 +9395,7 @@ xx
 ```
 
 ```
-## [1] 7 4 2 1 3
+## [1]  2  3 10  9  1
 ```
 
 ```r
@@ -9412,7 +9414,7 @@ xx # back
 ```
 
 ```
-## [1] 7 4 2 1 3
+## [1]  2  3 10  9  1
 ```
 
 
@@ -9926,7 +9928,7 @@ mean(boot)
 ```
 
 ```
-## [1] 190.7333
+## [1] 205.1333
 ```
 
 - That's one bootstrapped mean. We need a whole bunch.
@@ -10040,19 +10042,18 @@ Brad Efron and Robert J. Tibshirani.
 
 ```r
 bca=bcanon(irs$Time, 1000, mean)
+```
+
+```
+## Error in bcanon(irs$Time, 1000, mean): could not find function "bcanon"
+```
+
+```r
 bca$confpoints
 ```
 
 ```
-##      alpha bca point
-## [1,] 0.025  164.5667
-## [2,] 0.050  169.0000
-## [3,] 0.100  175.5000
-## [4,] 0.160  180.2667
-## [5,] 0.840  225.3667
-## [6,] 0.900  232.0000
-## [7,] 0.950  241.1667
-## [8,] 0.975  251.7333
+## Error in eval(expr, envir, enclos): object 'bca' not found
 ```
 
 ## use 2.5% and 97.5% points for CI
@@ -10062,11 +10063,18 @@ bca$confpoints
 bca$confpoints %>% as_tibble() %>% 
   filter(alpha %in% c(0.025, 0.975)) %>% 
   pull(`bca point`) -> b_bca
+```
+
+```
+## Error in eval(lhs, parent, parent): object 'bca' not found
+```
+
+```r
 b_bca
 ```
 
 ```
-## [1] 164.5667 251.7333
+## Error in eval(expr, envir, enclos): object 'b_bca' not found
 ```
 
 ## Comparing
@@ -10077,11 +10085,7 @@ tibble(limit=my_names, o_t, b_t, b_p, b_bca)
 ```
 
 ```
-## # A tibble: 2 x 5
-##   limit   o_t   b_t   b_p b_bca
-##   <chr> <dbl> <dbl> <dbl> <dbl>
-## 1 LCL    155.  155.  159.  165.
-## 2 UCL    247.  246.  248.  252.
+## Error in eval_tidy(xs[[i]], unique_output): object 'b_bca' not found
 ```
 
 - The BCA interval says that the mean should be estimated even higher than the bootstrap percentile interval does. 
@@ -10164,17 +10168,17 @@ line_b %>% sample_frac(replace=T)
 ##     case scrap speed line 
 ##    <dbl> <dbl> <dbl> <chr>
 ##  1    20   215   175 b    
-##  2    27   410   295 b    
-##  3    20   215   175 b    
-##  4    25   422   320 b    
-##  5    22   260   200 b    
-##  6    16   140   105 b    
-##  7    24   252   155 b    
-##  8    19   341   255 b    
-##  9    21   180   135 b    
-## 10    19   341   255 b    
-## 11    24   252   155 b    
-## 12    16   140   105 b
+##  2    16   140   105 b    
+##  3    26   273   190 b    
+##  4    20   215   175 b    
+##  5    26   273   190 b    
+##  6    20   215   175 b    
+##  7    22   260   200 b    
+##  8    23   361   275 b    
+##  9    25   422   320 b    
+## 10    23   361   275 b    
+## 11    25   422   320 b    
+## 12    18   384   270 b
 ```
 \normalsize
 
@@ -10209,7 +10213,7 @@ ggplot(tibble(cors), aes(x=cors))+geom_histogram(bins=15)
 
 ```
 ##      2.5%     97.5% 
-## 0.9467805 0.9958809
+## 0.9442645 0.9961654
 ```
 
 - We probably need the BCA interval instead.
@@ -10256,14 +10260,28 @@ line_b %>% slice(1:3)
 
 ```r
 points=bcanon(1:12, 1000, theta, line_b)$confpoints
+```
+
+```
+## Error in bcanon(1:12, 1000, theta, line_b): could not find function "bcanon"
+```
+
+```r
 points %>% as_tibble() %>% 
   filter(alpha %in% c(0.025, 0.975)) %>% 
   pull(`bca point`) -> b_bca
+```
+
+```
+## Error in as.data.frame.default(value, stringsAsFactors = FALSE): cannot coerce class '"function"' to a data.frame
+```
+
+```r
 b_bca
 ```
 
 ```
-## [1] 0.9201579 0.9951418
+## Error in eval(expr, envir, enclos): object 'b_bca' not found
 ```
 
 ## Comparing the results
@@ -10274,11 +10292,7 @@ tibble(limit=my_names, o_c, b_p, b_bca)
 ```
 
 ```
-## # A tibble: 2 x 4
-##   limit   o_c   b_p b_bca
-##   <chr> <dbl> <dbl> <dbl>
-## 1 LCL   0.930 0.947 0.920
-## 2 UCL   0.995 0.996 0.995
+## Error in eval_tidy(xs[[i]], unique_output): object 'b_bca' not found
 ```
 
 - The bootstrap percentile interval doesn't go down far enough. 
@@ -10425,6 +10439,10 @@ poisson1_fit <- sampling(poisson1_code, data = poisson1_data)
 
 
 
+```
+## code for methods in class "Rcpp_stan_fit4modelef428cd118a_poisson1" was not checked for suspicious field assignments (recommended package 'codetools' not available?)
+## code for methods in class "Rcpp_stan_fit4modelef428cd118a_poisson1" was not checked for suspicious field assignments (recommended package 'codetools' not available?)
+```
 
 
 
@@ -10447,7 +10465,7 @@ poisson1_fit
 ## lambda  1412    1
 ## lp__    1831    1
 ## 
-## Samples were drawn using NUTS(diag_e) at Wed Dec 11 12:30:22 2019.
+## Samples were drawn using NUTS(diag_e) at Tue Jan  7 10:46:45 2020.
 ## For each parameter, n_eff is a crude measure of effective sample size,
 ## and Rhat is the potential scale reduction factor on split chains (at 
 ## convergence, Rhat=1).
@@ -10530,7 +10548,7 @@ poisson2_fit
 ## lambda  1416    1
 ## lp__    1572    1
 ## 
-## Samples were drawn using NUTS(diag_e) at Wed Dec 11 12:30:27 2019.
+## Samples were drawn using NUTS(diag_e) at Tue Jan  7 10:46:49 2020.
 ## For each parameter, n_eff is a crude measure of effective sample size,
 ## and Rhat is the potential scale reduction factor on split chains (at 
 ## convergence, Rhat=1).
@@ -10788,11 +10806,16 @@ anova_samples <- sampling(anova_compiled, data = anova_data)
 ```
 
 ```
+## code for methods in class "Rcpp_stan_fit4model2527230a64af_anova" was not checked for suspicious field assignments (recommended package 'codetools' not available?)
+## code for methods in class "Rcpp_stan_fit4model2527230a64af_anova" was not checked for suspicious field assignments (recommended package 'codetools' not available?)
+```
+
+```
 ## 
 ## SAMPLING FOR MODEL 'anova' NOW (CHAIN 1).
 ## Chain 1: 
-## Chain 1: Gradient evaluation took 7e-06 seconds
-## Chain 1: 1000 transitions using 10 leapfrog steps per transition would take 0.07 seconds.
+## Chain 1: Gradient evaluation took 9e-06 seconds
+## Chain 1: 1000 transitions using 10 leapfrog steps per transition would take 0.09 seconds.
 ## Chain 1: Adjust your expectations accordingly!
 ## Chain 1: 
 ## Chain 1: 
@@ -10809,9 +10832,9 @@ anova_samples <- sampling(anova_compiled, data = anova_data)
 ## Chain 1: Iteration: 1800 / 2000 [ 90%]  (Sampling)
 ## Chain 1: Iteration: 2000 / 2000 [100%]  (Sampling)
 ## Chain 1: 
-## Chain 1:  Elapsed Time: 0.094034 seconds (Warm-up)
-## Chain 1:                0.025907 seconds (Sampling)
-## Chain 1:                0.119941 seconds (Total)
+## Chain 1:  Elapsed Time: 0.09277 seconds (Warm-up)
+## Chain 1:                0.024401 seconds (Sampling)
+## Chain 1:                0.117171 seconds (Total)
 ## Chain 1: 
 ## 
 ## SAMPLING FOR MODEL 'anova' NOW (CHAIN 2).
@@ -10834,15 +10857,15 @@ anova_samples <- sampling(anova_compiled, data = anova_data)
 ## Chain 2: Iteration: 1800 / 2000 [ 90%]  (Sampling)
 ## Chain 2: Iteration: 2000 / 2000 [100%]  (Sampling)
 ## Chain 2: 
-## Chain 2:  Elapsed Time: 0.100091 seconds (Warm-up)
-## Chain 2:                0.024459 seconds (Sampling)
-## Chain 2:                0.12455 seconds (Total)
+## Chain 2:  Elapsed Time: 0.096551 seconds (Warm-up)
+## Chain 2:                0.0241 seconds (Sampling)
+## Chain 2:                0.120651 seconds (Total)
 ## Chain 2: 
 ## 
 ## SAMPLING FOR MODEL 'anova' NOW (CHAIN 3).
 ## Chain 3: 
-## Chain 3: Gradient evaluation took 7e-06 seconds
-## Chain 3: 1000 transitions using 10 leapfrog steps per transition would take 0.07 seconds.
+## Chain 3: Gradient evaluation took 6e-06 seconds
+## Chain 3: 1000 transitions using 10 leapfrog steps per transition would take 0.06 seconds.
 ## Chain 3: Adjust your expectations accordingly!
 ## Chain 3: 
 ## Chain 3: 
@@ -10859,15 +10882,15 @@ anova_samples <- sampling(anova_compiled, data = anova_data)
 ## Chain 3: Iteration: 1800 / 2000 [ 90%]  (Sampling)
 ## Chain 3: Iteration: 2000 / 2000 [100%]  (Sampling)
 ## Chain 3: 
-## Chain 3:  Elapsed Time: 0.097503 seconds (Warm-up)
-## Chain 3:                0.025354 seconds (Sampling)
-## Chain 3:                0.122857 seconds (Total)
+## Chain 3:  Elapsed Time: 0.095188 seconds (Warm-up)
+## Chain 3:                0.024793 seconds (Sampling)
+## Chain 3:                0.119981 seconds (Total)
 ## Chain 3: 
 ## 
 ## SAMPLING FOR MODEL 'anova' NOW (CHAIN 4).
 ## Chain 4: 
-## Chain 4: Gradient evaluation took 5e-06 seconds
-## Chain 4: 1000 transitions using 10 leapfrog steps per transition would take 0.05 seconds.
+## Chain 4: Gradient evaluation took 6e-06 seconds
+## Chain 4: 1000 transitions using 10 leapfrog steps per transition would take 0.06 seconds.
 ## Chain 4: Adjust your expectations accordingly!
 ## Chain 4: 
 ## Chain 4: 
@@ -10884,9 +10907,9 @@ anova_samples <- sampling(anova_compiled, data = anova_data)
 ## Chain 4: Iteration: 1800 / 2000 [ 90%]  (Sampling)
 ## Chain 4: Iteration: 2000 / 2000 [100%]  (Sampling)
 ## Chain 4: 
-## Chain 4:  Elapsed Time: 0.077654 seconds (Warm-up)
-## Chain 4:                0.034237 seconds (Sampling)
-## Chain 4:                0.111891 seconds (Total)
+## Chain 4:  Elapsed Time: 0.07404 seconds (Warm-up)
+## Chain 4:                0.027625 seconds (Sampling)
+## Chain 4:                0.101665 seconds (Total)
 ## Chain 4:
 ```
 
@@ -10929,7 +10952,7 @@ anova_samples
 ## sigma  31.40  38.93  3437    1
 ## lp__  -39.98 -39.17  1714    1
 ## 
-## Samples were drawn using NUTS(diag_e) at Wed Dec 11 12:30:31 2019.
+## Samples were drawn using NUTS(diag_e) at Tue Jan  7 10:46:52 2020.
 ## For each parameter, n_eff is a crude measure of effective sample size,
 ## and Rhat is the potential scale reduction factor on split chains (at 
 ## convergence, Rhat=1).
@@ -11116,6 +11139,11 @@ anova_data <- list(
 anova_loo_samples <- sampling(anova_loo_compiled, data = anova_data)
 ```
 
+```
+## code for methods in class "Rcpp_stan_fit4model3ee96f026edb_anova_loo" was not checked for suspicious field assignments (recommended package 'codetools' not available?)
+## code for methods in class "Rcpp_stan_fit4model3ee96f026edb_anova_loo" was not checked for suspicious field assignments (recommended package 'codetools' not available?)
+```
+
 ## Now we need a null model
 
 - one value of `mu` for all groups
@@ -11167,6 +11195,11 @@ generated quantities {
 ```r
 anova_loo_null_compiled <- stan_model("anova_loo_null.stan")
 anova_loo_null_samples <- sampling(anova_loo_null_compiled, data = anova_data)
+```
+
+```
+## code for methods in class "Rcpp_stan_fit4model3ee95b02a9f7_anova_loo_null" was not checked for suspicious field assignments (recommended package 'codetools' not available?)
+## code for methods in class "Rcpp_stan_fit4model3ee95b02a9f7_anova_loo_null" was not checked for suspicious field assignments (recommended package 'codetools' not available?)
 ```
 
 ## Compare the fits of the two models

@@ -77,8 +77,7 @@ mydata <- read_csv("test1.csv")
 correctly guesses that:
 - id and group are text (categorical variables). id is actually “identifier
 variable”: identifies individuals.
-- x and y are integers (quantitative variables that here have no decimal
-point). Decimal numbers would be labelled num or double.
+- x and y are "double": numbers that might have a decimal point in them.
 
 ## R Studio on your own computer
 
@@ -131,8 +130,8 @@ click it.
 
 - Read-only: cannot edit data
 - Can display data satisfying conditions: click on Filter, then:
-- for a categorical variable, type name of category you want
-- for a quantitative variable, use slider to describe values you want.
+  - for a categorical variable, type name of category you want
+  - for a quantitative variable, use slider to describe values you want.
 - Can sort a column into ascending or descending order (click little
 arrows next to column name).
 - Clicking the symbol with arrow on it left of Filter “pops out” View

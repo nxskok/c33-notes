@@ -1,18 +1,18 @@
-\beamer@sectionintoc {1}{Course outline}{2}{0}{1}
-\beamer@sectionintoc {2}{Running R}{16}{0}{2}
-\beamer@sectionintoc {3}{Reading in data}{41}{0}{3}
-\beamer@sectionintoc {4}{Making graphs}{67}{0}{4}
-\beamer@sectionintoc {5}{Numerical summaries: more detailed}{84}{0}{5}
-\beamer@sectionintoc {6}{Statistical Inference}{94}{0}{6}
-\beamer@sectionintoc {7}{Writing reports}{251}{0}{7}
-\beamer@sectionintoc {8}{Tidying and organizing data}{269}{0}{8}
-\beamer@sectionintoc {9}{Case study 1: the windmill data}{340}{0}{9}
-\beamer@sectionintoc {10}{Case study 3: Asphalt}{386}{0}{10}
-\beamer@sectionintoc {11}{Regression with categorical variables}{432}{0}{11}
-\beamer@sectionintoc {12}{Functions}{446}{0}{12}
-\beamer@sectionintoc {13}{Dates and times}{485}{0}{13}
-\beamer@sectionintoc {14}{Miscellanea}{510}{0}{14}
-\beamer@sectionintoc {15}{Vector and matrix algebra (for C33)}{534}{0}{15}
-\beamer@sectionintoc {16}{The bootstrap}{554}{0}{16}
-\beamer@sectionintoc {17}{Bayesian statistics with \texttt {rstan}}{581}{0}{17}
-\beamer@sectionintoc {18}{the end of the notes}{640}{0}{18}
+\beamer@sectionintoc {1}{Course outline}{3}{0}{1}
+\beamer@sectionintoc {2}{Running R}{17}{0}{2}
+\beamer@sectionintoc {3}{Reading in data}{42}{0}{3}
+\beamer@sectionintoc {4}{Making graphs}{68}{0}{4}
+\beamer@sectionintoc {5}{Numerical summaries: more detailed}{85}{0}{5}
+\beamer@sectionintoc {6}{Statistical Inference}{95}{0}{6}
+\beamer@sectionintoc {7}{Writing reports}{252}{0}{7}
+\beamer@sectionintoc {8}{Tidying and organizing data}{270}{0}{8}
+\beamer@sectionintoc {9}{Case study 1: the windmill data}{341}{0}{9}
+\beamer@sectionintoc {10}{Case study 3: Asphalt}{387}{0}{10}
+\beamer@sectionintoc {11}{Regression with categorical variables}{433}{0}{11}
+\beamer@sectionintoc {12}{Functions}{447}{0}{12}
+\beamer@sectionintoc {13}{Dates and times}{486}{0}{13}
+\beamer@sectionintoc {14}{Miscellanea}{511}{0}{14}
+\beamer@sectionintoc {15}{Vector and matrix algebra (for C33)}{535}{0}{15}
+\beamer@sectionintoc {16}{The bootstrap}{555}{0}{16}
+\beamer@sectionintoc {17}{Bayesian statistics with \texttt {rstan}}{582}{0}{17}
+\beamer@sectionintoc {18}{the end of the notes}{641}{0}{18}
