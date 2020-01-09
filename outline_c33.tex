@@ -1,0 +1,435 @@
+\PassOptionsToPackage{unicode=true}{hyperref} % options for packages loaded elsewhere
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[ignorenonframetext,]{beamer}
+\usepackage{pgfpages}
+\setbeamertemplate{caption}[numbered]
+\setbeamertemplate{caption label separator}{: }
+\setbeamercolor{caption name}{fg=normal text.fg}
+\beamertemplatenavigationsymbolsempty
+% Prevent slide breaks in the middle of a paragraph:
+\widowpenalties 1 10000
+\raggedbottom
+\setbeamertemplate{part page}{
+\centering
+\begin{beamercolorbox}[sep=16pt,center]{part title}
+  \usebeamerfont{part title}\insertpart\par
+\end{beamercolorbox}
+}
+\setbeamertemplate{section page}{
+\centering
+\begin{beamercolorbox}[sep=12pt,center]{part title}
+  \usebeamerfont{section title}\insertsection\par
+\end{beamercolorbox}
+}
+\setbeamertemplate{subsection page}{
+\centering
+\begin{beamercolorbox}[sep=8pt,center]{part title}
+  \usebeamerfont{subsection title}\insertsubsection\par
+\end{beamercolorbox}
+}
+\AtBeginPart{
+  \frame{\partpage}
+}
+\AtBeginSection{
+  \ifbibliography
+  \else
+    \frame{\sectionpage}
+  \fi
+}
+\AtBeginSubsection{
+  \frame{\subsectionpage}
+}
+\usepackage{lmodern}
+\usepackage{amssymb,amsmath}
+\usepackage{ifxetex,ifluatex}
+\usepackage{fixltx2e} % provides \textsubscript
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provides euro and other symbols
+\else % if luatex or xelatex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Ligatures=TeX,Scale=MatchLowercase}
+\fi
+\usetheme[]{AnnArbor}
+\usecolortheme{dove}
+% use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+% use microtype if available
+\IfFileExists{microtype.sty}{%
+\usepackage[]{microtype}
+\UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\IfFileExists{parskip.sty}{%
+\usepackage{parskip}
+}{% else
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt plus 2pt minus 1pt}
+}
+\usepackage{hyperref}
+\hypersetup{
+            pdfborder={0 0 0},
+            breaklinks=true}
+\urlstyle{same}  % don't use monospace font for urls
+\newif\ifbibliography
+\setlength{\emergencystretch}{3em}  % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{0}
+
+% set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+
+
+\date{}
+
+\begin{document}
+
+\begin{frame}{In this course}
+\protect\hypertarget{in-this-course}{}
+
+\begin{itemize}
+\tightlist
+\item
+  Data analysis: use mostly known (to you) statistical methods to gain
+  insight about data.
+\item
+  Use two software packages, SAS and R --- I assume you know nothing
+  about these.
+\item
+  Look at lots of examples.
+\item
+  ``Get your hands dirty''.
+\item
+  Writing reports.
+\item
+  Other tasks in R and SAS.
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}{Prerequisites}
+\protect\hypertarget{prerequisites}{}
+
+\begin{itemize}
+\tightlist
+\item
+  You \emph{need} a second Statistics course that covers statistical
+  inference from a mathematical viewpoint, one of these:
+
+  \begin{itemize}
+  \tightlist
+  \item
+    STAB57
+  \item
+    STA 248
+  \item
+    STA 261
+  \end{itemize}
+\item
+  I check prerequisites.
+\item
+  You need STAB57 for the Statistics Minor/Major/Specialist programs.
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}{The instructor, lectures and tutorials}
+\protect\hypertarget{the-instructor-lectures-and-tutorials}{}
+
+\begin{itemize}
+\tightlist
+\item
+  Ken Butler, office IC 471, e-mail:
+  \url{mailto:butler@utsc.utoronto.ca}
+\item
+  Lectures (section LEC01): both of
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Tuesday 12:00-13:00 in IC 220
+  \item
+    Thursday 14:00-15:00 in SW 128.
+  \end{itemize}
+\item
+  Students in section LEC60 should watch the videotaped lectures (access
+  from Quercus).
+\item
+  Tutorial: one of
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Monday 09:00, 10:00, 11:00, 12:00, in BV 498 (1 hour each).
+  \end{itemize}
+\item
+  Office hours: Tuesday 14:00-15:00, Thursday 15:00-16:30. Or by
+  appointment (e-mail me, address above, to set one up).
+\item
+  course website \href{http://ritsokiguess.site/STAC33}{\textbf{here}}.
+\item
+  This course is on Quercus. Go
+  \href{http://q.utoronto.ca}{\textbf{here}}, log in, and find this
+  course among your courses. Assignment hand-in, grading and marks will
+  be done through Quercus.
+\item
+  E-mail: Use only UTSC/UToronto e-mail address. I aim to respond within
+  two working days. Non-simple questions: office hours/tutorial.
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}{Text(s)}
+\protect\hypertarget{texts}{}
+
+\begin{columns}
+    \begin{column}{0.7\textwidth}
+Recommended:
+  \begin{itemize}
+\item ``SAS Essentials: Mastering SAS for data analytics'' by Alan C.\
+  Elliott and Wayne A.\ Woodward, publ.\ Wiley. ISBN 978-1-119-04216-7.
+\item ``R for Data Science'' by Hadley Wickham and Garrett Grolemund,
+  publ.\ O'Reilly, ISBN 978-1-491-91039-9. Also available (free)
+  online at \url{http://r4ds.had.co.nz/}.
+  \item ``Problems and Solutions in Applied Statistics'' by your instructor, free online at \url{ritsokiguess.site/pasias}
+\end{itemize}
+    \end{column}
+    \begin{column}{0.3\textwidth}
+      \includegraphics[width=1in]{Screenshot_2018-08-17_12-24-26.png}
+
+      \includegraphics[width=1in]{r4ds}
+    \end{column}
+  \end{columns}
+
+\end{frame}
+
+\begin{frame}{Structure of course}
+\protect\hypertarget{structure-of-course}{}
+
+\begin{itemize}
+\tightlist
+\item
+  3 hours/week of class time.
+\item
+  Of these, 1 hour in computer lab (``tutorial''):
+
+  \begin{itemize}
+  \tightlist
+  \item
+    practice what you learned from lecture
+  \item
+    you can work on your assignment or on the additional problems listed
+    there.
+  \item
+    Get help if needed (instructor/TA available)
+  \end{itemize}
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}{Course material (C33)}
+\protect\hypertarget{course-material-c33}{}
+
+\begin{columns}
+  \begin{column}{0.6\textwidth}
+    R:
+    \begin{itemize}
+\item Installation / connection
+\item Reading data files (of different sorts)
+\item Making graphs
+\item Numerical summaries
+\item Statistical inference
+\item Reports
+\item Tidying and organizing data
+\item Case studies
+\item Functions
+\item Dates and times
+\item Miscellaneous tasks
+\item Bootstrap
+\item Bayesian inference with \texttt{rstan}
+
+    \end{itemize}
+  \end{column}
+  
+  \begin{column}{0.4\textwidth}
+  SAS:
+  \begin{itemize}
+  \item Connection 
+\item Reading in data
+\item Graphics
+\item Basic inference
+\item ANOVA
+\item Regression 
+  
+  \end{itemize}
+  \end{column}
+\end{columns}
+
+\end{frame}
+
+\begin{frame}{Laptop use}
+\protect\hypertarget{laptop-use}{}
+
+\begin{itemize}
+\tightlist
+\item
+  If you have a laptop, you may find it useful for following along with
+  the use of the software or for taking notes.
+\item
+  Checking social media or other non-course-specific activity during
+  class distracts from your learning. If you are going to get the most
+  from this course, you need to pay full attention in class.
+  Multi-tasking will not help you.
+\item
+  Using your laptop for non-course activity will also distract those
+  around you and creates a worse learning experience for everybody. If
+  somebody's inappropriate laptop use is distracting you, let me know. I
+  will create laptop-free zones in class if necessary.
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}{Assessment}
+\protect\hypertarget{assessment}{}
+
+\begin{tabular}{p{3.5in}r}
+    \hline
+    Item & Weight\\
+    \hline
+    Assignments (most weeks after first). Can study with classmates, but what you hand in must
+    be \textbf{entirely your own work}. Due Thursdays at 11:59pm. & 15\\
+    \hline
+    Midterm exam, 2 hours, open book (see over) & 30\\
+    \hline
+    Group data analysis report (1--5 people/group). Data analysis on data set of your choosing,
+    using R/SAS/both, report written as described in class.
+    Due last
+    day of classes at 11:59pm. & 10 \\
+    \hline
+    Final exam, 3 hours, open book (see over). \textbf{You must pass
+    the final exam to guarantee passing the course.} & 45\\
+    \hline
+    Total & 100\\
+    \hline
+  \end{tabular}
+
+\end{frame}
+
+\begin{frame}{Open book, defined}
+\protect\hypertarget{open-book-defined}{}
+
+``Open book'' means these are permissible, written/printed versions
+only:
+
+\begin{itemize}
+\tightlist
+\item
+  the SAS text
+\item
+  the R text
+\item
+  my lecture notes
+\item
+  assignments, yours (graded) and mine (with solutions)
+\item
+  any other notes that you have made in this course.
+\end{itemize}
+
+Old exams are not permitted.
+
+\end{frame}
+
+\begin{frame}{Missed work and documentation}
+\protect\hypertarget{missed-work-and-documentation}{}
+
+\begin{itemize}
+\tightlist
+\item
+  No make-up assignments or tests in this course.
+\item
+  Work handed in late may or may not be accepted (instructor's
+  discretion; instructor's decision is final).
+\item
+  If you miss assessed work due to illness/injury, complete form
+  \href{http://www.illnessverification.utoronto.ca/}{\textbf{here}} and
+  submit to instructor within 10 working days of due date.
+\item
+  Weight of missed work with appropriate documentation transferred to
+  other assessments of same type.
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}{Academic integrity}
+\protect\hypertarget{academic-integrity}{}
+
+\begin{itemize}
+\tightlist
+\item
+  Read and understand
+  \href{http://www.utoronto.ca/academicintegrity/}{\textbf{this}}.
+\item
+  Academic dishonesty devalues your degree and those of all other
+  students.
+\item
+  Cheating and plagiarism taken very seriously.
+\item
+  Examples of academic offences:
+\item
+  Using someone else's words/ideas without acknowledgement.
+\item
+  Obtaining or providing unauthorized assistance on an assignment.
+\item
+  On test/exam, looking at someone else's answers or allowing someone
+  else to look at yours.
+\item
+  Pretending to be someone else.
+\item
+  Falsifying or altering required documentation (eg. doctor's notes).
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}{Penalties}
+\protect\hypertarget{penalties}{}
+
+\begin{itemize}
+\tightlist
+\item
+  Penalties include (depending on seriousness of offence) a mark of zero
+  for the work concerned, a mark of zero for the entire course, or
+  suspension/expulsion from the University.
+\item
+  Penalties are (much) more severe for those caught a second (or third)
+  time.
+\item
+  ``Students who cheat and are not caught will be haunted by the memory
+  of their misdeeds for the rest of their miserable lives.'' (From
+  \href{https://philosophy.osu.edu/sites/philosophy.osu.edu/files/1100\%20Brown_2.pdf}{here}.)
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Accessibility statement}
+\protect\hypertarget{accessibility-statement}{}
+
+\begin{quote}
+Students with diverse learning styles and needs are welcome in this
+course. In particular, if you have a disability/health consideration
+that may require accommodations, please feel free to approach me and/or
+the AccessAbility Services Office as soon as possible. I will work with
+you and AccessAbility Services to ensure you can achieve your learning
+goals in this course. Enquiries are confiden- tial. The UTSC
+AccessAbility Services staff (located in S302) are available by
+appointment to assess specific needs, provide referrals and arrange
+appropriate accommodations: (416) 287-7560 or by e-mail at
+\texttt{ability@utsc.utoronto.ca}.
+\end{quote}
+
+\end{frame}
+
+\end{document}
