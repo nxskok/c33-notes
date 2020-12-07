@@ -1,0 +1,18 @@
+\frametitle{Summary of tidying ``verbs''}
+\protect\hypertarget{summary-of-tidying-verbs}{}
+\begin{tabular}{lp{0.65\textwidth}}
+    Verb & Purpose\\
+    \hline
+    \texttt{pivot\_longer} & Combine columns that measure same thing into one\\
+    \texttt{pivot\_wider} & Take column that measures one thing under
+                     different conditions and put into multiple columns\\
+    \texttt{separate} & Turn a column that encodes
+                        several variables into
+                        several columns\\
+    \texttt{unite} & Combine several (related) variables into one
+                     ``combination'' variable\\
+    \hline
+  \end{tabular}
+
+\texttt{pivot\_longer} and \texttt{pivot\_wider} are opposites;
+\texttt{separate} and \texttt{unite} are opposites.

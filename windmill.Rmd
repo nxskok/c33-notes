@@ -22,7 +22,8 @@ library(broom)
 ## Reading in the data
 
 ```{r}
-my_url <- "http://www.utsc.utoronto.ca/~butler/c32/windmill.csv"
+my_url <- 
+  "http://www.utsc.utoronto.ca/~butler/c32/windmill.csv"
 windmill <- read_csv(my_url)
 ```
 
@@ -42,13 +43,18 @@ methods.
   - 2 variables, `DC_output` and `wind_velocity`.
   - First is output/response, other is input/explanatory.
   - Put `DC_output` on vertical scale.
-- Add trend, but don’t want to assume linear.
+- Add trend, but don’t want to assume linear:
+
+```{r, eval=FALSE}
+ggplot(windmill, aes(y = DC_output, x = wind_velocity)) +
+  geom_point() + geom_smooth(se = F) 
+```
 
 ## Scatterplot
 
-```{r, fig.height=3.1}
+```{r, echo=FALSE, message=FALSE}
 ggplot(windmill, aes(y = DC_output, x = wind_velocity)) +
-  geom_point() + geom_smooth(se = F)
+  geom_point() + geom_smooth(se = F) 
 ```
 
 ## Comments
@@ -68,7 +74,7 @@ options(width=60)
 ```
 
 
-\footnotesize
+\scriptsize
 ```{r}
 DC.1 <- lm(DC_output ~ wind_velocity, data = windmill)
 summary(DC.1)
@@ -84,8 +90,8 @@ options(width=wid)
 
 - The standard output tends to go off the bottom of the page rather easily. Package `broom` has these:
 
-\footnotesize
-```{r, paged.print=F}
+\scriptsize
+```{r}
 glance(DC.1)
 ```
 \normalsize
@@ -93,7 +99,7 @@ glance(DC.1)
 showing that the R-squared is 87%, and
 
 \footnotesize
-```{r, paged.print=F}
+```{r}
 tidy(DC.1)
 ```
 \normalsize
@@ -103,7 +109,7 @@ showing the intercept and slope and their significance.
 ## Comments
 - Strategy: `lm` actually fits the regression. Store results in a variable.
 Then look at the results, eg. via `summary` or `glance`/`tidy`. 
-- My strategy for model names: base on response variable and a number.
+- My strategy for model names: base on response variable (or data frame name) and a number.
 Allows me to fit several models to same data and keep track of which
 is which.
 - Results actually pretty good: `wind.velocity` strongly significant,
@@ -112,9 +118,24 @@ R-squared (87%) high.
 residuals, observed minus predicted, plotted against fitted (predicted).
 - Plot using the regression object as “data frame” (see over).
 
+## back to scatterplot, but this time add line
+
+```{r, eval=FALSE}
+ggplot(windmill, aes(y = DC_output, x = wind_velocity)) +
+  geom_point() + geom_smooth(method="lm", se = F)
+```
+
+## The plot
+
+```{r, echo=FALSE, message=FALSE}
+ggplot(windmill, aes(y = DC_output, x = wind_velocity)) +
+  geom_point() + geom_smooth(method="lm", se = F)
+```
+
+
 ## Plot of residuals against fitted values
 
-```{r, fig.height=3.8}
+```{r}
 ggplot(DC.1, aes(y = .resid, x = .fitted)) + geom_point()
 ```
 
@@ -150,13 +171,15 @@ something different (to do with interactions in ANOVA).
 
 ## Parabola model output
 
-```{r, paged.print=F}
+```{r}
 tidy(DC.2)
 ```
 
-```{r, paged.print=F}
+\scriptsize
+```{r}
 glance(DC.2)
 ```
+\normalsize
 
 ## Comments on output
 
@@ -169,17 +192,17 @@ glance(DC.2)
 
 ## Residual plot from parabola model
 
-```{r, fig.height=3.5}
+```{r}
 ggplot(DC.2, aes(y = .resid, x = .fitted)) +
   geom_point()
 ```
 
-## Scatterplot with fitted line and curve 
+## Make scatterplot with fitted line and curve 
 
 - Residual plot basically random. Good.
 - Scatterplot with fitted line and curve like this:
 
-```{r fitcurve, eval=F, fig.height=3.5}
+```{r fitcurve, eval=F}
 ggplot(windmill, aes(y = DC_output, x = wind_velocity)) +
   geom_point() + geom_smooth(method = "lm", se = F) +
   geom_line(data = DC.2, aes(y = .fitted))
@@ -201,7 +224,6 @@ by lines.
 ## Scatterplot with fitted line and curve
 
 ```{r, ref.label="fitcurve", echo=F}
-
 ```
 
 Curve clearly fits better than line. 
@@ -209,22 +231,20 @@ Curve clearly fits better than line.
 
 ## Another approach to a curve
 - There is a problem with parabolas, which we’ll see later.
-- Go back to engineer with findings so far. Ask, “what should happen
+- Ask engineer,  “what should happen
 as wind velocity increases?”:
 
- 
+    - Upper limit on electricity generated, but otherwise, the larger the
+       wind velocity, the more electricity generated.
 
-> Upper limit on electricity generated, but otherwise, the larger the
-> wind velocity, the more electricity generated.
-
-- Mathematically, sounds like asymptote. Straight lines and parabolas
+- Mathematically, *asymptote*. Straight lines and parabolas
 don’t have them, but eg. $y = 1/x$ does: as $x$ gets bigger, $y$
 approaches zero without reaching it.
 - What happens to $y = a + b(1/x)$ as $x$ gets large?
   - $y$ gets closer and closer to $a$: that is, $a$ is asymptote.
 - Fit this, call it asymptote model.
 - Fitting the model here because we have math to justify it.
-- Alternative, $y = a + be^{−x}$ , approaches asymptote faster.
+  - Alternative, $y = a + be^{−x}$ , approaches asymptote faster.
 
 ## How to fit asymptote model?
 - Define new explanatory variable to be $1/x$,
@@ -245,14 +265,16 @@ ggplot(windmill, aes(y = DC_output, x = wind_pace)) +
 
 ```{r asyreg}
 DC.3 <- lm(DC_output ~ wind_pace, data = windmill)
+summary(DC.3)
 ```
 
 ## Scatterplot for wind_pace
 
 Pretty straight. Blue actually smooth curve not line:
 
-```{r, ref.label="straightness", echo=F, fig.height=3.7}
-
+```{r, ref.label="straightness", echo=F}
+ggplot(windmill, aes(y = DC_output, x = wind_pace)) +
+  geom_point() + geom_smooth(se = F)
 ```
 
 
@@ -260,8 +282,15 @@ Pretty straight. Blue actually smooth curve not line:
 
 ## Regression output
 
-```{r, paged.print=F}
+\scriptsize
+
+```{r}
 glance(DC.3)
+```
+
+\normalsize
+
+```{r}
 tidy(DC.3)
 ```
 
@@ -275,7 +304,7 @@ parabola model (`wind.velocity` and its square).
 
 ## Residual plot for asymptote model
 
-```{r resida, fig.height=3.6}
+```{r resida}
 ggplot(DC.3, aes(y = .resid, x = .fitted)) + geom_point()
 ```
 
@@ -301,7 +330,7 @@ w2 <- tibble(
 
 ## What’s in `w2`
 
-```{r, paged.print=F}
+```{r}
 w2
 ```
 
@@ -314,7 +343,8 @@ into one.
 
 ```{r allcurves, eval=F}
 w2 %>%
-  pivot_longer(linear:asymptote, names_to="model", values_to="fit") %>%
+  pivot_longer(linear:asymptote, names_to="model", 
+               values_to="fit") %>%
   ggplot(aes(x = wind_velocity, y = DC_output)) +
   geom_point() +
   geom_line(aes(y = fit, colour = model))
@@ -322,7 +352,7 @@ w2 %>%
 
 ## Scatterplot with fitted curves
 
-```{r, ref.label= "allcurves", echo=F, fig.height=4}
+```{r, ref.label= "allcurves", echo=F}
 
 ```
 
@@ -334,7 +364,7 @@ w2 %>%
 
 ## Asymptote model summary
 
-```{r, paged.print=F}
+```{r}
 tidy(DC.3)
 ```
 
@@ -452,13 +482,13 @@ graph around where the data were:
 ```{r rectangle, eval=F}
 g + geom_rect(
   xmin = vels[1], xmax = vels[2], ymin = 0, ymax = 3,
-  alpha = 0, colour = "black"
+  alpha=0, colour = "black"
 )
 ```
 
 ## The plot
 
-```{r, ref.label="rectangle", echo=F, fig.height=4}
+```{r, ref.label="rectangle", echo=F}
 ```
 
 ## Comments (1)
@@ -473,7 +503,7 @@ parabola model does not.
 
 - For parabola model:
 
-```{r paged.print=F}
+```{r}
 tidy(DC.2)
 ```
 
@@ -483,7 +513,7 @@ zero.
 ## Comments (3): asymptote model
 
 \small
-```{r, paged.print=F}
+```{r}
 tidy(DC.3)
 ```
 \normalsize

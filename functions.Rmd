@@ -104,7 +104,7 @@ sqrt_minus_value <- function(x, d) {
 sqrt_minus_value(51, 2)
 ```
 
-- or give the inputs names, in which case they can be in any order:
+- or give the inputs names, in which case they can be in *any order*:
 ```{r}
 sqrt_minus_value(d = 2, x = 51)
 ```
@@ -115,14 +115,14 @@ but usually you don’t want to, for example:
 ```{r}
 x <- c(3, 4, 5, NA, 6, 7)
 mean(x)
-mean(x, na.rm = T)
+mean(x, na.rm = TRUE)
 ```
 
 - By default, the mean of data with a missing value is missing, but if
-you specify `na.rm=T`, the missing values are removed before the mean
+you specify `na.rm=TRUE`, the missing values are removed before the mean
 is calculated.
 
-- That is, `na.rm` has a default value of `F`: that’s what it will be unless
+- That is, `na.rm` has a default value of `FALSE`: that’s what it will be unless
 you change it.
 
 ## Defaults 2/2
@@ -183,37 +183,37 @@ even any functions that you defined before.
 you don’t have to do this from scratch: you can use R’s regression
 calculations, like this:
 
+
 ```{r}
-xx <- 1:4
-yy <- c(10, 11, 10, 14)
-yy.1 <- lm(yy ~ xx)
-coef(yy.1)
+my_df <- tibble(x = 1:4, y = c(10, 11, 10, 14))
+my_df.1 <- lm(y ~ x, data = my_df)
+tidy(my_df.1)
 ```
 
-- These are the intercept and the slope, in that order.
+## Pulling out just the slope
 
-## Is this the right thing?
-Check by looking at the summary output from the regression:
+Use `pluck`:
+
 ```{r}
-tidy(yy.1)
+tidy(my_df.1) %>% pluck("estimate", 2)
 ```
+
 
 ## Making this into a function
-- First step: make sure you have it working without a function.
-- We do: fit an `lm` and take the second thing out of `coef`.
-- Two inputs, the `x` and the `y`, which I take in that order.
-- Output: just the slope (we throw away intercept). Thus:
+- First step: make sure you have it working without a function (we do)
+- Inputs: two, an `x` and a `y`.
+- Output: just the slope, a number. Thus:
+
 ```{r}
-slope <- function(x, y) {
-  y.1 <- lm(y ~ x)
-  ans <- coef(y.1)
-  ans[2]
+slope <- function(xx, yy) {
+  y.1 <- lm(yy ~ xx)
+  tidy(y.1) %>% pluck("estimate", 2)
 }
 ```
 
 - Check using our data from before: correct:
 ```{r}
-slope(xx, yy)
+with(my_df, slope(x, y))
 ```
 
 ## Passing things on
@@ -221,15 +221,14 @@ slope(xx, yy)
 Instead of intercepting all the possibilities and passing them on, we
 can do this:
 ```{r}
-slope <- function(x, y, ...) {
-  y.1 <- lm(y ~ x, ...)
-  ans <- coef(y.1)
-  ans[2]
+slope <- function(xx, yy, ...) {
+  y.1 <- lm(yy ~ xx, ...)
+  tidy(y.1) %>% pluck("estimate", 2)
 }
 ```
 
 - The `...` in the header line means “accept any other input”, and the
-`...` in the lm line means “pass anything other than `x` and `y` straight
+`...` in the `lm` line means “pass anything other than `x` and `y` straight
 on to `lm`”.
 
 
@@ -239,54 +238,64 @@ the list of observations to include in the regression.
 - So we should be able to do this:
 
 ```{r}
-xx
-yy
-slope(xx, yy, subset = 1:2)
+with(my_df, slope(x, y, subset = 3:4))
 ```
 
 
-- Just uses the first two observations in xx and yy, so the slope should
-be $(11 − 10)/(2 − 1) = 1$ and is.
+- Just uses the last two observations in `x` and `y`:
+
+```{r}
+my_df %>% slice(3:4)
+```
+
+
+- so the slope should
+be $(14 − 10)/(4 − 3) = 4$ and is.
+
+
 
 ## Running a function for each of several inputs
 - Suppose we have a data frame containing several different `x`’s to use
-in regressions:
+in regressions, along with the `y` we had before:
 
 ```{r}
 (d <- tibble(x1 = 1:4, x2 = c(8, 7, 6, 5), x3 = c(2, 4, 6, 9)))
 ```
 
-- Want to use these as different x’s for a regression with our yy as the
+- Want to use these as different x’s for a regression with `y` from `my_df` as the
 response, and collect together the three different slopes.
 - Python-like way: a `for` loop.
 - R-like way: `map_dbl`: less coding, but more thinking.
 
 ## The loop way
 - “Pull out” column `i` of data frame `d` as `d %>% pull(i)`.
-- Create empty vector slopes to store the slopes.
+- Create empty vector `slopes` to store the slopes.
 - Looping variable `i` goes from 1 to 3 (3 columns, thus 3 slopes):
 ```{r}
 slopes <- numeric(3)
 for (i in 1:3) {
-  xx <- d %>% pull(i)
-  slopes[i] <- slope(xx, yy)
+  d %>% pull(i) -> xx
+  slopes[i] <- slope(xx, my_df$y)
 }
 slopes
 ```
 
-- Check this by doing the three lm’s, one at a time.
+- Check this by doing the three `lm`s, one at a time.
 
 ## The `map_dbl` way
-- “for each of these (columns of `d`), run function (`slope`) with inputs
-it and `yy`), and collect together the answers”.
+- In words: for each of these (columns of `d`), run function (`slope`) with inputs
+"it" and `y`), and collect together the answers.
 - Since slope returns a decimal number (a `dbl`), appropriate
 function-running function is `map_dbl`:
 
 ```{r}
-map_dbl(d, ~ slope(., yy))
+map_dbl(d, ~slope(., my_df$y))
 ```
 
 - Same as loop, with a lot less coding.
+
+## Square roots
+
 - “Find the square roots of each of the numbers 1 through 10”:
 
 ```{r}
@@ -299,7 +308,7 @@ map_dbl(1:10, ~ sqrt(.))
 
 ```{r}
 map_dbl(d, ~ mean(.))
-d %>% summarize_all(~ mean(.))
+d %>% summarize(across(everything(), ~ mean(.)))
 ```
 
 The mean of each column, with the columns labelled. 
@@ -465,7 +474,7 @@ tibble(start = 1:7) %>%
 ![](Screenshot_2019-05-07_13-45-12.png){height=200px}
 
 
-- Each entry in sequence is itself a vector. sequence is called a
+- Each entry in `sequence` is itself a vector. sequence is called a
 “list-column”.
 
 ## Using the whole sequence to find its length and its max 
@@ -481,8 +490,38 @@ tibble(start = 1:7) %>%
 
 ![](Screenshot_2019-05-07_13-47-08.png)
 
+## Does it work with `rowwise`?
+
+\scriptsize
+
+```{r}
+tibble(start=1:7) %>% 
+  rowwise() %>% 
+  mutate(sequence = list(hotpo_seq(start))) %>% 
+  mutate(seq_length = length(sequence)) %>% 
+  mutate(seq_max = max(sequence))
+```
+
+\normalsize
+
+## Yet another way
+
+\footnotesize
+
+```{r}
+tibble(start=1:7) %>% 
+  rowwise() %>% 
+  mutate(sequence = list(hotpo_seq(start))) %>% 
+  unnest(sequence) %>% 
+  group_by(start) %>% 
+  summarize(seq_length = n(),
+            seq_max = max(sequence))
+```
+
+\normalsize
+
 ## Final thoughts on this
 - Called the **Collatz conjecture**.
 - Nobody knows whether the sequence always gets to 1.
-- Nobody has found an n for which it doesn’t.
-- [A pretty tree (click):](https://en.wikipedia.org/wiki/Collatz_conjecture#/media/File:Collatz-graph-all-30-no27.svg) 
+- Nobody has found an $n$ for which it doesn’t.
+- A [tree](https://www.jasondavies.com/collatz-graph/).

@@ -46,7 +46,7 @@ Same idea as for plotting separate predictions on one plot:
 ```{r}
 asphalt %>%
   pivot_longer(
-    c(pct.a.surf:voids, viscosity:run),
+    -rut.depth,
     names_to="xname", values_to="x"
   ) %>%
   ggplot(aes(x = x, y = rut.depth)) + geom_point() +
@@ -61,7 +61,7 @@ I saved this graph to plot later (on the next page).
 
 ## The plot
 
-```{r, fig.height=3.8}
+```{r}
 g
 ```
 
@@ -74,20 +74,14 @@ g
 - Weak but downward trend for `voids`.
 - Non-linearity of `rut.depth`-`viscosity` relationship should concern
 us.
-- Take this back to asphalt engineer: suggests log of `viscosity`.
 
 ## Log of `viscosity`: more nearly linear?
-- Create new variable in data frame to hold log of `viscosity`:
 
-```{r}
-asphalt %>% mutate(log.viscosity = log(viscosity)) -> asphalt_lv
-```
+- Take this back to asphalt engineer: suggests log of `viscosity`:
 
-Now we have to remember to use `asphalt_lv` as our data frame
-from here on, eg.: 
 
 ```{r logvisplot, fig.keep="none", warning=F, message=F}
-ggplot(asphalt_lv, aes(y = rut.depth, x = log.viscosity)) +
+ggplot(asphalt, aes(y = rut.depth, x = log(viscosity))) +
   geom_point() + geom_smooth(se = F)
 ```
 
@@ -95,7 +89,7 @@ ggplot(asphalt_lv, aes(y = rut.depth, x = log.viscosity)) +
 
 ## Rut depth against log-viscosity
 
-```{r, ref.label="logvisplot", fig.height=3.1}
+```{r, ref.label="logvisplot", echo=FALSE, message=FALSE}
 
 ```
 
@@ -108,13 +102,13 @@ joined by plusses:
 
 ```{r}
 rut.1 <- lm(rut.depth ~ pct.a.surf + pct.a.base + fines +
-  voids + log.viscosity + run, data = asphalt_lv)
+  voids + log(viscosity) + run, data = asphalt)
 ```
 
 ## Regression output: `summary(rut.1)` or:
 
 \footnotesize
-```{r, paged.print=F}
+```{r}
 glance(rut.1)
 tidy(rut.1)
 ```
@@ -124,48 +118,57 @@ tidy(rut.1)
 - R-squared 81%, not so bad. 
 - P-value in `glance` asserts that something helping to predict
 rut.depth.
-- Table of coefficients says `log.viscosity`.
+- Table of coefficients says `log(viscosity)`.
 - But confused by clearly non-significant variables: remove those to get
 clearer picture of what is helpful.
 - Before we do anything, look at residual plots:
   - (a) of residuals against fitted values (as usual)
   - (b) of residuals against each explanatory.
-- Problem with (a): fix response variable; problem with some plots in
-(b): fix those explanatory variables.
+- Problem fixes:
+  - with (a): fix response variable; 
+  - with some plots in (b): fix those explanatory variables.
 
 ## Plot fitted values against residuals
 
-```{r, fig.height=3.8}
+```{r}
 ggplot(rut.1, aes(x = .fitted, y = .resid)) + geom_point()
 ```
 
 ## Plotting residuals against $x$ variables
 - Problem here is that residuals are in the fitted model, and the
-observed $x$-values are in the original data frame `asphalt_lv`. 
+observed $x$-values are in the original data frame `asphalt`. 
 - Package broom contains a function `augment` that combines these two
 together so that they can later be plotted: start with a model first, and then augment with a
 data frame:
 
 ```{r}
-rut.1 %>% augment(asphalt_lv) -> rut.1a
+rut.1 %>% augment(asphalt) -> rut.1a
 ```
 
 
 ## What does rut.1a contain?
 
-\footnotesize
-```{r}
-glimpse(rut.1a)
+```{r, echo=FALSE}
+#options(width = 70)
 ```
-\normalsize
+
+
+```{r}
+names(rut.1a)
+```
+
+- all the stuff in original data frame, plus:
+- quantities from regression (starting with a dot)
+
 
 ## Plotting residuals against $x$-variables 
 
 
 ```{r}
 rut.1a %>%
+  mutate(log_vis=log(viscosity)) %>% 
   pivot_longer(
-    c(pct.a.surf:voids, run, log.viscosity),
+    c(pct.a.surf:voids, run, log_vis),
     names_to="xname", values_to="x"
   ) %>%
   ggplot(aes(x = x, y = .resid)) +
@@ -174,7 +177,7 @@ rut.1a %>%
 
 ## The plot
 
-```{r, fig.height=3.8}
+```{r}
 g
 ```
 
@@ -201,9 +204,9 @@ log.
 
 From package `MASS`:
 
-```{r, fig.height=3.2}
+```{r}
 boxcox(rut.depth ~ pct.a.surf + pct.a.base + fines + voids +
-  log.viscosity + run, data = asphalt_lv)
+  log(viscosity) + run, data = asphalt)
 ```
 
 ## Comments on Box-Cox plot
@@ -217,30 +220,25 @@ data:
   - No transformation ($\lambda = 1$)
   - Square root ($\lambda = 0.5$)
   - Reciprocal ($\lambda = −1$).
-- So make new data frame with new response variable:
-
-```{r}
-asphalt_lv %>%
-  mutate(log.rut.depth = log(rut.depth)) -> asphalt_2
-```
 
 ## Relationships with explanatories
-- As before: plot response (now `log.rut.depth`) against other
+- As before: plot response (now `log(rut.depth)`) against other
 explanatory variables, all in one shot:
 
 ```{r}
-asphalt_2 %>%
+asphalt %>%
+  mutate(log_vis=log(viscosity)) %>% 
   pivot_longer(
-    c(pct.a.surf:voids, run:log.viscosity),
+    c(pct.a.surf:voids, run, log_vis),
     names_to="xname", values_to="x"
   ) %>%
-  ggplot(aes(y = log.rut.depth, x = x)) + geom_point() +
+  ggplot(aes(y = log(rut.depth), x = x)) + geom_point() +
   facet_wrap(~xname, scales = "free") -> g3
 ```
 
 ## The new plots
 
-```{r, fig.height=3.7}
+```{r}
 g3
 ```
 
@@ -252,8 +250,8 @@ g3
 - Model `log.rut.depth` in terms of everything else, see what can be
 removed:
 ```{r}
-rut.2 <- lm(log.rut.depth ~ pct.a.surf + pct.a.base +
-  fines + voids + log.viscosity + run, data = asphalt_2)
+rut.2 <- lm(log(rut.depth) ~ pct.a.surf + pct.a.base +
+  fines + voids + log(viscosity) + run, data = asphalt)
 ```
 
 - use `tidy` from `broom` to display just the coefficients.
@@ -268,7 +266,7 @@ tidy(rut.2)
 
 \footnotesize
 ```{r}
-rut.3 <- lm(log.rut.depth ~ pct.a.surf + log.viscosity, data = asphalt_2)
+rut.3 <- lm(log(rut.depth) ~ pct.a.surf + log(viscosity), data = asphalt)
 ```
 \normalsize
 
@@ -310,9 +308,8 @@ tidy(rut.2) %>% arrange(p.value)
 
 \small
 ```{r}
-rut.4 <- lm(log.rut.depth ~ pct.a.surf + fines + voids + log.viscosity + run,
-  data = asphalt_2
-)
+rut.4 <- lm(log(rut.depth) ~ pct.a.surf + fines + voids + 
+              log(viscosity) + run, data = asphalt)
 tidy(rut.4) %>% arrange(p.value)
 ```
 \normalsize
@@ -382,11 +379,13 @@ cutoff like 0.20 or even bigger.
 
 ## All possible regressions (output over)
 
-Uses package `leaps`: 
+Uses package `leaps`:
 
-```{r,paged.print=F}
-leaps <- regsubsets(log.rut.depth ~ pct.a.surf + pct.a.base + fines + voids +
-  log.viscosity + run, data = asphalt_2, nbest = 2)
+```{r}
+leaps <- regsubsets(log(rut.depth) ~ pct.a.surf + 
+                      pct.a.base + fines + voids + 
+                      log(viscosity) + run, 
+                    data = asphalt, nbest = 2)
 s <- summary(leaps)
 with(s, data.frame(rsq, outmat)) -> d
 ```
@@ -428,10 +427,13 @@ options(width=80)
 ```
 
 \scriptsize
-```{r, paged.print=F}
-with(s, data.frame(adjr2, outmat))
+```{r}
+with(s, data.frame(adjr2, outmat)) %>% 
+  rownames_to_column("model") %>% 
+  arrange(desc(adjr2))
 ```
 \normalsize
+
 
 ```{r, echo=F}
 options(width=wid)
@@ -459,7 +461,7 @@ geom_point()
 ## Residuals against fitted values
 
 
-```{r, fig.height=3.6}
+```{r}
 g
 ```
 
@@ -467,9 +469,10 @@ g
 - Do our trick again to put them all on one plot:
 
 ```{r}
-augment(rut.6, asphalt_2) %>%
+augment(rut.6, asphalt) %>%
+  mutate(log_vis=log(viscosity)) %>% 
   pivot_longer(
-    c(pct.a.surf:voids, run:log.viscosity),
+    c(pct.a.surf:voids, run, log_vis),
     names_to="xname", values_to="x",
   ) %>%
   ggplot(aes(y = .resid, x = x)) + geom_point() +
@@ -478,7 +481,7 @@ augment(rut.6, asphalt_2) %>%
 
 ## Residuals against the x’s
 
-```{r, fig.height=4}
+```{r}
 g2
 ```
 

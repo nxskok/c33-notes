@@ -8,6 +8,10 @@ library(broom)
 
 ## The pigs revisited
 
+```{r, echo=FALSE}
+options(dplyr.summarise.inform = FALSE)
+```
+
 - Recall pig feed data, after we tidied it: 
 
 ```{r, message=F}
@@ -21,7 +25,8 @@ pigs
 ```{r}
 pigs %>%
   group_by(feed) %>%
-  summarize(m = mean(weight))
+  summarize(n = n(), mean_wt = mean(weight), 
+            sd_wt = sd(weight))
 ```
 
 ## Running through `aov` and `lm`
@@ -86,7 +91,7 @@ Read the data:
 
 \small
 ```{r, message=F}
-my_url="http://www.utsc.utoronto.ca/~butler/c32/crickets2.csv"
+my_url <- "http://www.utsc.utoronto.ca/~butler/c32/crickets2.csv"
 crickets <- read_csv(my_url)
 crickets %>% sample_n(10)
 ```
@@ -96,8 +101,15 @@ crickets %>% sample_n(10)
 ```{r}
 crickets.1 <- lm(pulse_rate ~ temperature + species, 
                  data = crickets)
+```
+
+Can I remove anything? No:
+
+```{r}
 drop1(crickets.1, test = "F") %>%  select(-Df, -`Sum of Sq`)
 ```
+
+`drop1` is right thing to use in a regression with categorical (explanatory) variables in it: "can I remove this categorical variable *as a whole*?"
 
 ## The summary 
 
@@ -117,9 +129,27 @@ rate from species and temperature is very good.
 
 ## To end with a graph
 
-```{r, fig.height=3.2}
+- Two quantitative variables and one categorical: scatterplot with categories distinguished by colour.
+- This graph seems to need a title, which I define first. 
+
+\small
+
+```{r}
+t1 <- "Pulse rate against temperature for two species of crickets"
+t2 <- "Temperature in degrees Celsius"
+```
+
+\normalsize
+
+```{r spectemp, fig.keep="none", warning=F, message=F}
 ggplot(crickets, aes(x = temperature, y = pulse_rate,
   colour = species)) +
-  geom_point() + geom_smooth(method = "lm", se = F)
+  geom_point() + geom_smooth(method = "lm", se = F) +
+  ggtitle(t1, t2)
+```
+
+## The graph
+
+```{r thingy, ref.label="spectemp", echo=FALSE, message=FALSE}
 ```
 
