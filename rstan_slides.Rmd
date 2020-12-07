@@ -1,6 +1,6 @@
 ---
 title: "Bayesian Statistics with Stan"
-author: "Lecture notes"
+author: ""
 header-includes:
    - \usepackage{multicol}
 output: 
@@ -12,7 +12,6 @@ output:
     colortheme: "dove"
 ---
 
-this needs rerunning
 
 ```{r child="preliminaries.Rmd", echo=F}
 ```
@@ -20,5 +19,6 @@ this needs rerunning
 
 ```{r, child="rstan.Rmd"}
 ```
+
 
 
