@@ -1,43 +1,52 @@
 ## This course
 
--   STAC33, Introduction to Applied Statistics
+-   STAC32, Applications of Statistical Methods
 
 -   Online:
 
     -   2 hours of recorded lectures / week, asynchronous (watch when you like)
-    -   1.5 hours of live tutorial / week, Wednesday 2:00 or 3:30, on Zoom (check time)
+    -   1.5 hours of live tutorial / week, Wednesday 2:00 or 3:30, on Zoom
+    -   "office hours" also on Zoom, by appointment
 
 -   Instructor:
 
-\small
-
     -   Ken Butler, `ken.butler@utoronto.ca`
-    -   I like sharing what I have learned about applied statistics and data management in R.
+    -   I like sharing what I know about applied statistics, particularly with people who are not primarily statisticians
     -   This course will help you develop the skills to use software to analyze data, and to communicate the results.
     -   Effective communication of results is key, since in applied work you are always trying to convince someone of what you found
     -   I want you to demonstrate your understanding and insight about the data you're working with
     -   I will help you to work towards this.
-    
-\normalsize
 
 ## Programs and Prerequisites
 
--   This course offers credit for the (UTSC) Statistics Major, Minor or Specialist programs, or the Math Specialist (Statistics).
+-   This course *only* offers credit for the Statistics Applied Minor program. If you are in the Statistics Major, Minor or Specialist programs, or the Math Specialist (Statistics), you should instead take STAC33, offered in Winter.
 
-- If your program is at another campus, you need to follow your registrar's rules for taking courses from a different campus.
+-   To take this course, you need one of these courses as preparation:
 
-- You *need* a second Statistics course that covers statistical inference from a mathematical viewpoint,
-one of these:
+    -   STAB27 / STA221
+    -   PSYC08 / PSY202
+    -   MGEB12
 
-  - STAB57
-  - STA 248
-  - STA 261
+-   STAB57 is *not* suitable preparation for this course. If you have that, you should take STAC33.
 
-- You need STAB57 for the UTSC Statistics Minor/Major/Specialist programs.
+-   Note that you may not combine the Applied Minor Program in Statistics with any other Statistics, Mathematics or Computer Science program.
 
 -   I check prerequisites.
 
-### Getting help
+## STAC53
+
+-   Check your Degree Explorer.
+
+-   This might have STAC50 as a requirement (for which you don't now have the prereq)
+
+-   If you have not already taken C50, you need to take *STAC53*.
+
+-   To get this reflected in your Degree Explorer: email (instructions below)
+
+    -   with your name and student number
+    -   and explaining that you would like me to make this change.
+
+## Getting help
 
 -   Option 1: come to tutorial and ask the TAs or me.
 
@@ -49,16 +58,16 @@ one of these:
     -   If you don't get an answer to your question (from me or anyone else) in Forum 2, post it to Forum 3 and I will answer.
     -   For an issue that is more personal, email me (below).
 
--   Option 3: I am also willing to meet at other times on Zoom if you want to chat. Email me to set up a time.
+-   Option 3: I am also willing to meet at other times on Zoom if you want to chat. I will set up a mechanism for you to make an appointment.
 
 ## E-mail
 
 -   Use a U of T email (so that I know who you are)
--   Use a suitable subject, eg "STAC33" (I am teaching two courses this semester)
+-   Use a suitable subject, eg "STAC32" or "Applied Minor Program"
 -   Begin with "Dear Dr Butler"
 -   State *clearly* how I can help you. (The quicker I can figure this out, the better your chances of a quick reply.)
 -   Include your name (as U of T knows it) *and* student number
--   I aim to reply within one working day. If your email is unclear, it may take me longer.
+-   I aim to reply within one working day.
 
 ## Course objectives
 
@@ -131,7 +140,6 @@ In R:
 -   Dates and times
 -   Miscellaneous tasks
 
-If time permits, we will also do some of this in SAS.
 
 ## Accessibility statement
 
