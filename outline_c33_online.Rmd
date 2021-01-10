@@ -81,7 +81,7 @@ The first thing on each line is a link:
 ## Assessment
 
 -   Assignments: weekly.
-    - 10 total, due in weeks 3 through 12. Best 8 count, total 80% (12.5% each).
+    - 10 total, due in weeks 3 through 12. Best 8 count (12.5% each).
     - available on Tuesdays, due on Thursdays at 11:59pm
     - based on the previous week's recorded lectures
     - you have a certain amount of time (eg 3 hours) between the time you open an assignment and the time you need to have handed it in.
