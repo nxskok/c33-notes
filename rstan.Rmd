@@ -316,7 +316,7 @@ ggplot(rats, aes(x = group_fct, y = density)) + geom_boxplot()
 
 Another way: density plot (smoothed out histogram); can distinguish groups by colours:
 
-```{r, fig.height=3.1}
+```{r density_plot, fig.height=3.1}
 ggplot(rats, aes(x = density, colour = group_fct)) +
   geom_density()
 ```
@@ -407,7 +407,7 @@ Arrange these in order data, parameters, model in file `anova.stan`, then:
 anova_compiled <- stan_model("anova.stan")
 ```
 
-```{r, echo=FALSE}
+```{r read_anova_compiled, echo=FALSE}
 anova_compiled <- readRDS("anova_compiled.rds")
 ```
 
@@ -415,7 +415,7 @@ anova_compiled <- readRDS("anova_compiled.rds")
 
 Supply values for *everything* declared in `data`: 
 
-```{r}
+```{r anova_data_samples}
 anova_data <- list(
   n_obs = 30,
   n_group = 3,
@@ -438,7 +438,7 @@ traceplot(anova_samples)
 
 ## Look at the results
 
-```{r}
+```{r anova_samples}
 anova_samples
 ```
 
@@ -451,7 +451,7 @@ anova_samples
 
 - Extract the sampled `mu` values (matrix):
 
-```{r}
+```{r anova_ext}
 anova_ext <- extract(anova_samples)
 anova_ext$mu %>% as_tibble()
 ```
@@ -467,7 +467,11 @@ anova_ext$mu %>% as_tibble() %>%
 ```{r, warning=F}
 cbind(anova_ext$mu, sigma = anova_ext$sigma) %>%
   as_tibble() %>%
+<<<<<<< HEAD
   pivot_longer(V1:V3, names_to="group", values_to="density") %>%
+=======
+  pivot_longer(starts_with("V"), names_to = "group", values_to = "density") %>%
+>>>>>>> 2991ae36dff40038e717965e9023aeadbc00f334
   mutate(group = fct_recode(
     group,
     Control = "V1",
@@ -505,7 +509,7 @@ ppd
 - Idea: make plots of posterior predictive distribution, and plot actual data as points on them
 - Use facets, one for each treatment group: 
 
-```{r}
+```{r ppdgraph}
 my_binwidth <- 15
 ggplot(ppd, aes(x = sim_data)) +
   geom_histogram(binwidth = my_binwidth) +
@@ -637,6 +641,7 @@ anova_loo_null_samples <- sampling(anova_loo_null_compiled, data = anova_data)
 Setup
 
 ```{r}
+library(loo)
 log_lik_a <- extract_log_lik(anova_loo_samples,
   merge_chains = F
 )

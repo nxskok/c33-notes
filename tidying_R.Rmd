@@ -1,22 +1,22 @@
 ## Tidying data
 - Data rarely come to us as we want to use them.
 - Before we can do analysis, typically have organizing to do.
-- This is typical of ANOVA-type data, “wide format”: 
+- This is typical of ANOVA-type data, “wide format”:
 
 ```
-pig feed1 feed2 feed3 feed4
-  1  60.8  68.7  92.6  87.9
-  2  57.0  67.7  92.1  84.2
-  3  65.0  74.0  90.2  83.1
-  4  58.6  66.3  96.5  85.7
-  5  61.7  69.8  99.1  90.3
+     pig feed1 feed2 feed3 feed4
+       1  60.8  68.7  92.6  87.9
+       2  57.0  67.7  92.1  84.2
+       3  65.0  74.0  90.2  83.1
+       4  58.6  66.3  96.5  85.7
+       5  61.7  69.8  99.1  90.3
 ```
 
-- 20 pigs are randomly allocated to one of four feeds. At the end of the
-study, the weight of each pig is recorded, and we want to know
-whether there are any differences in mean weights among the feeds.
-- Problem: want the weights all in one column, with 2nd column
-labelling which feed each weight was from. Untidy!
+- 20 pigs randomly allocated to one of four feeds. At end of 
+study, weight of each pig is recorded. 
+- Are any differences in mean weights among the feeds?
+- Problem: want all weights in one column, with 2nd column
+labelling which feed. Untidy!
 
 
 ## Tidy and untidy data (Wickham) 
@@ -50,15 +50,17 @@ pigs1
 
 ## Gathering up the columns (OLD)
 - This is a very common reorganization, and the magic “verb” is
-`gather`:
+`pivot_longer`:
 ```{r}
-pigs1 %>% gather(feed, weight, feed1:feed4) -> pigs2
+pigs1 %>% pivot_longer(feed1:feed4, names_to="feed", 
+                       values_to="weight") -> pigs2
 ```
 
 - `pigs2` is now in “long” format, ready for analysis. See next page.
-- Anatomy of `gather`: what makes the columns different (different
-feeds), what makes them the same (all weights), which columns to
-combine.
+- Anatomy of `pivot_longer`: 
+    - columns to combine
+    - a name for column that will contain groups
+    - a name for column that will contain measurements
 
 ## Long format pigs
 
@@ -66,6 +68,7 @@ combine.
 pigs2
 ```
 
+<<<<<<< HEAD
 ## Another way to do this: (NEW)
 
 ```{r}
@@ -73,6 +76,16 @@ pigs1 %>%
   pivot_longer(feed1:feed4, names_to = "feed", 
                values_to="weight") -> pigs2
 pigs2
+=======
+## Identifying the pigs
+
+- Values in `pig` identify pigs *within each group*: pig 1 is four different pigs!
+- Create unique pig IDs by gluing pig number onto feed:
+
+```{r}
+pigs2 %>% mutate(pig_id=str_c(feed, "_", pig)) -> pigs2
+pigs2 %>% slice_sample(n=7)
+>>>>>>> 2991ae36dff40038e717965e9023aeadbc00f334
 ```
 
 
@@ -103,7 +116,7 @@ feed group. I borrowed an idea from later to put the means in descending order:
 ```{r}
 pigs2 %>%
   group_by(feed) %>%
-  summarize(mean_weight = mean(weight)) %>%
+  summarize(mean_weight = mean(weight))%>%
   arrange(desc(mean_weight))
 ```
 
@@ -111,13 +124,17 @@ Feed 3 is best, feed 1 worst.
 
 ## Should we have any concerns about the ANOVA?
 
-Feed 2 has an outlier, but there are only 5 pigs in each group, and the
-conclusion is so clear that I am OK with this.
 
-```{r, fig.height=3.2}
+```{r pigfeedplot}
 ggplot(pigs2, aes(x = feed, y = weight)) + geom_boxplot()
 ```
 
+## Comments
+
+- Feed 2 has an outlier
+- But there are only 5 pigs in each group
+- The
+conclusion is so clear that I am OK with this.
 
 
 ## Tuberculosis
@@ -131,25 +148,37 @@ my_url <- "http://www.utsc.utoronto.ca/~butler/c32/tb.csv"
 tb <- read_csv(my_url)
 ```
 
-- Variables (see over): country (abbreviated), year. Then number of
-cases for each gender and age group, eg. `m1524` is males aged 15–24.
-Also `mu` and `fu`, where age is unknown.
-- Lots of missings. Want to get rid of.
 
 ## The data
 
+<<<<<<< HEAD
 ```{r}
 tb
+=======
+```{r glimpsetb}
+glimpse(tb)
+>>>>>>> 2991ae36dff40038e717965e9023aeadbc00f334
 ```
 
-## Gather the gender-age group columns
+## What we have
 
+- Variables:  country (abbreviated), year. Then number of
+cases for each gender and age group, eg. `m1524` is males aged 15–24.
+Also `mu` and `fu`, where age is unknown.
+- Lots of missings. Want to get rid of.
+- Abbreviations [here](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2).
+
+
+<<<<<<< HEAD
 OLD
 ```{r}
 tb %>% gather(genage, freq, m04:fu, na.rm = T) -> tb2
 ```
+=======
+>>>>>>> 2991ae36dff40038e717965e9023aeadbc00f334
 
-or
+
+## All frequencies in one column
 
 NEW
 
@@ -188,6 +217,11 @@ tb2 %>% separate(genage, c("gender", "age"), 1) -> tb3
 tb3
 ```
 
+```{r, echo=FALSE}
+write_rds(tb3, "tb3.rds")
+```
+
+
 ## In practice...
 
 - instead of doing the pipe one step at a time, you *debug* it one step at
@@ -197,19 +231,19 @@ output as input to the next step, thus:
 tb %>%
   pivot_longer(m04:fu, names_to = "genage", 
                values_to = "freq", values_drop_na = T) %>% 
-  separate(genage, c("gender", "age"), 1) -> tb3
+  separate(genage, c("gender", "age"), 1) 
 ```
 
 - You can split the R code over as many lines as you like, as long as
 each line is incomplete, so that R knows more is to come.
 - I like to put the pipe symbol on the end of the line.
 
-## Total tuberculosis cases by year (some of the years) 
+## Total tuberculosis cases by year (some of the years)
 
 ```{r}
 tb3 %>%
   filter(between(year, 1991, 1998)) %>% 
-  count(year, wt=freq) 
+  group_by(year) %>% summarize(total=sum(freq))
 ```
 
 - Something very interesting happened between 1994 and 1995.
@@ -219,9 +253,9 @@ tb3 %>%
 - try counting up total cases by country:
 
 ```{r}
-tb3 %>% 
-  count(iso2, wt=freq) %>% 
-  arrange(desc(n))
+tb3 %>% group_by(iso2) %>% 
+  summarize(total=sum(freq)) %>% 
+  arrange(desc(total))
 ```
 
 ## what years do I have for China?
@@ -230,19 +264,27 @@ China started recording in 1995, which is at least part of the problem:
 
 ```{r}
 tb3 %>% filter(iso2=="CN") %>% 
-  count(year, wt=freq)
+  group_by(year) %>% 
+  summarize(total=sum(freq))
 ```
 
 ## first year of recording for each country?
 
-- A lot of countries started recording in about 1995:
+- A lot of countries started recording in about 1995, in fact:
+
+```{r, echo=FALSE}
+options(dplyr.summarise.inform = FALSE)
+```
+
+\small
 
 ```{r}
 tb3 %>% group_by(iso2) %>% 
   summarize(first_year=min(year)) %>% 
-  arrange(first_year)
+  count(first_year)
 ```
 
+\normalsize
 
 ## Some Toronto weather data
 
@@ -263,7 +305,7 @@ weather
 - Daily weather records for "Toronto City" weather station in 2018:
 
   - *station*: identifier for this weather station (always same here)
-  - *Year*, *Month*: obvious 
+  - *Year*, *Month*
   - *element*: whether temperature given was daily max or daily min
   - *d01, d02*,... *d31*: day of the month from 1st to 31st.
 
@@ -391,24 +433,23 @@ is whatever came out of the previous step.
 weather_tidy %>%
   pivot_longer(tmax:tmin, names_to="maxmin", 
                values_to="temperature") %>%
-  mutate(temperature = as.numeric(temperature)) %>%
   ggplot(aes(x = date, y = temperature, colour = maxmin)) +
-  geom_line() -> g
+      geom_line() -> g
 ```
 
 ## The plot
 
-```{r, fig.height=3.9}
+```{r temp-plot}
 g
 ```
 
 ## Summary of tidying “verbs”
 
-  \begin{tabular}{lp{0.55\textwidth}}
+  \begin{tabular}{lp{0.65\textwidth}}
     Verb & Purpose\\
     \hline
-    \texttt{pivot\_longer} (\texttt{gather}) & Combine columns that measure same thing into one\\
-    \texttt{pivot\_wider} (\texttt{spread}) & Take column that measures one thing under
+    \texttt{pivot\_longer} & Combine columns that measure same thing into one\\
+    \texttt{pivot\_wider} & Take column that measures one thing under
                      different conditions and put into multiple columns\\
     \texttt{separate} & Turn a column that encodes
                         several variables into
@@ -418,320 +459,8 @@ g
     \hline
   \end{tabular}
   
-  \texttt{pivot\_longer} (\textt{gather}) and \texttt{pivot\_wider} (\texttt{spread}) are opposites; \texttt{separate}
-  and \texttt{unite} are opposites.
-
-## Doing things with data frames
-Let’s go back to our Australian athletes: 
-
-```{r read-athletes, echo=F}
-my_url="http://www.utsc.utoronto.ca/~butler/c32/ais.txt"
-athletes=read_tsv(my_url)
-```
-
-\footnotesize
-
-```{r}
-athletes
-```
-\normalsize
-
-## Choosing a column
-
-```{r}
-athletes %>% select(Sport)
-```
-
-## Choosing several columns
-
-```{r}
-athletes %>% select(Sport, Hg, BMI)
-```
-
-## Choosing consecutive columns
-
-```{r}
-athletes %>% select(Sex:WCC)
-```
-
-## Choosing all-but some columns
-
-```{r}
-athletes %>% select(-(RCC:LBM))
-```
-
-## Select-helpers
-Other ways to select columns: 
-
-- `starts_with` something
-- `ends_with` something
-- `contains` something
-- `matches` a “regular expression”
-- `num_range` like x1 to x3
-- `everything()` all the columns
-
-## Columns whose names begin with S 
-
-```{r}
-athletes %>% select(starts_with("S"))
-```
-
-## Columns whose names end with C
-
-either uppercase or lowercase:
-
-```{r}
-athletes %>% select(ends_with("c"))
-```
-
-## Column names containing letter R
-
-```{r}
-athletes %>% select(contains("r"))
-```
-
-## Exactly two characters, ending with T
-
-In regular expression terms, this is `^.t$`:
-
-- `^` means “start of text”
-- `.` means “exactly one character, but could be anything”
-- `$` means “end of text”.
-```{r}
-athletes %>% select(matches("^.t$"))
-```
-
-## Displaying some numbered columns
-
-Make up a data frame to illustrate. This `sample` generates 5 random values
-equally likely to be anything 0–9 (without replacement): 
-
-```{r}
-(d <- tibble(
-  y = sample(0:9, 5),
-  x1 = sample(0:9, 5),
-  x2 = sample(0:9, 5),
-  x3 = sample(0:9, 5)
-))
-```
-
-## Just display x2 and x3:
-```{r}
-d %>% select(num_range("x", 2:3))
-```
-
-## Choosing rows by number 
-
-```{r, paged.print=F}
-athletes %>% slice(16:25)
-```
-
-## Non-consecutive rows 
-
-```{r, paged.print=F}
-athletes %>% slice(c(10, 13, 17, 42))
-```
-
-## A random sample of rows
-
-```{r, paged.print=F}
-athletes %>% sample_n(8)
-```
-
-## Rows for which something is true
-
-\footnotesize
-```{r}
-athletes %>% filter(Sport == "Tennis")
-```
-\normalsize
-
-## More complicated selections
-
-```{r}
-athletes %>% filter(Sport == "Tennis", RCC < 5)
-```
-
-## Either/Or
-
-```{r}
-athletes %>% filter(Sport == "Tennis" | RCC > 5)
-```
-
-## Sorting into order
-
-```{r}
-athletes %>% arrange(RCC)
-```
-
-## Breaking ties by another variable
-
-```{r}
-athletes %>% arrange(RCC, BMI)
-```
-
-## Descending order
-
-```{r}
-athletes %>% arrange(desc(BMI))
-```
-
-## “The top ones”
-
-
-```{r}
-athletes %>%
-  arrange(desc(Wt)) %>%
-  slice(1:7) %>%
-  select(Sport, Wt)
-```
-
-## Create new variables from old ones
-
-```{r new-from-old}
-athletes %>%
-  mutate(wt_lb = Wt * 2.2) %>%
-  select(Sport, Wt, wt_lb)
-```
-
-## Turning the result into a number
-Output is always data frame unless you explicitly turn it into something
-else, eg. the weight of the heaviest athlete, as a number:
-
-```{r to-number}
-athletes %>% arrange(desc(Wt)) %>% pluck("Wt", 1)
-```
-
-Or the 20 heaviest weights in descending order:
-
-
-```{r}
-athletes %>%
-  arrange(desc(Wt)) %>%
-  slice(1:20) %>%
-  pluck("Wt")
-```
-
-## Another way to do the last one
-
-```{r}
-athletes %>%
-  arrange(desc(Wt)) %>%
-  slice(1:20) %>%
-  pull("Wt")
-```
-
-`pull` grabs the column you name *as a vector* (of whatever it contains).
-
-## To find the mean height of the women athletes
-Two ways:
-
-\small
-```{r}
-athletes %>% group_by(Sex) %>% summarize(m = mean(Ht))
-```
-
-```{r}
-athletes %>%
-  filter(Sex == "female") %>%
-  summarize(m = mean(Ht))
-```
-
-\normalsize
-
-## Summary of data selection/arrangement "verbs"
-
- \begin{tabular}{lp{0.7\textwidth}}
-    Verb & Purpose\\
-    \hline
-    \texttt{select} & Choose columns\\
-    \texttt{print} & Display non-default \# of rows/columns \\
-    \texttt{slice} & Choose rows by number\\
-    \texttt{sample\_n} & Choose random rows\\ 
-    \texttt{filter} & Choose rows satisfying conditions \\
-    \texttt{arrange}& Sort in order by column(s) \\
-    \texttt{mutate} & Create new variables\\
-    \texttt{group\_by} & Create groups to summarize by\\
-    \texttt{summarize} & Calculate summary statistics (by groups if defined)\\
-    \texttt{pluck} & Extract items from data frame\\
-    \texttt{pull} & Extract a single column from a data frame as a vector\\
-    \hline
-  \end{tabular}
+  `pivot_longer` and `pivot_wider` are opposites; `separate` and
+  `unite` are opposites.
   
-  
-## Looking things up in another data frame
-Recall the tuberculosis data set, tidied: 
-```{r}
-tb3
-```
-
-What are actual names of those countries in `iso2`?
-
-## Actual country names
-Found actual country names to go with those abbreviations, in spreadsheet: 
-
-\footnotesize
-```{r}
-my_url <- 
-  "http://www.utsc.utoronto.ca/~butler/c32/ISOCountryCodes081507.xlsx"
-```
-
-\normalsize
-
-```{r country-codes}
-f <- tempfile()
-download.file(my_url, f)
-country_names <- read_excel(f)
-```
-
-## The country names
-
-```{r}
-country_names
-```
-
-## Looking up country codes
-Matching a variable in one data frame to one in another is called a **join**
-(database terminology):
-
-```{r}
-tb3 %>% left_join(country_names, by = c("iso2" = "Code_UC"))
-```
-
-## Total cases by country
-
-
-```{r}
-tb3 %>%
-  group_by(iso2) %>%
-  summarize(cases = sum(freq)) %>%
-  left_join(country_names, by = c("iso2" = "Code_UC")) %>%
-  select(Country, cases)
-```
-
-## or even sorted in order
-
-```{r}
-tb3 %>%
-  group_by(iso2) %>%
-  summarize(cases = sum(freq)) %>%
-  left_join(country_names, by = c("iso2" = "Code_UC")) %>%
-  select(Country, cases) %>%
-  arrange(desc(cases))
-```
-
-## Comments
-
-- This is probably not quite right because of:
-  - the 1994-1995 thing
-  - there is at least one country in `tb3` that was not in `country_names` (the NA above). Which?
-  
-\footnotesize  
-```{r}
-tb3 %>%
-  anti_join(country_names, by = c("iso2" = "Code_UC")) %>%
-  distinct(iso2)
-```
-\normalsize
 
 
