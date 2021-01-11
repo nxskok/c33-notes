@@ -177,6 +177,7 @@ x ~ poisson(lambda);
 
 ```{r, include=F}
 poisson2_code <- readRDS("poisson2_code.rds")
+poisson2_code
 ```
 
 
@@ -212,10 +213,12 @@ poisson2_fit
 
 - `rstan` has `extract` for this. There is also an `extract` in `dplyr`: make sure you have the right one.
 
-```{r, fig.height=2.8}
+```{r}
 poisson2_out <- extract(poisson2_fit)
+poisson2_out
 ggplot(tibble(lambda = poisson2_out$lambda), aes(x = lambda)) +
   geom_histogram(bins = 20)
+ggplot(tibble(lambda = poisson2_out$lambda), aes(sample=lambda)) + stat_qq() + stat_qq_line()
 ```
 
 ## Posterior predictive distribution
@@ -229,7 +232,7 @@ tibble(lambda = poisson2_out$lambda) %>%
 
 ## A bar chart:
 
-```{r, fig.height=4}
+```{r}
 ggplot(d, aes(x = x_sim)) + geom_bar()
 ```
 
@@ -255,10 +258,19 @@ ggplot(d, aes(x = x_sim)) + geom_bar() +
 
 ## The plot 
 
-```{r, fig.height=3.8}
+```{r}
 g
 ```
 
+## Do they have the same distribution?
+
+```{r}
+qqplot(d$x_sim, x, plot.it = F) %>% as_tibble() -> dd
+ggplot(dd, aes(x=x, y=y)) + geom_point()
+```
+
+
+the observed zero is a bit too small compared to expected (from the posterior), but the other points seem pretty well on a line.
 
 ## Analysis of variance, the Bayesian way
 
@@ -267,7 +279,7 @@ Recall the jumping rats data:
 ```{r, message=F}
 my_url <- "http://www.utsc.utoronto.ca/~butler/c32/jumping.txt"
 rats0 <- read_delim(my_url, " ")
-rats0 %>% sample_n(6) # random sample of rows
+rats0
 ```
 
 ## Our aims here
@@ -289,7 +301,7 @@ rats0 %>% mutate(
   group_fct = fct_inorder(group),
   group_no = as.integer(group_fct)
 ) -> rats
-rats %>% sample_n(4)
+rats
 ```
 
 ## Plotting the data 1/2
@@ -441,21 +453,28 @@ anova_samples
 
 ```{r}
 anova_ext <- extract(anova_samples)
-head(anova_ext$mu)
+anova_ext$mu %>% as_tibble()
 ```
+
+```{r}
+anova_ext$mu %>% as_tibble() %>% 
+  count(V3>V1)
+```
+
 
 ## Turn into a data frame, arrange for plotting, name groups
 
 ```{r, warning=F}
 cbind(anova_ext$mu, sigma = anova_ext$sigma) %>%
   as_tibble() %>%
-  gather(group, density, V1:V3) %>%
+  pivot_longer(V1:V3, names_to="group", values_to="density") %>%
   mutate(group = fct_recode(
     group,
     Control = "V1",
     Lowjump = "V2",
     Highjump = "V3"
   )) -> sims
+sims
 ```
 
 ## What we have now:
@@ -477,7 +496,7 @@ Randomly sample from posterior means and SDs in `sims`. There are 12000 rows in 
 
 ```{r}
 sims %>% mutate(sim_data = rnorm(12000, density, sigma)) -> ppd
-ppd %>% sample_n(8)
+ppd
 ```
 
 ## Compare posterior predictive distribution with actual data

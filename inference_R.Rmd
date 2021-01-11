@@ -264,7 +264,12 @@ ggplot(kids, aes(x = group, y = score)) + geom_boxplot()
 
 - Do the two groups have same spread (SD, variance)?
 - If yes (shaky assumption here), can use pooled t-test.
+
+$$ t = {\bar{x}_1 - \bar{x}_2 \over s_p \sqrt{ {1\over n_1} + {1 \over n_2}}} $$
+
 - If not, use Welch-Satterthwaite t-test (safe).
+
+$$ t = {\bar{x}_1 - \bar{x}_2 \over \sqrt{ {s_1^2 \over n_1} + {s_2^2 \over n_2}}} $$
 - Pooled test derived in STAB57 (easier to derive).
 - Welch-Satterthwaite is test used in STAB22 and is generally safe.
 - Assess (approx) equality of spreads using boxplot.

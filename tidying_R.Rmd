@@ -48,7 +48,7 @@ pigs1 <- read_delim(my_url, " ")
 pigs1
 ```
 
-## Gathering up the columns
+## Gathering up the columns (OLD)
 - This is a very common reorganization, and the magic “verb” is
 `gather`:
 ```{r}
@@ -66,12 +66,13 @@ combine.
 pigs2
 ```
 
-## Another way to do this:
+## Another way to do this: (NEW)
 
 ```{r}
 pigs1 %>% 
   pivot_longer(feed1:feed4, names_to = "feed", 
-               values_to="weight")
+               values_to="weight") -> pigs2
+pigs2
 ```
 
 
@@ -138,16 +139,19 @@ Also `mu` and `fu`, where age is unknown.
 ## The data
 
 ```{r}
-glimpse(tb)
+tb
 ```
 
 ## Gather the gender-age group columns
 
+OLD
 ```{r}
 tb %>% gather(genage, freq, m04:fu, na.rm = T) -> tb2
 ```
 
 or
+
+NEW
 
 ```{r}
 tb %>% 

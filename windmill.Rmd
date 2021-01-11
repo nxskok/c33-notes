@@ -48,7 +48,7 @@ methods.
 
 ```{r, fig.height=3.1}
 ggplot(windmill, aes(y = DC_output, x = wind_velocity)) +
-  geom_point() + geom_smooth(se = F)
+  geom_point() + geom_smooth(method="lm", se=FALSE)
 ```
 
 ## Comments
@@ -93,7 +93,7 @@ glance(DC.1)
 showing that the R-squared is 87%, and
 
 \footnotesize
-```{r, paged.print=F}
+```{r}
 tidy(DC.1)
 ```
 \normalsize
@@ -141,6 +141,11 @@ line.
 DC.2 <- lm(DC_output ~ wind_velocity + I(wind_velocity^2),
   data = windmill
 )
+```
+
+
+```{r}
+summary(DC.2)
 ```
 
 - The `I()` necessary because `^` in model formula otherwise means
@@ -317,7 +322,7 @@ w2 %>%
   pivot_longer(linear:asymptote, names_to="model", values_to="fit") %>%
   ggplot(aes(x = wind_velocity, y = DC_output)) +
   geom_point() +
-  geom_line(aes(y = fit, colour = model))
+  geom_line(aes(y = fit, colour = model)) 
 ```
 
 ## Scatterplot with fitted curves

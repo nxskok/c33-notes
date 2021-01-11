@@ -32,10 +32,11 @@ Started and pretend to sign up again, and you’ll get logged in.
 
 ![](Screenshot_2018-06-29_15-24-21.png){height=200px}
 
-- Each user has a “workspace”, which is a place where all your work is
+- Each user has a “workspace”, a place where all your work is
 stored.
 - Within that workspace, you can have as many Projects as you like.
 - To create a new Project, click on the blue New Project button.
+- I recommend having one project per *course*.
 
 ## In a new project
   
@@ -70,8 +71,8 @@ Click Yes to let it do that.
 - The notebook begins with a title (that you can change).
 - Most of this notebook is text (narrative). The stuff with
 `*asterisks*` around it will come out in italics in the final document.
-- Pieces beginning with ````{r}`, in grey, are called code chunks. They
-contain R code. ````` marks the end of a code chunk.
+- Pieces beginning with three "backticks" and `{r}`, in grey, are called code chunks. They
+contain R code. Three more backticks marks the end of a code chunk.
 - Run code chunks by clicking on the green “play button” at the top
 right of the chunk. This one makes a scatterplot. If you click the play
 button, the plot is made and placed under the code, as over.
@@ -111,7 +112,7 @@ may be gibberish: ignore that). Note what happened to the text.
 - If you want to edit anything, go back to the R Notebook, change it,
 save it, and run Preview again.
 
-## The end of my report
+## The end of my (formatted) report
 
 ![](Screenshot_2018-06-29_17-09-23.png)
 
@@ -151,19 +152,20 @@ you (might be faster), eg. U of T:
 
 ## The actual download
 
-- Click the top link below:
+- The version number, here 3.5.3, will be different for you.
+- Click something like the top link below:
 
 ![](dlr35.png)
 
 - Then install usual way.
 - Or, for Mac, download and install `R-3-5-1.pkg`.
 - Or, for Linux, click your distribution (eg. Ubuntu), then one of the
-cran35 links according to your version, then probably
+cran35 links according to your version, then eg.
 `r-base-core_3.5.1-1bionic_amd64.deb`.
 
 ## Now, R Studio
 
-- Go [here](https://www.rstudio.com/).
+- Go [here](https://www.rstudio.com/). (The word "here" is clickable link.)
 - Find this, and click Download:
 
 ![](rst1.png){height=200px}

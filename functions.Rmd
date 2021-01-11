@@ -104,7 +104,7 @@ sqrt_minus_value <- function(x, d) {
 sqrt_minus_value(51, 2)
 ```
 
-- or give the inputs names, in which case they can be in any order:
+- or give the inputs names, in which case they can be in *any order*:
 ```{r}
 sqrt_minus_value(d = 2, x = 51)
 ```
