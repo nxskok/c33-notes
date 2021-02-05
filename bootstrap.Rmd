@@ -14,8 +14,8 @@ library(bootstrap)
 - Recall the IRS data that we used as a motivation for the sign test:
 
 ```{r, include=F}
-my_url="http://www.utsc.utoronto.ca/~butler/c32/irs.txt"
-irs = read_csv(my_url)
+my_url <- "http://www.utsc.utoronto.ca/~butler/c32/irs.txt"
+irs <- read_csv(my_url)
 ```
 
 
@@ -171,8 +171,8 @@ tibble(limit=my_names, o_t, b_t, b_p, b_bca)
 Recall the soap data:
 
 ```{r}
-url="http://www.utsc.utoronto.ca/~butler/c32/soap.txt"
-soap=read_delim(url," ")
+url <- "http://www.utsc.utoronto.ca/~butler/c32/soap.txt"
+soap <- read_delim(url," ")
 ```
 
 ## The data

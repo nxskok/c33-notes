@@ -54,7 +54,11 @@ ggplot(windmill, aes(y = DC_output, x = wind_velocity)) +
 
 ```{r, echo=FALSE, message=FALSE}
 ggplot(windmill, aes(y = DC_output, x = wind_velocity)) +
+<<<<<<< HEAD
+  geom_point() + geom_smooth(method="lm", se=FALSE)
+=======
   geom_point() + geom_smooth(se = F) 
+>>>>>>> 2991ae36dff40038e717965e9023aeadbc00f334
 ```
 
 ## Comments
@@ -162,6 +166,11 @@ line.
 DC.2 <- lm(DC_output ~ wind_velocity + I(wind_velocity^2),
   data = windmill
 )
+```
+
+
+```{r}
+summary(DC.2)
 ```
 
 - The `I()` necessary because `^` in model formula otherwise means
@@ -347,7 +356,7 @@ w2 %>%
                values_to="fit") %>%
   ggplot(aes(x = wind_velocity, y = DC_output)) +
   geom_point() +
-  geom_line(aes(y = fit, colour = model))
+  geom_line(aes(y = fit, colour = model)) 
 ```
 
 ## Scatterplot with fitted curves

@@ -19,13 +19,6 @@ output:
 
 
 
-```
-## Error in library(leaps): there is no package called 'leaps'
-```
-
-```
-## Error in library(bootstrap): there is no package called 'bootstrap'
-```
 
 
 # Course outline 
@@ -1772,7 +1765,12 @@ ggplot(kids, aes(x = group, y = score)) + geom_boxplot()
 
 - Do the two groups have same spread (SD, variance)?
 - If yes (shaky assumption here), can use pooled t-test.
+
+$$ t = {\bar{x}_1 - \bar{x}_2 \over s_p \sqrt{ {1\over n_1} + {1 \over n_2}}} $$
+
 - If not, use Welch-Satterthwaite t-test (safe).
+
+$$ t = {\bar{x}_1 - \bar{x}_2 \over \sqrt{ {s_1^2 \over n_1} + {s_2^2 \over n_2}}} $$
 - Pooled test derived in STAB57 (easier to derive).
 - Welch-Satterthwaite is test used in STAB22 and is generally safe.
 - Assess (approx) equality of spreads using boxplot.
@@ -4341,7 +4339,7 @@ pigs1
 ## 5  61.7  69.8  99.1  90.3
 ```
 
-## Gathering up the columns
+## Gathering up the columns (OLD)
 - This is a very common reorganization, and the magic “verb” is
 `gather`:
 
@@ -4387,13 +4385,14 @@ pigs2
 ## 20 feed4   90.3
 ```
 
-## Another way to do this:
+## Another way to do this: (NEW)
 
 
 ```r
 pigs1 %>% 
   pivot_longer(feed1:feed4, names_to = "feed", 
-               values_to="weight")
+               values_to="weight") -> pigs2
+pigs2
 ```
 
 ```
@@ -4541,44 +4540,41 @@ Also `mu` and `fu`, where age is unknown.
 
 
 ```r
-glimpse(tb)
+tb
 ```
 
 ```
-## Observations: 5,769
-## Variables: 22
-## $ iso2  <chr> "AD", "AD", "AD", "AD", "AD", "AD",…
-## $ year  <dbl> 1989, 1990, 1991, 1992, 1993, 1994,…
-## $ m04   <dbl> NA, NA, NA, NA, NA, NA, NA, NA, NA,…
-## $ m514  <dbl> NA, NA, NA, NA, NA, NA, NA, NA, NA,…
-## $ m014  <dbl> NA, NA, NA, NA, NA, NA, 0, 0, 0, 0,…
-## $ m1524 <dbl> NA, NA, NA, NA, NA, NA, 0, 0, 0, 0,…
-## $ m2534 <dbl> NA, NA, NA, NA, NA, NA, 0, 1, 0, 0,…
-## $ m3544 <dbl> NA, NA, NA, NA, NA, NA, 4, 2, 1, 1,…
-## $ m4554 <dbl> NA, NA, NA, NA, NA, NA, 1, 2, 0, 1,…
-## $ m5564 <dbl> NA, NA, NA, NA, NA, NA, 0, 1, 0, 0,…
-## $ m65   <dbl> NA, NA, NA, NA, NA, NA, 0, 6, 0, 0,…
-## $ mu    <dbl> NA, NA, NA, NA, NA, NA, NA, NA, NA,…
-## $ f04   <dbl> NA, NA, NA, NA, NA, NA, NA, NA, NA,…
-## $ f514  <dbl> NA, NA, NA, NA, NA, NA, NA, NA, NA,…
-## $ f014  <dbl> NA, NA, NA, NA, NA, NA, 0, 0, NA, 0…
-## $ f1524 <dbl> NA, NA, NA, NA, NA, NA, 1, 1, NA, 0…
-## $ f2534 <dbl> NA, NA, NA, NA, NA, NA, 1, 2, NA, 0…
-## $ f3544 <dbl> NA, NA, NA, NA, NA, NA, 0, 3, NA, 1…
-## $ f4554 <dbl> NA, NA, NA, NA, NA, NA, 0, 0, NA, 0…
-## $ f5564 <dbl> NA, NA, NA, NA, NA, NA, 1, 0, NA, 0…
-## $ f65   <dbl> NA, NA, NA, NA, NA, NA, 0, 1, NA, 0…
-## $ fu    <dbl> NA, NA, NA, NA, NA, NA, NA, NA, NA,…
+## # A tibble: 5,769 x 22
+##    iso2   year   m04  m514  m014 m1524 m2534 m3544
+##    <chr> <dbl> <dbl> <dbl> <dbl> <dbl> <dbl> <dbl>
+##  1 AD     1989    NA    NA    NA    NA    NA    NA
+##  2 AD     1990    NA    NA    NA    NA    NA    NA
+##  3 AD     1991    NA    NA    NA    NA    NA    NA
+##  4 AD     1992    NA    NA    NA    NA    NA    NA
+##  5 AD     1993    NA    NA    NA    NA    NA    NA
+##  6 AD     1994    NA    NA    NA    NA    NA    NA
+##  7 AD     1996    NA    NA     0     0     0     4
+##  8 AD     1997    NA    NA     0     0     1     2
+##  9 AD     1998    NA    NA     0     0     0     1
+## 10 AD     1999    NA    NA     0     0     0     1
+## # … with 5,759 more rows, and 14 more variables:
+## #   m4554 <dbl>, m5564 <dbl>, m65 <dbl>, mu <dbl>,
+## #   f04 <dbl>, f514 <dbl>, f014 <dbl>, f1524 <dbl>,
+## #   f2534 <dbl>, f3544 <dbl>, f4554 <dbl>,
+## #   f5564 <dbl>, f65 <dbl>, fu <dbl>
 ```
 
 ## Gather the gender-age group columns
 
+OLD
 
 ```r
 tb %>% gather(genage, freq, m04:fu, na.rm = T) -> tb2
 ```
 
 or
+
+NEW
 
 
 ```r
@@ -6021,11 +6017,7 @@ methods.
 
 ```r
 ggplot(windmill, aes(y = DC_output, x = wind_velocity)) +
-  geom_point() + geom_smooth(se = F)
-```
-
-```
-## `geom_smooth()` using method = 'loess' and formula 'y ~ x'
+  geom_point() + geom_smooth(method="lm", se=FALSE)
 ```
 
 ![plot of chunk unnamed-chunk-240](figure/unnamed-chunk-240-1.pdf)
@@ -6164,6 +6156,40 @@ DC.2 <- lm(DC_output ~ wind_velocity + I(wind_velocity^2),
 )
 ```
 
+
+
+```r
+summary(DC.2)
+```
+
+```
+## 
+## Call:
+## lm(formula = DC_output ~ wind_velocity + I(wind_velocity^2), 
+##     data = windmill)
+## 
+## Residuals:
+##      Min       1Q   Median       3Q      Max 
+## -0.26347 -0.02537  0.01264  0.03908  0.19903 
+## 
+## Coefficients:
+##                     Estimate Std. Error t value
+## (Intercept)        -1.155898   0.174650  -6.618
+## wind_velocity       0.722936   0.061425  11.769
+## I(wind_velocity^2) -0.038121   0.004797  -7.947
+##                    Pr(>|t|)    
+## (Intercept)        1.18e-06 ***
+## wind_velocity      5.77e-11 ***
+## I(wind_velocity^2) 6.59e-08 ***
+## ---
+## Signif. codes:  
+## 0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+## 
+## Residual standard error: 0.1227 on 22 degrees of freedom
+## Multiple R-squared:  0.9676,	Adjusted R-squared:  0.9646 
+## F-statistic: 328.3 on 2 and 22 DF,  p-value: < 2.2e-16
+```
+
 - The `I()` necessary because `^` in model formula otherwise means
 something different (to do with interactions in ANOVA).
 - This actually *multiple regression*.
@@ -6217,7 +6243,7 @@ ggplot(DC.2, aes(y = .resid, x = .fitted)) +
   geom_point()
 ```
 
-![plot of chunk unnamed-chunk-250](figure/unnamed-chunk-250-1.pdf)
+![plot of chunk unnamed-chunk-251](figure/unnamed-chunk-251-1.pdf)
 
 ## Scatterplot with fitted line and curve 
 
@@ -6246,7 +6272,7 @@ by lines.
 
 ## Scatterplot with fitted line and curve
 
-![plot of chunk unnamed-chunk-251](figure/unnamed-chunk-251-1.pdf)
+![plot of chunk unnamed-chunk-252](figure/unnamed-chunk-252-1.pdf)
 
 Curve clearly fits better than line. 
 
@@ -6306,7 +6332,7 @@ Pretty straight. Blue actually smooth curve not line:
 ## `geom_smooth()` using method = 'loess' and formula 'y ~ x'
 ```
 
-![plot of chunk unnamed-chunk-252](figure/unnamed-chunk-252-1.pdf)
+![plot of chunk unnamed-chunk-253](figure/unnamed-chunk-253-1.pdf)
 
 
 
@@ -6420,7 +6446,7 @@ w2 %>%
 
 ## Scatterplot with fitted curves
 
-![plot of chunk unnamed-chunk-256](figure/unnamed-chunk-256-1.pdf)
+![plot of chunk unnamed-chunk-257](figure/unnamed-chunk-257-1.pdf)
 
 ## Comments
 - Predictions from curves are very similar.
@@ -6617,7 +6643,7 @@ g + geom_rect(
 
 ## The plot
 
-![plot of chunk unnamed-chunk-266](figure/unnamed-chunk-266-1.pdf)
+![plot of chunk unnamed-chunk-267](figure/unnamed-chunk-267-1.pdf)
 
 ## Comments (1)
 - Over range of data, two models agree with each other well.
@@ -6789,7 +6815,7 @@ I saved this graph to plot later (on the next page).
 g
 ```
 
-![plot of chunk unnamed-chunk-273](figure/unnamed-chunk-273-1.pdf)
+![plot of chunk unnamed-chunk-274](figure/unnamed-chunk-274-1.pdf)
 
 ## Interpreting the plots
 - One plot of rut depth against each of the six other variables.
@@ -6833,7 +6859,7 @@ ggplot(asphalt_lv, aes(y = rut.depth, x = log.viscosity)) +
 ## `geom_smooth()` using method = 'loess' and formula 'y ~ x'
 ```
 
-![plot of chunk unnamed-chunk-275](figure/unnamed-chunk-275-1.pdf)
+![plot of chunk unnamed-chunk-276](figure/unnamed-chunk-276-1.pdf)
 
 ## Comments and next steps
 - Not very linear, but better than before.
@@ -6904,7 +6930,7 @@ clearer picture of what is helpful.
 ggplot(rut.1, aes(x = .fitted, y = .resid)) + geom_point()
 ```
 
-![plot of chunk unnamed-chunk-278](figure/unnamed-chunk-278-1.pdf)
+![plot of chunk unnamed-chunk-279](figure/unnamed-chunk-279-1.pdf)
 
 ## Plotting residuals against $x$ variables
 - Problem here is that residuals are in the fitted model, and the
@@ -6969,7 +6995,7 @@ rut.1a %>%
 g
 ```
 
-![plot of chunk unnamed-chunk-282](figure/unnamed-chunk-282-1.pdf)
+![plot of chunk unnamed-chunk-283](figure/unnamed-chunk-283-1.pdf)
 
 ## Comments
 - There is serious curve in plot of residuals vs. fitted values. Suggests a
@@ -7000,7 +7026,7 @@ boxcox(rut.depth ~ pct.a.surf + pct.a.base + fines + voids +
   log.viscosity + run, data = asphalt_lv)
 ```
 
-![plot of chunk unnamed-chunk-283](figure/unnamed-chunk-283-1.pdf)
+![plot of chunk unnamed-chunk-284](figure/unnamed-chunk-284-1.pdf)
 
 ## Comments on Box-Cox plot
 - $\lambda$ represents power to transform $y$ with.
@@ -7043,7 +7069,7 @@ asphalt_2 %>%
 g3
 ```
 
-![plot of chunk unnamed-chunk-286](figure/unnamed-chunk-286-1.pdf)
+![plot of chunk unnamed-chunk-287](figure/unnamed-chunk-287-1.pdf)
 
 ## Modelling with transformed response
 - These trends look pretty straight, especially with `log.viscosity`.
@@ -7311,26 +7337,8 @@ Uses package `leaps`:
 ```r
 leaps <- regsubsets(log.rut.depth ~ pct.a.surf + pct.a.base + fines + voids +
   log.viscosity + run, data = asphalt_2, nbest = 2)
-```
-
-```
-## Error in regsubsets(log.rut.depth ~ pct.a.surf + pct.a.base + fines + : could not find function "regsubsets"
-```
-
-```r
 s <- summary(leaps)
-```
-
-```
-## Error in summary(leaps): object 'leaps' not found
-```
-
-```r
 with(s, data.frame(rsq, outmat)) -> d
-```
-
-```
-## Error in with(s, data.frame(rsq, outmat)): object 's' not found
 ```
 
 ## The output
@@ -7345,7 +7353,18 @@ d %>% rownames_to_column("model") %>% arrange(desc(rsq))
 ```
 
 ```
-## Error: object 'rsq' not found
+##       model       rsq pct.a.surf pct.a.base fines voids log.viscosity run
+## 1  6  ( 1 ) 0.9609642          *          *     *     *             *   *
+## 2  5  ( 1 ) 0.9608365          *                *     *             *   *
+## 3  5  ( 2 ) 0.9593265          *          *     *     *             *    
+## 4  4  ( 1 ) 0.9591996          *                      *             *   *
+## 5  4  ( 2 ) 0.9589206          *                *     *             *    
+## 6  3  ( 1 ) 0.9578631          *                      *             *    
+## 7  3  ( 2 ) 0.9534561          *                *                   *    
+## 8  2  ( 1 ) 0.9508647          *                                    *    
+## 9  2  ( 2 ) 0.9479541                                 *             *    
+## 10 1  ( 1 ) 0.9452562                                               *    
+## 11 1  ( 2 ) 0.8624107                                                   *
 ```
 \normalsize
 
@@ -7373,7 +7392,18 @@ with(s, data.frame(adjr2, outmat))
 ```
 
 ```
-## Error in with(s, data.frame(adjr2, outmat)): object 's' not found
+##              adjr2 pct.a.surf pct.a.base fines voids log.viscosity run
+## 1  ( 1 ) 0.9433685                                               *    
+## 1  ( 2 ) 0.8576662                                                   *
+## 2  ( 1 ) 0.9473550          *                                    *    
+## 2  ( 2 ) 0.9442365                                 *             *    
+## 3  ( 1 ) 0.9531812          *                      *             *    
+## 3  ( 2 ) 0.9482845          *                *                   *    
+## 4  ( 1 ) 0.9529226          *                      *             *   *
+## 4  ( 2 ) 0.9526007          *                *     *             *    
+## 5  ( 1 ) 0.9530038          *                *     *             *   *
+## 5  ( 2 ) 0.9511918          *          *     *     *             *    
+## 6  ( 1 ) 0.9512052          *          *     *     *             *   *
 ```
 \normalsize
 
@@ -7418,7 +7448,7 @@ geom_point()
 g
 ```
 
-![plot of chunk unnamed-chunk-308](figure/unnamed-chunk-308-1.pdf)
+![plot of chunk unnamed-chunk-309](figure/unnamed-chunk-309-1.pdf)
 
 ## Plotting residuals against x’s
 - Do our trick again to put them all on one plot:
@@ -7441,7 +7471,7 @@ augment(rut.6, asphalt_2) %>%
 g2
 ```
 
-![plot of chunk unnamed-chunk-310](figure/unnamed-chunk-310-1.pdf)
+![plot of chunk unnamed-chunk-311](figure/unnamed-chunk-311-1.pdf)
 
 ## Comments
 - None of the plots show any sort of pattern. The points all look
@@ -7747,7 +7777,7 @@ ggplot(crickets, aes(x = temperature, y = pulse_rate,
   geom_point() + geom_smooth(method = "lm", se = F)
 ```
 
-![plot of chunk unnamed-chunk-321](figure/unnamed-chunk-321-1.pdf)
+![plot of chunk unnamed-chunk-322](figure/unnamed-chunk-322-1.pdf)
 
 
 # Functions
@@ -9213,7 +9243,7 @@ g <- oranges %>%
 g
 ```
 
-![plot of chunk unnamed-chunk-395](figure/unnamed-chunk-395-1.pdf)
+![plot of chunk unnamed-chunk-396](figure/unnamed-chunk-396-1.pdf)
 
 ## Labelling points on a plot
 
@@ -9248,7 +9278,7 @@ ggplot(cars, aes(x = weight, y = MPG)) +
   geom_point()
 ```
 
-![plot of chunk unnamed-chunk-397](figure/unnamed-chunk-397-1.pdf)
+![plot of chunk unnamed-chunk-398](figure/unnamed-chunk-398-1.pdf)
 
 ## Label points with name of car they belong to
 
@@ -9258,7 +9288,7 @@ ggplot(cars, aes(x = weight, y = MPG, label = car)) +
   geom_point() + geom_text_repel()
 ```
 
-![plot of chunk unnamed-chunk-398](figure/unnamed-chunk-398-1.pdf)
+![plot of chunk unnamed-chunk-399](figure/unnamed-chunk-399-1.pdf)
 
 ## Make labels smaller
 
@@ -9268,7 +9298,7 @@ ggplot(cars, aes(x = weight, y = MPG, label = car)) +
   geom_point() + geom_text_repel(size = 2)
 ```
 
-![plot of chunk unnamed-chunk-399](figure/unnamed-chunk-399-1.pdf)
+![plot of chunk unnamed-chunk-400](figure/unnamed-chunk-400-1.pdf)
 
 ## Labelling some of the cars
 - Maybe you want to draw attention only to some of the individuals
@@ -9294,7 +9324,7 @@ cars %>%
 g
 ```
 
-![plot of chunk unnamed-chunk-401](figure/unnamed-chunk-401-1.pdf)
+![plot of chunk unnamed-chunk-402](figure/unnamed-chunk-402-1.pdf)
 
 ## Labelling cars by row number
 - Suppose we knew that the cars we wanted to label were in rows 4 and
@@ -9318,7 +9348,7 @@ g <- cars %>%
 g
 ```
 
-![plot of chunk unnamed-chunk-403](figure/unnamed-chunk-403-1.pdf)
+![plot of chunk unnamed-chunk-404](figure/unnamed-chunk-404-1.pdf)
 
 
 ## Lightest weight and worst gas-mileage cars
@@ -9343,7 +9373,7 @@ cars %>%
 g
 ```
 
-![plot of chunk unnamed-chunk-405](figure/unnamed-chunk-405-1.pdf)
+![plot of chunk unnamed-chunk-406](figure/unnamed-chunk-406-1.pdf)
 
 ## Miscellaneous graph things
 - Title for graph
@@ -9356,7 +9386,7 @@ g
 g + ggtitle("Gas mileage against weight")
 ```
 
-![plot of chunk unnamed-chunk-406](figure/unnamed-chunk-406-1.pdf)
+![plot of chunk unnamed-chunk-407](figure/unnamed-chunk-407-1.pdf)
 
 ## Axis labels
 
@@ -9365,7 +9395,7 @@ g + ggtitle("Gas mileage against weight")
 g + xlab("Weight (tons)") + ylab("MPG (miles per US gallon)")
 ```
 
-![plot of chunk unnamed-chunk-407](figure/unnamed-chunk-407-1.pdf)
+![plot of chunk unnamed-chunk-408](figure/unnamed-chunk-408-1.pdf)
 
 ## Permanence
 - When you close R Studio, you are offered the option to “save your
@@ -9887,7 +9917,7 @@ library(bootstrap)
 ggplot(irs, aes(x=Time))+geom_histogram(bins=10)
 ```
 
-![plot of chunk unnamed-chunk-430](figure/unnamed-chunk-430-1.pdf)
+![plot of chunk unnamed-chunk-431](figure/unnamed-chunk-431-1.pdf)
 
 - We said that a $t$ procedure for the mean would not be a good idea because the distribution is skewed.
 
@@ -9950,7 +9980,7 @@ rerun(1000, sample(irs$Time, replace=T)) %>%
 ggplot(tibble(means), aes(x=means))+geom_histogram(bins=20)
 ```
 
-![plot of chunk unnamed-chunk-434](figure/unnamed-chunk-434-1.pdf)
+![plot of chunk unnamed-chunk-435](figure/unnamed-chunk-435-1.pdf)
 
 ## Comments
 
@@ -9962,7 +9992,7 @@ ggplot(tibble(means), aes(sample=means))+
   stat_qq()+stat_qq_line()
 ```
 
-![plot of chunk unnamed-chunk-435](figure/unnamed-chunk-435-1.pdf)
+![plot of chunk unnamed-chunk-436](figure/unnamed-chunk-436-1.pdf)
 
 ## Confidence interval from the bootstrap distribution
 
@@ -9976,8 +10006,8 @@ There are two ways (at least):
 ```
 
 ```
-##    2.5%   97.5% 
-## 159.365 248.405
+##     2.5%    97.5% 
+## 159.5292 244.1075
 ```
 
 - bootstrap $t$: use the SD of the bootstrapped sampling distribution as the SE of the estimator of the mean and make a $t$ interval:
@@ -9990,7 +10020,7 @@ t_star=qt(0.975, n-1)
 ```
 
 ```
-## [1] 155.3363 246.3731
+## [1] 157.9020 245.4334
 ```
 
 ## Comparing
@@ -10015,8 +10045,8 @@ tibble(limit=my_names, o_t, b_t, b_p)
 ## # A tibble: 2 x 4
 ##   limit   o_t   b_t   b_p
 ##   <chr> <dbl> <dbl> <dbl>
-## 1 LCL    155.  155.  159.
-## 2 UCL    247.  246.  248.
+## 1 LCL    155.  158.  160.
+## 2 UCL    247.  245.  244.
 ```
 
 - The bootstrap $t$ and the ordinary $t$ are very close
@@ -10042,18 +10072,19 @@ Brad Efron and Robert J. Tibshirani.
 
 ```r
 bca=bcanon(irs$Time, 1000, mean)
-```
-
-```
-## Error in bcanon(irs$Time, 1000, mean): could not find function "bcanon"
-```
-
-```r
 bca$confpoints
 ```
 
 ```
-## Error in eval(expr, envir, enclos): object 'bca' not found
+##      alpha bca point
+## [1,] 0.025  162.8000
+## [2,] 0.050  166.8000
+## [3,] 0.100  174.4667
+## [4,] 0.160  179.5667
+## [5,] 0.840  224.6000
+## [6,] 0.900  234.3000
+## [7,] 0.950  247.4333
+## [8,] 0.975  256.3000
 ```
 
 ## use 2.5% and 97.5% points for CI
@@ -10063,18 +10094,11 @@ bca$confpoints
 bca$confpoints %>% as_tibble() %>% 
   filter(alpha %in% c(0.025, 0.975)) %>% 
   pull(`bca point`) -> b_bca
-```
-
-```
-## Error in eval(lhs, parent, parent): object 'bca' not found
-```
-
-```r
 b_bca
 ```
 
 ```
-## Error in eval(expr, envir, enclos): object 'b_bca' not found
+## [1] 162.8 256.3
 ```
 
 ## Comparing
@@ -10085,7 +10109,11 @@ tibble(limit=my_names, o_t, b_t, b_p, b_bca)
 ```
 
 ```
-## Error in eval_tidy(xs[[i]], unique_output): object 'b_bca' not found
+## # A tibble: 2 x 5
+##   limit   o_t   b_t   b_p b_bca
+##   <chr> <dbl> <dbl> <dbl> <dbl>
+## 1 LCL    155.  158.  160.  163.
+## 2 UCL    247.  245.  244.  256.
 ```
 
 - The BCA interval says that the mean should be estimated even higher than the bootstrap percentile interval does. 
@@ -10120,7 +10148,7 @@ ggplot(soap, aes(x=speed, y=scrap, colour=line))+
   geom_point()+geom_smooth(method="lm", se=F)
 ```
 
-![plot of chunk unnamed-chunk-444](figure/unnamed-chunk-444-1.pdf)
+![plot of chunk unnamed-chunk-445](figure/unnamed-chunk-445-1.pdf)
 
 ## Comments
 
@@ -10167,18 +10195,18 @@ line_b %>% sample_frac(replace=T)
 ## # A tibble: 12 x 4
 ##     case scrap speed line 
 ##    <dbl> <dbl> <dbl> <chr>
-##  1    20   215   175 b    
+##  1    16   140   105 b    
 ##  2    16   140   105 b    
-##  3    26   273   190 b    
+##  3    21   180   135 b    
 ##  4    20   215   175 b    
-##  5    26   273   190 b    
-##  6    20   215   175 b    
-##  7    22   260   200 b    
-##  8    23   361   275 b    
+##  5    16   140   105 b    
+##  6    24   252   155 b    
+##  7    25   422   320 b    
+##  8    25   422   320 b    
 ##  9    25   422   320 b    
-## 10    23   361   275 b    
-## 11    25   422   320 b    
-## 12    18   384   270 b
+## 10    20   215   175 b    
+## 11    24   252   155 b    
+## 12    20   215   175 b
 ```
 \normalsize
 
@@ -10199,7 +10227,7 @@ rerun(1000, sample_frac(line_b, replace=T)) %>%
 ggplot(tibble(cors), aes(x=cors))+geom_histogram(bins=15)
 ```
 
-![plot of chunk unnamed-chunk-449](figure/unnamed-chunk-449-1.pdf)
+![plot of chunk unnamed-chunk-450](figure/unnamed-chunk-450-1.pdf)
 
 ## Comments and next steps
 
@@ -10213,7 +10241,7 @@ ggplot(tibble(cors), aes(x=cors))+geom_histogram(bins=15)
 
 ```
 ##      2.5%     97.5% 
-## 0.9442645 0.9961654
+## 0.9443861 0.9961813
 ```
 
 - We probably need the BCA interval instead.
@@ -10260,28 +10288,14 @@ line_b %>% slice(1:3)
 
 ```r
 points=bcanon(1:12, 1000, theta, line_b)$confpoints
-```
-
-```
-## Error in bcanon(1:12, 1000, theta, line_b): could not find function "bcanon"
-```
-
-```r
 points %>% as_tibble() %>% 
   filter(alpha %in% c(0.025, 0.975)) %>% 
   pull(`bca point`) -> b_bca
-```
-
-```
-## Error in as.data.frame.default(value, stringsAsFactors = FALSE): cannot coerce class '"function"' to a data.frame
-```
-
-```r
 b_bca
 ```
 
 ```
-## Error in eval(expr, envir, enclos): object 'b_bca' not found
+## [1] 0.9281762 0.9945955
 ```
 
 ## Comparing the results
@@ -10292,7 +10306,11 @@ tibble(limit=my_names, o_c, b_p, b_bca)
 ```
 
 ```
-## Error in eval_tidy(xs[[i]], unique_output): object 'b_bca' not found
+## # A tibble: 2 x 4
+##   limit   o_c   b_p b_bca
+##   <chr> <dbl> <dbl> <dbl>
+## 1 LCL   0.930 0.944 0.928
+## 2 UCL   0.995 0.996 0.995
 ```
 
 - The bootstrap percentile interval doesn't go down far enough. 
@@ -10439,10 +10457,6 @@ poisson1_fit <- sampling(poisson1_code, data = poisson1_data)
 
 
 
-```
-## code for methods in class "Rcpp_stan_fit4modelef428cd118a_poisson1" was not checked for suspicious field assignments (recommended package 'codetools' not available?)
-## code for methods in class "Rcpp_stan_fit4modelef428cd118a_poisson1" was not checked for suspicious field assignments (recommended package 'codetools' not available?)
-```
 
 
 
@@ -10459,13 +10473,13 @@ poisson1_fit
 ## post-warmup draws per chain=1000, total post-warmup draws=4000.
 ## 
 ##        mean se_mean   sd 2.5%  25%  50%  75% 97.5%
-## lambda 3.20    0.02 0.63 2.10 2.75 3.15 3.60  4.56
-## lp__   3.75    0.02 0.69 1.84 3.56 4.02 4.21  4.26
+## lambda 3.18    0.02 0.63 2.06 2.74 3.13 3.57  4.51
+## lp__   3.74    0.02 0.74 1.61 3.57 4.02 4.20  4.26
 ##        n_eff Rhat
-## lambda  1412    1
-## lp__    1831    1
+## lambda  1381    1
+## lp__    1723    1
 ## 
-## Samples were drawn using NUTS(diag_e) at Tue Jan  7 10:46:45 2020.
+## Samples were drawn using NUTS(diag_e) at Mon Mar 16 19:15:06 2020.
 ## For each parameter, n_eff is a crude measure of effective sample size,
 ## and Rhat is the potential scale reduction factor on split chains (at 
 ## convergence, Rhat=1).
@@ -10542,13 +10556,13 @@ poisson2_fit
 ## post-warmup draws per chain=1000, total post-warmup draws=4000.
 ## 
 ##        mean se_mean   sd 2.5%  25%  50%  75% 97.5%
-## lambda 3.18    0.02 0.63 2.09 2.74 3.14 3.59  4.53
-## lp__   3.74    0.02 0.73 1.80 3.54 4.01 4.20  4.26
+## lambda 3.18    0.02 0.62 2.07 2.74 3.15 3.58  4.55
+## lp__   3.75    0.02 0.72 1.77 3.60 4.03 4.21  4.26
 ##        n_eff Rhat
-## lambda  1416    1
-## lp__    1572    1
+## lambda  1550    1
+## lp__    1609    1
 ## 
-## Samples were drawn using NUTS(diag_e) at Tue Jan  7 10:46:49 2020.
+## Samples were drawn using NUTS(diag_e) at Mon Mar 16 19:15:11 2020.
 ## For each parameter, n_eff is a crude measure of effective sample size,
 ## and Rhat is the potential scale reduction factor on split chains (at 
 ## convergence, Rhat=1).
@@ -10565,7 +10579,7 @@ ggplot(tibble(lambda = poisson2_out$lambda), aes(x = lambda)) +
   geom_histogram(bins = 20)
 ```
 
-![plot of chunk unnamed-chunk-469](figure/unnamed-chunk-469-1.pdf)
+![plot of chunk unnamed-chunk-470](figure/unnamed-chunk-470-1.pdf)
 
 ## Posterior predictive distribution
 
@@ -10584,7 +10598,7 @@ tibble(lambda = poisson2_out$lambda) %>%
 ggplot(d, aes(x = x_sim)) + geom_bar()
 ```
 
-![plot of chunk unnamed-chunk-471](figure/unnamed-chunk-471-1.pdf)
+![plot of chunk unnamed-chunk-472](figure/unnamed-chunk-472-1.pdf)
 
 
 ## Comparison
@@ -10619,7 +10633,7 @@ ggplot(d, aes(x = x_sim)) + geom_bar() +
 g
 ```
 
-![plot of chunk unnamed-chunk-474](figure/unnamed-chunk-474-1.pdf)
+![plot of chunk unnamed-chunk-475](figure/unnamed-chunk-475-1.pdf)
 
 
 ## Analysis of variance, the Bayesian way
@@ -10637,12 +10651,12 @@ rats0 %>% sample_n(6) # random sample of rows
 ## # A tibble: 6 x 2
 ##   group    density
 ##   <chr>      <dbl>
-## 1 Control      593
-## 2 Highjump     650
-## 3 Highjump     631
-## 4 Lowjump      632
-## 5 Highjump     622
-## 6 Highjump     643
+## 1 Lowjump      632
+## 2 Control      614
+## 3 Lowjump      594
+## 4 Highjump     626
+## 5 Highjump     631
+## 6 Highjump     650
 ```
 
 ## Our aims here
@@ -10672,10 +10686,10 @@ rats %>% sample_n(4)
 ## # A tibble: 4 x 4
 ##   group    density group_fct group_no
 ##   <chr>      <dbl> <fct>        <int>
-## 1 Highjump     626 Highjump         3
-## 2 Lowjump      635 Lowjump          2
-## 3 Control      621 Control          1
-## 4 Highjump     626 Highjump         3
+## 1 Lowjump      607 Lowjump          2
+## 2 Control      600 Control          1
+## 3 Highjump     626 Highjump         3
+## 4 Lowjump      596 Lowjump          2
 ```
 
 ## Plotting the data 1/2
@@ -10687,7 +10701,7 @@ Most obviously, boxplots:
 ggplot(rats, aes(x = group_fct, y = density)) + geom_boxplot()
 ```
 
-![plot of chunk unnamed-chunk-477](figure/unnamed-chunk-477-1.pdf)
+![plot of chunk unnamed-chunk-478](figure/unnamed-chunk-478-1.pdf)
 
 ## Plotting the data 2/2
 
@@ -10699,7 +10713,7 @@ ggplot(rats, aes(x = density, colour = group_fct)) +
   geom_density()
 ```
 
-![plot of chunk unnamed-chunk-478](figure/unnamed-chunk-478-1.pdf)
+![plot of chunk unnamed-chunk-479](figure/unnamed-chunk-479-1.pdf)
 
 
 ## The procedure
@@ -10806,16 +10820,11 @@ anova_samples <- sampling(anova_compiled, data = anova_data)
 ```
 
 ```
-## code for methods in class "Rcpp_stan_fit4model2527230a64af_anova" was not checked for suspicious field assignments (recommended package 'codetools' not available?)
-## code for methods in class "Rcpp_stan_fit4model2527230a64af_anova" was not checked for suspicious field assignments (recommended package 'codetools' not available?)
-```
-
-```
 ## 
 ## SAMPLING FOR MODEL 'anova' NOW (CHAIN 1).
 ## Chain 1: 
-## Chain 1: Gradient evaluation took 9e-06 seconds
-## Chain 1: 1000 transitions using 10 leapfrog steps per transition would take 0.09 seconds.
+## Chain 1: Gradient evaluation took 1e-05 seconds
+## Chain 1: 1000 transitions using 10 leapfrog steps per transition would take 0.1 seconds.
 ## Chain 1: Adjust your expectations accordingly!
 ## Chain 1: 
 ## Chain 1: 
@@ -10832,15 +10841,15 @@ anova_samples <- sampling(anova_compiled, data = anova_data)
 ## Chain 1: Iteration: 1800 / 2000 [ 90%]  (Sampling)
 ## Chain 1: Iteration: 2000 / 2000 [100%]  (Sampling)
 ## Chain 1: 
-## Chain 1:  Elapsed Time: 0.09277 seconds (Warm-up)
-## Chain 1:                0.024401 seconds (Sampling)
-## Chain 1:                0.117171 seconds (Total)
+## Chain 1:  Elapsed Time: 0.093307 seconds (Warm-up)
+## Chain 1:                0.024983 seconds (Sampling)
+## Chain 1:                0.11829 seconds (Total)
 ## Chain 1: 
 ## 
 ## SAMPLING FOR MODEL 'anova' NOW (CHAIN 2).
 ## Chain 2: 
-## Chain 2: Gradient evaluation took 6e-06 seconds
-## Chain 2: 1000 transitions using 10 leapfrog steps per transition would take 0.06 seconds.
+## Chain 2: Gradient evaluation took 7e-06 seconds
+## Chain 2: 1000 transitions using 10 leapfrog steps per transition would take 0.07 seconds.
 ## Chain 2: Adjust your expectations accordingly!
 ## Chain 2: 
 ## Chain 2: 
@@ -10857,9 +10866,9 @@ anova_samples <- sampling(anova_compiled, data = anova_data)
 ## Chain 2: Iteration: 1800 / 2000 [ 90%]  (Sampling)
 ## Chain 2: Iteration: 2000 / 2000 [100%]  (Sampling)
 ## Chain 2: 
-## Chain 2:  Elapsed Time: 0.096551 seconds (Warm-up)
-## Chain 2:                0.0241 seconds (Sampling)
-## Chain 2:                0.120651 seconds (Total)
+## Chain 2:  Elapsed Time: 0.094445 seconds (Warm-up)
+## Chain 2:                0.050271 seconds (Sampling)
+## Chain 2:                0.144716 seconds (Total)
 ## Chain 2: 
 ## 
 ## SAMPLING FOR MODEL 'anova' NOW (CHAIN 3).
@@ -10882,9 +10891,9 @@ anova_samples <- sampling(anova_compiled, data = anova_data)
 ## Chain 3: Iteration: 1800 / 2000 [ 90%]  (Sampling)
 ## Chain 3: Iteration: 2000 / 2000 [100%]  (Sampling)
 ## Chain 3: 
-## Chain 3:  Elapsed Time: 0.095188 seconds (Warm-up)
-## Chain 3:                0.024793 seconds (Sampling)
-## Chain 3:                0.119981 seconds (Total)
+## Chain 3:  Elapsed Time: 0.092212 seconds (Warm-up)
+## Chain 3:                0.025309 seconds (Sampling)
+## Chain 3:                0.117521 seconds (Total)
 ## Chain 3: 
 ## 
 ## SAMPLING FOR MODEL 'anova' NOW (CHAIN 4).
@@ -10907,9 +10916,9 @@ anova_samples <- sampling(anova_compiled, data = anova_data)
 ## Chain 4: Iteration: 1800 / 2000 [ 90%]  (Sampling)
 ## Chain 4: Iteration: 2000 / 2000 [100%]  (Sampling)
 ## Chain 4: 
-## Chain 4:  Elapsed Time: 0.07404 seconds (Warm-up)
-## Chain 4:                0.027625 seconds (Sampling)
-## Chain 4:                0.101665 seconds (Total)
+## Chain 4:  Elapsed Time: 0.081605 seconds (Warm-up)
+## Chain 4:                0.024813 seconds (Sampling)
+## Chain 4:                0.106418 seconds (Total)
 ## Chain 4:
 ```
 
@@ -10920,7 +10929,7 @@ anova_samples <- sampling(anova_compiled, data = anova_data)
 traceplot(anova_samples)
 ```
 
-![plot of chunk unnamed-chunk-482](figure/unnamed-chunk-482-1.pdf)
+![plot of chunk unnamed-chunk-483](figure/unnamed-chunk-483-1.pdf)
 
 ## Comments
 
@@ -10940,19 +10949,19 @@ anova_samples
 ## post-warmup draws per chain=1000, total post-warmup draws=4000.
 ## 
 ##         mean se_mean   sd   2.5%    25%    50%
-## mu[1] 601.25    0.13 8.97 583.62 595.41 601.13
-## mu[2] 612.06    0.14 9.06 594.02 605.91 612.21
-## mu[3] 637.25    0.15 9.26 619.26 631.02 637.28
-## sigma  28.73    0.08 4.49  21.31  25.57  28.21
-## lp__  -41.11    0.04 1.57 -45.19 -41.87 -40.75
+## mu[1] 601.21    0.13 8.78 583.78 595.43 601.22
+## mu[2] 611.95    0.14 8.60 594.77 606.26 612.12
+## mu[3] 637.35    0.14 8.91 619.06 631.56 637.40
+## sigma  28.42    0.07 4.20  21.44  25.34  28.07
+## lp__  -40.96    0.03 1.40 -44.40 -41.64 -40.68
 ##          75%  97.5% n_eff Rhat
-## mu[1] 607.06 618.83  4701    1
-## mu[2] 618.16 629.45  4180    1
-## mu[3] 643.31 655.88  3961    1
-## sigma  31.40  38.93  3437    1
-## lp__  -39.98 -39.17  1714    1
+## mu[1] 606.87 618.78  4395    1
+## mu[2] 617.40 628.73  3855    1
+## mu[3] 643.47 654.29  4059    1
+## sigma  31.01  37.54  3824    1
+## lp__  -39.93 -39.16  1985    1
 ## 
-## Samples were drawn using NUTS(diag_e) at Tue Jan  7 10:46:52 2020.
+## Samples were drawn using NUTS(diag_e) at Mon Mar 16 19:15:14 2020.
 ## For each parameter, n_eff is a crude measure of effective sample size,
 ## and Rhat is the potential scale reduction factor on split chains (at 
 ## convergence, Rhat=1).
@@ -10976,12 +10985,12 @@ head(anova_ext$mu)
 ```
 ##           
 ## iterations     [,1]     [,2]     [,3]
-##       [1,] 607.0495 598.6400 644.9649
-##       [2,] 589.6069 613.6543 642.8363
-##       [3,] 618.8842 604.9311 644.7575
-##       [4,] 613.1348 616.1122 636.1995
-##       [5,] 601.4309 629.1250 647.1461
-##       [6,] 603.7752 605.6885 622.0273
+##       [1,] 599.4065 614.7397 625.7129
+##       [2,] 608.8610 612.9657 631.0857
+##       [3,] 597.1930 614.8401 627.5928
+##       [4,] 605.4433 606.1242 631.8701
+##       [5,] 600.6274 609.9353 634.9262
+##       [6,] 612.6777 611.3543 643.4910
 ```
 
 ## Turn into a data frame, arrange for plotting, name groups
@@ -11010,14 +11019,14 @@ sims %>% sample_n(8)
 ## # A tibble: 8 x 3
 ##   sigma group    density
 ##   <dbl> <fct>      <dbl>
-## 1  27.5 Highjump    629.
-## 2  37.9 Highjump    626.
-## 3  26.3 Lowjump     621.
-## 4  39.4 Control     611.
-## 5  29.4 Control     600.
-## 6  31.8 Control     599.
-## 7  20.9 Control     590.
-## 8  24.8 Highjump    645.
+## 1  23.6 Lowjump     621.
+## 2  27.0 Control     611.
+## 3  24.7 Highjump    631.
+## 4  27.6 Highjump    630.
+## 5  23.5 Lowjump     608.
+## 6  29.5 Lowjump     617.
+## 7  28.2 Highjump    626.
+## 8  23.8 Control     605.
 ```
 
 
@@ -11028,7 +11037,7 @@ sims %>% sample_n(8)
 ggplot(sims, aes(x = density, colour = group)) + geom_density()
 ```
 
-![plot of chunk unnamed-chunk-487](figure/unnamed-chunk-487-1.pdf)
+![plot of chunk unnamed-chunk-488](figure/unnamed-chunk-488-1.pdf)
 
 ## Posterior predictive distributions
 
@@ -11044,14 +11053,14 @@ ppd %>% sample_n(8)
 ## # A tibble: 8 x 4
 ##   sigma group    density sim_data
 ##   <dbl> <fct>      <dbl>    <dbl>
-## 1  18.8 Lowjump     614.     669.
-## 2  30.5 Highjump    621.     628.
-## 3  31.2 Control     583.     545.
-## 4  37.1 Lowjump     592.     579.
-## 5  32.4 Control     609.     602.
-## 6  27.1 Control     606.     605.
-## 7  25.6 Highjump    641.     673.
-## 8  26.1 Control     587.     580.
+## 1  35.1 Control     600.     556.
+## 2  25.5 Highjump    634.     641.
+## 3  24.2 Highjump    636.     680.
+## 4  29.6 Highjump    639.     686.
+## 5  28.3 Highjump    647.     670.
+## 6  35.4 Control     601.     585.
+## 7  32.2 Highjump    629.     654.
+## 8  28.6 Control     596.     582.
 ```
 
 ## Compare posterior predictive distribution with actual data
@@ -11083,7 +11092,7 @@ ggplot(ppd, aes(x = sim_data)) +
 g
 ```
 
-![plot of chunk unnamed-chunk-490](figure/unnamed-chunk-490-1.pdf)
+![plot of chunk unnamed-chunk-491](figure/unnamed-chunk-491-1.pdf)
 
 ## Extensions 
 
@@ -11139,11 +11148,6 @@ anova_data <- list(
 anova_loo_samples <- sampling(anova_loo_compiled, data = anova_data)
 ```
 
-```
-## code for methods in class "Rcpp_stan_fit4model3ee96f026edb_anova_loo" was not checked for suspicious field assignments (recommended package 'codetools' not available?)
-## code for methods in class "Rcpp_stan_fit4model3ee96f026edb_anova_loo" was not checked for suspicious field assignments (recommended package 'codetools' not available?)
-```
-
 ## Now we need a null model
 
 - one value of `mu` for all groups
@@ -11197,11 +11201,6 @@ anova_loo_null_compiled <- stan_model("anova_loo_null.stan")
 anova_loo_null_samples <- sampling(anova_loo_null_compiled, data = anova_data)
 ```
 
-```
-## code for methods in class "Rcpp_stan_fit4model3ee95b02a9f7_anova_loo_null" was not checked for suspicious field assignments (recommended package 'codetools' not available?)
-## code for methods in class "Rcpp_stan_fit4model3ee95b02a9f7_anova_loo_null" was not checked for suspicious field assignments (recommended package 'codetools' not available?)
-```
-
 ## Compare the fits of the two models
 
 
@@ -11228,28 +11227,17 @@ loo(log_lik_a, r_eff = r_eff_a)
 ```
 
 ```
-## Warning: Some Pareto k diagnostic values are slightly high. See help('pareto-k-diagnostic') for details.
-```
-
-```
 ## 
 ## Computed from 4000 by 30 log-likelihood matrix
 ## 
 ##          Estimate  SE
-## elpd_loo   -138.9 2.6
-## p_loo         2.4 0.6
-## looic       277.7 5.2
+## elpd_loo   -138.7 2.6
+## p_loo         2.3 0.5
+## looic       277.4 5.2
 ## ------
 ## Monte Carlo SE of elpd_loo is 0.0.
 ## 
-## Pareto k diagnostic values:
-##                          Count Pct.    Min. n_eff
-## (-Inf, 0.5]   (good)     29    96.7%   1809      
-##  (0.5, 0.7]   (ok)        1     3.3%   1265      
-##    (0.7, 1]   (bad)       0     0.0%   <NA>      
-##    (1, Inf)   (very bad)  0     0.0%   <NA>      
-## 
-## All Pareto k estimates are ok (k < 0.7).
+## All Pareto k estimates are good (k < 0.5).
 ## See help('pareto-k-diagnostic') for details.
 ```
 \normalsize
@@ -11267,9 +11255,9 @@ loo(log_lik_0, r_eff = r_eff_0)
 ## Computed from 4000 by 30 log-likelihood matrix
 ## 
 ##          Estimate  SE
-## elpd_loo   -142.9 2.8
-## p_loo         1.3 0.4
-## looic       285.7 5.6
+## elpd_loo   -142.8 2.8
+## p_loo         1.2 0.3
+## looic       285.6 5.6
 ## ------
 ## Monte Carlo SE of elpd_loo is 0.0.
 ## 

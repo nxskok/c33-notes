@@ -1,32 +1,35 @@
-\PassOptionsToPackage{unicode=true}{hyperref} % options for packages loaded elsewhere
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
 \PassOptionsToPackage{hyphens}{url}
 %
-\documentclass[ignorenonframetext,]{beamer}
+\documentclass[
+  ignorenonframetext,
+]{beamer}
 \usepackage{pgfpages}
 \setbeamertemplate{caption}[numbered]
 \setbeamertemplate{caption label separator}{: }
 \setbeamercolor{caption name}{fg=normal text.fg}
 \beamertemplatenavigationsymbolsempty
-% Prevent slide breaks in the middle of a paragraph:
+% Prevent slide breaks in the middle of a paragraph
 \widowpenalties 1 10000
 \raggedbottom
 \setbeamertemplate{part page}{
-\centering
-\begin{beamercolorbox}[sep=16pt,center]{part title}
-  \usebeamerfont{part title}\insertpart\par
-\end{beamercolorbox}
+  \centering
+  \begin{beamercolorbox}[sep=16pt,center]{part title}
+    \usebeamerfont{part title}\insertpart\par
+  \end{beamercolorbox}
 }
 \setbeamertemplate{section page}{
-\centering
-\begin{beamercolorbox}[sep=12pt,center]{part title}
-  \usebeamerfont{section title}\insertsection\par
-\end{beamercolorbox}
+  \centering
+  \begin{beamercolorbox}[sep=12pt,center]{part title}
+    \usebeamerfont{section title}\insertsection\par
+  \end{beamercolorbox}
 }
 \setbeamertemplate{subsection page}{
-\centering
-\begin{beamercolorbox}[sep=8pt,center]{part title}
-  \usebeamerfont{subsection title}\insertsubsection\par
-\end{beamercolorbox}
+  \centering
+  \begin{beamercolorbox}[sep=8pt,center]{part title}
+    \usebeamerfont{subsection title}\insertsubsection\par
+  \end{beamercolorbox}
 }
 \AtBeginPart{
   \frame{\partpage}
@@ -43,37 +46,42 @@
 \usepackage{lmodern}
 \usepackage{amssymb,amsmath}
 \usepackage{ifxetex,ifluatex}
-\usepackage{fixltx2e} % provides \textsubscript
 \ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
   \usepackage[T1]{fontenc}
   \usepackage[utf8]{inputenc}
-  \usepackage{textcomp} % provides euro and other symbols
-\else % if luatex or xelatex
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
   \usepackage{unicode-math}
-  \defaultfontfeatures{Ligatures=TeX,Scale=MatchLowercase}
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
 \fi
 \usetheme[]{AnnArbor}
 \usecolortheme{dove}
-% use upquote if available, for straight quotes in verbatim environments
+% Use upquote if available, for straight quotes in verbatim environments
 \IfFileExists{upquote.sty}{\usepackage{upquote}}{}
-% use microtype if available
-\IfFileExists{microtype.sty}{%
-\usepackage[]{microtype}
-\UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
 }{}
-\IfFileExists{parskip.sty}{%
-\usepackage{parskip}
-}{% else
-\setlength{\parindent}{0pt}
-\setlength{\parskip}{6pt plus 2pt minus 1pt}
-}
-\usepackage{hyperref}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
 \hypersetup{
-            pdftitle={STAC33: Introduction to Applied Statistics},
-            pdfauthor={Lecture notes},
-            pdfborder={0 0 0},
-            breaklinks=true}
-\urlstyle{same}  % don't use monospace font for urls
+  pdftitle={STAC33: Introduction to Applied Statistics},
+  pdfauthor={Lecture notes},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+\urlstyle{same} % disable monospaced font for URLs
 \newif\ifbibliography
 \usepackage{color}
 \usepackage{fancyvrb}
@@ -124,16 +132,14 @@
 % margins by default, and it is still possible to overwrite the defaults
 % using explicit options in \includegraphics[width, height, ...]{}
 \setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
-\setlength{\emergencystretch}{3em}  % prevent overfull lines
-\providecommand{\tightlist}{%
-  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
-\setcounter{secnumdepth}{0}
-
-% set default figure placement to htbp
+% Set default figure placement to htbp
 \makeatletter
 \def\fps@figure{htbp}
 \makeatother
-
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
 \usepackage{multicol}
 
 \title{STAC33: Introduction to Applied Statistics}
@@ -142,18 +148,6 @@
 
 \begin{document}
 \frame{\titlepage}
-
-\begin{frame}[fragile]
-
-\begin{verbatim}
-## Error in library(leaps): there is no package called 'leaps'
-\end{verbatim}
-
-\begin{verbatim}
-## Error in library(bootstrap): there is no package called 'bootstrap'
-\end{verbatim}
-
-\end{frame}
 
 \hypertarget{course-outline}{%
 \section{Course outline}\label{course-outline}}
@@ -1013,7 +1007,7 @@ To read this in:
 \begin{itemize}
 \tightlist
 \item
-  \ldots{}and get rid of the template document (leaving the first four
+  \ldots and get rid of the template document (leaving the first four
   lines).
 \item
   Make a code chunk and in it put this. Run it.
@@ -1165,7 +1159,7 @@ mydata=read_csv(f)
 \end{Highlighting}
 \end{Shaded}
 
-\ldots{}or find your data frame in the Global Environment top right and
+\ldots or find your data frame in the Global Environment top right and
 click it. - This pops up a ``data frame viewer'' top left:
 
 \includegraphics[width=\textwidth,height=1.875in]{viewview.png}
@@ -1833,7 +1827,7 @@ Grouped bar chart:
 \end{frame}
 
 \begin{frame}[fragile]{Height vs.~weight}
-\protect\hypertarget{height-vs.weight}{}
+\protect\hypertarget{height-vs.-weight}{}
 
 Scatterplot:
 
@@ -2318,7 +2312,7 @@ Another way (which will make sense in a moment):
 \begin{frame}[fragile]{Reading the attendances}
 \protect\hypertarget{reading-the-attendances}{}
 
-\ldots{}as a \texttt{.csv} file:
+\ldots as a \texttt{.csv} file:
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -2953,15 +2947,20 @@ Null false & Type II error & Correct\\
   Do the two groups have same spread (SD, variance)?
 \item
   If yes (shaky assumption here), can use pooled t-test.
+\end{itemize}
+
+\[ t = {\bar{x}_1 - \bar{x}_2 \over s_p \sqrt{ {1\over n_1} + {1 \over n_2}}} \]
+
+\begin{itemize}
+\tightlist
 \item
   If not, use Welch-Satterthwaite t-test (safe).
-\item
-  Pooled test derived in STAB57 (easier to derive).
-\item
-  Welch-Satterthwaite is test used in STAB22 and is generally safe.
-\item
-  Assess (approx) equality of spreads using boxplot.
 \end{itemize}
+
+\[ t = {\bar{x}_1 - \bar{x}_2 \over \sqrt{ {s_1^2 \over n_1} + {s_2^2 \over n_2}}} \]
+- Pooled test derived in STAB57 (easier to derive). -
+Welch-Satterthwaite is test used in STAB22 and is generally safe. -
+Assess (approx) equality of spreads using boxplot.
 
 \end{frame}
 
@@ -3298,7 +3297,7 @@ Tension between truth and decision about truth (imperfect).
 
 \end{frame}
 
-\begin{frame}[fragile]{\ldots{}continued}
+\begin{frame}[fragile]{\ldots continued}
 \protect\hypertarget{continued}{}
 
 \begin{Shaded}
@@ -4148,8 +4147,8 @@ Idea: ``Plausible'' parameter value inside CI, not rejected;
 \item
   Sample of 30 people; time to complete form recorded.
 \item
-  Read in data, and do \(t\)-test of \(H_0 : \mu = 160\) vs.
-  \(H_a : \mu > 160\).
+  Read in data, and do \(t\)-test of \(H_0 : \mu = 160\)
+  vs.~\(H_a : \mu > 160\).
 \item
   For reading in, there is only one column, so can pretend it is
   delimited by anything.
@@ -5637,7 +5636,7 @@ contingency table:
 
 \end{frame}
 
-\begin{frame}[fragile]{\ldots{}And finally}
+\begin{frame}[fragile]{\ldots And finally}
 \protect\hypertarget{and-finally}{}
 
 \begin{Shaded}
@@ -6055,7 +6054,7 @@ Values separated by spaces:
 \end{frame}
 
 \begin{frame}[fragile]{Control vs.~low}
-\protect\hypertarget{control-vs.low}{}
+\protect\hypertarget{control-vs.-low}{}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -6082,7 +6081,7 @@ No sig. difference here.
 \end{frame}
 
 \begin{frame}[fragile]{Control vs.~high}
-\protect\hypertarget{control-vs.high}{}
+\protect\hypertarget{control-vs.-high}{}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -6109,7 +6108,7 @@ These are different.
 \end{frame}
 
 \begin{frame}[fragile]{Low vs.~high}
-\protect\hypertarget{low-vs.high}{}
+\protect\hypertarget{low-vs.-high}{}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -6723,7 +6722,7 @@ The subjects. Experiments on humans require ``ethical approval''.
 
 \includegraphics[width=\textwidth]{resultsa}
 
-\ldots{}noting that the two groups were not significantly different
+\ldots noting that the two groups were not significantly different
 before the study, but changed in important respects over time. Results
 also shown in table.
 
@@ -6998,8 +6997,8 @@ pig feed1 feed2 feed3 feed4
 
 \end{frame}
 
-\begin{frame}[fragile]{Gathering up the columns}
-\protect\hypertarget{gathering-up-the-columns}{}
+\begin{frame}[fragile]{Gathering up the columns (OLD)}
+\protect\hypertarget{gathering-up-the-columns-old}{}
 
 \begin{itemize}
 \tightlist
@@ -7064,14 +7063,15 @@ pig feed1 feed2 feed3 feed4
 
 \end{frame}
 
-\begin{frame}[fragile]{Another way to do this:}
-\protect\hypertarget{another-way-to-do-this}{}
+\begin{frame}[fragile]{Another way to do this: (NEW)}
+\protect\hypertarget{another-way-to-do-this-new}{}
 
 \begin{Shaded}
 \begin{Highlighting}[]
 \NormalTok{pigs1 }\OperatorTok{%>%}\StringTok{ }
 \StringTok{  }\KeywordTok{pivot_longer}\NormalTok{(feed1}\OperatorTok{:}\NormalTok{feed4, }\DataTypeTok{names_to =} \StringTok{"feed"}\NormalTok{, }
-               \DataTypeTok{values_to=}\StringTok{"weight"}\NormalTok{)}
+               \DataTypeTok{values_to=}\StringTok{"weight"}\NormalTok{) ->}\StringTok{ }\NormalTok{pigs2}
+\NormalTok{pigs2}
 \end{Highlighting}
 \end{Shaded}
 
@@ -7103,7 +7103,7 @@ pig feed1 feed2 feed3 feed4
 
 \end{frame}
 
-\begin{frame}[fragile]{\ldots{}and finally, the analysis}
+\begin{frame}[fragile]{\ldots and finally, the analysis}
 \protect\hypertarget{and-finally-the-analysis}{}
 
 \begin{itemize}
@@ -7265,41 +7265,37 @@ conclusion is so clear that I am OK with this.
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\KeywordTok{glimpse}\NormalTok{(tb)}
+\NormalTok{tb}
 \end{Highlighting}
 \end{Shaded}
 
 \begin{verbatim}
-## Observations: 5,769
-## Variables: 22
-## $ iso2  <chr> "AD", "AD", "AD", "AD", "AD", "AD",…
-## $ year  <dbl> 1989, 1990, 1991, 1992, 1993, 1994,…
-## $ m04   <dbl> NA, NA, NA, NA, NA, NA, NA, NA, NA,…
-## $ m514  <dbl> NA, NA, NA, NA, NA, NA, NA, NA, NA,…
-## $ m014  <dbl> NA, NA, NA, NA, NA, NA, 0, 0, 0, 0,…
-## $ m1524 <dbl> NA, NA, NA, NA, NA, NA, 0, 0, 0, 0,…
-## $ m2534 <dbl> NA, NA, NA, NA, NA, NA, 0, 1, 0, 0,…
-## $ m3544 <dbl> NA, NA, NA, NA, NA, NA, 4, 2, 1, 1,…
-## $ m4554 <dbl> NA, NA, NA, NA, NA, NA, 1, 2, 0, 1,…
-## $ m5564 <dbl> NA, NA, NA, NA, NA, NA, 0, 1, 0, 0,…
-## $ m65   <dbl> NA, NA, NA, NA, NA, NA, 0, 6, 0, 0,…
-## $ mu    <dbl> NA, NA, NA, NA, NA, NA, NA, NA, NA,…
-## $ f04   <dbl> NA, NA, NA, NA, NA, NA, NA, NA, NA,…
-## $ f514  <dbl> NA, NA, NA, NA, NA, NA, NA, NA, NA,…
-## $ f014  <dbl> NA, NA, NA, NA, NA, NA, 0, 0, NA, 0…
-## $ f1524 <dbl> NA, NA, NA, NA, NA, NA, 1, 1, NA, 0…
-## $ f2534 <dbl> NA, NA, NA, NA, NA, NA, 1, 2, NA, 0…
-## $ f3544 <dbl> NA, NA, NA, NA, NA, NA, 0, 3, NA, 1…
-## $ f4554 <dbl> NA, NA, NA, NA, NA, NA, 0, 0, NA, 0…
-## $ f5564 <dbl> NA, NA, NA, NA, NA, NA, 1, 0, NA, 0…
-## $ f65   <dbl> NA, NA, NA, NA, NA, NA, 0, 1, NA, 0…
-## $ fu    <dbl> NA, NA, NA, NA, NA, NA, NA, NA, NA,…
+## # A tibble: 5,769 x 22
+##    iso2   year   m04  m514  m014 m1524 m2534 m3544
+##    <chr> <dbl> <dbl> <dbl> <dbl> <dbl> <dbl> <dbl>
+##  1 AD     1989    NA    NA    NA    NA    NA    NA
+##  2 AD     1990    NA    NA    NA    NA    NA    NA
+##  3 AD     1991    NA    NA    NA    NA    NA    NA
+##  4 AD     1992    NA    NA    NA    NA    NA    NA
+##  5 AD     1993    NA    NA    NA    NA    NA    NA
+##  6 AD     1994    NA    NA    NA    NA    NA    NA
+##  7 AD     1996    NA    NA     0     0     0     4
+##  8 AD     1997    NA    NA     0     0     1     2
+##  9 AD     1998    NA    NA     0     0     0     1
+## 10 AD     1999    NA    NA     0     0     0     1
+## # … with 5,759 more rows, and 14 more variables:
+## #   m4554 <dbl>, m5564 <dbl>, m65 <dbl>, mu <dbl>,
+## #   f04 <dbl>, f514 <dbl>, f014 <dbl>, f1524 <dbl>,
+## #   f2534 <dbl>, f3544 <dbl>, f4554 <dbl>,
+## #   f5564 <dbl>, f65 <dbl>, fu <dbl>
 \end{verbatim}
 
 \end{frame}
 
 \begin{frame}[fragile]{Gather the gender-age group columns}
 \protect\hypertarget{gather-the-gender-age-group-columns}{}
+
+OLD
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -7308,6 +7304,8 @@ conclusion is so clear that I am OK with this.
 \end{Shaded}
 
 or
+
+NEW
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -9173,13 +9171,9 @@ data}\label{case-study-1-the-windmill-data}}
 \begin{Shaded}
 \begin{Highlighting}[]
 \KeywordTok{ggplot}\NormalTok{(windmill, }\KeywordTok{aes}\NormalTok{(}\DataTypeTok{y =}\NormalTok{ DC_output, }\DataTypeTok{x =}\NormalTok{ wind_velocity)) }\OperatorTok{+}
-\StringTok{  }\KeywordTok{geom_point}\NormalTok{() }\OperatorTok{+}\StringTok{ }\KeywordTok{geom_smooth}\NormalTok{(}\DataTypeTok{se =}\NormalTok{ F)}
+\StringTok{  }\KeywordTok{geom_point}\NormalTok{() }\OperatorTok{+}\StringTok{ }\KeywordTok{geom_smooth}\NormalTok{(}\DataTypeTok{method=}\StringTok{"lm"}\NormalTok{, }\DataTypeTok{se=}\OtherTok{FALSE}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
-
-\begin{verbatim}
-## `geom_smooth()` using method = 'loess' and formula 'y ~ x'
-\end{verbatim}
 
 \begin{figure}
 \centering
@@ -9396,6 +9390,40 @@ showing the intercept and slope and their significance.
 \end{Highlighting}
 \end{Shaded}
 
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{summary}\NormalTok{(DC}\FloatTok{.2}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+## Call:
+## lm(formula = DC_output ~ wind_velocity + I(wind_velocity^2), 
+##     data = windmill)
+## 
+## Residuals:
+##      Min       1Q   Median       3Q      Max 
+## -0.26347 -0.02537  0.01264  0.03908  0.19903 
+## 
+## Coefficients:
+##                     Estimate Std. Error t value
+## (Intercept)        -1.155898   0.174650  -6.618
+## wind_velocity       0.722936   0.061425  11.769
+## I(wind_velocity^2) -0.038121   0.004797  -7.947
+##                    Pr(>|t|)    
+## (Intercept)        1.18e-06 ***
+## wind_velocity      5.77e-11 ***
+## I(wind_velocity^2) 6.59e-08 ***
+## ---
+## Signif. codes:  
+## 0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+## 
+## Residual standard error: 0.1227 on 22 degrees of freedom
+## Multiple R-squared:  0.9676, Adjusted R-squared:  0.9646 
+## F-statistic: 328.3 on 2 and 22 DF,  p-value: < 2.2e-16
+\end{verbatim}
+
 \begin{itemize}
 \tightlist
 \item
@@ -9461,7 +9489,7 @@ showing the intercept and slope and their significance.
 \item
   Parabola model better than linear one.
 \item
-  But\ldots{}need to check residuals again.
+  But\ldots need to check residuals again.
 \end{itemize}
 
 \end{frame}
@@ -9478,8 +9506,8 @@ showing the intercept and slope and their significance.
 
 \begin{figure}
 \centering
-\includegraphics{figure/unnamed-chunk-250-1.pdf}
-\caption{plot of chunk unnamed-chunk-250}
+\includegraphics{figure/unnamed-chunk-251-1.pdf}
+\caption{plot of chunk unnamed-chunk-251}
 \end{figure}
 
 \end{frame}
@@ -9539,8 +9567,8 @@ showing the intercept and slope and their significance.
 
 \begin{figure}
 \centering
-\includegraphics{figure/unnamed-chunk-251-1.pdf}
-\caption{plot of chunk unnamed-chunk-251}
+\includegraphics{figure/unnamed-chunk-252-1.pdf}
+\caption{plot of chunk unnamed-chunk-252}
 \end{figure}
 
 Curve clearly fits better than line.
@@ -9643,8 +9671,8 @@ Pretty straight. Blue actually smooth curve not line:
 
 \begin{figure}
 \centering
-\includegraphics{figure/unnamed-chunk-252-1.pdf}
-\caption{plot of chunk unnamed-chunk-252}
+\includegraphics{figure/unnamed-chunk-253-1.pdf}
+\caption{plot of chunk unnamed-chunk-253}
 \end{figure}
 
 \end{frame}
@@ -9810,8 +9838,8 @@ Pretty straight. Blue actually smooth curve not line:
 
 \begin{figure}
 \centering
-\includegraphics{figure/unnamed-chunk-256-1.pdf}
-\caption{plot of chunk unnamed-chunk-256}
+\includegraphics{figure/unnamed-chunk-257-1.pdf}
+\caption{plot of chunk unnamed-chunk-257}
 \end{figure}
 
 \end{frame}
@@ -10142,8 +10170,8 @@ Pretty straight. Blue actually smooth curve not line:
 
 \begin{figure}
 \centering
-\includegraphics{figure/unnamed-chunk-266-1.pdf}
-\caption{plot of chunk unnamed-chunk-266}
+\includegraphics{figure/unnamed-chunk-267-1.pdf}
+\caption{plot of chunk unnamed-chunk-267}
 \end{figure}
 
 \end{frame}
@@ -10410,8 +10438,8 @@ I saved this graph to plot later (on the next page).
 
 \begin{figure}
 \centering
-\includegraphics{figure/unnamed-chunk-273-1.pdf}
-\caption{plot of chunk unnamed-chunk-273}
+\includegraphics{figure/unnamed-chunk-274-1.pdf}
+\caption{plot of chunk unnamed-chunk-274}
 \end{figure}
 
 \end{frame}
@@ -10488,8 +10516,8 @@ from here on, eg.:
 
 \begin{figure}
 \centering
-\includegraphics{figure/unnamed-chunk-275-1.pdf}
-\caption{plot of chunk unnamed-chunk-275}
+\includegraphics{figure/unnamed-chunk-276-1.pdf}
+\caption{plot of chunk unnamed-chunk-276}
 \end{figure}
 
 \end{frame}
@@ -10615,8 +10643,8 @@ from here on, eg.:
 
 \begin{figure}
 \centering
-\includegraphics{figure/unnamed-chunk-278-1.pdf}
-\caption{plot of chunk unnamed-chunk-278}
+\includegraphics{figure/unnamed-chunk-279-1.pdf}
+\caption{plot of chunk unnamed-chunk-279}
 \end{figure}
 
 \end{frame}
@@ -10707,8 +10735,8 @@ from here on, eg.:
 
 \begin{figure}
 \centering
-\includegraphics{figure/unnamed-chunk-282-1.pdf}
-\caption{plot of chunk unnamed-chunk-282}
+\includegraphics{figure/unnamed-chunk-283-1.pdf}
+\caption{plot of chunk unnamed-chunk-283}
 \end{figure}
 
 \end{frame}
@@ -10768,8 +10796,8 @@ From package \texttt{MASS}:
 
 \begin{figure}
 \centering
-\includegraphics{figure/unnamed-chunk-283-1.pdf}
-\caption{plot of chunk unnamed-chunk-283}
+\includegraphics{figure/unnamed-chunk-284-1.pdf}
+\caption{plot of chunk unnamed-chunk-284}
 \end{figure}
 
 \end{frame}
@@ -10849,8 +10877,8 @@ From package \texttt{MASS}:
 
 \begin{figure}
 \centering
-\includegraphics{figure/unnamed-chunk-286-1.pdf}
-\caption{plot of chunk unnamed-chunk-286}
+\includegraphics{figure/unnamed-chunk-287-1.pdf}
+\caption{plot of chunk unnamed-chunk-287}
 \end{figure}
 
 \end{frame}
@@ -11262,32 +11290,10 @@ Uses package \texttt{leaps}:
 \begin{Highlighting}[]
 \NormalTok{leaps <-}\StringTok{ }\KeywordTok{regsubsets}\NormalTok{(log.rut.depth }\OperatorTok{~}\StringTok{ }\NormalTok{pct.a.surf }\OperatorTok{+}\StringTok{ }\NormalTok{pct.a.base }\OperatorTok{+}\StringTok{ }\NormalTok{fines }\OperatorTok{+}\StringTok{ }\NormalTok{voids }\OperatorTok{+}
 \StringTok{  }\NormalTok{log.viscosity }\OperatorTok{+}\StringTok{ }\NormalTok{run, }\DataTypeTok{data =}\NormalTok{ asphalt_}\DecValTok{2}\NormalTok{, }\DataTypeTok{nbest =} \DecValTok{2}\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-## Error in regsubsets(log.rut.depth ~ pct.a.surf + pct.a.base + fines + : could not find function "regsubsets"
-\end{verbatim}
-
-\begin{Shaded}
-\begin{Highlighting}[]
 \NormalTok{s <-}\StringTok{ }\KeywordTok{summary}\NormalTok{(leaps)}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-## Error in summary(leaps): object 'leaps' not found
-\end{verbatim}
-
-\begin{Shaded}
-\begin{Highlighting}[]
 \KeywordTok{with}\NormalTok{(s, }\KeywordTok{data.frame}\NormalTok{(rsq, outmat)) ->}\StringTok{ }\NormalTok{d}
 \end{Highlighting}
 \end{Shaded}
-
-\begin{verbatim}
-## Error in with(s, data.frame(rsq, outmat)): object 's' not found
-\end{verbatim}
 
 \end{frame}
 
@@ -11303,7 +11309,18 @@ Uses package \texttt{leaps}:
 \end{Shaded}
 
 \begin{verbatim}
-## Error: object 'rsq' not found
+##       model       rsq pct.a.surf pct.a.base fines voids log.viscosity run
+## 1  6  ( 1 ) 0.9609642          *          *     *     *             *   *
+## 2  5  ( 1 ) 0.9608365          *                *     *             *   *
+## 3  5  ( 2 ) 0.9593265          *          *     *     *             *    
+## 4  4  ( 1 ) 0.9591996          *                      *             *   *
+## 5  4  ( 2 ) 0.9589206          *                *     *             *    
+## 6  3  ( 1 ) 0.9578631          *                      *             *    
+## 7  3  ( 2 ) 0.9534561          *                *                   *    
+## 8  2  ( 1 ) 0.9508647          *                                    *    
+## 9  2  ( 2 ) 0.9479541                                 *             *    
+## 10 1  ( 1 ) 0.9452562                                               *    
+## 11 1  ( 2 ) 0.8624107                                                   *
 \end{verbatim}
 
 \normalsize
@@ -11342,7 +11359,18 @@ Uses package \texttt{leaps}:
 \end{Shaded}
 
 \begin{verbatim}
-## Error in with(s, data.frame(adjr2, outmat)): object 's' not found
+##              adjr2 pct.a.surf pct.a.base fines voids log.viscosity run
+## 1  ( 1 ) 0.9433685                                               *    
+## 1  ( 2 ) 0.8576662                                                   *
+## 2  ( 1 ) 0.9473550          *                                    *    
+## 2  ( 2 ) 0.9442365                                 *             *    
+## 3  ( 1 ) 0.9531812          *                      *             *    
+## 3  ( 2 ) 0.9482845          *                *                   *    
+## 4  ( 1 ) 0.9529226          *                      *             *   *
+## 4  ( 2 ) 0.9526007          *                *     *             *    
+## 5  ( 1 ) 0.9530038          *                *     *             *   *
+## 5  ( 2 ) 0.9511918          *          *     *     *             *    
+## 6  ( 1 ) 0.9512052          *          *     *     *             *   *
 \end{verbatim}
 
 \normalsize
@@ -11411,8 +11439,8 @@ Uses package \texttt{leaps}:
 
 \begin{figure}
 \centering
-\includegraphics{figure/unnamed-chunk-308-1.pdf}
-\caption{plot of chunk unnamed-chunk-308}
+\includegraphics{figure/unnamed-chunk-309-1.pdf}
+\caption{plot of chunk unnamed-chunk-309}
 \end{figure}
 
 \end{frame}
@@ -11451,8 +11479,8 @@ Uses package \texttt{leaps}:
 
 \begin{figure}
 \centering
-\includegraphics{figure/unnamed-chunk-310-1.pdf}
-\caption{plot of chunk unnamed-chunk-310}
+\includegraphics{figure/unnamed-chunk-311-1.pdf}
+\caption{plot of chunk unnamed-chunk-311}
 \end{figure}
 
 \end{frame}
@@ -11898,8 +11926,8 @@ Read the data:
 
 \begin{figure}
 \centering
-\includegraphics{figure/unnamed-chunk-321-1.pdf}
-\caption{plot of chunk unnamed-chunk-321}
+\includegraphics{figure/unnamed-chunk-322-1.pdf}
+\caption{plot of chunk unnamed-chunk-322}
 \end{figure}
 
 \end{frame}
@@ -14120,8 +14148,8 @@ rat5T12
 
 \begin{figure}
 \centering
-\includegraphics{figure/unnamed-chunk-395-1.pdf}
-\caption{plot of chunk unnamed-chunk-395}
+\includegraphics{figure/unnamed-chunk-396-1.pdf}
+\caption{plot of chunk unnamed-chunk-396}
 \end{figure}
 
 \end{frame}
@@ -14175,8 +14203,8 @@ rat5T12
 
 \begin{figure}
 \centering
-\includegraphics{figure/unnamed-chunk-397-1.pdf}
-\caption{plot of chunk unnamed-chunk-397}
+\includegraphics{figure/unnamed-chunk-398-1.pdf}
+\caption{plot of chunk unnamed-chunk-398}
 \end{figure}
 
 \end{frame}
@@ -14193,8 +14221,8 @@ rat5T12
 
 \begin{figure}
 \centering
-\includegraphics{figure/unnamed-chunk-398-1.pdf}
-\caption{plot of chunk unnamed-chunk-398}
+\includegraphics{figure/unnamed-chunk-399-1.pdf}
+\caption{plot of chunk unnamed-chunk-399}
 \end{figure}
 
 \end{frame}
@@ -14211,8 +14239,8 @@ rat5T12
 
 \begin{figure}
 \centering
-\includegraphics{figure/unnamed-chunk-399-1.pdf}
-\caption{plot of chunk unnamed-chunk-399}
+\includegraphics{figure/unnamed-chunk-400-1.pdf}
+\caption{plot of chunk unnamed-chunk-400}
 \end{figure}
 
 \end{frame}
@@ -14270,8 +14298,8 @@ rat5T12
 
 \begin{figure}
 \centering
-\includegraphics{figure/unnamed-chunk-401-1.pdf}
-\caption{plot of chunk unnamed-chunk-401}
+\includegraphics{figure/unnamed-chunk-402-1.pdf}
+\caption{plot of chunk unnamed-chunk-402}
 \end{figure}
 
 \end{frame}
@@ -14313,8 +14341,8 @@ rat5T12
 
 \begin{figure}
 \centering
-\includegraphics{figure/unnamed-chunk-403-1.pdf}
-\caption{plot of chunk unnamed-chunk-403}
+\includegraphics{figure/unnamed-chunk-404-1.pdf}
+\caption{plot of chunk unnamed-chunk-404}
 \end{figure}
 
 \end{frame}
@@ -14356,8 +14384,8 @@ rat5T12
 
 \begin{figure}
 \centering
-\includegraphics{figure/unnamed-chunk-405-1.pdf}
-\caption{plot of chunk unnamed-chunk-405}
+\includegraphics{figure/unnamed-chunk-406-1.pdf}
+\caption{plot of chunk unnamed-chunk-406}
 \end{figure}
 
 \end{frame}
@@ -14388,8 +14416,8 @@ rat5T12
 
 \begin{figure}
 \centering
-\includegraphics{figure/unnamed-chunk-406-1.pdf}
-\caption{plot of chunk unnamed-chunk-406}
+\includegraphics{figure/unnamed-chunk-407-1.pdf}
+\caption{plot of chunk unnamed-chunk-407}
 \end{figure}
 
 \end{frame}
@@ -14405,8 +14433,8 @@ rat5T12
 
 \begin{figure}
 \centering
-\includegraphics{figure/unnamed-chunk-407-1.pdf}
-\caption{plot of chunk unnamed-chunk-407}
+\includegraphics{figure/unnamed-chunk-408-1.pdf}
+\caption{plot of chunk unnamed-chunk-408}
 \end{figure}
 
 \end{frame}
@@ -15191,8 +15219,8 @@ and then all is good:
 
 \begin{figure}
 \centering
-\includegraphics{figure/unnamed-chunk-430-1.pdf}
-\caption{plot of chunk unnamed-chunk-430}
+\includegraphics{figure/unnamed-chunk-431-1.pdf}
+\caption{plot of chunk unnamed-chunk-431}
 \end{figure}
 
 \begin{itemize}
@@ -15330,8 +15358,8 @@ and then all is good:
 
 \begin{figure}
 \centering
-\includegraphics{figure/unnamed-chunk-434-1.pdf}
-\caption{plot of chunk unnamed-chunk-434}
+\includegraphics{figure/unnamed-chunk-435-1.pdf}
+\caption{plot of chunk unnamed-chunk-435}
 \end{figure}
 
 \end{frame}
@@ -15350,8 +15378,8 @@ This is not so bad: a long right tail, maybe:
 
 \begin{figure}
 \centering
-\includegraphics{figure/unnamed-chunk-435-1.pdf}
-\caption{plot of chunk unnamed-chunk-435}
+\includegraphics{figure/unnamed-chunk-436-1.pdf}
+\caption{plot of chunk unnamed-chunk-436}
 \end{figure}
 
 \end{frame}
@@ -15376,8 +15404,8 @@ There are two ways (at least):
 \end{Shaded}
 
 \begin{verbatim}
-##    2.5%   97.5% 
-## 159.365 248.405
+##     2.5%    97.5% 
+## 159.5292 244.1075
 \end{verbatim}
 
 \begin{itemize}
@@ -15396,7 +15424,7 @@ There are two ways (at least):
 \end{Shaded}
 
 \begin{verbatim}
-## [1] 155.3363 246.3731
+## [1] 157.9020 245.4334
 \end{verbatim}
 
 \end{frame}
@@ -15433,8 +15461,8 @@ There are two ways (at least):
 ## # A tibble: 2 x 4
 ##   limit   o_t   b_t   b_p
 ##   <chr> <dbl> <dbl> <dbl>
-## 1 LCL    155.  155.  159.
-## 2 UCL    247.  246.  248.
+## 1 LCL    155.  158.  160.
+## 2 UCL    247.  245.  244.
 \end{verbatim}
 
 \begin{itemize}
@@ -15487,21 +15515,20 @@ There are two ways (at least):
 \begin{Shaded}
 \begin{Highlighting}[]
 \NormalTok{bca=}\KeywordTok{bcanon}\NormalTok{(irs}\OperatorTok{$}\NormalTok{Time, }\DecValTok{1000}\NormalTok{, mean)}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-## Error in bcanon(irs$Time, 1000, mean): could not find function "bcanon"
-\end{verbatim}
-
-\begin{Shaded}
-\begin{Highlighting}[]
 \NormalTok{bca}\OperatorTok{$}\NormalTok{confpoints}
 \end{Highlighting}
 \end{Shaded}
 
 \begin{verbatim}
-## Error in eval(expr, envir, enclos): object 'bca' not found
+##      alpha bca point
+## [1,] 0.025  162.8000
+## [2,] 0.050  166.8000
+## [3,] 0.100  174.4667
+## [4,] 0.160  179.5667
+## [5,] 0.840  224.6000
+## [6,] 0.900  234.3000
+## [7,] 0.950  247.4333
+## [8,] 0.975  256.3000
 \end{verbatim}
 
 \end{frame}
@@ -15514,21 +15541,12 @@ There are two ways (at least):
 \NormalTok{bca}\OperatorTok{$}\NormalTok{confpoints }\OperatorTok{%>%}\StringTok{ }\KeywordTok{as_tibble}\NormalTok{() }\OperatorTok{%>%}\StringTok{ }
 \StringTok{  }\KeywordTok{filter}\NormalTok{(alpha }\OperatorTok{%in%}\StringTok{ }\KeywordTok{c}\NormalTok{(}\FloatTok{0.025}\NormalTok{, }\FloatTok{0.975}\NormalTok{)) }\OperatorTok{%>%}\StringTok{ }
 \StringTok{  }\KeywordTok{pull}\NormalTok{(}\StringTok{`}\DataTypeTok{bca point}\StringTok{`}\NormalTok{) ->}\StringTok{ }\NormalTok{b_bca}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-## Error in eval(lhs, parent, parent): object 'bca' not found
-\end{verbatim}
-
-\begin{Shaded}
-\begin{Highlighting}[]
 \NormalTok{b_bca}
 \end{Highlighting}
 \end{Shaded}
 
 \begin{verbatim}
-## Error in eval(expr, envir, enclos): object 'b_bca' not found
+## [1] 162.8 256.3
 \end{verbatim}
 
 \end{frame}
@@ -15543,7 +15561,11 @@ There are two ways (at least):
 \end{Shaded}
 
 \begin{verbatim}
-## Error in eval_tidy(xs[[i]], unique_output): object 'b_bca' not found
+## # A tibble: 2 x 5
+##   limit   o_t   b_t   b_p b_bca
+##   <chr> <dbl> <dbl> <dbl> <dbl>
+## 1 LCL    155.  158.  160.  163.
+## 2 UCL    247.  245.  244.  256.
 \end{verbatim}
 
 \begin{itemize}
@@ -15593,8 +15615,8 @@ Recall the soap data:
 
 \begin{figure}
 \centering
-\includegraphics{figure/unnamed-chunk-444-1.pdf}
-\caption{plot of chunk unnamed-chunk-444}
+\includegraphics{figure/unnamed-chunk-445-1.pdf}
+\caption{plot of chunk unnamed-chunk-445}
 \end{figure}
 
 \end{frame}
@@ -15665,18 +15687,18 @@ test}
 ## # A tibble: 12 x 4
 ##     case scrap speed line 
 ##    <dbl> <dbl> <dbl> <chr>
-##  1    20   215   175 b    
+##  1    16   140   105 b    
 ##  2    16   140   105 b    
-##  3    26   273   190 b    
+##  3    21   180   135 b    
 ##  4    20   215   175 b    
-##  5    26   273   190 b    
-##  6    20   215   175 b    
-##  7    22   260   200 b    
-##  8    23   361   275 b    
+##  5    16   140   105 b    
+##  6    24   252   155 b    
+##  7    25   422   320 b    
+##  8    25   422   320 b    
 ##  9    25   422   320 b    
-## 10    23   361   275 b    
-## 11    25   422   320 b    
-## 12    18   384   270 b
+## 10    20   215   175 b    
+## 11    24   252   155 b    
+## 12    20   215   175 b
 \end{verbatim}
 
 \normalsize
@@ -15708,8 +15730,8 @@ test}
 
 \begin{figure}
 \centering
-\includegraphics{figure/unnamed-chunk-449-1.pdf}
-\caption{plot of chunk unnamed-chunk-449}
+\includegraphics{figure/unnamed-chunk-450-1.pdf}
+\caption{plot of chunk unnamed-chunk-450}
 \end{figure}
 
 \end{frame}
@@ -15733,7 +15755,7 @@ test}
 
 \begin{verbatim}
 ##      2.5%     97.5% 
-## 0.9442645 0.9961654
+## 0.9443861 0.9961813
 \end{verbatim}
 
 \begin{itemize}
@@ -15815,33 +15837,15 @@ test}
 \begin{Shaded}
 \begin{Highlighting}[]
 \NormalTok{points=}\KeywordTok{bcanon}\NormalTok{(}\DecValTok{1}\OperatorTok{:}\DecValTok{12}\NormalTok{, }\DecValTok{1000}\NormalTok{, theta, line_b)}\OperatorTok{$}\NormalTok{confpoints}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-## Error in bcanon(1:12, 1000, theta, line_b): could not find function "bcanon"
-\end{verbatim}
-
-\begin{Shaded}
-\begin{Highlighting}[]
 \NormalTok{points }\OperatorTok{%>%}\StringTok{ }\KeywordTok{as_tibble}\NormalTok{() }\OperatorTok{%>%}\StringTok{ }
 \StringTok{  }\KeywordTok{filter}\NormalTok{(alpha }\OperatorTok{%in%}\StringTok{ }\KeywordTok{c}\NormalTok{(}\FloatTok{0.025}\NormalTok{, }\FloatTok{0.975}\NormalTok{)) }\OperatorTok{%>%}\StringTok{ }
 \StringTok{  }\KeywordTok{pull}\NormalTok{(}\StringTok{`}\DataTypeTok{bca point}\StringTok{`}\NormalTok{) ->}\StringTok{ }\NormalTok{b_bca}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-## Error in as.data.frame.default(value, stringsAsFactors = FALSE): cannot coerce class '"function"' to a data.frame
-\end{verbatim}
-
-\begin{Shaded}
-\begin{Highlighting}[]
 \NormalTok{b_bca}
 \end{Highlighting}
 \end{Shaded}
 
 \begin{verbatim}
-## Error in eval(expr, envir, enclos): object 'b_bca' not found
+## [1] 0.9281762 0.9945955
 \end{verbatim}
 
 \end{frame}
@@ -15856,7 +15860,11 @@ test}
 \end{Shaded}
 
 \begin{verbatim}
-## Error in eval_tidy(xs[[i]], unique_output): object 'b_bca' not found
+## # A tibble: 2 x 4
+##   limit   o_c   b_p b_bca
+##   <chr> <dbl> <dbl> <dbl>
+## 1 LCL   0.930 0.944 0.928
+## 2 UCL   0.995 0.996 0.995
 \end{verbatim}
 
 \begin{itemize}
@@ -16137,11 +16145,6 @@ real<lower=0> lambda;
 \end{Highlighting}
 \end{Shaded}
 
-\begin{verbatim}
-## code for methods in class "Rcpp_stan_fit4modelef428cd118a_poisson1" was not checked for suspicious field assignments (recommended package 'codetools' not available?)
-## code for methods in class "Rcpp_stan_fit4modelef428cd118a_poisson1" was not checked for suspicious field assignments (recommended package 'codetools' not available?)
-\end{verbatim}
-
 \end{frame}
 
 \begin{frame}[fragile]{The output}
@@ -16159,13 +16162,13 @@ real<lower=0> lambda;
 ## post-warmup draws per chain=1000, total post-warmup draws=4000.
 ## 
 ##        mean se_mean   sd 2.5%  25%  50%  75% 97.5%
-## lambda 3.20    0.02 0.63 2.10 2.75 3.15 3.60  4.56
-## lp__   3.75    0.02 0.69 1.84 3.56 4.02 4.21  4.26
+## lambda 3.18    0.02 0.63 2.06 2.74 3.13 3.57  4.51
+## lp__   3.74    0.02 0.74 1.61 3.57 4.02 4.20  4.26
 ##        n_eff Rhat
-## lambda  1412    1
-## lp__    1831    1
+## lambda  1381    1
+## lp__    1723    1
 ## 
-## Samples were drawn using NUTS(diag_e) at Tue Jan  7 10:46:45 2020.
+## Samples were drawn using NUTS(diag_e) at Mon Mar 16 19:15:06 2020.
 ## For each parameter, n_eff is a crude measure of effective sample size,
 ## and Rhat is the potential scale reduction factor on split chains (at 
 ## convergence, Rhat=1).
@@ -16275,13 +16278,13 @@ x ~ poisson(lambda);
 ## post-warmup draws per chain=1000, total post-warmup draws=4000.
 ## 
 ##        mean se_mean   sd 2.5%  25%  50%  75% 97.5%
-## lambda 3.18    0.02 0.63 2.09 2.74 3.14 3.59  4.53
-## lp__   3.74    0.02 0.73 1.80 3.54 4.01 4.20  4.26
+## lambda 3.18    0.02 0.62 2.07 2.74 3.15 3.58  4.55
+## lp__   3.75    0.02 0.72 1.77 3.60 4.03 4.21  4.26
 ##        n_eff Rhat
-## lambda  1416    1
-## lp__    1572    1
+## lambda  1550    1
+## lp__    1609    1
 ## 
-## Samples were drawn using NUTS(diag_e) at Tue Jan  7 10:46:49 2020.
+## Samples were drawn using NUTS(diag_e) at Mon Mar 16 19:15:11 2020.
 ## For each parameter, n_eff is a crude measure of effective sample size,
 ## and Rhat is the potential scale reduction factor on split chains (at 
 ## convergence, Rhat=1).
@@ -16309,8 +16312,8 @@ x ~ poisson(lambda);
 
 \begin{figure}
 \centering
-\includegraphics{figure/unnamed-chunk-469-1.pdf}
-\caption{plot of chunk unnamed-chunk-469}
+\includegraphics{figure/unnamed-chunk-470-1.pdf}
+\caption{plot of chunk unnamed-chunk-470}
 \end{figure}
 
 \end{frame}
@@ -16347,8 +16350,8 @@ x ~ poisson(lambda);
 
 \begin{figure}
 \centering
-\includegraphics{figure/unnamed-chunk-471-1.pdf}
-\caption{plot of chunk unnamed-chunk-471}
+\includegraphics{figure/unnamed-chunk-472-1.pdf}
+\caption{plot of chunk unnamed-chunk-472}
 \end{figure}
 
 \end{frame}
@@ -16405,8 +16408,8 @@ Our actual data values were these:
 
 \begin{figure}
 \centering
-\includegraphics{figure/unnamed-chunk-474-1.pdf}
-\caption{plot of chunk unnamed-chunk-474}
+\includegraphics{figure/unnamed-chunk-475-1.pdf}
+\caption{plot of chunk unnamed-chunk-475}
 \end{figure}
 
 \end{frame}
@@ -16428,12 +16431,12 @@ Recall the jumping rats data:
 ## # A tibble: 6 x 2
 ##   group    density
 ##   <chr>      <dbl>
-## 1 Control      593
-## 2 Highjump     650
-## 3 Highjump     631
-## 4 Lowjump      632
-## 5 Highjump     622
-## 6 Highjump     643
+## 1 Lowjump      632
+## 2 Control      614
+## 3 Lowjump      594
+## 4 Highjump     626
+## 5 Highjump     631
+## 6 Highjump     650
 \end{verbatim}
 
 \end{frame}
@@ -16488,10 +16491,10 @@ Recall the jumping rats data:
 ## # A tibble: 4 x 4
 ##   group    density group_fct group_no
 ##   <chr>      <dbl> <fct>        <int>
-## 1 Highjump     626 Highjump         3
-## 2 Lowjump      635 Lowjump          2
-## 3 Control      621 Control          1
-## 4 Highjump     626 Highjump         3
+## 1 Lowjump      607 Lowjump          2
+## 2 Control      600 Control          1
+## 3 Highjump     626 Highjump         3
+## 4 Lowjump      596 Lowjump          2
 \end{verbatim}
 
 \end{frame}
@@ -16509,8 +16512,8 @@ Most obviously, boxplots:
 
 \begin{figure}
 \centering
-\includegraphics{figure/unnamed-chunk-477-1.pdf}
-\caption{plot of chunk unnamed-chunk-477}
+\includegraphics{figure/unnamed-chunk-478-1.pdf}
+\caption{plot of chunk unnamed-chunk-478}
 \end{figure}
 
 \end{frame}
@@ -16530,8 +16533,8 @@ groups by colours:
 
 \begin{figure}
 \centering
-\includegraphics{figure/unnamed-chunk-478-1.pdf}
-\caption{plot of chunk unnamed-chunk-478}
+\includegraphics{figure/unnamed-chunk-479-1.pdf}
+\caption{plot of chunk unnamed-chunk-479}
 \end{figure}
 
 \end{frame}
@@ -16694,16 +16697,11 @@ Supply values for \emph{everything} declared in \texttt{data}:
 \end{Shaded}
 
 \begin{verbatim}
-## code for methods in class "Rcpp_stan_fit4model2527230a64af_anova" was not checked for suspicious field assignments (recommended package 'codetools' not available?)
-## code for methods in class "Rcpp_stan_fit4model2527230a64af_anova" was not checked for suspicious field assignments (recommended package 'codetools' not available?)
-\end{verbatim}
-
-\begin{verbatim}
 ## 
 ## SAMPLING FOR MODEL 'anova' NOW (CHAIN 1).
 ## Chain 1: 
-## Chain 1: Gradient evaluation took 9e-06 seconds
-## Chain 1: 1000 transitions using 10 leapfrog steps per transition would take 0.09 seconds.
+## Chain 1: Gradient evaluation took 1e-05 seconds
+## Chain 1: 1000 transitions using 10 leapfrog steps per transition would take 0.1 seconds.
 ## Chain 1: Adjust your expectations accordingly!
 ## Chain 1: 
 ## Chain 1: 
@@ -16720,15 +16718,15 @@ Supply values for \emph{everything} declared in \texttt{data}:
 ## Chain 1: Iteration: 1800 / 2000 [ 90%]  (Sampling)
 ## Chain 1: Iteration: 2000 / 2000 [100%]  (Sampling)
 ## Chain 1: 
-## Chain 1:  Elapsed Time: 0.09277 seconds (Warm-up)
-## Chain 1:                0.024401 seconds (Sampling)
-## Chain 1:                0.117171 seconds (Total)
+## Chain 1:  Elapsed Time: 0.093307 seconds (Warm-up)
+## Chain 1:                0.024983 seconds (Sampling)
+## Chain 1:                0.11829 seconds (Total)
 ## Chain 1: 
 ## 
 ## SAMPLING FOR MODEL 'anova' NOW (CHAIN 2).
 ## Chain 2: 
-## Chain 2: Gradient evaluation took 6e-06 seconds
-## Chain 2: 1000 transitions using 10 leapfrog steps per transition would take 0.06 seconds.
+## Chain 2: Gradient evaluation took 7e-06 seconds
+## Chain 2: 1000 transitions using 10 leapfrog steps per transition would take 0.07 seconds.
 ## Chain 2: Adjust your expectations accordingly!
 ## Chain 2: 
 ## Chain 2: 
@@ -16745,9 +16743,9 @@ Supply values for \emph{everything} declared in \texttt{data}:
 ## Chain 2: Iteration: 1800 / 2000 [ 90%]  (Sampling)
 ## Chain 2: Iteration: 2000 / 2000 [100%]  (Sampling)
 ## Chain 2: 
-## Chain 2:  Elapsed Time: 0.096551 seconds (Warm-up)
-## Chain 2:                0.0241 seconds (Sampling)
-## Chain 2:                0.120651 seconds (Total)
+## Chain 2:  Elapsed Time: 0.094445 seconds (Warm-up)
+## Chain 2:                0.050271 seconds (Sampling)
+## Chain 2:                0.144716 seconds (Total)
 ## Chain 2: 
 ## 
 ## SAMPLING FOR MODEL 'anova' NOW (CHAIN 3).
@@ -16770,9 +16768,9 @@ Supply values for \emph{everything} declared in \texttt{data}:
 ## Chain 3: Iteration: 1800 / 2000 [ 90%]  (Sampling)
 ## Chain 3: Iteration: 2000 / 2000 [100%]  (Sampling)
 ## Chain 3: 
-## Chain 3:  Elapsed Time: 0.095188 seconds (Warm-up)
-## Chain 3:                0.024793 seconds (Sampling)
-## Chain 3:                0.119981 seconds (Total)
+## Chain 3:  Elapsed Time: 0.092212 seconds (Warm-up)
+## Chain 3:                0.025309 seconds (Sampling)
+## Chain 3:                0.117521 seconds (Total)
 ## Chain 3: 
 ## 
 ## SAMPLING FOR MODEL 'anova' NOW (CHAIN 4).
@@ -16795,9 +16793,9 @@ Supply values for \emph{everything} declared in \texttt{data}:
 ## Chain 4: Iteration: 1800 / 2000 [ 90%]  (Sampling)
 ## Chain 4: Iteration: 2000 / 2000 [100%]  (Sampling)
 ## Chain 4: 
-## Chain 4:  Elapsed Time: 0.07404 seconds (Warm-up)
-## Chain 4:                0.027625 seconds (Sampling)
-## Chain 4:                0.101665 seconds (Total)
+## Chain 4:  Elapsed Time: 0.081605 seconds (Warm-up)
+## Chain 4:                0.024813 seconds (Sampling)
+## Chain 4:                0.106418 seconds (Total)
 ## Chain 4:
 \end{verbatim}
 
@@ -16814,8 +16812,8 @@ Supply values for \emph{everything} declared in \texttt{data}:
 
 \begin{figure}
 \centering
-\includegraphics{figure/unnamed-chunk-482-1.pdf}
-\caption{plot of chunk unnamed-chunk-482}
+\includegraphics{figure/unnamed-chunk-483-1.pdf}
+\caption{plot of chunk unnamed-chunk-483}
 \end{figure}
 
 \end{frame}
@@ -16849,19 +16847,19 @@ Supply values for \emph{everything} declared in \texttt{data}:
 ## post-warmup draws per chain=1000, total post-warmup draws=4000.
 ## 
 ##         mean se_mean   sd   2.5%    25%    50%
-## mu[1] 601.25    0.13 8.97 583.62 595.41 601.13
-## mu[2] 612.06    0.14 9.06 594.02 605.91 612.21
-## mu[3] 637.25    0.15 9.26 619.26 631.02 637.28
-## sigma  28.73    0.08 4.49  21.31  25.57  28.21
-## lp__  -41.11    0.04 1.57 -45.19 -41.87 -40.75
+## mu[1] 601.21    0.13 8.78 583.78 595.43 601.22
+## mu[2] 611.95    0.14 8.60 594.77 606.26 612.12
+## mu[3] 637.35    0.14 8.91 619.06 631.56 637.40
+## sigma  28.42    0.07 4.20  21.44  25.34  28.07
+## lp__  -40.96    0.03 1.40 -44.40 -41.64 -40.68
 ##          75%  97.5% n_eff Rhat
-## mu[1] 607.06 618.83  4701    1
-## mu[2] 618.16 629.45  4180    1
-## mu[3] 643.31 655.88  3961    1
-## sigma  31.40  38.93  3437    1
-## lp__  -39.98 -39.17  1714    1
+## mu[1] 606.87 618.78  4395    1
+## mu[2] 617.40 628.73  3855    1
+## mu[3] 643.47 654.29  4059    1
+## sigma  31.01  37.54  3824    1
+## lp__  -39.93 -39.16  1985    1
 ## 
-## Samples were drawn using NUTS(diag_e) at Tue Jan  7 10:46:52 2020.
+## Samples were drawn using NUTS(diag_e) at Mon Mar 16 19:15:14 2020.
 ## For each parameter, n_eff is a crude measure of effective sample size,
 ## and Rhat is the potential scale reduction factor on split chains (at 
 ## convergence, Rhat=1).
@@ -16906,12 +16904,12 @@ Supply values for \emph{everything} declared in \texttt{data}:
 \begin{verbatim}
 ##           
 ## iterations     [,1]     [,2]     [,3]
-##       [1,] 607.0495 598.6400 644.9649
-##       [2,] 589.6069 613.6543 642.8363
-##       [3,] 618.8842 604.9311 644.7575
-##       [4,] 613.1348 616.1122 636.1995
-##       [5,] 601.4309 629.1250 647.1461
-##       [6,] 603.7752 605.6885 622.0273
+##       [1,] 599.4065 614.7397 625.7129
+##       [2,] 608.8610 612.9657 631.0857
+##       [3,] 597.1930 614.8401 627.5928
+##       [4,] 605.4433 606.1242 631.8701
+##       [5,] 600.6274 609.9353 634.9262
+##       [6,] 612.6777 611.3543 643.4910
 \end{verbatim}
 
 \end{frame}
@@ -16949,14 +16947,14 @@ name groups}
 ## # A tibble: 8 x 3
 ##   sigma group    density
 ##   <dbl> <fct>      <dbl>
-## 1  27.5 Highjump    629.
-## 2  37.9 Highjump    626.
-## 3  26.3 Lowjump     621.
-## 4  39.4 Control     611.
-## 5  29.4 Control     600.
-## 6  31.8 Control     599.
-## 7  20.9 Control     590.
-## 8  24.8 Highjump    645.
+## 1  23.6 Lowjump     621.
+## 2  27.0 Control     611.
+## 3  24.7 Highjump    631.
+## 4  27.6 Highjump    630.
+## 5  23.5 Lowjump     608.
+## 6  29.5 Lowjump     617.
+## 7  28.2 Highjump    626.
+## 8  23.8 Control     605.
 \end{verbatim}
 
 \end{frame}
@@ -16972,8 +16970,8 @@ name groups}
 
 \begin{figure}
 \centering
-\includegraphics{figure/unnamed-chunk-487-1.pdf}
-\caption{plot of chunk unnamed-chunk-487}
+\includegraphics{figure/unnamed-chunk-488-1.pdf}
+\caption{plot of chunk unnamed-chunk-488}
 \end{figure}
 
 \end{frame}
@@ -16995,14 +16993,14 @@ Randomly sample from posterior means and SDs in \texttt{sims}. There are
 ## # A tibble: 8 x 4
 ##   sigma group    density sim_data
 ##   <dbl> <fct>      <dbl>    <dbl>
-## 1  18.8 Lowjump     614.     669.
-## 2  30.5 Highjump    621.     628.
-## 3  31.2 Control     583.     545.
-## 4  37.1 Lowjump     592.     579.
-## 5  32.4 Control     609.     602.
-## 6  27.1 Control     606.     605.
-## 7  25.6 Highjump    641.     673.
-## 8  26.1 Control     587.     580.
+## 1  35.1 Control     600.     556.
+## 2  25.5 Highjump    634.     641.
+## 3  24.2 Highjump    636.     680.
+## 4  29.6 Highjump    639.     686.
+## 5  28.3 Highjump    647.     670.
+## 6  35.4 Control     601.     585.
+## 7  32.2 Highjump    629.     654.
+## 8  28.6 Control     596.     582.
 \end{verbatim}
 
 \end{frame}
@@ -17059,8 +17057,8 @@ actual data}
 
 \begin{figure}
 \centering
-\includegraphics{figure/unnamed-chunk-490-1.pdf}
-\caption{plot of chunk unnamed-chunk-490}
+\includegraphics{figure/unnamed-chunk-491-1.pdf}
+\caption{plot of chunk unnamed-chunk-491}
 \end{figure}
 
 \end{frame}
@@ -17176,11 +17174,6 @@ generated quantities {
 \end{Highlighting}
 \end{Shaded}
 
-\begin{verbatim}
-## code for methods in class "Rcpp_stan_fit4model3ee96f026edb_anova_loo" was not checked for suspicious field assignments (recommended package 'codetools' not available?)
-## code for methods in class "Rcpp_stan_fit4model3ee96f026edb_anova_loo" was not checked for suspicious field assignments (recommended package 'codetools' not available?)
-\end{verbatim}
-
 \end{frame}
 
 \begin{frame}[fragile]{Now we need a null model}
@@ -17254,11 +17247,6 @@ generated quantities {
 \end{Highlighting}
 \end{Shaded}
 
-\begin{verbatim}
-## code for methods in class "Rcpp_stan_fit4model3ee95b02a9f7_anova_loo_null" was not checked for suspicious field assignments (recommended package 'codetools' not available?)
-## code for methods in class "Rcpp_stan_fit4model3ee95b02a9f7_anova_loo_null" was not checked for suspicious field assignments (recommended package 'codetools' not available?)
-\end{verbatim}
-
 \end{frame}
 
 \begin{frame}[fragile]{Compare the fits of the two models}
@@ -17293,28 +17281,17 @@ Setup
 \end{Shaded}
 
 \begin{verbatim}
-## Warning: Some Pareto k diagnostic values are slightly high. See help('pareto-k-diagnostic') for details.
-\end{verbatim}
-
-\begin{verbatim}
 ## 
 ## Computed from 4000 by 30 log-likelihood matrix
 ## 
 ##          Estimate  SE
-## elpd_loo   -138.9 2.6
-## p_loo         2.4 0.6
-## looic       277.7 5.2
+## elpd_loo   -138.7 2.6
+## p_loo         2.3 0.5
+## looic       277.4 5.2
 ## ------
 ## Monte Carlo SE of elpd_loo is 0.0.
 ## 
-## Pareto k diagnostic values:
-##                          Count Pct.    Min. n_eff
-## (-Inf, 0.5]   (good)     29    96.7%   1809      
-##  (0.5, 0.7]   (ok)        1     3.3%   1265      
-##    (0.7, 1]   (bad)       0     0.0%   <NA>      
-##    (1, Inf)   (very bad)  0     0.0%   <NA>      
-## 
-## All Pareto k estimates are ok (k < 0.7).
+## All Pareto k estimates are good (k < 0.5).
 ## See help('pareto-k-diagnostic') for details.
 \end{verbatim}
 
@@ -17338,9 +17315,9 @@ Setup
 ## Computed from 4000 by 30 log-likelihood matrix
 ## 
 ##          Estimate  SE
-## elpd_loo   -142.9 2.8
-## p_loo         1.3 0.4
-## looic       285.7 5.6
+## elpd_loo   -142.8 2.8
+## p_loo         1.2 0.3
+## looic       285.6 5.6
 ## ------
 ## Monte Carlo SE of elpd_loo is 0.0.
 ## 

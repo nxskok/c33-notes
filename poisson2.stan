@@ -8,7 +8,7 @@ data {
 }
 
 parameters {
-real<lower=0> lambda;
+  real<lower=0> lambda;
 }
 
 model {

@@ -48,7 +48,7 @@ pigs1 <- read_delim(my_url, " ")
 pigs1
 ```
 
-## Gathering up the columns
+## Gathering up the columns (OLD)
 - This is a very common reorganization, and the magic “verb” is
 `pivot_longer`:
 ```{r}
@@ -68,6 +68,15 @@ pigs1 %>% pivot_longer(feed1:feed4, names_to="feed",
 pigs2
 ```
 
+<<<<<<< HEAD
+## Another way to do this: (NEW)
+
+```{r}
+pigs1 %>% 
+  pivot_longer(feed1:feed4, names_to = "feed", 
+               values_to="weight") -> pigs2
+pigs2
+=======
 ## Identifying the pigs
 
 - Values in `pig` identify pigs *within each group*: pig 1 is four different pigs!
@@ -76,6 +85,7 @@ pigs2
 ```{r}
 pigs2 %>% mutate(pig_id=str_c(feed, "_", pig)) -> pigs2
 pigs2 %>% slice_sample(n=7)
+>>>>>>> 2991ae36dff40038e717965e9023aeadbc00f334
 ```
 
 
@@ -141,8 +151,13 @@ tb <- read_csv(my_url)
 
 ## The data
 
+<<<<<<< HEAD
+```{r}
+tb
+=======
 ```{r glimpsetb}
 glimpse(tb)
+>>>>>>> 2991ae36dff40038e717965e9023aeadbc00f334
 ```
 
 ## What we have
@@ -154,9 +169,18 @@ Also `mu` and `fu`, where age is unknown.
 - Abbreviations [here](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2).
 
 
+<<<<<<< HEAD
+OLD
+```{r}
+tb %>% gather(genage, freq, m04:fu, na.rm = T) -> tb2
+```
+=======
+>>>>>>> 2991ae36dff40038e717965e9023aeadbc00f334
 
 
 ## All frequencies in one column
+
+NEW
 
 ```{r}
 tb %>% 

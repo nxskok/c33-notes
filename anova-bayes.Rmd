@@ -10,8 +10,8 @@ library(rstan)
 ## grab some data
 
 ```{r}
-my_url="http://www.utsc.utoronto.ca/~butler/c32/jumping.txt"
-rats0=read_delim(my_url," ")
+my_url <- "http://www.utsc.utoronto.ca/~butler/c32/jumping.txt"
+rats0 <- read_delim(my_url," ")
 rats0
 ```
 
