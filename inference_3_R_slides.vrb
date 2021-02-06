@@ -1,9 +1,30 @@
-\frametitle{The sampling distribution}
-\protect\hypertarget{the-sampling-distribution}{}
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{g}
-\end{Highlighting}
-\end{Shaded}
+knitr::opts\_chunk\(set(fig.height = 5) # knitr::opts_chunk\)set(echo =
+FALSE) options(width=52) knitr::opts\_chunk\$set(dev = `pdf')
 
-\includegraphics{inference_3_R_slides_files/figure-beamer/unnamed-chunk-33-1.pdf}
+\begin{verbatim}
+
+
+
+
+
+
+
+## Duality between confidence intervals and hypothesis tests
+- Tests and CIs really do the same thing, if you look at them the right
+way. They are both telling you something about a parameter, and
+they use same things about data.
+- To illustrate, some data (two groups):
+
+```r
+my_url <- "http://www.utsc.utoronto.ca/~butler/c32/duality.txt"
+twogroups <- read_delim(my_url," ")
+\end{verbatim}
+
+\begin{verbatim}
+##
+## -- Column specification --------------------------------------------------------
+## cols(
+##   y = col_double(),
+##   group = col_double()
+## )
+\end{verbatim}

@@ -1,7 +1,7 @@
-This is LuaHBTeX, Version 1.12.0 (TeX Live 2020)  (format=lualatex 2021.2.3)  5 FEB 2021 16:31
+This is LuaHBTeX, Version 1.12.0 (TeX Live 2020)  (format=lualatex 2021.2.3)  5 FEB 2021 18:23
  restricted system commands enabled.
-**inference_4b_R_slides.tex
-(./inference_4b_R_slides.tex
+**inference_3_R_slides.tex
+(./inference_3_R_slides.tex
 LaTeX2e <2020-10-01> patch level 4
 Lua module: luaotfload 2021-01-08 3.17 Lua based OpenType font support
 Lua module: lualibs 2020-12-30 2.73 ConTeXt Lua standard libraries.
@@ -896,10 +896,9 @@ Package: multicol 2019/12/09 v1.8y multicolumn formatting (FMi)
 \mult@nat@firstbox=\box123
 \colbreak@box=\box124
 \mc@col@check@num=\count363
-)
-No file inference_4b_R_slides.aux.
+) (./inference_3_R_slides.aux)
+\openout1 = inference_3_R_slides.aux
 
-\openout1 = inference_4b_R_slides.aux
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 159.
 LaTeX Font Info:    ... okay on input line 159.
 LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 159.
@@ -977,7 +976,7 @@ LaTeX Info: Redefining \pageref on input line 159.
 LaTeX Info: Redefining \nameref on input line 159.
 \@outlinefile=\write6
 
-\openout6 = inference_4b_R_slides.out
+\openout6 = inference_3_R_slides.out
 
 (/home/ken/.TinyTeX/texmf-dist/tex/latex/translator/translator-basic-dictionary
 -English.dict
@@ -1322,36 +1321,25 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: End \AtBeginDocument code.
-No file inference_4b_R_slides.nav.
-
-Overfull \hbox (40.51945pt too wide) in paragraph at lines 159--159
- [][][][][][]  
- []
-
-
-Overfull \hbox (40.51945pt too wide) has occurred while \output is active
- [][][][][][]  
- []
-
-[1
+(./inference_3_R_slides.nav) [1
 
 {/home/ken/.TinyTeX/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
-\openout4 = inference_4b_R_slides.vrb
+\openout4 = inference_3_R_slides.vrb
  (./inference
-_4b_R_slides.vrb
+_3_R_slides.vrb
 ! You can't use `macro parameter character #' in math mode.
 l.1 knitr::opts\_chunk\(set(fig.height = 5) #
                                             knitr::opts_chunk\)set(echo =
 
 Here is how much of LuaTeX's memory you used:
- 30240 strings out of 478863
+ 30328 strings out of 478863
  125086,1144653 words of node,token memory allocated
- 2874 words of node memory still in use:
-   39 hlist, 13 vlist, 6 rule, 7 disc, 8 local_par, 3 dir, 75 glue, 9 kern, 17 p
-enalty, 17 noad, 17 math_char, 79 glyph, 71 attribute, 72 glue_spec, 71 attribut
+ 2632 words of node memory still in use:
+   38 hlist, 13 vlist, 6 rule, 5 disc, 8 local_par, 3 dir, 70 glue, 8 kern, 16 p
+enalty, 17 noad, 17 math_char, 55 glyph, 71 attribute, 72 glue_spec, 71 attribut
 e_list, 3 temp, 1 shape, 1 write, 32 pdf_colorstack nodes
-   avail lists: 1:1,2:299,3:51,4:212,5:57,6:28,7:625,9:261,10:7,11:35
- 48501 multiletter control sequences out of 65536+600000
- 50 fonts using 13235495 bytes
- 112i,16n,122p,525b,534s stack positions out of 5000i,500n,10000p,200000b,200000s
+   avail lists: 1:1,2:299,3:49,4:212,5:54,6:28,7:488,9:259,10:4,11:25
+ 48578 multiletter control sequences out of 65536+600000
+ 50 fonts using 13235455 bytes
+ 112i,16n,122p,524b,534s stack positions out of 5000i,500n,10000p,200000b,200000s
 !  ==> Fatal error occurred, no output PDF file produced!

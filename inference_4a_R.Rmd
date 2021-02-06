@@ -103,8 +103,8 @@ set.seed(457299)
 
 
 ```{r, fig.height=4.5}
-d=tibble(x=rnorm(200))
-ggplot(d,aes(x=x))+geom_histogram(bins=10)
+d <- tibble(x=rnorm(200))
+ggplot(d, aes(x=x)) + geom_histogram(bins=10)
 ```
 
 ## The normal quantile plot
@@ -123,8 +123,8 @@ set.seed(457299)
 
 
 ```{r normal-small, fig.height=4.5}
-d=tibble(x=rnorm(20))
-ggplot(d,aes(x=x))+geom_histogram(bins=5)
+d <- tibble(x=rnorm(20))
+ggplot(d, aes(x=x)) + geom_histogram(bins=5)
 ```
 
 
@@ -135,7 +135,7 @@ this good:
 
 
 ```{r, fig.height=4.5}
-ggplot(d,aes(sample=x))+stat_qq()+stat_qq_line()
+ggplot(d, aes(sample=x)) + stat_qq() + stat_qq_line()
 ```
 
 ## Chi-squared data, *df* = 10
@@ -143,8 +143,8 @@ ggplot(d,aes(sample=x))+stat_qq()+stat_qq_line()
 Somewhat skewed to right:
 
 ```{r, fig.height=4.5}
-d=tibble(x=rchisq(100,10))
-ggplot(d,aes(x=x))+geom_histogram(bins=10)
+d <- tibble(x=rchisq(100, 10))
+ggplot(d,aes(x=x)) + geom_histogram(bins=10)
 ```
 
 
@@ -163,8 +163,8 @@ ggplot(d,aes(sample=x))+stat_qq()+stat_qq_line()
 Definitely skewed to right:
 
 ```{r chisq-small-df, fig.height=4.5}
-d=tibble(x=rchisq(100,3))
-ggplot(d,aes(x=x))+geom_histogram(bins=10)
+d <- tibble(x=rchisq(100, 3))
+ggplot(d, aes(x=x)) + geom_histogram(bins=10)
 ```
 
 
@@ -184,8 +184,8 @@ ggplot(d,aes(sample=x))+stat_qq()+stat_qq_line()
 Long tails (or a very sharp peak):
 
 ```{r t-small, fig.height=4.5}
-d=tibble(x=rt(300,3))
-ggplot(d,aes(x=x))+geom_histogram(bins=10)
+d <- tibble(x=rt(300, 3))
+ggplot(d, aes(x=x)) + geom_histogram(bins=10)
 ```
 
 
@@ -207,7 +207,12 @@ On a normal quantile plot:
   - a few highest point(s) too high and/or lowest too low: outliers
   - else see how points at each end off the line:
   
+  \vspace{2ex}
+  
+  \begin{center}
+  
   \begin{tabular}{lcc}
+  \hline
   & \multicolumn{2}{c}{High points}\\
   Low points & Too low & too high\\
   \hline
@@ -216,5 +221,9 @@ On a normal quantile plot:
   \hline
   
   \end{tabular}
+  
+  \end{center}
+  
+  \vspace{2ex}
   
 - short-tailed distribution OK for $t$ (mean still good), but others problematic (depending on sample size).  

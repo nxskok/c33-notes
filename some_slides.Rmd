@@ -15,9 +15,8 @@ urlcolor: blue
 
 
 
-```{r child="preliminaries.Rmd", echo=F}
-```
+## a slide
 
-```{r, child="inference_4b_R.Rmd"}
-```
+Hello world
+
 
