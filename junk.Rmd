@@ -1,0 +1,22 @@
+## junk
+
+## Summary
+
+On a normal quantile plot:
+
+- points following line (with some small wiggles): normal.
+- kind of deviation from a straight line indicates kind of nonnormality:
+  - a few highest point(s) too high and/or lowest too low: outliers
+  - else see how points at each end off the line:
+  
+  \begin{tabular}{llcc}
+  && \multicolumn{2}{c}{High points}\\
+  && Too low & too high\\
+  \hline
+  Low points & Too low & Skewed left & Long tails\\
+             & Too high & Short tails & Skewed right \\
+  \hline
+  
+  \end{tabular}
+  
+  

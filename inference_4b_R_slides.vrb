@@ -1,0 +1,29 @@
+\frametitle{What to do instead?}
+\protect\hypertarget{what-to-do-instead}{}
+\begin{itemize}
+\tightlist
+\item
+  Matched pairs \(t\)-test based on one sample of differences
+\item
+  the differences not normal (enough)
+\item
+  so do \emph{sign test} on differences, null median 0:
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{sign\_test}\NormalTok{(pain, diff, }\DecValTok{0}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## $above_below
+## below above
+##     9     3
+##
+## $p_values
+##   alternative    p_value
+## 1       lower 0.07299805
+## 2       upper 0.98071289
+## 3   two-sided 0.14599609
+\end{verbatim}
