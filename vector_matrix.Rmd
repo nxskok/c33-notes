@@ -193,3 +193,97 @@ t(a) %*% b
 sum(a * b)
 ```
 
+## Accessing parts of vector
+
+- use square brackets and a number to get elements of a vector
+
+```{r}
+b
+b[2]
+```
+
+## Accessing parts of matrix
+
+- use a row and column index to get an element of a matrix
+
+```{r}
+A
+A[2,1]
+```
+
+- leave the row or column index empty to get whole row or column, eg.
+
+```{r}
+A[1,]
+```
+
+
+
+## Eigenvalues and eigenvectors
+
+- For a matrix $A$, these are scalars $\lambda$ and vectors $v$ that solve
+
+$$ A v = \lambda v $$
+
+- In R, `eigen` gets these:
+
+```{r}
+A
+e <- eigen(A)
+```
+
+## The eigenvalues/vectors
+
+```{r}
+e
+```
+
+
+## To check that the eigenvalues/vectors are correct
+
+- $\lambda_1 v_1$: (scalar) multiply first eigenvalue by first eigenvector (in column)
+
+```{r}
+e$values[1] * e$vectors[,1]
+```
+- $A v_1$: (matrix) multiply matrix by first eigenvector (in column)
+
+```{r}
+A %*% e$vectors[,1]
+```
+
+- These are (correctly) equal.
+- The second one goes the same way.
+
+## A statistical application of eigenvalues
+
+- A negative correlation:
+
+\footnotesize
+```{r}
+d <- tribble(
+  ~x,  ~y,
+  10,  20,
+  11,  18,
+  12,  17,
+  13,  14,
+  14,  13
+)
+v <- cor(d)
+v
+```
+\normalsize
+
+- `cor` gives the correlation matrix between each pair of variables (correlation between `x` and `y` is $-0.988$)
+
+## Eigenanalysis of correlation matrix
+
+```{r}
+eigen(v)
+```
+
+- first eigenvalue much bigger than second (second one near zero)
+- two variables, but data nearly *one*-dimensional
+- opposite signs in first eigenvector indicate that the one dimension is:
+  - `x` small and `y` large at one end,
+  - `x` large and `y` small at the other.
