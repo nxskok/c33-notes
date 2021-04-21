@@ -7,7 +7,7 @@ data {
 
 parameters {
   real mu[n_group];
-  real<lower=0> sigma[n_group];
+  real<lower=0> sigma;
 }
 
 model {
@@ -18,6 +18,6 @@ model {
   // likelihood
   for (i in 1:n_obs) {
     g=group_no[i];
-    density[i] ~ normal(mu[g], sigma[g]);
+    density[i] ~ normal(mu[g], sigma);
   }
 }

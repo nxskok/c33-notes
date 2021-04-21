@@ -8,23 +8,33 @@ library(posterior)
 library(bayesplot)
 ```
 
-## Installation
+```{r, echo=FALSE}
+set.seed(457299)
+```
+
+
+## Installation 1/2
 
 - `cmdstanr`:
 
 ```{r, eval=FALSE}
-install.packages("cmdstanr", repos = c("https://mc-stan.org/r-packages/", 
-                                       getOption("repos")))
+install.packages("cmdstanr", 
+                 repos = c("https://mc-stan.org/r-packages/", 
+                           getOption("repos")))
 ```
 
-you'll also want `posterior` and `bayesplot`, from the same place:
+- `posterior` and `bayesplot`, from the same place:
 
 ```{r, eval=FALSE}
-install.packages("posterior", repos = c("https://mc-stan.org/r-packages/", 
-                                        getOption("repos")))
-install.packages("bayesplot", repos = c("https://mc-stan.org/r-packages/", 
-                                        getOption("repos")))
+install.packages("posterior", 
+                 repos = c("https://mc-stan.org/r-packages/", 
+                            getOption("repos")))
+install.packages("bayesplot", 
+                 repos = c("https://mc-stan.org/r-packages/", 
+                            getOption("repos")))
 ```
+
+## Installation 2/2
 
 Then, to check that you have the C++ stuff needed to compile Stan code:
 
@@ -40,7 +50,7 @@ install_cmdstan(cores = 2)
 
 If you happen to know how many cores (processors) your computer has, insert the appropriate number. (My laptop has 4 and my desktop 6.)
 
-All of this is done once. If you have problems, go [here](https://mc-stan.org/cmdstanr/articles/cmdstanr.html).
+All of this is done once. If you have problems, go [here (link)](https://mc-stan.org/cmdstanr/articles/cmdstanr.html).
 
 ## Bayesian and frequentist inference
 
@@ -110,8 +120,8 @@ where $C$ is a constant.
 
 ```
 model {
-// likelihood
-x ~ poisson(lambda);
+  // likelihood
+  x ~ poisson(lambda);
 }
 ```
 
@@ -121,28 +131,32 @@ This is how you say "$X$ has a Poisson distribution with mean $\lambda$". **Note
 
 ```
 model {
-// prior
-lambda ~ weibull(1.1, 6);
-// likelihood
-x ~ poisson(lambda);
+  // prior
+  lambda ~ weibull(1.1, 6);
+  // likelihood
+  x ~ poisson(lambda);
 }
 ```
 
-## Components of Stan code: data and parameters (first in the Stan code)
+## Components of Stan code: data and parameters 
+
+- first in the Stan code:
 
 ```
 data {
-int x[8];
+  int x[8];
 }
 
 parameters {
-real<lower=0> lambda;
+  real<lower=0> lambda;
 }
 ```
 
 ## Compile and sample from the model
 
-```{r, eval=F}
+- compile
+
+```{r}
 poisson1 <- cmdstan_model("poisson1.stan")
 ```
 
@@ -154,7 +168,7 @@ poisson1_data <- list(x = x)
 
 - sample
 
-```{r, eval=F}
+```{r}
 poisson1_fit <- poisson1$sample(data = poisson1_data)
 ```
 
@@ -171,8 +185,8 @@ poisson1_fit
 ## Comments
 
 - This summarizes the posterior distribution of $\lambda$
-- the posterior mean is 3.16
-- with a 90% posterior interval of 2.21 to 4.30. 
+- the posterior mean is 3.19
+- with a 90% posterior interval of 2.24 to 4.31.
 - The probability that $\lambda$ is between these two values really is 90%.
 
 ## Making the code more general
@@ -243,8 +257,10 @@ A 3-dimensional array. A dataframe would be much better.
 
 ## Sampled values as dataframe
 
+
 ```{r}
-poisson2_draws <- as_draws_df(poisson2_fit$draws())
+as_draws_df(poisson2_fit$draws()) %>% 
+  as_tibble() -> poisson2_draws
 poisson2_draws
 ```
 
@@ -252,7 +268,7 @@ poisson2_draws
 
 ## Posterior predictive distribution
 
-- Another use for the actual sampled values is to see what kind of *response* values we might get in the future. This should look something like our data. For a Poisson distribution, the response values are integers:
+- Another use for the actual sampled values is to see what kind of *response* values we might get in the future. This should look something like our data. For a Poisson distribution, the response values are integers: 
 
 ```{r}
 poisson2_draws %>% 
@@ -288,9 +304,9 @@ ggplot(d, aes(x = xsim)) + geom_bar() +
 g
 ```
 
-## Do they have the same distribution?
+## Do they have the same distribution? 
 
-```{r}
+```{r, fig.height=4}
 qqplot(d$xsim, x, plot.it = F) %>% as_tibble() -> dd
 ggplot(dd, aes(x=x, y=y)) + geom_point()
 ```
@@ -300,10 +316,11 @@ the observed zero is a bit too small compared to expected (from the posterior), 
 
 ## Analysis of variance, the Bayesian way
 
-Recall the jumping rats data:
+Recall the jumping rats data: 
 
 ```{r, message=F}
-my_url <- "http://www.utsc.utoronto.ca/~butler/c32/jumping.txt"
+my_url <- 
+  "http://www.utsc.utoronto.ca/~butler/c32/jumping.txt"
 rats0 <- read_delim(my_url, " ")
 rats0
 ```
@@ -332,17 +349,18 @@ rats
 
 ## Plotting the data 1/2
 
-Most obviously, boxplots:
+Most obviously, boxplots: 
 
-```{r, fig.height=3.4}
-ggplot(rats, aes(x = group_fct, y = density)) + geom_boxplot()
+```{r, fig.height=4.2}
+ggplot(rats, aes(x = group_fct, y = density)) + 
+  geom_boxplot()
 ```
 
 ## Plotting the data 2/2
 
-Another way: density plot (smoothed out histogram); can distinguish groups by colours:
+Another way: density plot (smoothed out histogram); can distinguish groups by colours: 
 
-```{r density_plot, fig.height=3.1}
+```{r density_plot, fig.height=4}
 ggplot(rats, aes(x = density, colour = group_fct)) +
   geom_density()
 ```
@@ -400,7 +418,7 @@ model {
 
 ## Parameters
 
-The elements of `mu`, one per group, and also `sigma`, scalar:
+The elements of `mu`, one per group, and also `sigma`, scalar, lower limit zero:
 
 ```
 parameters {
@@ -409,7 +427,7 @@ parameters {
 }
 ```
 
-- `sigma` has to be positive. Declare it so here, so that the sampling runs smoothly.
+- Declare `sigma` to have lower limit zero here, so that the sampling runs smoothly. 
 - declare `n_group` in data section 
 
 ## Data
@@ -429,7 +447,7 @@ data {
 
 Arrange these in order data, parameters, model in file `anova.stan`, then:
 
-```{r, eval=F}
+```{r}
 anova <- cmdstan_model("anova.stan")
 ```
 
@@ -445,24 +463,22 @@ anova_data <- list(
   density = rats$density,
   group_no = rats$group_no
 )
-anova_fit <- anova_compiled, data = anova_data)
+anova_fit <- anova$sample(data = anova_data)
 ```
 
 ## Check that the sampling worked properly 
 
+\scriptsize
+
 ```{r, fig.height=4}
-traceplot(anova_samples)
+anova_fit$cmdstan_diagnose()
 ```
-
-## Comments
-
-- The sampled values for each of the parameters should move freely across their posterior distributions (and not get stuck anywhere). 
-- This appears to have happened.
+\normalsize
 
 ## Look at the results
 
 ```{r anova_samples}
-anova_samples
+anova_fit
 ```
 
 ## Comments
@@ -472,36 +488,43 @@ anova_samples
 
 ## Plotting the posterior distributions for the `mu`
 
-- Extract the sampled `mu` values (matrix):
+```{r}
+mcmc_hist(anova_fit$draws("mu"), binwidth = 10)
+```
+
+
+## Extract the sampled values 
 
 ```{r anova_ext}
-anova_ext <- extract(anova_samples)
-anova_ext$mu %>% as_tibble()
+as_draws_df(anova_fit$draws()) %>% as_tibble() -> anova_draws
+anova_draws
 ```
+
+## estimated probability that $\mu_3 > \mu_1$ 
 
 ```{r}
-anova_ext$mu %>% as_tibble() %>% 
-  count(V3>V1)
+anova_draws %>% 
+  count(`mu[3]`>`mu[1]`) %>% 
+  mutate(prob = n/sum(n))
 ```
+High jumping group almost certainly has larger mean than control group.
 
+## More organizing
 
-## Turn into a data frame, arrange for plotting, name groups
+- for another plot
+  - make longer
+  - give `group` values their proper names back 
 
 ```{r, warning=F}
-cbind(anova_ext$mu, sigma = anova_ext$sigma) %>%
-  as_tibble() %>%
-<<<<<<< HEAD
-  pivot_longer(V1:V3, names_to="group", values_to="density") %>%
-=======
-  pivot_longer(starts_with("V"), names_to = "group", values_to = "density") %>%
->>>>>>> 2991ae36dff40038e717965e9023aeadbc00f334
-  mutate(group = fct_recode(
-    group,
-    Control = "V1",
-    Lowjump = "V2",
-    Highjump = "V3"
+anova_draws %>% 
+  pivot_longer(starts_with("mu"), 
+               names_to = "group", 
+               values_to = "bone_density") %>% 
+  mutate(group = fct_recode(group,
+    Control = "mu[1]",
+    Lowjump = "mu[2]",
+    Highjump = "mu[3]"
   )) -> sims
-sims
 ```
 
 ## What we have now:
@@ -514,7 +537,7 @@ sims %>% sample_n(8)
 ## Density plots of posterior mean distributions
 
 ```{r, fig.height=4}
-ggplot(sims, aes(x = density, colour = group)) + geom_density()
+ggplot(sims, aes(x = bone_density, colour = group)) + geom_density()
 ```
 
 ## Posterior predictive distributions
@@ -522,7 +545,7 @@ ggplot(sims, aes(x = density, colour = group)) + geom_density()
 Randomly sample from posterior means and SDs in `sims`. There are 12000 rows in `sims`:
 
 ```{r}
-sims %>% mutate(sim_data = rnorm(12000, density, sigma)) -> ppd
+sims %>% mutate(sim_data = rnorm(12000, bone_density, sigma)) -> ppd
 ppd
 ```
 
@@ -530,7 +553,9 @@ ppd
 
 - Check that the model works: distributions of data similar to what we'd predict
 - Idea: make plots of posterior predictive distribution, and plot actual data as points on them
-- Use facets, one for each treatment group: 
+- Use facets, one for each treatment group:
+
+\scriptsize
 
 ```{r ppdgraph}
 my_binwidth <- 15
@@ -544,8 +569,10 @@ ggplot(ppd, aes(x = sim_data)) +
   scale_y_continuous(NULL, breaks = NULL) -> g
 ```
 
+\normalsize
+
 - See (over) that the data values are mainly in the middle of the predictive distributions.
-- Even the control group that had outliers. 
+- Even for the control group that had outliers. 
 
 ## The plot
 
