@@ -2,9 +2,45 @@
 
 ```{r, eval=F}
 library(tidyverse)
-library(rstan)
+# library(rstan) 
+library(cmdstanr)
+library(posterior)
+library(bayesplot)
 ```
 
+## Installation
+
+- `cmdstanr`:
+
+```{r, eval=FALSE}
+install.packages("cmdstanr", repos = c("https://mc-stan.org/r-packages/", 
+                                       getOption("repos")))
+```
+
+you'll also want `posterior` and `bayesplot`, from the same place:
+
+```{r, eval=FALSE}
+install.packages("posterior", repos = c("https://mc-stan.org/r-packages/", 
+                                        getOption("repos")))
+install.packages("bayesplot", repos = c("https://mc-stan.org/r-packages/", 
+                                        getOption("repos")))
+```
+
+Then, to check that you have the C++ stuff needed to compile Stan code:
+
+```{r}
+check_cmdstan_toolchain()
+```
+
+and then:
+
+```{r, eval=FALSE}
+install_cmdstan(cores = 2)
+```
+
+If you happen to know how many cores (processors) your computer has, insert the appropriate number. (My laptop has 4 and my desktop 6.)
+
+All of this is done once. If you have problems, go [here](https://mc-stan.org/cmdstanr/articles/cmdstanr.html).
 
 ## Bayesian and frequentist inference
 
@@ -66,7 +102,7 @@ where $C$ is a constant.
 
 - Metropolis and Hastings: devise a Markov chain (C62) whose limiting distribution is the posterior you want, and then sample from that Markov chain (easy), allowing enough time to get close enough to the limiting distribution.
 
-- Stan: uses a modern variant that is more efficient (called Hamiltonian Monte Carlo), implemented in R package `rstan`. 
+- Stan: uses a modern variant that is more efficient (called Hamiltonian Monte Carlo), implemented in R packages `cmdstanr`.
 
 - Write Stan code in a file, compile it and sample from it.
 
@@ -107,7 +143,7 @@ real<lower=0> lambda;
 ## Compile and sample from the model
 
 ```{r, eval=F}
-poisson1_code <- stan_model(file = "poisson1.stan")
+poisson1 <- cmdstan_model("poisson1.stan")
 ```
 
 - set up data
@@ -119,23 +155,11 @@ poisson1_data <- list(x = x)
 - sample
 
 ```{r, eval=F}
-poisson1_fit <- sampling(poisson1_code, data = poisson1_data)
-```
-
-```{r, include=F}
-poisson1_code <- readRDS("poisson1_code.rds")
+poisson1_fit <- poisson1$sample(data = poisson1_data)
 ```
 
 
-```{r, echo=F, results="hide"}
-set.seed(457299)
-poisson1_data <- list(x = x)
-poisson1_fit <- sampling(poisson1_code, data = poisson1_data)
-```
 
-```{r, include=F}
-saveRDS(poisson1_code, "poisson1_code.rds")
-```
 
 ## The output
 
@@ -147,9 +171,9 @@ poisson1_fit
 ## Comments
 
 - This summarizes the posterior distribution of $\lambda$
-- the posterior mean is 3.20 
-- with a 95% posterior interval of 2.10 to 4.56. 
-- The probability that $\lambda$ is between these two values really is 95%.
+- the posterior mean is 3.16
+- with a 90% posterior interval of 2.21 to 4.30. 
+- The probability that $\lambda$ is between these two values really is 90%.
 
 ## Making the code more general
 
@@ -175,18 +199,9 @@ x ~ poisson(lambda);
 
 - Compile again:
 
-```{r, include=F}
-poisson2_code <- readRDS("poisson2_code.rds")
-poisson2_code
-```
-
-
-```{r, eval=F}
-poisson2_code <- stan_model(file = "poisson2.stan")
-```
-
-```{r, include=F}
-saveRDS(poisson2_code, "poisson2_code.rds")
+```{r}
+poisson2 <- cmdstan_model("poisson2.stan")
+poisson2
 ```
 
 
@@ -199,7 +214,7 @@ poisson2_data <- list(x = x, n = length(x), a = 1.1, b = 6)
 - sample again
 
 ```{r, results="hide"}
-poisson2_fit <- sampling(poisson1_code, data = poisson2_data)
+poisson2_fit <- poisson2$sample(data = poisson2_data)
 ```
 
 
@@ -209,32 +224,43 @@ poisson2_fit <- sampling(poisson1_code, data = poisson2_data)
 poisson2_fit
 ```
 
-## Extracting actual sampled values
-
-- `rstan` has `extract` for this. There is also an `extract` in `dplyr`: make sure you have the right one.
+## Picture of posterior
 
 ```{r}
-poisson2_out <- extract(poisson2_fit)
-poisson2_out
-ggplot(tibble(lambda = poisson2_out$lambda), aes(x = lambda)) +
-  geom_histogram(bins = 20)
-ggplot(tibble(lambda = poisson2_out$lambda), aes(sample=lambda)) + stat_qq() + stat_qq_line()
+mcmc_hist(poisson2_fit$draws("lambda"), binwidth = 0.25)
 ```
+
+
+## Extracting actual sampled values
+
+A little awkward at first:
+
+```{r}
+poisson2_fit$draws()
+```
+
+A 3-dimensional array. A dataframe would be much better.
+
+## Sampled values as dataframe
+
+```{r}
+poisson2_draws <- as_draws_df(poisson2_fit$draws())
+poisson2_draws
+```
+
+
 
 ## Posterior predictive distribution
 
 - Another use for the actual sampled values is to see what kind of *response* values we might get in the future. This should look something like our data. For a Poisson distribution, the response values are integers:
 
-```{r, fig.height=3}
-tibble(lambda = poisson2_out$lambda) %>%
-  mutate(x_sim = map_int(lambda, ~ rpois(1, .))) -> d
-```
-
-## A bar chart:
-
 ```{r}
-ggplot(d, aes(x = x_sim)) + geom_bar()
+poisson2_draws %>% 
+  rowwise() %>% 
+  mutate(xsim = rpois(1, lambda)) -> d
+d
 ```
+
 
 
 ## Comparison
@@ -249,7 +275,7 @@ x
 - Or make a plot: a bar chart with the data on it as well (over):
 
 ```{r}
-ggplot(d, aes(x = x_sim)) + geom_bar() +
+ggplot(d, aes(x = xsim)) + geom_bar() +
   geom_dotplot(data = tibble(x), aes(x = x), binwidth = 1) +
   scale_y_continuous(NULL, breaks = NULL) -> g
 ```
@@ -265,7 +291,7 @@ g
 ## Do they have the same distribution?
 
 ```{r}
-qqplot(d$x_sim, x, plot.it = F) %>% as_tibble() -> dd
+qqplot(d$xsim, x, plot.it = F) %>% as_tibble() -> dd
 ggplot(dd, aes(x=x, y=y)) + geom_point()
 ```
 
@@ -404,12 +430,9 @@ data {
 Arrange these in order data, parameters, model in file `anova.stan`, then:
 
 ```{r, eval=F}
-anova_compiled <- stan_model("anova.stan")
+anova <- cmdstan_model("anova.stan")
 ```
 
-```{r read_anova_compiled, echo=FALSE}
-anova_compiled <- readRDS("anova_compiled.rds")
-```
 
 ## Set up data and sample
 
@@ -422,7 +445,7 @@ anova_data <- list(
   density = rats$density,
   group_no = rats$group_no
 )
-anova_samples <- sampling(anova_compiled, data = anova_data)
+anova_fit <- anova_compiled, data = anova_data)
 ```
 
 ## Check that the sampling worked properly 
@@ -537,141 +560,4 @@ g
 - Stan will work just fine after you recompile
 - very flexible.
 - Typical modelling strategy: start simple, add complexity as warranted by data.
-
-## Comparing models
-
-- Typically in ANOVA situation, we want to see whether the group means are "really" different.
-- We are used to doing an $F$-test here.
-- In regression, have looked at AIC: measure of fit allowing for complexity.
-- Bayesian equivalent called `looic`, in package `loo`.
-
-## Difficulty:
-
-- Posterior proportional to likelihood times prior:
-  - Stan drops proportionality constant
-  - but for model comparison, it matters.
-- Have to calculate log-likelihood again, not dropping constants this time.
-
-## The extra code
-
-```
-generated quantities {
-  vector[n_obs] log_lik;
-  int g;
-  for (i in 1:n_obs) {
-    g=group_no[i];
-    log_lik[i] = normal_lpdf(density[i] | mu[g], sigma);
-  }
-}
-```
-
-## Comments
-
-- This is repeat of `model` section, but note no "squiggle": this explicitly calculates the log of the normal density function for each observation and saves it in an array.
-- This section goes at the bottom.
-
-## Compile and sample
-
-```{r, results="hide"}
-anova_loo_compiled <- stan_model("anova-loo.stan")
-anova_data <- list(
-  n_obs = 30,
-  n_group = 3,
-  density = rats$density,
-  group_no = rats$group_no
-)
-anova_loo_samples <- sampling(anova_loo_compiled, data = anova_data)
-```
-
-## Now we need a null model
-
-- one value of `mu` for all groups
-- replace all the `mu[i]` with `mu`
-- omit any reference to group numbers (not needed any more)
-- leave the `data` section as is (so can use previous `anova_data`).
-
-## The null Stan code 1/2
-
-```
-data {
-  int n_obs;
-  int n_group;
-  real density[n_obs];
-  int<lower=1, upper=n_group> group_no[n_obs];
-}
-
-parameters {
-  real mu;
-  real<lower=0> sigma;
-}
-
-```
-
-## The null Stan code 2/2
-
-```
-model {
-  // priors
-  mu ~ normal(600, 50);
-  sigma ~ chi_square(50);
-  // likelihood
-  for (i in 1:n_obs) {
-    density[i] ~ normal(mu, sigma);
-  }
-}
-
-generated quantities {
-  vector[n_obs] log_lik;
-  for (i in 1:n_obs) {
-    log_lik[i] = normal_lpdf(density[i] | mu, sigma);
-  }
-}
-```
-
-## Compile and sample again
-
-```{r, results="hide"}
-anova_loo_null_compiled <- stan_model("anova_loo_null.stan")
-anova_loo_null_samples <- sampling(anova_loo_null_compiled, data = anova_data)
-```
-
-## Compare the fits of the two models
-
-
-Setup
-
-```{r}
-library(loo)
-log_lik_a <- extract_log_lik(anova_loo_samples,
-  merge_chains = F
-)
-log_lik_0 <- extract_log_lik(anova_loo_null_samples,
-  merge_chains = F
-)
-r_eff_a <- relative_eff(log_lik_a)
-r_eff_0 <- relative_eff(log_lik_0)
-```
-
-## Results 1/2
-
-\footnotesize
-```{r}
-loo(log_lik_a, r_eff = r_eff_a)
-```
-\normalsize
-
-## Results 2/2
-
-\small
-```{r}
-loo(log_lik_0, r_eff = r_eff_0)
-```
-\normalsize
-
-
-## Comments
-
-- Look at `looic`: smaller value is better, allowing for complexity of model
-- For separate means, 277.7; for one single mean, 285.7.
-- Prefer the model with separate means, one for each group.
 

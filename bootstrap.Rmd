@@ -67,6 +67,13 @@ mean(boot)
 set.seed(457299)
 ```
 
+```{r}
+tibble(sim = 1:1000) %>% 
+  rowwise() %>% 
+  mutate(boot_sample = list(sample(irs$Time, replace = TRUE)))
+```
+
+
 
 ```{r, cache=T}
 rerun(1000, sample(irs$Time, replace=T)) %>% 
